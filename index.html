@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手机发布会追踪器 2026</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --border: #e5e5e0;
+    --text: #1a1a1a;
+    --muted: #737373;
+    --accent-huawei: #c4161c;
+    --accent-honor: #1a6fe8;
+    --accent-vivo: #415fff;
+    --accent-oppo: #1a9c2d;
+    --accent-xiaomi: #ff6900;
+    --accent-apple: #333;
+    --accent-samsung: #1428a0;
+    --tag-released: #16a34a;
+    --tag-upcoming: #eab308;
+    --tag-later: #8b5cf6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px 80px; }
+  header {
+    text-align: center;
+    padding: 40px 0 24px;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  header p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0 28px;
+  }
+  .filter-btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .filter-btn:hover { border-color: #aaa; }
+  .filter-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 28px 0 12px;
+    padding-left: 2px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: default;
+  }
+  .card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .card-body { flex: 1; min-width: 0; }
+  .card-body h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .card-meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-top: 4px;
+  }
+  .card-meta span { white-space: nowrap; }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .tag-released { background: #dcfce7; color: #15803d; }
+  .tag-upcoming { background: #fef9c3; color: #a16207; }
+  .tag-later { background: #ede9fe; color: #6d28d9; }
+  .links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    transition: all 0.15s;
+    background: var(--bg);
+  }
+  .link-btn:hover {
+    border-color: #999;
+    background: #f0f0f0;
+  }
+  .link-btn svg { width: 14px; height: 14px; }
+  .divider {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 24px 0 4px;
+  }
+  .update-hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 32px;
+    padding: 12px;
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px dashed var(--border);
+  }
+  .hidden { display: none !important; }
+  @media (max-width: 600px) {
+    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
+    header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📱 手机发布会追踪器</h1>
+    <p>2026 年 5–9 月 · 华为 / 荣耀 / vivo / OPPO / 小米 / 苹果 / 三星</p>
+    <p style="font-size:12px; color:#aaa; margin-top:4px;">最后更新：2026-05-26</p>
+  </header>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="released">已发布</button>
+    <button class="filter-btn" data-filter="upcoming">即将发布</button>
+    <button class="filter-btn" data-filter="later">稍晚发布</button>
+  </div>
+
+  <!-- ===== 5月下旬密集发布期 ===== -->
+  <div class="section-title">5 月 · 密集发布期</div>
+
+  <div class="card" data-brand="vivo" data-status="released">
+    <div class="brand-icon" style="background:var(--accent-vivo)">iQ</div>
+    <div class="card-body">
+      <h3>iQOO 15T</h3>
+      <div class="card-meta">
+        <span>📅 5月20日</span>
+        <span>⚡ 天玑9500 Monster版</span>
+        <span>🔋 8000mAh</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.vivo.com.cn/vivo/iqoo15t/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          官网
+        </a>
+        <a class="link-btn" href="https://www.iqoo.com/cn" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          iQOO商城
+        </a>
+        <a class="link-btn" href="https://www.bilibili.com/video/BV1usLm6xEnG/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+          发布会回放
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="xiaomi" data-status="released">
+    <div class="brand-icon" style="background:var(--accent-xiaomi)">Mi</div>
+    <div class="card-body">
+      <h3>小米17 Max</h3>
+      <div class="card-meta">
+        <span>📅 5月21日</span>
+        <span>📷 徕卡2亿像素主摄</span>
+        <span>🔋 8000mAh</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.mi.com/prod/xiaomi-17-max" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          小米官网
+        </a>
+        <a class="link-btn" href="https://live.bilibili.com/545342" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+          B站直播间
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="honor" data-status="released">
+    <div class="brand-icon" style="background:var(--accent-honor)">荣</div>
+    <div class="card-body">
+      <h3>荣耀600系列</h3>
+      <div class="card-meta">
+        <span>📅 5月25日 19:00</span>
+        <span>📷 2亿像素4K闪光微单</span>
+        <span>🔋 8600mAh</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.honor.com/cn/activity/honor-600-series-launch/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          发布会官网
+        </a>
+        <a class="link-btn" href="https://www.honor.com/cn/phones/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          荣耀商城
+        </a>
+        <a class="link-btn" href="https://www.bilibili.com/video/BV1nXGW6MEUa/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+          发布会回放
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="oppo" data-status="released">
+    <div class="brand-icon" style="background:var(--accent-oppo)">OP</div>
+    <div class="card-body">
+      <h3>OPPO Reno16系列</h3>
+      <div class="card-meta">
+        <span>📅 5月25日 · "Reno Land奇幻夜"</span>
+        <span>📷 实况影像</span>
+        <span>💰 国补后2999起</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.oppo.com/cn/smartphones/series/reno/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          OPPO官网
+        </a>
+        <a class="link-btn" href="https://shop.oppo.com/cn/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          OPPO商城
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="vivo" data-status="upcoming">
+    <div class="brand-icon" style="background:var(--accent-vivo)">v</div>
+    <div class="card-body">
+      <h3>vivo S60系列</h3>
+      <div class="card-meta">
+        <span>📅 5月29日 19:30</span>
+        <span>🔋 7200mAh</span>
+        <span>👆 3D超声波指纹2.0</span>
+        <span>💧 IP68/69</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-upcoming">即将发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.vivo.com.cn/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          vivo官网
+        </a>
+        <a class="link-btn" href="https://shop.vivo.com.cn/product/10012053" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          预约/福袋
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== 6月及之后 ===== -->
+  <div class="section-title">6 月及以后</div>
+
+  <div class="card" data-brand="huawei" data-status="upcoming">
+    <div class="brand-icon" style="background:var(--accent-huawei)">HW</div>
+    <div class="card-body">
+      <h3>华为 nova 16系列 · 十周年发布会</h3>
+      <div class="card-meta">
+        <span>📅 6月1日 14:30 · 成都</span>
+        <span>🎉 十周年 · 四款齐发</span>
+        <span>📱 nova16 / z / Pro / Ultra</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-upcoming">即将发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.vmall.com/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          华为商城预约
+        </a>
+        <a class="link-btn" href="https://consumer.huawei.com/cn/press/events/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          华为发布会页
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="apple" data-status="upcoming">
+    <div class="brand-icon" style="background:var(--accent-apple)">🍎</div>
+    <div class="card-body">
+      <h3>Apple WWDC 2026</h3>
+      <div class="card-meta">
+        <span>📅 6月9日–13日</span>
+        <span>💻 开发者大会 · iOS 20预览</span>
+        <span>⚠️ 非新机发布</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-upcoming">即将举行</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://developer.apple.com/wwdc26/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          WWDC官网
+        </a>
+        <a class="link-btn" href="https://www.apple.com.cn/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Apple中国
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="apple" data-status="later">
+    <div class="brand-icon" style="background:var(--accent-apple)">🍎</div>
+    <div class="card-body">
+      <h3>iPhone 18 Pro系列 + 首款折叠iPhone</h3>
+      <div class="card-meta">
+        <span>📅 9月(预计)</span>
+        <span>⚡ A20 Pro 2nm</span>
+        <span>📡 自研C2基带</span>
+        <span>📱 折叠iPhone同步亮相</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-later">稍晚发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.apple.com.cn/iphone/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          iPhone官网
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="samsung" data-status="released">
+    <div class="brand-icon" style="background:var(--accent-samsung)">S</div>
+    <div class="card-body">
+      <h3>三星 Galaxy S26系列</h3>
+      <div class="card-meta">
+        <span>📅 2月26日已发布</span>
+        <span>⚡ 骁龙8 Elite Gen 5</span>
+        <span>🤖 Galaxy AI 第三代</span>
+      </div>
+      <div style="margin-top:6px">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.samsung.com.cn/smartphones/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          三星手机官网
+        </a>
+        <a class="link-btn" href="https://www.samsung.com.cn/dotcom/20260226-global-unpack/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+          Unpacked回放
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-hint">
+    💡 <strong>持续更新</strong>：本页面支持滚动更新。如需新增/修改发布会信息，直接编辑 HTML 中对应 card 区域即可。<br>
+    数据来源：各品牌官网、科技媒体 · 截至 2026-05-26 · 具体信息以官方为准
+  </div>
+</div>
+
+<script>
+(function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  const sectionTitles = document.querySelectorAll('.section-title');
+  const divider = document.querySelector('.divider');
+
+  const statusMap = {
+    'released': 'released',
+    'upcoming': 'upcoming',
+    'later': 'later'
+  };
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      let visibleCounts = { '5月': 0, '6月及以后': 0 };
+      cards.forEach(card => {
+        const status = card.dataset.status;
+        const show = filter === 'all' || status === filter;
+        card.classList.toggle('hidden', !show);
+        if (show) {
+          // count which section
+          const prev = card.previousElementSibling;
+          // simple: check if before or after divider
+        }
+      });
+      // show/hide section titles based on visible cards
+      const mayCards = document.querySelectorAll('.section-title:first-of-type ~ .card, .section-title + .card');
+      let hasMayVisible = false, hasJuneVisible = false;
+      let pastDivider = false;
+      cards.forEach(card => {
+        if (card === document.querySelector('.divider + .section-title + .card') || 
+            (card.compareDocumentPosition(divider) & Node.DOCUMENT_POSITION_PRECEDING)) {
+          // after divider
+        }
+      });
+      // Simple: hide section title if no visible cards follow it
+      sectionTitles.forEach(title => {
+        let next = title.nextElementSibling;
+        let hasVisible = false;
+        while (next && !next.classList.contains('section-title') && next !== divider) {
+          if (next.classList.contains('card') && !next.classList.contains('hidden')) {
+            hasVisible = true;
+            break;
+          }
+          next = next.nextElementSibling;
+        }
+        title.classList.toggle('hidden', !hasVisible);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
