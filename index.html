@@ -11,16 +11,17 @@
     --border: #e5e5e0;
     --text: #1a1a1a;
     --muted: #737373;
-    --accent-huawei: #c4161c;
-    --accent-honor: #1a6fe8;
     --accent-vivo: #415fff;
-    --accent-oppo: #1a9c2d;
     --accent-xiaomi: #ff6900;
+    --accent-honor: #1a6fe8;
+    --accent-oppo: #1a9c2d;
+    --accent-huawei: #c4161c;
     --accent-apple: #333;
     --accent-samsung: #1428a0;
     --tag-released: #16a34a;
     --tag-upcoming: #eab308;
     --tag-later: #8b5cf6;
+    --report-accent: #2563eb;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -30,149 +31,129 @@
     line-height: 1.6;
   }
   .container { max-width: 860px; margin: 0 auto; padding: 24px 16px 80px; }
-  header {
-    text-align: center;
-    padding: 40px 0 24px;
-  }
-  header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-  }
-  header p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-top: 6px;
-  }
-  .filter-bar {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px 0 28px;
-  }
+  header { text-align: center; padding: 40px 0 24px; }
+  header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  header p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 20px 0 28px; }
   .filter-btn {
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--text);
-    font-weight: 500;
+    padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+    background: var(--card); font-size: 13px; cursor: pointer; transition: all 0.2s;
+    color: var(--text); font-weight: 500;
   }
   .filter-btn:hover { border-color: #aaa; }
   .filter-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
   .section-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 28px 0 12px;
-    padding-left: 2px;
+    font-size: 13px; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin: 28px 0 12px; padding-left: 2px;
   }
   .card {
-    background: var(--card);
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    padding: 20px 22px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    transition: transform 0.15s, box-shadow 0.15s;
-    cursor: default;
+    background: var(--card); border-radius: 14px; border: 1px solid var(--border);
+    padding: 20px 22px; margin-bottom: 12px; display: flex; align-items: center;
+    gap: 16px; transition: transform 0.15s, box-shadow 0.15s; cursor: default;
   }
-  .card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
+  .card:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
   .brand-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
+    width: 48px; height: 48px; border-radius: 12px; display: flex;
+    align-items: center; justify-content: center; font-size: 18px;
+    font-weight: 700; color: #fff; flex-shrink: 0;
   }
   .card-body { flex: 1; min-width: 0; }
-  .card-body h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 2px;
-  }
+  .card-body h3 { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
   .card-meta {
-    font-size: 13px;
-    color: var(--muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 14px;
-    margin-top: 4px;
+    font-size: 13px; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 4px;
   }
   .card-meta span { white-space: nowrap; }
   .tag {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.3px; white-space: nowrap;
   }
   .tag-released { background: #dcfce7; color: #15803d; }
   .tag-upcoming { background: #fef9c3; color: #a16207; }
   .tag-later { background: #ede9fe; color: #6d28d9; }
-  .links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 8px;
-  }
+  .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
   .link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 5px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    transition: all 0.15s;
-    background: var(--bg);
+    display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px;
+    border-radius: 8px; font-size: 12px; font-weight: 500; text-decoration: none;
+    border: 1px solid var(--border); color: var(--text); transition: all 0.15s; background: var(--bg);
   }
-  .link-btn:hover {
-    border-color: #999;
-    background: #f0f0f0;
-  }
+  .link-btn:hover { border-color: #999; background: #f0f0f0; }
   .link-btn svg { width: 14px; height: 14px; }
-  .divider {
-    border: none;
-    border-top: 1px dashed var(--border);
-    margin: 24px 0 4px;
+  .report-btn {
+    display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px;
+    border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--report-accent); color: #fff; transition: all 0.15s;
+    background: var(--report-accent); cursor: pointer;
   }
+  .report-btn:hover { background: #1d4ed8; border-color: #1d4ed8; }
+  .report-btn svg { width: 14px; height: 14px; }
+  .divider { border: none; border-top: 1px dashed var(--border); margin: 24px 0 4px; }
   .update-hint {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 32px;
-    padding: 12px;
-    background: var(--card);
-    border-radius: 10px;
-    border: 1px dashed var(--border);
+    text-align: center; font-size: 12px; color: var(--muted); margin-top: 32px;
+    padding: 12px; background: var(--card); border-radius: 10px; border: 1px dashed var(--border);
   }
   .hidden { display: none !important; }
+
+  /* === 报告弹窗 === */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
+    animation: fadeIn 0.2s;
+  }
+  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .report-panel {
+    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
+    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
+  }
+  .report-header {
+    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .report-header h2 { font-size: 20px; font-weight: 700; }
+  .report-header .close-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
+    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s; color: var(--muted);
+  }
+  .report-header .close-btn:hover { background: #e5e5e5; }
+  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
+  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+  .report-body h3:first-child { margin-top: 0; }
+  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
+  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
+  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
+  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
+  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
+  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
+  .report-body .price-card {
+    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
+    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
+  }
+  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
+  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
+  .report-body .highlight-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
+    border: 1px solid #fcd34d;
+  }
+  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
+  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
+  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
+  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
+  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
+
   @media (max-width: 600px) {
     .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
     .brand-icon { width: 40px; height: 40px; font-size: 15px; }
     header h1 { font-size: 22px; }
+    .report-header { padding: 18px 20px 14px; }
+    .report-header h2 { font-size: 17px; }
+    .report-body { padding: 18px 20px 28px; }
+    .report-body .pro-con { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -194,6 +175,7 @@
   <!-- ===== 5月下旬密集发布期 ===== -->
   <div class="section-title">5 月 · 密集发布期</div>
 
+  <!-- iQOO 15T -->
   <div class="card" data-brand="vivo" data-status="released">
     <div class="brand-icon" style="background:var(--accent-vivo)">iQ</div>
     <div class="card-body">
@@ -219,10 +201,15 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
           发布会回放
         </a>
+        <button class="report-btn" onclick="openReport('iqoo15t')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          发布会报告
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- 小米17 Max -->
   <div class="card" data-brand="xiaomi" data-status="released">
     <div class="brand-icon" style="background:var(--accent-xiaomi)">Mi</div>
     <div class="card-body">
@@ -244,16 +231,21 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
           B站直播间
         </a>
+        <button class="report-btn" onclick="openReport('mi17max')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          发布会报告
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- 荣耀600系列 -->
   <div class="card" data-brand="honor" data-status="released">
     <div class="brand-icon" style="background:var(--accent-honor)">荣</div>
     <div class="card-body">
       <h3>荣耀600系列</h3>
       <div class="card-meta">
-        <span>📅 5月25日 19:00</span>
+        <span>📅 5月25日 19:00 · 厦门</span>
         <span>📷 2亿像素4K闪光微单</span>
         <span>🔋 8600mAh</span>
       </div>
@@ -273,17 +265,22 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
           发布会回放
         </a>
+        <button class="report-btn" onclick="openReport('honor600')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          发布会报告
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- OPPO Reno16系列 -->
   <div class="card" data-brand="oppo" data-status="released">
     <div class="brand-icon" style="background:var(--accent-oppo)">OP</div>
     <div class="card-body">
       <h3>OPPO Reno16系列</h3>
       <div class="card-meta">
-        <span>📅 5月25日 · "Reno Land奇幻夜"</span>
-        <span>📷 实况影像</span>
+        <span>📅 5月25日 18:00 · "Reno Land奇幻夜"</span>
+        <span>📷 实况影像+3D悬浮星球</span>
         <span>💰 国补后2999起</span>
       </div>
       <div style="margin-top:6px">
@@ -298,10 +295,15 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           OPPO商城
         </a>
+        <button class="report-btn" onclick="openReport('opporeno16')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          发布会报告
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- vivo S60 -->
   <div class="card" data-brand="vivo" data-status="upcoming">
     <div class="brand-icon" style="background:var(--accent-vivo)">v</div>
     <div class="card-body">
@@ -312,9 +314,7 @@
         <span>👆 3D超声波指纹2.0</span>
         <span>💧 IP68/69</span>
       </div>
-      <div style="margin-top:6px">
-        <span class="tag tag-upcoming">即将发布</span>
-      </div>
+      <div style="margin-top:6px"><span class="tag tag-upcoming">即将发布</span></div>
       <div class="links">
         <a class="link-btn" href="https://www.vivo.com.cn/" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -342,9 +342,7 @@
         <span>🎉 十周年 · 四款齐发</span>
         <span>📱 nova16 / z / Pro / Ultra</span>
       </div>
-      <div style="margin-top:6px">
-        <span class="tag tag-upcoming">即将发布</span>
-      </div>
+      <div style="margin-top:6px"><span class="tag tag-upcoming">即将发布</span></div>
       <div class="links">
         <a class="link-btn" href="https://www.vmall.com/" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -367,9 +365,7 @@
         <span>💻 开发者大会 · iOS 20预览</span>
         <span>⚠️ 非新机发布</span>
       </div>
-      <div style="margin-top:6px">
-        <span class="tag tag-upcoming">即将举行</span>
-      </div>
+      <div style="margin-top:6px"><span class="tag tag-upcoming">即将举行</span></div>
       <div class="links">
         <a class="link-btn" href="https://developer.apple.com/wwdc26/" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -393,9 +389,7 @@
         <span>📡 自研C2基带</span>
         <span>📱 折叠iPhone同步亮相</span>
       </div>
-      <div style="margin-top:6px">
-        <span class="tag tag-later">稍晚发布</span>
-      </div>
+      <div style="margin-top:6px"><span class="tag tag-later">稍晚发布</span></div>
       <div class="links">
         <a class="link-btn" href="https://www.apple.com.cn/iphone/" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -410,13 +404,11 @@
     <div class="card-body">
       <h3>三星 Galaxy S26系列</h3>
       <div class="card-meta">
-        <span>📅 2月26日已发布</span>
-        <span>⚡ 骁龙8 Elite Gen 5</span>
-        <span>🤖 Galaxy AI 第三代</span>
+        <span>📅 2月26日 · Galaxy Unpacked</span>
+        <span>⚡ 骁龙8至尊for Galaxy</span>
+        <span>🤖 Galaxy AI</span>
       </div>
-      <div style="margin-top:6px">
-        <span class="tag tag-released">已发布</span>
-      </div>
+      <div style="margin-top:6px"><span class="tag tag-released">已发布</span></div>
       <div class="links">
         <a class="link-btn" href="https://www.samsung.com.cn/smartphones/" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -426,60 +418,446 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
           Unpacked回放
         </a>
+        <button class="report-btn" onclick="openReport('samsungs26')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          发布会报告
+        </button>
       </div>
     </div>
   </div>
 
   <div class="update-hint">
-    💡 <strong>持续更新</strong>：本页面支持滚动更新。如需新增/修改发布会信息，直接编辑 HTML 中对应 card 区域即可。<br>
+    💡 <strong>持续更新</strong>：本页面支持滚动更新。已发布机型可点击蓝色「发布会报告」按钮查看详细报告。<br>
     数据来源：各品牌官网、科技媒体 · 截至 2026-05-26 · 具体信息以官方为准
   </div>
 </div>
 
+<!-- ========== 报告弹窗 ========== -->
+<div class="overlay" id="overlay" onclick="closeReport(event)">
+  <div class="report-panel" id="reportPanel">
+    <div class="report-header">
+      <h2 id="reportTitle">发布会报告</h2>
+      <button class="close-btn" onclick="closeReport()">✕</button>
+    </div>
+    <div class="report-body" id="reportBody"></div>
+  </div>
+</div>
+
 <script>
+// === 报告数据 ===
+const reports = {
+  iqoo15t: {
+    title: 'iQOO 15T 发布会报告',
+    html: `
+      <h3>🎬 发布会概要</h3>
+      <p>2026年5月20日，iQOO 在线上召开新品发布会，正式推出 iQOO 15T——定位<strong>「游戏视效超强的性能旗舰」</strong>。这是 iQOO 15 系列继去年10月标准版后的又一重磅产品，全球首发联发科天玑9500 Monster版处理器。</p>
+      <div class="highlight-box">🎯 核心关键词：天玑9500 Monster版全球首发 · 2K 144Hz珠峰屏 · 8000mAh+100W · 3299元起（国补）</div>
+
+      <h3>📋 核心规格表</h3>
+      <table class="spec-table">
+        <tr><th>项目</th><th>参数</th></tr>
+        <tr><td>处理器</td><td>天玑9500 Monster版（3nm）+ 自研Q3电竞芯片</td></tr>
+        <tr><td>屏幕</td><td>6.82英寸 2K 144Hz 珠峰屏</td></tr>
+        <tr><td>内存/存储</td><td>LPDDR5X + UFS 4.1</td></tr>
+        <tr><td>电池</td><td>8000mAh</td></tr>
+        <tr><td>充电</td><td>100W有线快充</td></tr>
+        <tr><td>主摄</td><td>2亿像素 + 5000万超广角</td></tr>
+        <tr><td>前置</td><td>1600万</td></tr>
+        <tr><td>指纹</td><td>—</td></tr>
+        <tr><td>防水</td><td>—</td></tr>
+      </table>
+
+      <h3>💰 价格一览</h3>
+      <div class="price-card">12+256G<br><strong>¥3299</strong> <span class="orig">¥3799</span><br><small>国补后</small></div>
+      <div class="price-card">16+256G<br><strong>¥4199</strong> <span class="orig">¥4699</span></div>
+      <div class="price-card">12+512G<br><strong>¥4499</strong> <span class="orig">¥4999</span></div>
+      <div class="price-card">16+512G<br><strong>¥4899</strong> <span class="orig">¥5399</span></div>
+      <div class="price-card">16+1TB<br><strong>¥5699</strong> <span class="orig">¥6199</span></div>
+
+      <h3>✨ 发布会亮点</h3>
+      <ul>
+        <li><strong>天玑9500 Monster版全球首发</strong>：联发科为iQOO定制的专属频率版本，性能超越标准天玑9500</li>
+        <li><strong>2K 144Hz珠峰屏</strong>：同档位唯一坚持2K分辨率+144Hz刷新率的性能旗舰，竞品纷纷回退1.5K</li>
+        <li><strong>自研Q3电竞芯片</strong>：插帧、超分、视效增强三合一，游戏场景深度优化</li>
+        <li><strong>8000mAh+100W组合</strong>：大电池+快充双保险，游戏场景续航无忧</li>
+        <li><strong>3299元国补起售价</strong>：性价比极具攻击性，同档位几乎没有对手</li>
+      </ul>
+
+      <h3>⚖️ 优缺点速览</h3>
+      <div class="pro-con">
+        <div class="pro-box">
+          <h4>👍 优势</h4>
+          <ul>
+            <li>天玑9500M性能天花板</li>
+            <li>2K 144Hz屏同档唯一</li>
+            <li>8000mAh+100W组合优秀</li>
+            <li>3299元性价比极高</li>
+            <li>Q3电竞芯片深度优化</li>
+          </ul>
+        </div>
+        <div class="con-box">
+          <h4>👎 不足</h4>
+          <ul>
+            <li>无无线充电</li>
+            <li>无潜望长焦</li>
+            <li>电竞标签限制人群</li>
+            <li>无IP68防水</li>
+            <li>影像系统偏弱</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🎯 适合谁买？</h3>
+      <ul>
+        <li>🎮 <strong>重度手游玩家</strong>：天玑9500M+Q3芯片+100W快充，游戏无短板</li>
+        <li>💰 <strong>性价比性能党</strong>：3299元拿到旗舰SoC+2K屏+8000mAh</li>
+        <li>📹 <strong>电竞内容创作者</strong>：大电池+快充+持续高性能输出</li>
+      </ul>
+      <div class="highlight-box">💡 618预测到手价：¥2999，性价比将进一步放大</div>
+    `
+  },
+
+  mi17max: {
+    title: '小米17 Max 发布会报告',
+    html: `
+      <h3>🎬 发布会概要</h3>
+      <p>2026年5月21日，小米召开5月新品发布会，重磅推出 <strong>小米17 Max</strong>——定位大屏标准版旗舰。这是小米17系列的Max版本，6.9寸极窄四等边大直屏+徕卡影像+8000mAh金沙江电池的组合，在当前大屏旗舰市场几乎没有直接竞品。同场还发布了Redmi性价比新机和多款生态硬件。</p>
+      <div class="highlight-box">🎯 核心关键词：6.9寸极窄四等边大直屏 · 徕卡2亿像素三摄 · 8000mAh金沙江电池 · 骁龙8至尊版Gen5 · 4299元起（国补）</div>
+
+      <h3>📋 核心规格表</h3>
+      <table class="spec-table">
+        <tr><th>项目</th><th>参数</th></tr>
+        <tr><td>处理器</td><td>第五代骁龙8至尊版 + LPDDR5X + UFS 4.1</td></tr>
+        <tr><td>屏幕</td><td>6.9英寸大直屏 · 1.28mm极窄四等边 · 95.4%屏占比 · 3500nit峰值亮度</td></tr>
+        <tr><td>电池</td><td>8000mAh 金沙江电池</td></tr>
+        <tr><td>充电</td><td>100W有线 + 50W无线</td></tr>
+        <tr><td>主摄</td><td>徕卡光学三摄 · 2亿像素主摄(1/1.4" f/1.65)</td></tr>
+        <tr><td>长焦</td><td>70mm潜望中焦 · 3x/6x无损变焦</td></tr>
+        <tr><td>指纹</td><td>3D超声波指纹</td></tr>
+        <tr><td>后盖</td><td>龙鳞纤维后盖</td></tr>
+        <tr><td>系统</td><td>HyperOS 3</td></tr>
+      </table>
+
+      <h3>💰 价格一览</h3>
+      <div class="price-card">起步价<br><strong>¥4299</strong> <span class="orig">¥4799</span><br><small>国补后</small></div>
+
+      <h3>✨ 发布会亮点</h3>
+      <ul>
+        <li><strong>6.9寸极窄四等边大直屏</strong>：1.28mm边框+95.4%屏占比，大屏旗舰唯一选择</li>
+        <li><strong>徕卡光学三摄</strong>：2亿像素主摄+70mm潜望中焦，徕卡调色加持出片质感</li>
+        <li><strong>8000mAh金沙江电池</strong>：大屏+大电池，续航焦虑终结者</li>
+        <li><strong>100W有线+50W无线</strong>：充电方式齐全，无短板</li>
+        <li><strong>骁龙8至尊版Gen5</strong>：当前最强安卓处理器</li>
+        <li><strong>龙鳞纤维后盖</strong>：辨识度极高，手感独特</li>
+      </ul>
+
+      <h3>⚖️ 优缺点速览</h3>
+      <div class="pro-con">
+        <div class="pro-box">
+          <h4>👍 优势</h4>
+          <ul>
+            <li>6.9寸大屏旗舰唯一选择</li>
+            <li>徕卡联名影像调性高</li>
+            <li>1.28mm极窄四等边顶级观感</li>
+            <li>100W+50W无线齐全</li>
+            <li>龙鳞纤维后盖辨识度高</li>
+          </ul>
+        </div>
+        <div class="con-box">
+          <h4>👎 不足</h4>
+          <ul>
+            <li>大屏重量可能突破220g</li>
+            <li>6.9寸对部分用户嫌大</li>
+            <li>女性用户覆盖较弱</li>
+            <li>"全能"但缺少单一记忆点</li>
+            <li>大屏用户群体相对小众</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🎯 适合谁买？</h3>
+      <ul>
+        <li>📸 <strong>影像全能型用户</strong>：徕卡调色+200MP+大屏预览，创作全流程覆盖</li>
+        <li>💼 <strong>商务续航党</strong>：8000mAh+100W+大屏多任务，出差神器</li>
+        <li>🏠 <strong>小米生态用户</strong>：HyperOS+小米汽车/家居无缝协同</li>
+      </ul>
+      <div class="highlight-box">💡 618预测到手价：¥3799，4K档全能旗舰</div>
+    `
+  },
+
+  honor600: {
+    title: '荣耀600系列 发布会报告',
+    html: `
+      <h3>🎬 发布会概要</h3>
+      <p>2026年5月25日19:00，荣耀在厦门举办<strong>「4K Live星光毕业歌会」</strong>主题发布会，正式推出荣耀600系列三款新机——Pro版、超级版、元气版。同场还发布了荣耀平板20、Earbuds耳夹式耳机Pro、手表6 Plus三款生态产品。代言人肖战到场助阵。</p>
+      <div class="highlight-box">🎯 核心关键词：全焦段4K Live直出 · 0.98mm极窄四等边 · 8600mAh青海湖电池 · 2294元起（国补）· 肖战代言</div>
+
+      <h3>📋 三款机型规格对比</h3>
+      <table class="spec-table">
+        <tr><th>项目</th><th>Pro版</th><th>超级版</th><th>元气版</th></tr>
+        <tr><td>处理器</td><td>骁龙8 Elite / 天玑8550 Elite</td><td>骁龙8S Gen4</td><td>—</td></tr>
+        <tr><td>屏幕</td><td>6.57" 1.5K 120Hz · 0.98mm极窄</td><td>同左</td><td>同左</td></tr>
+        <tr><td>电池</td><td>~9000mAh · 青海湖(932Wh/L)</td><td>8600mAh · 青海湖</td><td>—</td></tr>
+        <tr><td>有线充</td><td>80W</td><td>80W</td><td>—</td></tr>
+        <tr><td>无线充</td><td>✅ 50W</td><td>❌</td><td>❌</td></tr>
+        <tr><td>反向充</td><td>✅ 27W</td><td>—</td><td>—</td></tr>
+        <tr><td>主摄</td><td>2亿像素OIS</td><td>2亿像素</td><td>—</td></tr>
+        <tr><td>长焦</td><td>5000万潜望(3.5x光学)</td><td>—</td><td>—</td></tr>
+        <tr><td>前置</td><td>5000万4K实况</td><td>—</td><td>—</td></tr>
+        <tr><td>闪光灯</td><td>双对称AI变焦闪光灯（行业首创）</td><td>—</td><td>—</td></tr>
+        <tr><td>防水</td><td>IP68/69/69K</td><td>—</td><td>—</td></tr>
+        <tr><td>指纹</td><td>3D超声波</td><td>—</td><td>—</td></tr>
+        <tr><td>设计</td><td>3D星河美学 · 42颗钻闪四芒星</td><td>同左</td><td>同左</td></tr>
+      </table>
+      <p style="font-size:12px;color:#999;">全系标配：0.98mm极窄四等边绿洲护眼屏、4K Live直出、前置4K实况照片、NFC、双扬声器、双频GPS</p>
+
+      <h3>💰 价格一览</h3>
+      <div class="price-card">元气版<br><strong>¥2294</strong> <span class="orig">¥2699</span><br><small>国补后</small></div>
+      <div class="price-card">超级版<br><strong>¥2804</strong> <span class="orig">¥3299</span><br><small>国补后</small></div>
+      <div class="price-card">Pro版<br><strong>¥3399</strong> <span class="orig">¥3899</span><br><small>国补后</small></div>
+
+      <h3>✨ 发布会亮点</h3>
+      <ul>
+        <li><strong>全焦段4K Live直出</strong>：0.6x-7x光学品质全焦段4K Live直出，行业首创</li>
+        <li><strong>双对称AI变焦闪光灯</strong>：行业首创，暗光实况也能拍清</li>
+        <li><strong>0.98mm极窄四等边</strong>：当前手机最窄边框，视觉冲击力极强</li>
+        <li><strong>8600mAh青海湖电池</strong>：超级版搭载行业最大电池（Pro版约9000mAh更猛）</li>
+        <li><strong>首发前置4K实况照片</strong>：自拍也能拍实况</li>
+        <li><strong>3D星河美学设计</strong>：42颗钻闪四芒星后盖，辨识度拉满</li>
+        <li><strong>2294元起国补价</strong>：入门门槛极低，2亿像素+4K Live首次下探2K档</li>
+      </ul>
+
+      <h3>⚖️ 优缺点速览</h3>
+      <div class="pro-con">
+        <div class="pro-box">
+          <h4>👍 优势</h4>
+          <ul>
+            <li>4K Live直出功能独特</li>
+            <li>0.98mm极窄边框行业最窄</li>
+            <li>8600-9000mAh续航领先</li>
+            <li>三档覆盖2294-3399元全价格带</li>
+            <li>元气版2294元入门极低</li>
+          </ul>
+        </div>
+        <div class="con-box">
+          <h4>👎 不足</h4>
+          <ul>
+            <li>三档定位差异不够清晰</li>
+            <li>超级版SoC弱于竞品旗舰</li>
+            <li>影像无联名品牌加持</li>
+            <li>充电80W偏保守</li>
+            <li>可能存在系列内互蚕</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🎯 适合谁买？</h3>
+      <ul>
+        <li>📱 <strong>社交媒体达人</strong>（Pro版）：4K Live直出+2亿OIS+AI闪光灯，发朋友圈/小红书神器</li>
+        <li>🔋 <strong>续航强迫症</strong>（超级版）：8600mAh两天一充，2804元</li>
+        <li>🎓 <strong>预算有限学生党</strong>（元气版）：2294元4K Live+大电池，入门越级体验</li>
+      </ul>
+      <div class="highlight-box">💡 618预测：元气版有望跌至¥1999，2亿像素手机首次破2000元</div>
+    `
+  },
+
+  opporeno16: {
+    title: 'OPPO Reno16系列 发布会报告',
+    html: `
+      <h3>🎬 发布会概要</h3>
+      <p>2026年5月25日18:00，OPPO举办<strong>「Reno Land奇幻夜」</strong>主题发布会，重磅推出OPPO Reno16系列潮流手机，同场还发布了OPPO Pad 6平板、OPPO Pad Air5学习平板、Enco Air5s耳机、Bubble潮玩自拍屏等多款新品。代言人宋雨琦活力助阵。</p>
+      <div class="highlight-box">🎯 核心关键词：3D悬浮星球工艺（行业首创）· 2亿像素三摄 · 实况随心贴 · 6.32寸小直屏188g · 2999元起（国补）</div>
+
+      <h3>📋 两款机型规格对比</h3>
+      <table class="spec-table">
+        <tr><th>项目</th><th>Reno16 标准版</th><th>Reno16 Pro</th></tr>
+        <tr><td>处理器</td><td>天玑8550 SUPER</td><td>天玑9500s</td></tr>
+        <tr><td>屏幕</td><td>6.32英寸 1.5K OLED 小直屏</td><td>6.78英寸 1.5K LTPO自适应直屏 · 1.15mm四等窄边</td></tr>
+        <tr><td>电池</td><td>6700mAh</td><td>7000mAh</td></tr>
+        <tr><td>有线充</td><td>80W</td><td>80W</td></tr>
+        <tr><td>无线充</td><td>❌</td><td>✅ 50W</td></tr>
+        <tr><td>主摄</td><td>2亿像素(HP5)</td><td>2亿像素 云台OIS(f/1.8)</td></tr>
+        <tr><td>超广角</td><td>5000万</td><td>5000万(116°)</td></tr>
+        <tr><td>长焦</td><td>5000万潜望(JN5)</td><td>5000万潜望(3.5x光学/120x数码)</td></tr>
+        <tr><td>前置</td><td>—</td><td>5000万超广角</td></tr>
+        <tr><td>防水</td><td>—</td><td>IP68/69</td></tr>
+        <tr><td>指纹</td><td>—</td><td>3D超声波</td></tr>
+        <tr><td>重量</td><td>~188g</td><td>—</td></tr>
+        <tr><td>后盖工艺</td><td>3D冰透悬浮工艺 · 金属中框</td><td>同左</td></tr>
+        <tr><td>配色</td><td>怦然星动 / 星河紫 / 月夜黑</td><td>怦然星动 / 梦境蓝 / 月夜黑</td></tr>
+      </table>
+
+      <h3>💰 价格一览</h3>
+      <div class="price-card">Reno16 12+256G<br><strong>¥2999</strong> <span class="orig">¥3499</span><br><small>国补后</small></div>
+      <div class="price-card">Reno16 Pro 12+256G<br><strong>¥3999</strong> <span class="orig">¥4499</span><br><small>国补后</small></div>
+
+      <h3>✨ 发布会亮点</h3>
+      <ul>
+        <li><strong>3D冰透悬浮工艺</strong>：行业首创，嵌入式微纳米印刷技术首次大规模量产，玻璃表面呈现裸眼3D悬浮星球效果</li>
+        <li><strong>一体冷雕玻璃</strong>：镜头模组与后盖浑然一体，质感精致高级</li>
+        <li><strong>实况随心贴</strong>：广受好评的实况功能进化版，支持模板、贴纸等社交玩法</li>
+        <li><strong>AI一键闪记</strong>：记录灵感瞬间的AI助手</li>
+        <li><strong>6.32寸+188g小直屏</strong>（标准版）：当下稀缺的小屏轻薄选择</li>
+        <li><strong>云台OIS防抖</strong>（Pro版）：实拍场景刚需，视频防抖行业领先</li>
+        <li><strong>宋雨琦代言</strong>：精准触达年轻女性用户群</li>
+      </ul>
+
+      <h3>⚖️ 优缺点速览</h3>
+      <div class="pro-con">
+        <div class="pro-box">
+          <h4>👍 优势</h4>
+          <ul>
+            <li>3D悬浮星球工艺辨识度极高</li>
+            <li>标准版6.32寸+188g手感极佳</li>
+            <li>云台OIS防抖(Pro)实拍强</li>
+            <li>实况随心贴社交玩法新</li>
+            <li>宋雨琦代言精准触达</li>
+          </ul>
+        </div>
+        <div class="con-box">
+          <h4>👎 不足</h4>
+          <ul>
+            <li>标准版天玑8550性能不占优</li>
+            <li>6700mAh在8000mAh时代偏小</li>
+            <li>无线充仅Pro版支持</li>
+            <li>性能用户心智偏弱</li>
+            <li>与荣耀600同日正面竞争</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🎯 适合谁买？</h3>
+      <ul>
+        <li>✨ <strong>颜值即正义的时尚用户</strong>：3D悬浮星球独一无二，拿在手里就是社交资本</li>
+        <li>🤳 <strong>人像摄影爱好者</strong>：OPPO人像算法+云台OIS，自拍/拍照场景最友好</li>
+        <li>🛍️ <strong>小屏手感党</strong>（标准版）：6.32寸+188g，当下稀缺的轻薄选择</li>
+      </ul>
+      <div class="highlight-box">💡 618预测：Reno16标准版¥2699，Pro版¥3499</div>
+    `
+  },
+
+  samsungs26: {
+    title: '三星 Galaxy S26系列 发布会报告',
+    html: `
+      <h3>🎬 发布会概要</h3>
+      <p>2026年2月26日凌晨，三星举办<strong>Galaxy Unpacked</strong>全球发布会，正式推出Galaxy S26系列三款旗舰——S26、S26+、S26 Ultra。这是2026年安卓阵营首款重磅旗舰，全系搭载第五代骁龙8至尊版for Galaxy定制芯片，S26 Ultra更是带来了<strong>行业首创硬件防窥屏</strong>。</p>
+      <div class="highlight-box">🎯 核心关键词：骁龙8至尊for Galaxy · 硬件防窥屏(Ultra) · S Pen(Ultra) · Galaxy AI第三代 · 7年更新承诺</div>
+
+      <h3>📋 三款机型规格对比</h3>
+      <table class="spec-table">
+        <tr><th>项目</th><th>S26</th><th>S26+</th><th>S26 Ultra</th></tr>
+        <tr><td>处理器</td><td colspan="3">骁龙8至尊版 Gen5 for Galaxy</td></tr>
+        <tr><td>屏幕</td><td>6.3" FHD+ 120Hz</td><td>6.7" QHD+ 120Hz</td><td>6.9" QHD+ 1-120Hz自适应</td></tr>
+        <tr><td>屏幕技术</td><td colspan="3">动态AMOLED · 防眩光</td></tr>
+        <tr><td>电池</td><td>4300mAh</td><td>4900mAh</td><td>5000mAh</td></tr>
+        <tr><td>有线充</td><td>25W</td><td>45W</td><td>60W</td></tr>
+        <tr><td>无线充</td><td>❌</td><td>❌</td><td>✅</td></tr>
+        <tr><td>反向充</td><td>—</td><td>—</td><td>✅</td></tr>
+        <tr><td>主摄</td><td>50MP</td><td>50MP</td><td>200MP</td></tr>
+        <tr><td>超广角</td><td>12MP</td><td>12MP</td><td>50MP</td></tr>
+        <tr><td>长焦</td><td>10MP</td><td>10MP</td><td>50MP+10MP</td></tr>
+        <tr><td>前置</td><td>—</td><td>—</td><td>12MP</td></tr>
+        <tr><td>S Pen</td><td>❌</td><td>❌</td><td>✅ 内置</td></tr>
+        <tr><td>防窥屏</td><td>❌</td><td>❌</td><td>✅ 硬件防窥</td></tr>
+        <tr><td>防水</td><td colspan="3">IP68</td></tr>
+        <tr><td>AI</td><td colspan="3">Galaxy AI第三代</td></tr>
+        <tr><td>系统更新</td><td colspan="3">7年OS更新承诺</td></tr>
+      </table>
+
+      <h3>💰 价格一览</h3>
+      <div class="price-card">S26<br><strong>¥5499</strong> <span class="orig">¥6999</span><br><small>国补/优惠后</small></div>
+      <div class="price-card">S26+ 512G<br><strong>¥8299</strong><br><small>512G存储版</small></div>
+      <div class="price-card">S26 Ultra 512G<br><strong>¥10299</strong><br><small>512G存储版</small></div>
+
+      <h3>✨ 发布会亮点</h3>
+      <ul>
+        <li><strong>硬件防窥屏</strong>（Ultra独占）：切换屏幕像素模式实现防窥，不影响显示效果和功耗，可自定义开启界面</li>
+        <li><strong>S Pen内置</strong>（Ultra独占）：生产力场景无可替代</li>
+        <li><strong>Galaxy AI第三代</strong>：最成熟的手机AI生态，多场景深度集成</li>
+        <li><strong>7年系统更新承诺</strong>：行业最长的更新周期</li>
+        <li><strong>200MP四摄系统</strong>（Ultra）：2亿像素+双长焦，影像天花板</li>
+        <li><strong>S26国补后5499元</strong>：降幅1500元（21.4%），三星旗舰首次进入5000+区间</li>
+      </ul>
+
+      <h3>⚖️ 优缺点速览</h3>
+      <div class="pro-con">
+        <div class="pro-box">
+          <h4>👍 优势</h4>
+          <ul>
+            <li>全球品牌影响力第一</li>
+            <li>S Pen生产力无可替代</li>
+            <li>硬件防窥屏商务属性独特</li>
+            <li>Galaxy AI生态最成熟</li>
+            <li>7年系统更新承诺</li>
+          </ul>
+        </div>
+        <div class="con-box">
+          <h4>👎 不足</h4>
+          <ul>
+            <li>4300-5000mAh严重落后国产</li>
+            <li>25W/45W充电严重落后</li>
+            <li>与同配国产差2000-4000元</li>
+            <li>中国市场份额不足1%</li>
+            <li>本地化功能持续落后</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🎯 适合谁买？</h3>
+      <ul>
+        <li>🔒 <strong>高端商务人士</strong>（Ultra）：硬件防窥屏+S Pen+DeX模式，信息安全与生产力兼得</li>
+        <li>🌐 <strong>三星生态用户</strong>：Galaxy Watch/Buds/Tab用户不愿换生态</li>
+        <li>🌍 <strong>涉外/国际用户</strong>：全球联保+国际品牌+One UI</li>
+      </ul>
+      <div class="highlight-box">💡 618预测：S26或降至¥4999，S26 Ultra降幅有限(5-6%)</div>
+    `
+  }
+};
+
+// === 弹窗逻辑 ===
+function openReport(id) {
+  const report = reports[id];
+  if (!report) return;
+  document.getElementById('reportTitle').textContent = report.title;
+  document.getElementById('reportBody').innerHTML = report.html;
+  document.getElementById('overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeReport(e) {
+  if (e && e.target !== document.getElementById('overlay')) return;
+  document.getElementById('overlay').classList.remove('show');
+  document.body.style.overflow = '';
+  if (!e) {
+    document.getElementById('overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeReport();
+});
+
+// === 筛选逻辑 ===
 (function() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.card');
   const sectionTitles = document.querySelectorAll('.section-title');
-  const divider = document.querySelector('.divider');
-
-  const statusMap = {
-    'released': 'released',
-    'upcoming': 'upcoming',
-    'later': 'later'
-  };
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      let visibleCounts = { '5月': 0, '6月及以后': 0 };
       cards.forEach(card => {
         const status = card.dataset.status;
         const show = filter === 'all' || status === filter;
         card.classList.toggle('hidden', !show);
-        if (show) {
-          // count which section
-          const prev = card.previousElementSibling;
-          // simple: check if before or after divider
-        }
       });
-      // show/hide section titles based on visible cards
-      const mayCards = document.querySelectorAll('.section-title:first-of-type ~ .card, .section-title + .card');
-      let hasMayVisible = false, hasJuneVisible = false;
-      let pastDivider = false;
-      cards.forEach(card => {
-        if (card === document.querySelector('.divider + .section-title + .card') || 
-            (card.compareDocumentPosition(divider) & Node.DOCUMENT_POSITION_PRECEDING)) {
-          // after divider
-        }
-      });
-      // Simple: hide section title if no visible cards follow it
       sectionTitles.forEach(title => {
         let next = title.nextElementSibling;
         let hasVisible = false;
-        while (next && !next.classList.contains('section-title') && next !== divider) {
+        while (next && !next.classList.contains('section-title') && !next.classList.contains('divider')) {
           if (next.classList.contains('card') && !next.classList.contains('hidden')) {
             hasVisible = true;
             break;
