@@ -145,6 +145,35 @@
   .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
   .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
   .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
+  .report-body .product-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
+  }
+  .report-body .product-gallery img {
+    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
+    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    border: 1px solid var(--border);
+  }
+  .report-body .product-gallery img:hover {
+    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .report-body .hero-img {
+    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
+    max-height: 320px; border: 1px solid var(--border);
+  }
+  .report-body .img-caption {
+    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+  }
+  /* Lightbox for enlarged view */
+  .lightbox {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
+    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
 
   @media (max-width: 600px) {
     .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
@@ -432,6 +461,11 @@
   </div>
 </div>
 
+<!-- ========== 图片查看灯箱 ========== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+
 <!-- ========== 报告弹窗 ========== -->
 <div class="overlay" id="overlay" onclick="closeReport(event)">
   <div class="report-panel" id="reportPanel">
@@ -452,6 +486,17 @@ const reports = {
       <h3>🎬 发布会概要</h3>
       <p>2026年5月20日，iQOO 在线上召开新品发布会，正式推出 iQOO 15T——定位<strong>「游戏视效超强的性能旗舰」</strong>。这是 iQOO 15 系列继去年10月标准版后的又一重磅产品，全球首发联发科天玑9500 Monster版处理器。</p>
       <div class="highlight-box">🎯 核心关键词：天玑9500 Monster版全球首发 · 2K 144Hz珠峰屏 · 8000mAh+100W · 3299元起（国补）</div>
+
+      <h3>📸 产品图赏</h3>
+      <div class="product-gallery">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNbiCIHUNjAAW9fNVp-mMAAId-AFnFScABb2U090.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 外观" loading="lazy">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNacuIC474AAH2NmsJnnwAAId8gA2b8MAAfZO450.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 设计" loading="lazy">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZzmIZsSpAAC9Duy96jgAAId8AJEcNcAAL0m323.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 屏幕" loading="lazy">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNY92IK5kXAAfEasYvpI8AAId7wAroi0AB8SC401.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 性能" loading="lazy">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZWGIKQHTAAEwD0xd1r8AAId7wMXaV4AATAn242.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 芯片" loading="lazy">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZZ-IfpMuAAEsDS6wiBYAAId7wOEHhEAASwl480.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 影像" loading="lazy">
+      </div>
+      <p class="img-caption">点击图片查看大图 · 图片来源：ZOL中关村在线</p>
 
       <h3>📋 核心规格表</h3>
       <table class="spec-table">
@@ -524,6 +569,17 @@ const reports = {
       <p>2026年5月21日，小米召开5月新品发布会，重磅推出 <strong>小米17 Max</strong>——定位大屏标准版旗舰。这是小米17系列的Max版本，6.9寸极窄四等边大直屏+徕卡影像+8000mAh金沙江电池的组合，在当前大屏旗舰市场几乎没有直接竞品。同场还发布了Redmi性价比新机和多款生态硬件。</p>
       <div class="highlight-box">🎯 核心关键词：6.9寸极窄四等边大直屏 · 徕卡2亿像素三摄 · 8000mAh金沙江电池 · 骁龙8至尊版Gen5 · 4299元起（国补）</div>
 
+      <h3>📸 产品图赏</h3>
+      <div class="product-gallery">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F18504762j00tfecem00h0c000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 外观" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F62122dc3j00tfeclh004ac001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 屏幕" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fe4980c98j00tfecen009yc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 徕卡影像" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ff237a4baj00tfeclr002rc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 潜望镜头" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ffa1cd67ej00tfeceo007mc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 续航" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fa7028a22j00tfeclz003mc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 细节" loading="lazy">
+      </div>
+      <p class="img-caption">点击图片查看大图 · 图片来源：网易数码</p>
+
       <h3>📋 核心规格表</h3>
       <table class="spec-table">
         <tr><th>项目</th><th>参数</th></tr>
@@ -591,6 +647,17 @@ const reports = {
       <h3>🎬 发布会概要</h3>
       <p>2026年5月25日19:00，荣耀在厦门举办<strong>「4K Live星光毕业歌会」</strong>主题发布会，正式推出荣耀600系列三款新机——Pro版、超级版、元气版。同场还发布了荣耀平板20、Earbuds耳夹式耳机Pro、手表6 Plus三款生态产品。代言人肖战到场助阵。</p>
       <div class="highlight-box">🎯 核心关键词：全焦段4K Live直出 · 0.98mm极窄四等边 · 8600mAh青海湖电池 · 2294元起（国补）· 肖战代言</div>
+
+      <h3>📸 产品图赏</h3>
+      <div class="product-gallery">
+        <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/a116-bfa8cb181d2786fb4af4678183deb63a.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 青苹果配色" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/4b4d-206b40ecbf4844d895ff2ecba9c894e7.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 外观细节" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/44bb-77416d92daa2cdb807b84c9399bb7fe4.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 背面设计" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/4912-3757962399c80dd663f8a09c8fe1e74c.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星配色" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/5c52-4413dc2e55d382837c765db6a2ffb88b.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星细节" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/1da3-42ccdb52af6381ecaad415d88952f11e.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 猫眼双子星环" loading="lazy">
+      </div>
+      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技</p>
 
       <h3>📋 三款机型规格对比</h3>
       <table class="spec-table">
@@ -668,6 +735,17 @@ const reports = {
       <p>2026年5月25日18:00，OPPO举办<strong>「Reno Land奇幻夜」</strong>主题发布会，重磅推出OPPO Reno16系列潮流手机，同场还发布了OPPO Pad 6平板、OPPO Pad Air5学习平板、Enco Air5s耳机、Bubble潮玩自拍屏等多款新品。代言人宋雨琦活力助阵。</p>
       <div class="highlight-box">🎯 核心关键词：3D悬浮星球工艺（行业首创）· 2亿像素三摄 · 实况随心贴 · 6.32寸小直屏188g · 2999元起（国补）</div>
 
+      <h3>📸 产品图赏</h3>
+      <div class="product-gallery">
+        <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/ba06-0a5067b3ca1cbde1b3d1fb69bd02c9e1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 正面外观" loading="lazy">
+        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/d9a4-b2bbd949522bd29f55fead45f8640bbb.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 3D悬浮星球" loading="lazy">
+        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/b3cf-b33033fbb944fb6747ddbed749c7c2f1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 星环颗粒" loading="lazy">
+        <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/131c-72693f29313defc6c4715702e12ee9bf.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 悬浮效果" loading="lazy">
+        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/7455-7dd3cd8ac0a5776f4f1b59f924554ac4.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 摄像头模组" loading="lazy">
+        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/a063-0a83b0cb561a0d590d468a3eac46fdac.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 屏幕点亮" loading="lazy">
+      </div>
+      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技/IT之家</p>
+
       <h3>📋 两款机型规格对比</h3>
       <table class="spec-table">
         <tr><th>项目</th><th>Reno16 标准版</th><th>Reno16 Pro</th></tr>
@@ -742,6 +820,17 @@ const reports = {
       <h3>🎬 发布会概要</h3>
       <p>2026年2月26日凌晨，三星举办<strong>Galaxy Unpacked</strong>全球发布会，正式推出Galaxy S26系列三款旗舰——S26、S26+、S26 Ultra。这是2026年安卓阵营首款重磅旗舰，全系搭载第五代骁龙8至尊版for Galaxy定制芯片，S26 Ultra更是带来了<strong>行业首创硬件防窥屏</strong>。</p>
       <div class="highlight-box">🎯 核心关键词：骁龙8至尊for Galaxy · 硬件防窥屏(Ultra) · S Pen(Ultra) · Galaxy AI第三代 · 7年更新承诺</div>
+
+      <h3>📸 产品图赏</h3>
+      <div class="product-gallery">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Fae88b8a1j00tb13zw00bid000go00b3g.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 正面" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F6b298f29j00tb13zw005ad000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 背面" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Ff63a67cfj00tb13zw007bd000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 侧面" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F860488a7j00tb13zw008ud000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra S Pen" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Faf2bfda0j00tb13zw007md000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 影像系统" loading="lazy">
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Ff3e86830j00tb13zw008ad000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 细节" loading="lazy">
+      </div>
+      <p class="img-caption">点击图片查看大图 · 图片来源：网易数码</p>
 
       <h3>📋 三款机型规格对比</h3>
       <table class="spec-table">
@@ -837,6 +926,15 @@ function closeReport(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeReport();
 });
+
+// === Lightbox ===
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+}
 
 // === 筛选逻辑 ===
 (function() {
