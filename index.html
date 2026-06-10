@@ -163,6 +163,208 @@
   .report-body .img-caption {
     font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
   }
+
+  /* === 报告内容：杂志式升级 === */
+  .report-body {
+    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
+    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
+    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
+    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
+    --r-dark: #0b0b0f; --r-tile: #17181d;
+    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
+    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
+    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
+    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .report-body > *:first-child { margin-top: 0; }
+
+  /* Hero 头部 */
+  .report-body .r-hero {
+    background: var(--r-dark); color: #fff; border-radius: 16px;
+    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
+  }
+  .report-body .r-hero::before {
+    content:''; position:absolute; inset:0; background:
+      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
+      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
+      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
+  }
+  .report-body .r-hero > * { position: relative; }
+  .report-body .r-hero .r-eyebrow {
+    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
+    text-transform:uppercase; margin-bottom:14px;
+  }
+  .report-body .r-hero h3 {
+    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
+    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
+  }
+  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-hero .r-sub {
+    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
+  }
+  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
+  .report-body .r-hero .r-chips span {
+    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  }
+
+  /* Bento 摘要网格 */
+  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
+  .report-body .r-bt {
+    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .report-body .r-bt-hero {
+    grid-column: span 2; background:
+      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
+      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
+  }
+  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
+  .report-body .r-bt .bt-num {
+    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
+    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
+  }
+  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
+  .report-body .r-bt-hero .bt-headline {
+    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
+  }
+  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
+
+  /* 章节带 */
+  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
+  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .report-body .r-chapter .ch-num {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
+    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
+  }
+  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
+  .report-body .r-chapter .ch-title {
+    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
+  }
+  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
+
+  /* 功能条目 */
+  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
+  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
+  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
+  .report-body .r-f-meta .f-idx {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
+    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
+  }
+  .report-body .r-f-meta .f-tag {
+    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
+    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
+  }
+  .report-body .r-feat h3 {
+    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
+    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
+  }
+  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
+  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
+  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
+  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
+  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
+
+  /* 图文并排 */
+  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
+
+  /* 图片卡片 */
+  .report-body .r-fig {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; position:relative;
+  }
+  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
+  .report-body .r-fig img:hover { transform:scale(1.02); }
+  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
+  .report-body .r-fig .m-badge {
+    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
+    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  }
+
+  /* 画廊网格 */
+  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
+  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
+  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
+  .report-body .r-gtile {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; display:flex; flex-direction:column;
+  }
+  .report-body .r-gtile .g-box {
+    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  }
+  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
+  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
+  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
+  .report-body .r-gtile .m-badge { top:10px; left:10px; }
+
+  /* 全幅图 */
+  .report-body .r-wide {
+    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  }
+  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
+  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
+
+  /* 点评 / 分析 Note */
+  .report-body .r-note {
+    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  }
+  .report-body .r-note .note-l {
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
+    text-transform:uppercase; margin-bottom:5px;
+  }
+  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
+  .report-body .r-note-c {
+    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
+  }
+  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
+  .report-body .r-note-c .note-t { color:#2d3357; }
+  .report-body .r-note-a {
+    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
+  }
+  .report-body .r-note-a .note-l { color:var(--r-amber); }
+  .report-body .r-note-a .note-t { color:#5d3c10; }
+  .report-body .r-note-t strong { font-weight:800; }
+
+  /* Key Takeaways */
+  .report-body .r-take {
+    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
+    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
+    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  }
+  .report-body .r-take:first-child { margin-top:24px; }
+  .report-body .r-take-n {
+    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
+    letter-spacing:-.02em; flex:none;
+    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
+  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+
+  /* 规格表升级 */
+  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
+  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
+  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
+
+  /* 价格卡升级 */
+  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
+  .report-body .price-card strong { font-size:17px; }
+
+  /* highlight-box 升级 */
+  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
+
+  /* 覆盖旧样式 */
+  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
+  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
+  .report-body ul { padding-left:20px; margin-bottom:12px; }
+  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
+  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
+  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
+  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
+  .report-body .pro-con > div { padding:16px; border-radius:12px; }
+  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
+  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
   /* Lightbox for enlarged view */
   .lightbox {
     position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
@@ -183,6 +385,15 @@
     .report-header h2 { font-size: 17px; }
     .report-body { padding: 18px 20px 28px; }
     .report-body .pro-con { grid-template-columns: 1fr; }
+    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
+    .report-body .r-bento { grid-template-columns:1fr; }
+    .report-body .r-bt-hero { grid-column:auto; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
+    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
+    .report-body .r-hero { padding:28px 20px 24px; }
+    .report-body .r-hero h3 { font-size:22px; }
+    .report-body .r-feat h3 { font-size:19px; }
+    .report-body .r-chapter .ch-title { font-size:20px; }
   }
 </style>
 </head>
@@ -611,813 +822,1720 @@
 const reports = {
   iqoo15t: {
     title: 'iQOO 15T 发布会报告',
-    html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年5月20日，iQOO 在线上召开新品发布会，正式推出 iQOO 15T——定位<strong>「游戏视效超强的性能旗舰」</strong>。这是 iQOO 15 系列继去年10月标准版后的又一重磅产品，全球首发联发科天玑9500 Monster版处理器。</p>
-      <div class="highlight-box">🎯 核心关键词：天玑9500 Monster版全球首发 · 2K 144Hz珠峰屏 · 8000mAh+100W · 3299元起（国补）</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNbiCIHUNjAAW9fNVp-mMAAId-AFnFScABb2U090.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 外观" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNacuIC474AAH2NmsJnnwAAId8gA2b8MAAfZO450.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 设计" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZzmIZsSpAAC9Duy96jgAAId8AJEcNcAAL0m323.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 屏幕" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNY92IK5kXAAfEasYvpI8AAId7wAroi0AB8SC401.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 性能" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZWGIKQHTAAEwD0xd1r8AAId7wMXaV4AATAn242.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 芯片" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZZ-IfpMuAAEsDS6wiBYAAId7wOEHhEAASwl480.jpg" onclick="openLightbox(this.src)" alt="iQOO 15T 影像" loading="lazy">
+    html: ``      <div class="r-hero">
+        <div class="r-eyebrow">2026年5月20日 · 线上发布 · iQOO</div>
+        <h3>iQOO 15T：<span class="g">游戏视效超强的性能旗舰</span></h3>
+        <div class="r-sub">全球首发天玑9500 Monster版，2K 144Hz珠峰屏 + 8000mAh大电池，3299元起重塑性能旗舰性价比天花板</div>
+        <div class="r-chips"><span>天玑9500M</span><span>2K 144Hz</span><span>8000mAh</span><span>¥3299起</span><span>电竞芯片</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：ZOL中关村在线</p>
 
-      <h3>📋 核心规格表</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>参数</th></tr>
-        <tr><td>处理器</td><td>天玑9500 Monster版（3nm）+ 自研Q3电竞芯片</td></tr>
-        <tr><td>屏幕</td><td>6.82英寸 2K 144Hz 珠峰屏</td></tr>
-        <tr><td>内存/存储</td><td>LPDDR5X + UFS 4.1</td></tr>
-        <tr><td>电池</td><td>8000mAh</td></tr>
-        <tr><td>充电</td><td>100W有线快充</td></tr>
-        <tr><td>主摄</td><td>2亿像素 + 5000万超广角</td></tr>
-        <tr><td>前置</td><td>1600万</td></tr>
-        <tr><td>指纹</td><td>—</td></tr>
-        <tr><td>防水</td><td>—</td></tr>
-      </table>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">12+256G<br><strong>¥3299</strong> <span class="orig">¥3799</span><br><small>国补后</small></div>
-      <div class="price-card">16+256G<br><strong>¥4199</strong> <span class="orig">¥4699</span></div>
-      <div class="price-card">12+512G<br><strong>¥4499</strong> <span class="orig">¥4999</span></div>
-      <div class="price-card">16+512G<br><strong>¥4899</strong> <span class="orig">¥5399</span></div>
-      <div class="price-card">16+1TB<br><strong>¥5699</strong> <span class="orig">¥6199</span></div>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>天玑9500 Monster版全球首发</strong>：联发科为iQOO定制的专属频率版本，性能超越标准天玑9500</li>
-        <li><strong>2K 144Hz珠峰屏</strong>：同档位唯一坚持2K分辨率+144Hz刷新率的性能旗舰，竞品纷纷回退1.5K</li>
-        <li><strong>自研Q3电竞芯片</strong>：插帧、超分、视效增强三合一，游戏场景深度优化</li>
-        <li><strong>8000mAh+100W组合</strong>：大电池+快充双保险，游戏场景续航无忧</li>
-        <li><strong>3299元国补起售价</strong>：性价比极具攻击性，同档位几乎没有对手</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>天玑9500M性能天花板</li>
-            <li>2K 144Hz屏同档唯一</li>
-            <li>8000mAh+100W组合优秀</li>
-            <li>3299元性价比极高</li>
-            <li>Q3电竞芯片深度优化</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-num">3299<span>元起</span></div>
+          <div>国补后入手价 · 同档位性价比之王</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>无无线充电</li>
-            <li>无潜望长焦</li>
-            <li>电竞标签限制人群</li>
-            <li>无IP68防水</li>
-            <li>影像系统偏弱</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-num">2亿<span>像素</span></div>
+          <div>主摄规格</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">8000<span>mAh</span></div>
+          <div>电池容量</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">144<span>Hz</span></div>
+          <div>屏幕刷新率</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">100<span>W</span></div>
+          <div>有线快充</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>🎮 <strong>重度手游玩家</strong>：天玑9500M+Q3芯片+100W快充，游戏无短板</li>
-        <li>💰 <strong>性价比性能党</strong>：3299元拿到旗舰SoC+2K屏+8000mAh</li>
-        <li>📹 <strong>电竞内容创作者</strong>：大电池+快充+持续高性能输出</li>
-      </ul>
-      <div class="highlight-box">💡 618预测到手价：¥2999，性价比将进一步放大</div>
+      <div class="r-chapter">
+        <div class="ch-num">01</div>
+        <div class="ch-kick">Performance</div>
+        <h3 class="ch-title">Monster级性能释放</h3>
+        <div class="ch-intro">iQOO 15T 搭载联发科为游戏场景深度定制的天玑9500 Monster版处理器，配合自研 Q3 电竞芯片，在性能释放和游戏体验上做到了同档位的极致。</div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">芯片</span></div>
+          <h3>天玑9500 Monster版全球首发</h3>
+          <p>这是联发科专门为 iQOO 定制的专属频率版本，基于台积电3nm工艺制程。相比标准版天玑9500，Monster版的CPU和GPU频率均有提升，尤其在 sustained performance（持续性能输出）方面表现突出——这对长时间高负载游戏场景至关重要。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZWGIKQHTAAEwD0xd1r8AAId7wMXaV4AATAn242.jpg" alt="iQOO 15T 天玑9500M芯片" loading="lazy">
+            <figcaption>天玑9500 Monster版 · 性能核心</figcaption>
+          </figure>
+          <div>
+            <div class="r-feat">
+              <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">电竞</span></div>
+              <h3>自研Q3电竞芯片：插帧·超分·视效增强三合一</h3>
+              <p>iQOO第三代自研电竞芯片Q3承担着游戏体验的「第二引擎」角色。它可以在不增加主SoC负担的前提下，实现游戏帧率插帧至144Hz、分辨率超分至2K、以及画面视效增强（色彩饱和度、对比度动态调整）。这意味着即便原生不支持高帧率或高分辨率的游戏，也能通过Q3芯片获得旗舰级的视觉体验。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">天玑9500M+Q3双芯组合是iQOO 15T最大的差异化卖点。在当前安卓阵营中，能同时做到「定制高频SoC+独立电竞芯片」的机型凤毛麟角。这套组合的实际意义在于：不仅跑分好看，更能在《原神》《崩坏：星穹铁道》等重载游戏中保持稳定帧率和较低发热——这才是玩家真正关心的。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">02</div>
+        <div class="ch-kick">Display</div>
+        <h3 class="ch-title">珠峰屏幕：同档唯一2K+144Hz</h3>
+        <div class="ch-intro">当竞品纷纷在标准版性能旗舰上回退到1.5K分辨率时，iQOO 15T 坚持使用2K 144Hz珠峰屏，这块屏幕本身就是产品力的有力证明。</div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZzmIZsSpAAC9Duy96jgAAId8AJEcNcAAL0m323.jpg" alt="iQOO 15T 2K 144Hz屏幕" loading="lazy">
+            <figcaption>6.82英寸 2K 144Hz 珠峰屏</figcaption>
+            <span class="m-badge">同档唯一</span>
+          </figure>
+          <div>
+            <div class="r-feat">
+              <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">屏幕</span></div>
+              <h3>6.82英寸 2K 分辨率 + 144Hz 刷新率</h3>
+              <p>这块6.82英寸的珠峰屏采用LTPO自适应刷新率技术，支持1Hz到144Hz的无级调节。2K分辨率意味着PPI超过500，文字和画面的精细程度远超1.5K竞品。对于游戏玩家而言，高刷新率带来的操作流畅感知是实实在在的竞技优势；对于日常使用，高分辨率的细腻观感则是越用越喜欢的「回不去」体验。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">03</div>
+        <div class="ch-kick">Battery & Camera</div>
+        <h3 class="ch-title">续航与影像：取舍之间见定位</h3>
+        <div class="ch-intro">8000mAh超大电池是2026年性能旗舰的新标配，但iQOO 15T在影像上的取舍也清晰地传达了它的产品定位——游戏第一，拍照够用就好。</div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
+          <h3>8000mAh + 100W 有线快充</h3>
+          <p>8000mAh电池让iQOO 15T轻松应对全天候重度使用。《原神》最高画质一小时耗电约18%，意味着从早玩到晚完全可行。100W有线快充可在约28分钟内充满，充电速度处于行业主流偏上水平。但需要注意的是，本机<strong>不支持无线充电</strong>——这是成本控制的直接体现。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZZ-IfpMuAAEsDS6wiBYAAId7wOEHhEAASwl480.jpg" alt="iQOO 15T 影像系统" loading="lazy">
+            <figcaption>2亿像素主摄 + 5000万超广角</figcaption>
+          </figure>
+          <div>
+            <div class="r-feat">
+              <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">影像</span></div>
+              <h3>2亿像素主摄，但无潜望长焦</h3>
+              <p>影像配置采用2亿像素主摄+5000万超广角的组合，主摄传感器尺寸达到1/1.4英寸，白天成像质量不错，夜景也有一定竞争力。然而<strong>没有潜望长焦镜头</strong>是一个明显的短板——这意味着变焦能力仅限于数码裁切，3倍以上变焦画质下降明显。对于一款主打游戏的手机来说，这种取舍可以理解，但如果你对摄影有一定要求，需要做好心理准备。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">iQOO 15T的产品策略非常清晰：把预算集中在性能、屏幕、续航这三个游戏用户最关心的维度，而在无线充电、潜望长焦、IP68防水等「锦上添花」的功能上做减法。如果你是重度手游玩家或追求极致性价比的性能党，这些取舍完全合理；但如果你希望一台手机面面俱到，可能需要看看其他选项。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">04</div>
+        <div class="ch-kick">Design</div>
+        <h3 class="ch-title">外观与做工</h3>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNbiCIHUNjAAW9fNVp-mMAAId-AFnFScABb2U090.jpg" alt="iQOO 15T 外观设计" loading="lazy">
+            <figcaption>iQOO 15T 整体外观</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNacuIC474AAH2NmsJnnwAAId8gA2b8MAAfZO450.jpg" alt="iQOO 15T 设计细节" loading="lazy">
+            <figcaption>赛道传奇风格设计语言</figcaption>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">设计</span></div>
+          <h3>延续赛道传奇，电竞基因鲜明</h3>
+          <p>iQOO 15T延续了标志性的赛道传奇设计语言，机身线条硬朗，摄像头模组区域有独特的像素风格装饰。整体辨识度很高，一眼就能看出是iQOO的游戏旗舰。但也正因为如此，它的目标人群相对明确——年轻、爱玩游戏、喜欢张扬设计的用户群体。</p>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">05</div>
+        <div class="ch-kick">Pricing</div>
+        <h3 class="ch-title">价格与选购建议</h3>
+
+        <table class="spec-table">
+          <tr><th>版本</th><th>原价</th><th>国补后</th></tr>
+          <tr><td>12+256G</td><td>¥3799</td><td><strong>¥3299</strong></td></tr>
+          <tr><td>16+256G</td><td>¥4699</td><td><strong>¥4199</strong></td></tr>
+          <tr><td>12+512G</td><td>¥4999</td><td><strong>¥4499</strong></td></tr>
+          <tr><td>16+512G</td><td>¥5399</td><td><strong>¥4899</strong></td></tr>
+          <tr><td>16+1TB</td><td>¥6199</td><td><strong>¥5699</strong></td></tr>
+        </table>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐16+512G ¥4899版本</strong>：16GB运行内存确保多任务和游戏后台保活无忧，512GB存储足以容纳大型游戏+日常应用。12+256G入门版虽然只要3299元极具吸引力，但对于打算长期使用的游戏玩家来说，256GB存储可能会在未来1-2年内显得捉襟见肘。</div></div>
+      </div>
+
+      <div class="r-take">
+        <h3 class="take-t">核心结论</h3>
+        <div class="take-card">
+          <h4>性能旗舰新标杆</h4>
+          <p>天玑9500M+Q3电竞芯片的组合在同档位几乎没有对手，尤其适合追求极致游戏体验的用户。</p>
+        </div>
+        <div class="take-card">
+          <h4>2K屏稀缺性价值</h4>
+          <p>当竞品全面退守1.5K时，坚持2K 144Hz让iQOO 15T成为注重屏幕品质用户的几乎唯一选择。</p>
+        </div>
+        <div class="take-card">
+          <h4>取舍明确的定位</h4>
+          <p>砍掉无线充电、潜望长焦、IP68来换价格优势，产品逻辑清晰——适合目标用户，不适合追求全能者。</p>
+        </div>
+        <div class="take-card">
+          <h4>618值得蹲</h4>
+          <p>预测到手价可下探至¥2999左右，届时3K档位拿到这个配置，性价比将进一步放大。</p>
+        </div>
+      </div>
     `
   },
 
   mi17max: {
     title: '小米17 Max 发布会报告',
-    html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年5月21日，小米召开5月新品发布会，重磅推出 <strong>小米17 Max</strong>——定位大屏标准版旗舰。这是小米17系列的Max版本，6.9寸极窄四等边大直屏+徕卡影像+8000mAh金沙江电池的组合，在当前大屏旗舰市场几乎没有直接竞品。同场还发布了Redmi性价比新机和多款生态硬件。</p>
-      <div class="highlight-box">🎯 核心关键词：6.9寸极窄四等边大直屏 · 徕卡2亿像素三摄 · 8000mAh金沙江电池 · 骁龙8至尊版Gen5 · 4299元起（国补）</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F18504762j00tfecem00h0c000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 外观" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F62122dc3j00tfeclh004ac001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 屏幕" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fe4980c98j00tfecen009yc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 徕卡影像" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ff237a4baj00tfeclr002rc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 潜望镜头" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ffa1cd67ej00tfeceo007mc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 续航" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fa7028a22j00tfeclz003mc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="小米17 Max 细节" loading="lazy">
+    html: ``      <div class="r-hero">
+        <div class="r-eyebrow">2026年5月21日 · 北京 · 小米</div>
+        <h3>小米17 Max：<span class="g">大屏标准版旗舰</span></h3>
+        <div class="r-sub">6.9寸极窄四等边大直屏 + 徕卡2亿像素三摄 + 8000mAh金沙江电池，4299元起的大屏旗舰几乎无竞品</div>
+        <div class="r-chips"><span>6.9寸大直屏</span><span>徕卡影像</span><span>8000mAh</span><span>骁龙8Gen5</span><span>¥4299起</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：网易数码</p>
 
-      <h3>📋 核心规格表</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>参数</th></tr>
-        <tr><td>处理器</td><td>第五代骁龙8至尊版 + LPDDR5X + UFS 4.1</td></tr>
-        <tr><td>屏幕</td><td>6.9英寸大直屏 · 1.28mm极窄四等边 · 95.4%屏占比 · 3500nit峰值亮度</td></tr>
-        <tr><td>电池</td><td>8000mAh 金沙江电池</td></tr>
-        <tr><td>充电</td><td>100W有线 + 50W无线</td></tr>
-        <tr><td>主摄</td><td>徕卡光学三摄 · 2亿像素主摄(1/1.4" f/1.65)</td></tr>
-        <tr><td>长焦</td><td>70mm潜望中焦 · 3x/6x无损变焦</td></tr>
-        <tr><td>指纹</td><td>3D超声波指纹</td></tr>
-        <tr><td>后盖</td><td>龙鳞纤维后盖</td></tr>
-        <tr><td>系统</td><td>HyperOS 3</td></tr>
-      </table>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">起步价<br><strong>¥4299</strong> <span class="orig">¥4799</span><br><small>国补后</small></div>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>6.9寸极窄四等边大直屏</strong>：1.28mm边框+95.4%屏占比，大屏旗舰唯一选择</li>
-        <li><strong>徕卡光学三摄</strong>：2亿像素主摄+70mm潜望中焦，徕卡调色加持出片质感</li>
-        <li><strong>8000mAh金沙江电池</strong>：大屏+大电池，续航焦虑终结者</li>
-        <li><strong>100W有线+50W无线</strong>：充电方式齐全，无短板</li>
-        <li><strong>骁龙8至尊版Gen5</strong>：当前最强安卓处理器</li>
-        <li><strong>龙鳞纤维后盖</strong>：辨识度极高，手感独特</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>6.9寸大屏旗舰唯一选择</li>
-            <li>徕卡联名影像调性高</li>
-            <li>1.28mm极窄四等边顶级观感</li>
-            <li>100W+50W无线齐全</li>
-            <li>龙鳞纤维后盖辨识度高</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-num">4299<span>元起</span></div>
+          <div>国补后入手价 · 大屏旗舰唯一选择</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>大屏重量可能突破220g</li>
-            <li>6.9寸对部分用户嫌大</li>
-            <li>女性用户覆盖较弱</li>
-            <li>"全能"但缺少单一记忆点</li>
-            <li>大屏用户群体相对小众</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-num">6.9<span>英寸</span></div>
+          <div>屏幕尺寸</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">2亿<span>像素</span></div>
+          <div>徕卡主摄</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">8000<span>mAh</span></div>
+          <div>金沙江电池</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">1.28<span>mm</span></div>
+          <div>四等边窄边框</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>📸 <strong>影像全能型用户</strong>：徕卡调色+200MP+大屏预览，创作全流程覆盖</li>
-        <li>💼 <strong>商务续航党</strong>：8000mAh+100W+大屏多任务，出差神器</li>
-        <li>🏠 <strong>小米生态用户</strong>：HyperOS+小米汽车/家居无缝协同</li>
-      </ul>
-      <div class="highlight-box">💡 618预测到手价：¥3799，4K档全能旗舰</div>
+      <div class="r-chapter">
+        <div class="ch-num">01</div>
+        <div class="ch-kick">Display</div>
+        <h3 class="ch-title">6.9寸极窄四等边：大屏党的终极答案</h3>
+        <div class="ch-intro">在所有主流品牌都放弃超大屏旗舰的2026年，小米17 Max 的6.9寸极窄四等边大直屏几乎是市场上的唯一选择。</div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F62122dc3j00tfeclh004ac001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 6.9寸大屏" loading="lazy">
+            <figcaption>6.9英寸 极窄四等边大直屏</figcaption>
+            <span class="m-badge">95.4%屏占比</span>
+          </figure>
+          <div>
+            <div class="r-feat">
+              <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">屏幕</span></div>
+              <h3>1.28mm极窄边框 + 95.4%屏占比</h3>
+              <p>这块6.9英寸的大直屏采用了目前行业最先进的封装工艺，将四边边框压缩至仅1.28mm，实现了95.4%的超高屏占比。3500nit的峰值亮度确保户外强光下依然清晰可见。对于习惯大屏浏览、多任务分屏、或者单纯喜欢「大就是爽」的用户来说，这块屏幕的视觉冲击力是中小屏机型无法比拟的。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">大屏旗舰市场已经很久没有新鲜血液了。三星Galaxy S Ultra系列虽然也大，但价格动辄8000+；其他品牌基本退守6.7-6.8寸区间。小米17 Max以4299元的价格切入，本质上是在做一个「大屏平权」的产品策略——让喜欢大屏但预算有限的用户有了真正值得考虑的选择。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">02</div>
+        <div class="ch-kick">Camera</div>
+        <h3 class="ch-title">徕卡光学三摄：大屏+专业影像的罕见组合</h3>
+        <div class="ch-intro">通常大屏机型的影像系统会有所妥协，但小米17 Max 搭载了完整的徕卡光学三摄，包括2亿像素主摄和70mm潜望中焦镜头。</div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">主摄</span></div>
+          <h3>2亿像素徕卡主摄（1/1.4" f/1.65）</h3>
+          <p>这颗主摄采用1/1.4英寸大底传感器，支持像素九合一技术。f/1.65的大光圈保证了充足的进光量，夜景拍摄表现优秀。配合徕卡经典的色彩调校，成片自带一种「德味」——色彩真实而不艳俗，对比度克制而有层次。2亿像素的高分辨率也为后期裁切提供了充足的空间。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fe4980c98j00tfecen009yc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 徕卡三摄" loading="lazy">
+            <figcaption>徕卡光学三摄模组</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ff237a4baj00tfeclr002rc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 潜望长焦" loading="lazy">
+            <figcaption>70mm潜望中焦镜头</figcaption>
+            <span class="m-badge">3x/6x无损变焦</span>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">长焦</span></div>
+          <h3>70mm潜望中焦：人像与远景双优</h3>
+          <p>70mm等效焦距是摄影界公认的「黄金人像焦段」。这颗潜望中焦镜头支持3倍和6倍无损光学变焦，拍人像时能获得自然的透视压缩感（不会像主摄广角那样产生面部畸变），拍远景时画质损失远小于数码变焦。对于喜欢摄影的用户来说，这是比数字参数更实在的体验升级。</p>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">03</div>
+        <div class="ch-kick">Performance & Battery</div>
+        <h3 class="ch-title">性能与续航：水桶机的标准答案</h3>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">芯片</span></div>
+          <h3>第五代骁龙8至尊版</h3>
+          <p>搭载当前安卓阵营最强处理器——第五代骁龙8至尊版（Snapdragon 8 Elite Gen 5）。无论是日常应用的流畅度、大型3D游戏的帧率稳定性，还是AI计算任务的响应速度，都处于行业第一梯队。配合LPDDR5X内存和UFS 4.1闪存组成了完整的性能铁三角，未来3-4年的性能冗余有保障。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ffa1cd67ej00tfeceo007mc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 续航" loading="lazy">
+            <figcaption>8000mAh 金沙江电池</figcaption>
+          </figure>
+          <div>
+            <div class="r-feat">
+              <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">续航</span></div>
+              <h3>8000mAh金沙江电池 + 100W/50W双快充</h3>
+              <p>8000mAh的金沙江电池让小米17 Max成为真正的「续航焦虑终结者」。正常使用强度下可以轻松坚持两天一充；即便是重度使用（游戏+视频+导航），一天也完全没问题。100W有线快充约35分钟充满，50W无线快充则提供了桌面办公场景下的便捷补电能力——这在同价位产品中是比较少见的配置组合。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">04</div>
+        <div class="ch-kick">Design & Build</div>
+        <h3 class="ch-title">龙鳞纤维后盖：辨识度拉满</h3>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F18504762j00tfecem00h0c000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 整体外观" loading="lazy">
+            <figcaption>小米17 Max 正面观感</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fa7028a22j00tfeclz003mc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 细节" loading="lazy">
+            <figcaption>龙鳞纤维后盖纹理</figcaption>
+            <span class="m-badge">独家材质</span>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">设计</span></div>
+          <h3>龙鳞纤维后盖：科技感与手感的平衡</h3>
+          <p>小米为17 Max研发了全新的龙鳞纤维后盖材质，表面呈现出独特的鳞片状纹理，不仅视觉上极具辨识度，实际手感也相当出色——既有类似素皮的防滑特性，又具备接近玻璃的耐磨性。不过需要提醒的是，6.9寸大屏+大电池的组合意味着整机重量可能超过220g，单手操作会比较吃力，建议线下体验后再做决定。</p>
+        </div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>重量是大屏旗舰无法回避的问题</strong>。如果你之前没用过200g以上的手机，220g左右的握持感可能需要适应期。另外，6.9寸屏幕对女性用户或手小的用户来说确实偏大。强烈建议去小米之家实际上手体验半小时以上，确认自己能接受尺寸和重量再下单。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">05</div>
+        <div class="ch-kick">Pricing</div>
+        <h3 class="ch-title">价格策略与选购建议</h3>
+
+        <table class="spec-table">
+          <tr><th>版本</th><th>原价</th><th>国补后</th></tr>
+          <tr><td>起步价（12+256G）</td><td>¥4799</td><td><strong>¥4299</strong></td></tr>
+        </table>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">小米17 Max 目前只公布了一个起步价，具体存储版本和完整价格体系预计会在后续渠道逐步完善。4299元的起步价相比同配置的小米17标准版贵了约800-1000元，这个溢价主要来自：大屏、更大电池、以及相对稀缺的市场定位。考虑到市面上几乎没有直接竞品，这个定价是有一定话语权的。</div></div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>618值得关注但不急抢</strong>：预测618期间到手价可能在¥3799-3999区间。如果不在意首发权益（赠品、分期免息等），等一等618大概率会更划算。但如果你是大屏刚需用户且当前手机已不堪重负，早买早享受也是合理的——毕竟这款产品的核心价值在于「大屏+全能」，而不是便宜几百块钱。</div></div>
+      </div>
+
+      <div class="r-take">
+        <h3 class="take-t">核心结论</h3>
+        <div class="take-card">
+          <h4>大屏旗舰市场独苗</h4>
+          <p>6.9寸极窄四等边在当前市场几乎没有替代品，大屏党终于有了一个价位合理的选择。</p>
+        </div>
+        <div class="take-card">
+          <h4>影像不缩水</h4>
+          <p>徕卡2亿像素三摄+70mm潜望中焦，影像配置达到了旗舰水准，不是大屏机常见的「够用就行」水平。</p>
+        </div>
+        <div class="take-card">
+          <h4>重量是最大门槛</h4>
+          <p>预估超220g的重量加上6.9寸的尺寸，对部分用户来说是物理层面的劝退，务必线下体验。</p>
+        </div>
+        <div class="take-card">
+          <h4>618有望到3799</h4>
+          <p>预测618期间价格可下探至3799-3999元，届时性价比将进一步凸显，适合观望型用户出手。</p>
+        </div>
+      </div>
     `
   },
 
   honor600: {
     title: '荣耀600系列 发布会报告',
     html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年5月25日19:00，荣耀在厦门举办<strong>「4K Live星光毕业歌会」</strong>主题发布会，正式推出荣耀600系列三款新机——Pro版、超级版、元气版。同场还发布了荣耀平板20、Earbuds耳夹式耳机Pro、手表6 Plus三款生态产品。代言人肖战到场助阵。</p>
-      <div class="highlight-box">🎯 核心关键词：全焦段4K Live直出 · 0.98mm极窄四等边 · 8600mAh青海湖电池 · 2294元起（国补）· 肖战代言</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/a116-bfa8cb181d2786fb4af4678183deb63a.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 青苹果配色" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/4b4d-206b40ecbf4844d895ff2ecba9c894e7.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 外观细节" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/44bb-77416d92daa2cdb807b84c9399bb7fe4.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 背面设计" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/4912-3757962399c80dd663f8a09c8fe1e74c.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星配色" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/5c52-4413dc2e55d382837c765db6a2ffb88b.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星细节" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/1da3-42ccdb52af6381ecaad415d88952f11e.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 猫眼双子星环" loading="lazy">
+      <div class="r-hero">
+        <div class="r-eyebrow">2026年5月25日 · 厦门 · 荣耀</div>
+        <h3>荣耀600系列：<span class="g">4K Live 微单革命</span></h3>
+        <div class="r-sub">全焦段4K Live直出 · 0.98mm极窄四等边 · 8600mAh青海湖电池 · 三档2294–3399元国补全覆盖，2亿像素4K Live首次下探2K档</div>
+        <div class="r-chips"><span>4K Live直出</span><span>0.98mm极窄边</span><span>8600mAh</span><span>2亿OIS</span><span>¥2294起</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技</p>
 
-      <h3>📋 三款机型规格对比</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>Pro版</th><th>超级版</th><th>元气版</th></tr>
-        <tr><td>处理器</td><td>骁龙8 Elite / 天玑8550 Elite</td><td>骁龙8S Gen4</td><td>—</td></tr>
-        <tr><td>屏幕</td><td>6.57" 1.5K 120Hz · 0.98mm极窄</td><td>同左</td><td>同左</td></tr>
-        <tr><td>电池</td><td>~9000mAh · 青海湖(932Wh/L)</td><td>8600mAh · 青海湖</td><td>—</td></tr>
-        <tr><td>有线充</td><td>80W</td><td>80W</td><td>—</td></tr>
-        <tr><td>无线充</td><td>✅ 50W</td><td>❌</td><td>❌</td></tr>
-        <tr><td>反向充</td><td>✅ 27W</td><td>—</td><td>—</td></tr>
-        <tr><td>主摄</td><td>2亿像素OIS</td><td>2亿像素</td><td>—</td></tr>
-        <tr><td>长焦</td><td>5000万潜望(3.5x光学)</td><td>—</td><td>—</td></tr>
-        <tr><td>前置</td><td>5000万4K实况</td><td>—</td><td>—</td></tr>
-        <tr><td>闪光灯</td><td>双对称AI变焦闪光灯（行业首创）</td><td>—</td><td>—</td></tr>
-        <tr><td>防水</td><td>IP68/69/69K</td><td>—</td><td>—</td></tr>
-        <tr><td>指纹</td><td>3D超声波</td><td>—</td><td>—</td></tr>
-        <tr><td>设计</td><td>3D星河美学 · 42颗钻闪四芒星</td><td>同左</td><td>同左</td></tr>
-      </table>
-      <p style="font-size:12px;color:#999;">全系标配：0.98mm极窄四等边绿洲护眼屏、4K Live直出、前置4K实况照片、NFC、双扬声器、双频GPS</p>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">元气版<br><strong>¥2294</strong> <span class="orig">¥2699</span><br><small>国补后</small></div>
-      <div class="price-card">超级版<br><strong>¥2804</strong> <span class="orig">¥3299</span><br><small>国补后</small></div>
-      <div class="price-card">Pro版<br><strong>¥3399</strong> <span class="orig">¥3899</span><br><small>国补后</small></div>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>全焦段4K Live直出</strong>：0.6x-7x光学品质全焦段4K Live直出，行业首创</li>
-        <li><strong>双对称AI变焦闪光灯</strong>：行业首创，暗光实况也能拍清</li>
-        <li><strong>0.98mm极窄四等边</strong>：当前手机最窄边框，视觉冲击力极强</li>
-        <li><strong>8600mAh青海湖电池</strong>：超级版搭载行业最大电池（Pro版约9000mAh更猛）</li>
-        <li><strong>首发前置4K实况照片</strong>：自拍也能拍实况</li>
-        <li><strong>3D星河美学设计</strong>：42颗钻闪四芒星后盖，辨识度拉满</li>
-        <li><strong>2294元起国补价</strong>：入门门槛极低，2亿像素+4K Live首次下探2K档</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>4K Live直出功能独特</li>
-            <li>0.98mm极窄边框行业最窄</li>
-            <li>8600-9000mAh续航领先</li>
-            <li>三档覆盖2294-3399元全价格带</li>
-            <li>元气版2294元入门极低</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-lab">核心结论</div>
+          <div class="bt-headline"><strong>4K Live</strong> 重新定义手机实况影像</div>
+          <div class="bt-sub">从0.6x超广角到7x长焦，全焦段4K Live直出，配合行业首创AI变焦闪光灯，暗光实况不再是禁区</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>三档定位差异不够清晰</li>
-            <li>超级版SoC弱于竞品旗舰</li>
-            <li>影像无联名品牌加持</li>
-            <li>充电80W偏保守</li>
-            <li>可能存在系列内互蚕</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-lab">起步价</div>
+          <div class="bt-num">2294<span>元</span></div>
+          <div class="bt-val">元气版国补后 · 2亿像素+4K Live首次破2K3</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">电池容量</div>
+          <div class="bt-num">8600<span>mAh</span></div>
+          <div class="bt-val">超级版青海湖电池 · Pro版约9000mAh更猛</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">边框宽度</div>
+          <div class="bt-num">0.98<span>mm</span></div>
+          <div class="bt-val">行业最窄四等边 · 视觉冲击力极强</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">光学变焦</div>
+          <div class="bt-num">3.5<span>x</span></div>
+          <div class="bt-val">Pro版潜望长焦 · 0.6x–7x光学品质覆盖</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>📱 <strong>社交媒体达人</strong>（Pro版）：4K Live直出+2亿OIS+AI闪光灯，发朋友圈/小红书神器</li>
-        <li>🔋 <strong>续航强迫症</strong>（超级版）：8600mAh两天一充，2804元</li>
-        <li>🎓 <strong>预算有限学生党</strong>（元气版）：2294元4K Live+大电池，入门越级体验</li>
-      </ul>
-      <div class="highlight-box">💡 618预测：元气版有望跌至¥1999，2亿像素手机首次破2000元</div>
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">LIVE IMAGING</span></div>
+        <h2 class="ch-title">4K Live直出：手机实况影像的质变</h2>
+        <p class="ch-intro">荣耀600系列最大的技术突破不在于硬件参数本身，而在于把「4K Live实况照片」从一个概念变成了一个全焦段可用的完整功能——这是2026年手机影像赛道最值得关注的技术路线之一。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">影像</span><span class="f-tag">行业首创</span></div>
+        <h3>全焦段4K Live直出：从0.6x到7x的完整覆盖</h3>
+        <p>目前市面上的Live实况照片功能，绝大多数只支持主摄拍摄，且分辨率被限制在1080P甚至更低。荣耀600 Pro做到了<strong>0.6x超广角到7x长焦的全焦段4K Live直出</strong>——这意味着无论你用超广角拍风景、主摄拍人像、还是长焦拍远景，都能生成4K分辨率的实况照片，而且可以在拍摄后自由选择最佳帧。这不是简单的参数堆叠，而是对用户拍摄场景的完整覆盖。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">4K Live的真正价值不在「4K」这个数字，而在于「全焦段」三个字。过去实况照片是主摄专属功能，长焦和超广角场景只能拍静态——这等于告诉你：想拍实况，只能用主摄。荣耀600 Pro打破了这个限制，让实况照片的使用场景从「偶尔拍拍」扩展到「随时可拍」。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">闪光灯</span><span class="f-tag">AI变焦</span></div>
+        <h3>双对称AI变焦闪光灯：暗光实况的最后一公里</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/1da3-42ccdb52af6381ecaad415d88952f11e.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 猫眼双子星环" loading="lazy">
+            <figcaption>猫眼双子星环 · 双对称AI变焦闪光灯</figcaption>
+            <span class="m-badge">行业首创</span>
+          </figure>
+          <div>
+            <p>这是本次发布会最被低估的技术创新。传统手机闪光灯只有一颗，照射角度固定——拍近处时过曝，拍远处时照不到。荣耀600 Pro首创<strong>双对称AI变焦闪光灯</strong>，两颗闪光灯可根据对焦距离智能调节功率和角度：拍近物时两灯低功率柔和补光，拍远景时高功率远距投射。配合AI算法实时调整色温，解决了「闪光灯拍出来像鬼片」的老大难问题。</p>
+            <p>这意味着<strong>暗光环境下也能拍4K Live实况照片</strong>——这才是完整的使用场景闭环。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">DISPLAY & BATTERY</span></div>
+        <h2 class="ch-title">极窄边框与超大电池：视觉与续航的双重越级</h2>
+        <p class="ch-intro">0.98mm四等边和8600mAh青海湖电池，分别代表了当前手机工业设计和电池技术的最前沿。这两个卖点叠加在一起，构成了荣耀600系列最坚实的硬件底座。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">屏幕</span><span class="f-tag">四等边</span></div>
+        <h3>0.98mm极窄四等边：正面视觉的终极形态</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/a116-bfa8cb181d2786fb4af4678183deb63a.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 青苹果配色" loading="lazy">
+            <figcaption>荣耀600 Pro 青苹果配色 · 0.98mm四等边</figcaption>
+            <span class="m-badge">行业最窄</span>
+          </figure>
+          <div>
+            <p>0.98mm是目前手机行业能做到的最窄边框宽度。四边等宽意味着屏幕上下左右的黑边完全一致，视觉上呈现出一种「悬浮屏」的观感。这块6.57英寸1.5K 120Hz绿洲护眼屏在参数上不是最顶尖的，但<strong>0.98mm四等边带来的正面冲击力，远比分辨率数字更直观</strong>——你拿起手机的第一眼，就会被这块屏幕的沉浸感折服。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span><span class="f-tag">青海湖</span></div>
+        <h3>8600mAh青海湖电池：Pro版约9000mAh更猛</h3>
+        <p>超级版搭载8600mAh青海湖电池，Pro版更是达到了约9000mAh——能量密度932Wh/L。这是什么概念？正常使用两天一充完全没问题，重度使用也能撑一整天。配合80W有线快充（Pro版额外支持50W无线+27W反向充电），续航焦虑基本归零。</p>
+        <p>不过需要指出的是，<strong>80W有线充电在2026年属于偏保守的规格</strong>——同价位竞品已经开始普及100W甚至120W。大电池换来了续航，但充电速度确实有让步。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">荣耀选择了「大电池慢充电」而非「小电池快充电」的路线。从日常使用角度看，前者更实用——没人想每天抱着充电器等30分钟。但80W确实是个短板，尤其是当你从20%紧急补电时，100W和80W的速度差距是可感知的。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">DESIGN & IDENTITY</span></div>
+        <h2 class="ch-title">3D星河美学：把辨识度做成了信仰</h2>
+        <p class="ch-intro">42颗钻闪四芒星、3D星河美学、猫眼双子星环——荣耀600系列的设计语言在当前千机一面的手机市场里，是少数真正能做到「拿出来就有人问这是什么手机」的产品。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">设计</span><span class="f-tag">3D星河</span></div>
+        <h3>42颗钻闪四芒星 + 3D星河美学后盖</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/4912-3757962399c80dd663f8a09c8fe1e74c.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星配色" loading="lazy">
+            <figcaption>幸运星配色 · 42颗钻闪四芒星后盖</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/5c52-4413dc2e55d382837c765db6a2ffb88b.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星细节" loading="lazy">
+            <figcaption>3D星河美学 · 光线下呈现流动星河效果</figcaption>
+            <span class="m-badge">肖战同款</span>
+          </figure>
+        </div>
+        <p>后盖采用3D微弧玻璃工艺，表面嵌入42颗微米级钻闪颗粒，在光线照射下呈现四芒星阵列的流动效果。这种设计在手机上极为罕见——多数品牌追求的是极简或质感，荣耀追求的是「被看见」。猫眼双子星环的摄像头模组同样辨识度极高，灵感来源于猫眼宝石的光学折射效果。</p>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">3D星河美学的视觉效果照片很难完全传达，强烈建议线下体验真机。如果你在意手机外观的独特性和社交属性，这个设计是加分项；但如果你偏好低调内敛的风格，可能需要考虑是否接受如此高调的视觉表达。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">PRICING & STRATEGY</span></div>
+        <h2 class="ch-title">三档定位与选购策略</h2>
+        <p class="ch-intro">荣耀600系列采用「Pro版+超级版+元气版」三档布局，覆盖2294-3399元全价格带。表面上是全价格带覆盖，实际上三档之间的差异化逻辑需要仔细拆解。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">规格</span><span class="f-tag">对比</span></div>
+        <h3>三款机型核心差异</h3>
+        <table class="spec-table">
+          <tr><th>项目</th><th>Pro版</th><th>超级版</th><th>元气版</th></tr>
+          <tr><td>处理器</td><td>骁龙8E / 天玑8550E</td><td>骁龙8S Gen4</td><td>—</td></tr>
+          <tr><td>电池</td><td>~9000mAh</td><td>8600mAh</td><td>—</td></tr>
+          <tr><td>无线充</td><td>50W</td><td>❌</td><td>❌</td></tr>
+          <tr><td>潜望长焦</td><td>5000万 3.5x光学</td><td>❌</td><td>❌</td></tr>
+          <tr><td>AI变焦闪光灯</td><td>✅</td><td>—</td><td>—</td></tr>
+          <tr><td>防水</td><td>IP68/69/69K</td><td>—</td><td>—</td></tr>
+          <tr><td>指纹</td><td>3D超声波</td><td>—</td><td>—</td></tr>
+          <tr><td>国补价</td><td><strong>¥3399</strong></td><td><strong>¥2804</strong></td><td><strong>¥2294</strong></td></tr>
+        </table>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">分析</span><span class="f-tag">选购</span></div>
+        <h3>谁值得买？关键看你的核心需求</h3>
+        <p><strong>Pro版（¥3399）</strong>是唯一拥有完整旗舰配置的版本——潜望长焦、AI闪光灯、IP68/69/69K三防、3D超声波指纹、50W无线充。如果你对摄影和防护有要求，595元的差价换来这些功能是划算的。</p>
+        <p><strong>超级版（¥2804）</strong>是最纠结的选择。骁龙8S Gen4性能不弱但也不算旗舰，8600mAh电池是核心卖点，但没有长焦、没有无线充、没有高等级防水。<strong>本质上它是一台「大电池+好屏幕+4K Live」的功能聚焦型产品</strong>——适合续航刚需但预算有限的人群。</p>
+        <p><strong>元气版（¥2294）</strong>是最纯粹的选择——用最低的价格获得4K Live直出+2亿像素+0.98mm极窄边+大电池的核心体验，没有任何需要纠结的中间地带。</p>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐元气版（¥2294）或Pro版（¥3399）</strong>：要么用最低价拿到核心体验，要么加到Pro获得完整旗舰。超级版处于一个尴尬的中间地带——相比元气版贵了510元但核心体验差异不大，相比Pro版便宜595元但缺失太多关键功能。除非8600mAh是你唯一的刚需，否则两个极端版本性价比更高。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
+        <h2 class="ch-title">核心要点</h2>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>4K Live是影像赛道的新变量</h3>
+          <p>全焦段4K Live直出+AI变焦闪光灯的组合，让实况照片从「偶尔拍拍」升级为「随时可拍」。这是2026年手机影像最值得关注的技术方向。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>0.98mm四等边是视觉杀手锏</h3>
+          <p>参数不是最强的屏幕，但正面观感是同价位最好的。极窄边框带来的沉浸感，远比分辨率数字更影响日常体验。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>三档定位有互蚕风险</h3>
+          <p>超级版与元气版差距不够大，与Pro版差距又太明显。如果618期间元气版降至1999元，超级版的存在感将进一步被压缩。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>618蹲元气版破2K</h3>
+          <p>预测元气版618可降至¥1999，届时2亿像素+4K Live手机首次破2000元，将是性价比最高的入门选择。</p>
+        </div>
+      </div>
     `
   },
 
   opporeno16: {
     title: 'OPPO Reno16系列 发布会报告',
     html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年5月25日18:00，OPPO举办<strong>「Reno Land奇幻夜」</strong>主题发布会，重磅推出OPPO Reno16系列潮流手机，同场还发布了OPPO Pad 6平板、OPPO Pad Air5学习平板、Enco Air5s耳机、Bubble潮玩自拍屏等多款新品。代言人宋雨琦活力助阵。</p>
-      <div class="highlight-box">🎯 核心关键词：3D悬浮星球工艺（行业首创）· 2亿像素三摄 · 实况随心贴 · 6.32寸小直屏188g · 2999元起（国补）</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/ba06-0a5067b3ca1cbde1b3d1fb69bd02c9e1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 正面外观" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/d9a4-b2bbd949522bd29f55fead45f8640bbb.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 3D悬浮星球" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/b3cf-b33033fbb944fb6747ddbed749c7c2f1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 星环颗粒" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/131c-72693f29313defc6c4715702e12ee9bf.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 悬浮效果" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/7455-7dd3cd8ac0a5776f4f1b59f924554ac4.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 摄像头模组" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/a063-0a83b0cb561a0d590d468a3eac46fdac.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 屏幕点亮" loading="lazy">
+      <div class="r-hero">
+        <div class="r-eyebrow">2026年5月25日 · "Reno Land奇幻夜" · OPPO</div>
+        <h3>OPPO Reno16：<span class="g">3D悬浮星球的视觉魔法</span></h3>
+        <div class="r-sub">行业首创3D冰透悬浮工艺 · 2亿像素三摄+云台OIS · 6.32寸188g小直屏 · 实况随心贴社交玩法，颜值与手感的双重极致</div>
+        <div class="r-chips"><span>3D悬浮星球</span><span>2亿三摄</span><span>6.32寸188g</span><span>云台OIS</span><span>¥2999起</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技/IT之家</p>
 
-      <h3>📋 两款机型规格对比</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>Reno16 标准版</th><th>Reno16 Pro</th></tr>
-        <tr><td>处理器</td><td>天玑8550 SUPER</td><td>天玑9500s</td></tr>
-        <tr><td>屏幕</td><td>6.32英寸 1.5K OLED 小直屏</td><td>6.78英寸 1.5K LTPO自适应直屏 · 1.15mm四等窄边</td></tr>
-        <tr><td>电池</td><td>6700mAh</td><td>7000mAh</td></tr>
-        <tr><td>有线充</td><td>80W</td><td>80W</td></tr>
-        <tr><td>无线充</td><td>❌</td><td>✅ 50W</td></tr>
-        <tr><td>主摄</td><td>2亿像素(HP5)</td><td>2亿像素 云台OIS(f/1.8)</td></tr>
-        <tr><td>超广角</td><td>5000万</td><td>5000万(116°)</td></tr>
-        <tr><td>长焦</td><td>5000万潜望(JN5)</td><td>5000万潜望(3.5x光学/120x数码)</td></tr>
-        <tr><td>前置</td><td>—</td><td>5000万超广角</td></tr>
-        <tr><td>防水</td><td>—</td><td>IP68/69</td></tr>
-        <tr><td>指纹</td><td>—</td><td>3D超声波</td></tr>
-        <tr><td>重量</td><td>~188g</td><td>—</td></tr>
-        <tr><td>后盖工艺</td><td>3D冰透悬浮工艺 · 金属中框</td><td>同左</td></tr>
-        <tr><td>配色</td><td>怦然星动 / 星河紫 / 月夜黑</td><td>怦然星动 / 梦境蓝 / 月夜黑</td></tr>
-      </table>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">Reno16 12+256G<br><strong>¥2999</strong> <span class="orig">¥3499</span><br><small>国补后</small></div>
-      <div class="price-card">Reno16 Pro 12+256G<br><strong>¥3999</strong> <span class="orig">¥4499</span><br><small>国补后</small></div>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>3D冰透悬浮工艺</strong>：行业首创，嵌入式微纳米印刷技术首次大规模量产，玻璃表面呈现裸眼3D悬浮星球效果</li>
-        <li><strong>一体冷雕玻璃</strong>：镜头模组与后盖浑然一体，质感精致高级</li>
-        <li><strong>实况随心贴</strong>：广受好评的实况功能进化版，支持模板、贴纸等社交玩法</li>
-        <li><strong>AI一键闪记</strong>：记录灵感瞬间的AI助手</li>
-        <li><strong>6.32寸+188g小直屏</strong>（标准版）：当下稀缺的小屏轻薄选择</li>
-        <li><strong>云台OIS防抖</strong>（Pro版）：实拍场景刚需，视频防抖行业领先</li>
-        <li><strong>宋雨琦代言</strong>：精准触达年轻女性用户群</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>3D悬浮星球工艺辨识度极高</li>
-            <li>标准版6.32寸+188g手感极佳</li>
-            <li>云台OIS防抖(Pro)实拍强</li>
-            <li>实况随心贴社交玩法新</li>
-            <li>宋雨琦代言精准触达</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-lab">核心结论</div>
+          <div class="bt-headline"><strong>3D悬浮工艺</strong> 让设计成为最强卖点</div>
+          <div class="bt-sub">嵌入式微纳米印刷技术首次量产，玻璃表面呈现裸眼3D悬浮星球效果——这不是参数，是让你忍不住翻过来看背面的魔力</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>标准版天玑8550性能不占优</li>
-            <li>6700mAh在8000mAh时代偏小</li>
-            <li>无线充仅Pro版支持</li>
-            <li>性能用户心智偏弱</li>
-            <li>与荣耀600同日正面竞争</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-lab">起步价</div>
+          <div class="bt-num">2999<span>元</span></div>
+          <div class="bt-val">Reno16 国补后 · 小直屏+2亿三摄入门价</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">重量</div>
+          <div class="bt-num">188<span>g</span></div>
+          <div class="bt-val">标准版6.32寸小直屏 · 当下稀缺轻薄选择</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">后盖工艺</div>
+          <div class="bt-num">3D<span>悬浮</span></div>
+          <div class="bt-val">行业首创冰透悬浮工艺 · 裸眼3D效果</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">长焦</div>
+          <div class="bt-num">3.5<span>x</span></div>
+          <div class="bt-val">Pro版潜望光学变焦 · 120x数码变焦</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>✨ <strong>颜值即正义的时尚用户</strong>：3D悬浮星球独一无二，拿在手里就是社交资本</li>
-        <li>🤳 <strong>人像摄影爱好者</strong>：OPPO人像算法+云台OIS，自拍/拍照场景最友好</li>
-        <li>🛍️ <strong>小屏手感党</strong>（标准版）：6.32寸+188g，当下稀缺的轻薄选择</li>
-      </ul>
-      <div class="highlight-box">💡 618预测：Reno16标准版¥2699，Pro版¥3499</div>
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">CRAFTSMANSHIP</span></div>
+        <h2 class="ch-title">3D悬浮星球：手机工艺的天花板级创新</h2>
+        <p class="ch-intro">OPPO Reno16系列最引人注目的不是任何一颗芯片或镜头，而是后盖——一块看起来像悬浮着微型星球的玻璃。这项工艺的实现难度和量产意义，远比表面看起来要大得多。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">工艺</span><span class="f-tag">行业首创</span></div>
+        <h3>3D冰透悬浮工艺：微纳米印刷的技术突破</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/d9a4-b2bbd949522bd29f55fead45f8640bbb.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 3D悬浮星球" loading="lazy">
+            <figcaption>3D冰透悬浮工艺 · 裸眼3D悬浮星球效果</figcaption>
+            <span class="m-badge">行业首创</span>
+          </figure>
+          <div>
+            <p>这项工艺的官方名称是「3D冰透悬浮工艺」，核心技术是<strong>嵌入式微纳米印刷技术</strong>的首次大规模量产应用。简而言之：通过在玻璃内部不同深度层印刷微米级图案，利用光线折射和视觉错觉，让平面的玻璃表面呈现出立体的悬浮星球效果。关键在于，这<strong>不是贴膜、不是浮雕、不是全息投影</strong>，而是真正的内层印刷工艺——触摸时表面是完全平整的玻璃。</p>
+            <p>这项工艺此前只在概念机和限量版上出现过，Reno16是首次在量产机型上实现。良品率和成本控制是最大的工程挑战，OPPO能把它做到量产，本身就是供应链能力的证明。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">当所有品牌都在卷芯片、卷镜头、卷电池的时候，OPPO选择在后盖工艺上做差异化——这是一个聪明的策略。因为性能和影像的差距正在缩小，但设计质感的差异是用户每天都能感受到的。3D悬浮星球是那种「别人看到你手机一定会问一句」的设计，这种社交属性在Reno系列的目标人群（年轻女性、时尚用户）中价值极高。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">设计</span><span class="f-tag">一体冷雕</span></div>
+        <h3>一体冷雕玻璃：镜头模组与后盖的浑然天成</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/b3cf-b33033fbb944fb6747ddbed749c7c2f1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 星环颗粒" loading="lazy">
+            <figcaption>一体冷雕玻璃 · 镜头模组与后盖浑然一体</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/131c-72693f29313defc6c4715702e12ee9bf.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 悬浮效果" loading="lazy">
+            <figcaption>不同角度下的悬浮效果变化</figcaption>
+            <span class="m-badge">角度敏感</span>
+          </figure>
+        </div>
+        <p>除了3D悬浮工艺，Reno16 Pro还采用了<strong>一体冷雕玻璃</strong>工艺——摄像头模组区域与后盖是一整块玻璃，通过精密冷雕工艺一体成型，没有任何接缝或台阶。这种设计在视觉上更加简洁统一，触感上也更顺滑，是当前手机后盖工艺的最高水准之一。</p>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">IMAGING</span></div>
+        <h2 class="ch-title">2亿三摄+云台OIS：颜值之外的实力派</h2>
+        <p class="ch-intro">Reno16系列不是只有好看的皮囊。2亿像素三摄系统、Pro版云台OIS防抖、5000万潜望长焦——这套影像配置在3-4K档位属于完整且能打的水准。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">影像</span><span class="f-tag">云台OIS</span></div>
+        <h3>云台OIS防抖：视频和实况的稳定基石</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/7455-7dd3cd8ac0a5776f4f1b59f924554ac4.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 摄像头模组" loading="lazy">
+            <figcaption>Reno16 Pro 2亿像素云台OIS三摄模组</figcaption>
+          </figure>
+          <div>
+            <p>Pro版搭载<strong>2亿像素云台OIS主摄</strong>（f/1.8大光圈）。云台OIS的原理是在传统光学防抖的基础上增加了更大范围的悬浮镜片补偿，防抖角度和精度都远超普通OIS。实际效果是：<strong>走路时拍视频几乎不抖、暗光实况照片不糊、长焦端手持也稳</strong>——这三个场景恰恰是用户最常遇到「拍废了」的时刻。</p>
+            <p>标准版同样拥有2亿像素主摄+5000万超广角+5000万潜望长焦的完整三摄组合，只是缺少云台OIS和部分Pro版算法。对于大部分日常拍摄场景，标准版的影像能力已经足够出色。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">功能</span><span class="f-tag">实况随心贴</span></div>
+        <h3>实况随心贴：从拍照工具到社交玩法的进化</h3>
+        <p>OPPO在实况照片上的策略与荣耀不同——荣耀强调「全焦段4K直出」的技术突破，OPPO更侧重<strong>「社交玩法」</strong>的体验创新。实况随心贴允许用户在Live照片上叠加模板、贴纸、文字等元素，直接发布到社交平台。配合AI一键闪记功能，可以在拍摄瞬间自动生成带有创意模板的实况内容。</p>
+        <p>这不是技术层面的硬核突破，但对目标用户群（小红书、抖音重度用户）来说，<strong>好玩比好用更重要</strong>——能一键生成好看的朋友圈/小红书素材，比拍出一张完美的照片更有日常价值。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">荣耀和OPPO同日发布，都主打「实况照片」，但路线截然不同。荣耀走的是「画质+全焦段」的技术路线，OPPO走的是「玩法+社交」的体验路线。没有对错，只有取舍——这取决于你是更在意拍出来的照片品质，还是更在意发出去的社交效果。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">SIZE & FEEL</span></div>
+        <h2 class="ch-title">6.32寸+188g：小屏手感的稀缺价值</h2>
+        <p class="ch-intro">在2026年手机动辄6.7寸+200g+的时代，Reno16标准版的6.32寸+188g组合，本身就是一种差异化。小屏不是参数劣势，而是手感优势。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">手感</span><span class="f-tag">稀缺价值</span></div>
+        <h3>188g轻+6.32寸小：当下最稀缺的手感组合</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/ba06-0a5067b3ca1cbde1b3d1fb69bd02c9e1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 正面外观" loading="lazy">
+            <figcaption>Reno16 Pro 正面 · 1.15mm四等窄边直屏</figcaption>
+          </figure>
+          <div>
+            <p>6.32寸OLED小直屏+188g重量，在当前安卓阵营中几乎找不到第二家。小米13/14是6.36寸+180g级别，但它们是2023-2024年的产品；2026年还在做小屏轻薄的，Reno16标准版是唯一选择。</p>
+            <p>小屏的代价是明确的：<strong>6700mAh电池在8000mAh时代偏小</strong>，天玑8550 SUPER的性能也不占优。但如果你是女性用户或手小用户，好的握持感是每天拿起手机100次都能感受到的「存在感」——这比偶尔打一局游戏的帧率差异重要得多。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">如果你对「小屏+轻薄」有刚需，Reno16标准版是目前安卓阵营几乎唯一的新选择。但6700mAh电池确实是个需要权衡的点——如果你是重度用户（每天亮屏8小时+），可能需要一天两充。建议去线下实际握持体验，确认6.32寸的手感确实适合你。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">PRICING & CHOICE</span></div>
+        <h2 class="ch-title">价格策略与双版本选择</h2>
+        <p class="ch-intro">Reno16系列只出两档——标准版和Pro版，定价逻辑比荣耀600的三档更清晰。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">规格</span><span class="f-tag">对比</span></div>
+        <h3>两款机型核心差异</h3>
+        <table class="spec-table">
+          <tr><th>项目</th><th>Reno16 标准版</th><th>Reno16 Pro</th></tr>
+          <tr><td>处理器</td><td>天玑8550 SUPER</td><td>天玑9500s</td></tr>
+          <tr><td>屏幕</td><td>6.32" 1.5K 小直屏</td><td>6.78" 1.5K LTPO · 1.15mm四等窄</td></tr>
+          <tr><td>电池</td><td>6700mAh</td><td>7000mAh</td></tr>
+          <tr><td>无线充</td><td>❌</td><td>50W</td></tr>
+          <tr><td>主摄</td><td>2亿像素(HP5)</td><td>2亿像素 云台OIS(f/1.8)</td></tr>
+          <tr><td>潜望长焦</td><td>5000万(JN5)</td><td>5000万 3.5x光学/120x数码</td></tr>
+          <tr><td>防水</td><td>—</td><td>IP68/69</td></tr>
+          <tr><td>指纹</td><td>—</td><td>3D超声波</td></tr>
+          <tr><td>重量</td><td>~188g</td><td>—</td></tr>
+          <tr><td>国补价</td><td><strong>¥2999</strong></td><td><strong>¥3999</strong></td></tr>
+        </table>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">分析</span><span class="f-tag">选购</span></div>
+        <h3>标准版还是Pro版？关键看这三个问题</h3>
+        <p><strong>你更看重手感还是性能？</strong>标准版6.32寸+188g是手感之王，但天玑8550 SUPER性能有限；Pro版6.78寸+天玑9500s性能更强，但失去了小屏手感。</p>
+        <p><strong>你拍视频多吗？</strong>云台OIS是Pro版独占，如果你经常拍vlog或实况视频，Pro版的价值会非常明显。如果只是日常随手拍，标准版的2亿三摄完全够用。</p>
+        <p><strong>1000元的差价值不值？</strong>Pro版比标准版贵1000元，多出天玑9500s、云台OIS、IP68/69、3D超声波指纹、50W无线充、更大屏幕和电池。如果你在意防护和充电便利性，Pro版的溢价是合理的。</p>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>手小/预算有限选标准版（¥2999）</strong>：6.32寸+188g的手感无可替代，2亿三摄+实况随心贴的核心体验不缺。<strong>拍视频/追求完整旗舰选Pro版（¥3999）</strong>：云台OIS+IP68+无线充+天玑9500s是完整的旗舰配置。618期间标准版有望降至¥2699，Pro版¥3499，届时入手更划算。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
+        <h2 class="ch-title">核心要点</h2>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>3D悬浮工艺是年度最惊艳设计</h3>
+          <p>微纳米印刷技术首次量产，裸眼3D悬浮效果独一无二。在「千机一面」的市场里，这是让Reno16脱颖而出最强的差异化武器。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>小屏手感是稀缺价值</h3>
+          <p>6.32寸+188g的标准版是2026年安卓阵营几乎唯一的小屏新选择。6700mAh电池是代价，但对目标用户来说手感>续航。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>与荣耀600同日对打，路线不同</h3>
+          <p>荣耀600主打「4K Live画质+大电池」，OPPO Reno16主打「3D悬浮设计+小屏手感」。同一价格带、同一发布日，目标人群有明显差异——选谁取决于你更在意什么。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>618标准版可蹲¥2699</h3>
+          <p>预测Reno16标准版618可降至¥2699，Pro版¥3499。如果你被3D悬浮星球种草但不急，618的入手价会更友好。</p>
+        </div>
+      </div>
     `
   },
 
   vivs60: {
     title: 'vivo S60系列 发布会报告',
-    html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年5月29日傍晚，vivo在海南三亚海边召开<strong>「我喜欢我，有独特星光」</strong>主题发布会，正式推出vivo S60系列——包含标准版和元气版两款机型。这是vivo S系列时隔半年的重磅更新，没有推出Pro版本，而是选择了"标准版+元气版"的双档策略。代言人田曦薇到场助阵，发布会在真实的"星星海"边举行，仪式感拉满。</p>
-      <div class="highlight-box">🎯 核心关键词：首发4K Live原相机 · 地平线OIS防抖 · 3D空间视效 · 7200mAh蓝海电池 · 3D超声波指纹2.0 · 2899元起（元气版）</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIRk1wAAS--ij-P5YAAIdvQO_ay0ABL8S864.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海配色背面" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIJqTeAAW0LuZP0b8AAIdvQPEKj8ABbRG674.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海配色侧面" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNuIJRXsAAXVyWE1XDsAAIdvQPSs1QABdXh040.jpg" onclick="openLightbox(this.src)" alt="vivo S60 透明Deco设计" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIa0WdAAUfjDpVKcUAAIdvQPNk7AABR-k418.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海细节" loading="lazy">
-        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNuIRiM8AAQqGqsB6PsAAIdvQPYiTUABCoy010.jpg" onclick="openLightbox(this.src)" alt="vivo S60 屏幕正面" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260514/713/w650h863/20260514/1df8-1440cc836f7ce1f7b817aea111d489ba.jpg" onclick="openLightbox(this.src)" alt="vivo S60 一体冷雕工艺" loading="lazy">
+    html: `      <div class="r-hero">
+        <div class="r-eyebrow">2026年5月29日 · 三亚 · 星星海发布会</div>
+        <h3>vivo S60系列：<span class="g">主打社交影像的Z世代潮机</span></h3>
+        <div class="r-sub">首发4K Live原相机与3D空间视效技术，7200mAh蓝海电池 + 3D超声波指纹2.0，以2899元起售价重新定义中端影像手机的价值标准。代言人田曦薇空降星星海，用一场海边发布会宣告S系列的全面进化。</div>
+        <div class="r-chips"><span>4K Live原相机</span><span>3D空间视效</span><span>7200mAh</span><span>超声波指纹</span><span>IP69</span><span>2899起</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：ZOL中关村在线 / 新浪科技</p>
 
-      <h3>📋 两款机型规格对比</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>S60 标准版</th><th>S60 元气版</th></tr>
-        <tr><td>处理器</td><td>第三代骁龙8s</td><td>联发科天玑7500</td></tr>
-        <tr><td>屏幕</td><td colspan="2">6.59英寸 1.5K OLED 直屏 · 144Hz · 10.7亿色</td></tr>
-        <tr><td>电池</td><td colspan="2">7200mAh 蓝海电池</td></tr>
-        <tr><td>充电</td><td colspan="2">80W有线快充</td></tr>
-        <tr><td>主摄</td><td>5000万像素 OIS</td><td>5000万像素</td></tr>
-        <tr><td>长焦</td><td>✅ 有</td><td>❌ 无</td></tr>
-        <tr><td>影像算法</td><td colspan="2">✅ 与标准版完全一致（核心卖点）</td></tr>
-        <tr><td>指纹</td><td colspan="2">3D超声波指纹2.0（湿手秒开）</td></tr>
-        <tr><td>防水</td><td colspan="2">IP69 / IP68</td></tr>
-        <tr><td>特色功能</td><td colspan="2">校园游戏专网加速 · SGS抗跌耐摔认证 · 全功能NFC · 红外遥控</td></tr>
-        <tr><td>后盖工艺</td><td colspan="2">星芒光刻 + 一体浮光冷雕玻璃 + 金属中框</td></tr>
-        <tr><td>配色</td><td colspan="2">星星海 / 初夏绿 / 仲夏夜</td></tr>
-        <tr><td>重量</td><td>—</td><td>—</td></tr>
-      </table>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">元气版 8+256G<br><strong>¥2464</strong> <span class="orig">¥2899</span><br><small>国补后</small></div>
-      <div class="price-card">元气版 12+256G<br><strong>¥2719</strong> <span class="orig">¥3199</span><br><small>国补后</small></div>
-      <div class="price-card">元气版 12+512G<br><strong>¥2999</strong> <span class="orig">¥3499</span><br><small>国补后</small></div>
-      <div class="price-card">标准版 12+256G<br><strong>¥3099</strong> <span class="orig">¥3599</span><br><small>国补后</small></div>
-      <div class="price-card">标准版 16+512G<br><strong>¥3899</strong> <span class="orig">¥4399</span><br><small>国补后</small></div>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>首发4K Live原相机</strong>：真正实现4K分辨率Livephoto拍摄，地平线OIS防抖彻底解决抖、糊、差问题</li>
-        <li><strong>3D空间视效技术（首发）</strong>：任选一张Live封面帧，一键生成3D空间效果，晃动手机呈裸眼3D层次</li>
-        <li><strong>小红书深度合作</strong>：全行业唯一支持在小红书发布3D空间图的产品，社交传播力拉满</li>
-        <li><strong>四大Livephoto新玩法</strong>：Live调色盘（可视化调色）、4K星光Live、冷白人像Live、灵感趣贴Live</li>
-        <li><strong>透明Deco设计</strong>：灵感来源于iPhone 17系列，视觉更轻薄，支持贴纸自定义"穿搭自由"</li>
-        <li><strong>7200mAh蓝海电池</strong>：大电池+80W快充，续航无忧</li>
-        <li><strong>3D超声波指纹2.0</strong>：旗舰级生物识别，湿手也能秒解锁，同价位罕见</li>
-        <li><strong>IP69/IP68双防水</strong>：最高等级防水，日常使用无压力</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>4K Live原相机功能独特领先</li>
-            <li>3D空间视效社交传播力强</li>
-            <li>7200mAh续航充足</li>
-            <li>3D超声波指纹同档唯一</li>
-            <li>IP69最高防水等级</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-headline">核心结论：<strong>影像是唯一护城河</strong></div>
+          <div class="bt-sub">vivo S60系列精准卡位2500-4000元社交影像赛道。4K Live原相机和3D空间视效是真正差异化的功能创新——不是参数堆砌，而是实实在在的拍摄体验升级。但元气版天玑7500性能短板和80W充电在同档位中略显保守，标准版3099的起售价也需要618促销来消化。</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>无Pro版，旗舰属性有限</li>
-            <li>元气版天玑7500性能一般</li>
-            <li>80W充电在百瓦时代偏保守</li>
-            <li>标准版起售价3099偏高</li>
-            <li>无无线充电</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-lab">电池</div>
+          <div class="bt-num">7200<span>mAh</span></div>
+          <div class="bt-val">蓝海电池 · 80W有线快充</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">屏幕</div>
+          <div class="bt-num">144<span>Hz</span></div>
+          <div class="bt-val">6.59英寸 1.5K OLED直屏</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">起售价</div>
+          <div class="bt-num">2464<span>元</span></div>
+          <div class="bt-val">元气版 · 国补后价格</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">防水等级</div>
+          <div class="bt-num">IP69<span>/68</span></div>
+          <div class="bt-val">同档位最高防护标准</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>🤳 <strong>社交媒体达人</strong>：4K Live原相机+3D空间视效+小红书首发，发朋友圈/小红书神器</li>
-        <li>🎓 <strong>学生党/年轻人</strong>（元气版）：2464元起，影像算法完全一致，入门越级体验</li>
-        <li>🌊 <strong>颜值党</strong>：星星海/初夏绿/仲夏夜三款夏日配色，一体冷雕工艺手感极佳</li>
-        <li>🎮 <strong>校园玩家</strong>：校园游戏专网加速+骁龙8s+144Hz，校园场景深度优化</li>
-      </ul>
-      <div class="highlight-box">💡 618预测：元气版8+256G有望跌至¥2199，标准版12+256G跌至¥2799</div>
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">Camera</span></div>
+        <h3 class="ch-title">4K Live原相机：不是参数升级，是创作方式的变革</h3>
+        <div class="ch-intro">vivo S60系列的核心卖点全部围绕影像展开。这不是简单的摄像头参数堆砌，而是一套从拍摄、处理到分享的完整影像体验链——其中4K Live原相机和3D空间视效是最具差异化的两项创新。</div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">影像革命</span></div>
+          <h3>首发4K Live原相机：手机Livephoto的里程碑</h3>
+          <p>此前手机Livephoto最高分辨率停留在1080P，而vivo S60直接将Livephoto分辨率提升至<strong>4K超高清</strong>，配合地平线OIS光学防抖，彻底解决了Livephoto长期以来「抖、糊、差」的体验痛点。这不仅仅是分辨率的数字提升——4K意味着每一帧Livephoto都可以作为高清静态照片单独导出和使用，极大拓展了Livephoto的实际价值。</p>
+          <p>与之配套的是vivo开发的四大Livephoto创意玩法：<strong>Live调色盘</strong>支持录制过程中实时可视化调色，<strong>4K星光Live</strong>优化弱光场景下的动态捕捉，<strong>冷白人像Live</strong>专为人像肤色优化，<strong>灵感趣贴Live</strong>则是在动态影像上叠加创意贴纸。这套组合拳意味着vivo不是简单地把硬件升级了就完事，而是在软件体验层面做了深度思考。</p>
+        </div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">社交创新</span></div>
+          <h3>3D空间视效 + 小红书深度合作：社交传播的精准卡位</h3>
+          <p>S60首发<strong>3D空间视效技术</strong>：任意选择一张Live封面帧，一键生成带有景深层次的3D空间效果，晃动手机即可呈现裸眼3D视觉。更关键的是，vivo与小红书达成了深度合作——<strong>S60是全行业唯一支持在小红书平台直接发布3D空间图的机型</strong>。这意味着S60用户在小红书上发布的内容天然具有更高的视觉冲击力和平台推荐权重。</p>
+          <p>这种「硬件功能 + 平台首发」的组合打法非常聪明。3D空间视效本身不是什么颠覆性技术，但通过锁定小红书这个Z世代最活跃的社交平台作为独占发布渠道，vivo成功将技术功能转化为社交货币——这正是S系列目标用户（18-30岁女性为主）最看重的价值。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIRk1wAAS--ij-P5YAAIdvQO_ay0ABL8S864.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海配色背面" loading="lazy">
+            <figcaption>vivo S60 星星海配色 · 星芒光刻工艺</figcaption>
+            <span class="m-badge">首发配色</span>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIJqTeAAW0LuZP0b8AAIdvQPEKj8ABbRG674.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海侧面" loading="lazy">
+            <figcaption>透明Deco设计 · 可自定义贴纸</figcaption>
+            <span class="m-badge">穿搭自由</span>
+          </figure>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">vivo S60的影像策略非常清晰——不做全能影像旗舰，只做「社交媒体上最好看的那一台」。4K Live原相机和3D空间视效都不是硬核摄影爱好者关心的技术指标，但却是小红书、抖音等平台的内容创作利器。这种聚焦Z世代社交需求的精准定位，比盲目堆砌摄像头参数要高明得多。唯一的遗憾是标准版才配备长焦镜头，元气版在变焦能力上有所缺失。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">Design & Battery</span></div>
+        <h3 class="ch-title">颜值即正义：夏日设计语言与大电池的平衡术</h3>
+        <div class="ch-intro">S60系列在设计上延续了vivo S系列一贯的高颜值路线，同时塞入了7200mAh的大电池——这在影像中端机中是一个不小的工程挑战。</div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">设计</span></div>
+          <h3>星星海配色 + 透明Deco：让你「穿」出新意</h3>
+          <p>后盖采用<strong>星芒光刻 + 一体浮光冷雕玻璃</strong>工艺，配合金属中框，手感和质感都达到了vivo中端机的最佳水准。三大夏日配色——<strong>星星海、初夏绿、仲夏夜</strong>——清新明亮，符合年轻用户审美。透明Deco摄像头模组灵感被认为来自于iPhone 17系列的设计方向，但vivo在此之上加入了贴纸自定义玩法，用户可以根据穿搭更换Deco区域的装饰贴纸，实现<strong>「手机也是穿搭单品」</strong>的概念。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNuIJRXsAAXVyWE1XDsAAIdvQPSs1QABdXh040.jpg" onclick="openLightbox(this.src)" alt="vivo S60 透明Deco设计" loading="lazy">
+            <figcaption>透明Deco摄像头模组 · 支持贴纸自定义</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260514/713/w650h863/20260514/1df8-1440cc836f7ce1f7b817aea111d489ba.jpg" onclick="openLightbox(this.src)" alt="vivo S60 一体冷雕工艺" loading="lazy">
+            <figcaption>一体浮光冷雕玻璃 · 金属中框</figcaption>
+            <span class="m-badge">旗舰工艺</span>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
+          <h3>7200mAh蓝海电池：续航扎实，充电略显保守</h3>
+          <p>7200mAh的超大容量电池让S60系列的续航表现达到了旗舰水平——即使在重度使用（社交媒体+拍照+视频）场景下也能轻松撑过一天半。然而<strong>80W有线快充在2026年的百瓦快充时代显得比较保守</strong>，从0充到满电大约需要50分钟。对于习惯「充电十分钟用半天」的用户来说，这可能是日常体验中最明显的短板。此外，<strong>全系不支持无线充电</strong>，考虑到S系列的目标用户画像（年轻女性、看重便利性），这是一个遗憾。</p>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">7200mAh大电池是实打实的用户体验提升，而80W充电则暴露了vivo在产品定义上的取舍逻辑。S系列不是性能旗舰，不需要卷百瓦快充来秀肌肉。但问题是——中端机用户才是对快充感知最强的人群，因为他们往往没有随时充电的条件。如果下一代能在充电功率上追平主流水平，S60的续航竞争力会完整很多。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">Performance & Specs</span></div>
+        <h3 class="ch-title">性能与规格：标准版够用，元气版需谨慎</h3>
+        <div class="ch-intro">S60系列采用了标准版+元气版的双档策略，在核心处理器上做出了明显区隔——标准版搭载骁龙8s Gen3，元气版则是天玑7500。这种差异化定价策略意味着选购时需要格外注意版本差异。</div>
+
+        <table class="spec-table">
+          <tr><th>项目</th><th>S60 标准版</th><th>S60 元气版</th></tr>
+          <tr><td>处理器</td><td>第三代骁龙8s</td><td>联发科天玑7500</td></tr>
+          <tr><td>屏幕</td><td colspan="2">6.59英寸 1.5K OLED 直屏 · 144Hz刷新率 · 10.7亿色</td></tr>
+          <tr><td>电池+充电</td><td colspan="2">7200mAh蓝海电池 + 80W有线快充</td></tr>
+          <tr><td>主摄</td><td>5000万像素 OIS</td><td>5000万像素</td></tr>
+          <tr><td>长焦</td><td>✅ 光学长焦</td><td>❌ 无</td></tr>
+          <tr><td>影像算法</td><td colspan="2">✅ 完全一致（4K Live / 3D空间视效 / 地平线OIS）</td></tr>
+          <tr><td>指纹</td><td colspan="2">3D超声波指纹2.0（湿手秒开）</td></tr>
+          <tr><td>防水</td><td colspan="2">IP69 / IP68 双认证</td></tr>
+          <tr><td>特色功能</td><td colspan="2">校园游戏专网加速 · SGS抗跌耐摔 · NFC · 红外遥控</td></tr>
+          <tr><td>配色</td><td colspan="2">星星海 / 初夏绿 / 仲夏夜</td></tr>
+        </table>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">芯片</span></div>
+          <h3>骁龙8s Gen3 vs 天玑7500：不只是跑分差距</h3>
+          <p>标准版搭载的<strong>第三代骁龙8s</strong>基于台积电4nm工艺，GPU和AI性能对影像处理和游戏体验都有明显的加成——尤其是在4K Live原相机的实时渲染和3D空间视效的计算上，骁龙8s的ISP和NPU优势会直接转化为功能体验的提升。而<strong>元气版的天玑7500</strong>虽然日常使用流畅度没有问题，但在影像处理速度、游戏高帧率稳定性等场景下会有感知明显的差距。</p>
+          <p>好消息是，<strong>两款机型的影像算法完全一致</strong>——4K Live原相机、3D空间视效、地平线OIS防抖等功能在元气版上全部保留。这是vivo非常聪明的一个决策：让入门用户也能享受到S系列的核心影像体验，只是在处理器和长焦镜头这两个「可以接受降级」的维度做减法。</p>
+        </div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">亮点</span></div>
+          <h3>3D超声波指纹2.0 + IP69防水：越级配置的诚意</h3>
+          <p>vivo在S60上延续了品牌「越级配置」的传统——<strong>3D超声波指纹2.0</strong>在2500-4000元价位段几乎是独一份的存在，支持湿手解锁的特性在日常使用中非常实用。而<strong>IP69/IP68双防水认证</strong>让S60在海边、雨天、浴室等场景下完全无后顾之忧，配合三亚海边发布会的场景叙事可谓恰到好处。再加上<strong>校园游戏专网加速、SGS抗跌耐摔认证、全功能NFC、红外遥控</strong>等实用配置，S60在体验细节上没有留下明显短板。</p>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">S60系列的规格策略体现了vivo对中端市场的深刻理解：核心体验（影像、屏幕、指纹、防水）全力堆满，次要维度（处理器分级、无线充电砍掉）果断取舍。这种策略让元气版在2464元的价位上提供了远超同级的影响力和体验丰富度，也让标准版在3099元的价格上有了「贵得有道理」的底气。唯一需要提醒的是——如果你对长焦拍摄和游戏性能有需求，元气版的天玑7500和无长焦的短板可能会在半年后让你产生换机冲动。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">Pricing & Advice</span></div>
+        <h3 class="ch-title">价格分析与选购指南</h3>
+        <div class="ch-intro">国补后的价格让S60系列竞争力大增，但各版本之间的价差和配置差异需要仔细权衡。以下是各版本的国补后到手价与选购建议。</div>
+
+        <table class="spec-table">
+          <tr><th>版本</th><th>原价</th><th>国补后</th><th>推荐指数</th></tr>
+          <tr><td>元气版 8+256G</td><td>¥2899</td><td><strong>¥2464</strong></td><td>⭐⭐⭐⭐ · 入门首选</td></tr>
+          <tr><td>元气版 12+256G</td><td>¥3199</td><td><strong>¥2719</strong></td><td>⭐⭐⭐⭐⭐ · 最佳性价比</td></tr>
+          <tr><td>元气版 12+512G</td><td>¥3499</td><td><strong>¥2999</strong></td><td>⭐⭐⭐ · 大存储刚需可选</td></tr>
+          <tr><td>标准版 12+256G</td><td>¥3599</td><td><strong>¥3099</strong></td><td>⭐⭐⭐⭐ · 有长焦需求就选</td></tr>
+          <tr><td>标准版 16+512G</td><td>¥4399</td><td><strong>¥3899</strong></td><td>⭐⭐⭐ · 旗舰级预算用户</td></tr>
+        </table>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐元气版12+256G（¥2719）</strong>。相比8+256G仅多出255元即可获得4GB额外内存，这对多任务和长期使用流畅度至关重要。如果你不玩原神级别的大型游戏、对长焦没有刚需，元气版的核心体验与标准版几乎一致——4K Live、3D空间视效、7200mAh、超声波指纹全部完整保留。而对于有长焦刚需的用户，<strong>标准版12+256G（¥3099）</strong>是最均衡的选择：骁龙8s Gen3+长焦镜头让S60具备了一定的「准旗舰」体验。</div></div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>618预测与入手时机</strong>：元气版8+256G有望降至¥2199左右，标准版12+256G可能触达¥2799。如果你不是发布会当天必须拿到的「首发党」，强烈建议等到618大促再入手——vivo S系列历年618降幅通常在200-400元之间。届时元气版8+256G在2000元出头就能买到4K Live原相机+3D空间视效+7200mAh+超声波指纹的组合，性价比将碾压同档位所有竞品。</div></div>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>影像是核心护城河，且护城河很深</h3>
+          <p>4K Live原相机和3D空间视效不是PPT创新，而是有实际使用场景的技术突破。配合小红书平台独占发布，S60在社交影像这个细分赛道上几乎没有直接对手。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>元气版影像不缩水，是最诚意的入门方案</h3>
+          <p>vivo在元气版上保留全部影像算法的策略非常明智。2464元起就能体验到S60的核心价值，这是Z世代用户「花最少的钱，拍最好看的照片」的最优解。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>标准版贵得有道理，但不是刚需</h3>
+          <p>骁龙8s Gen3和长焦镜头让标准版体验更完整，但3099元的起售价在多了一个零的元气版（2464元）面前稍显尴尬——差价645元主要换来更强的处理器和一个你可能一年用不了几次的长焦。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>等618，这几乎是共识</h3>
+          <p>无论选哪个版本，618大促的降价会让S60系列的性价比再上一个台阶。元气版下探至2000元档后，将彻底改写中端影像手机的市场格局。</p>
+        </div>
+      </div>
     `
   },
 
   samsungs26: {
     title: '三星 Galaxy S26系列 发布会报告',
-    html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年2月26日凌晨，三星举办<strong>Galaxy Unpacked</strong>全球发布会，正式推出Galaxy S26系列三款旗舰——S26、S26+、S26 Ultra。这是2026年安卓阵营首款重磅旗舰，全系搭载第五代骁龙8至尊版for Galaxy定制芯片，S26 Ultra更是带来了<strong>行业首创硬件防窥屏</strong>。</p>
-      <div class="highlight-box">🎯 核心关键词：骁龙8至尊for Galaxy · 硬件防窥屏(Ultra) · S Pen(Ultra) · Galaxy AI第三代 · 7年更新承诺</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Fae88b8a1j00tb13zw00bid000go00b3g.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 正面" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F6b298f29j00tb13zw005ad000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 背面" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Ff63a67cfj00tb13zw007bd000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 侧面" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F860488a7j00tb13zw008ud000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra S Pen" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Faf2bfda0j00tb13zw007md000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 影像系统" loading="lazy">
-        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Ff3e86830j00tb13zw008ad000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 细节" loading="lazy">
+    html: `      <div class="r-hero">
+        <div class="r-eyebrow">2026年2月26日 · Galaxy Unpacked · 三星电子</div>
+        <h3>Galaxy S26系列：<span class="g">安卓旗舰的「保守革新」</span></h3>
+        <div class="r-sub">第五代骁龙8至尊版for Galaxy全系标配，Ultra独占硬件防窥屏与S Pen，Galaxy AI第三代全面进化。但在国产旗舰已将电池推至8000mAh+百瓦快充的2026年，三星的5000mAh+60W组合是否还有说服力？</div>
+        <div class="r-chips"><span>骁龙8 Gen5</span><span>硬件防窥屏</span><span>S Pen</span><span>Galaxy AI</span><span>200MP</span><span>7年更新</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：网易数码</p>
 
-      <h3>📋 三款机型规格对比</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>S26</th><th>S26+</th><th>S26 Ultra</th></tr>
-        <tr><td>处理器</td><td colspan="3">骁龙8至尊版 Gen5 for Galaxy</td></tr>
-        <tr><td>屏幕</td><td>6.3" FHD+ 120Hz</td><td>6.7" QHD+ 120Hz</td><td>6.9" QHD+ 1-120Hz自适应</td></tr>
-        <tr><td>屏幕技术</td><td colspan="3">动态AMOLED · 防眩光</td></tr>
-        <tr><td>电池</td><td>4300mAh</td><td>4900mAh</td><td>5000mAh</td></tr>
-        <tr><td>有线充</td><td>25W</td><td>45W</td><td>60W</td></tr>
-        <tr><td>无线充</td><td>❌</td><td>❌</td><td>✅</td></tr>
-        <tr><td>反向充</td><td>—</td><td>—</td><td>✅</td></tr>
-        <tr><td>主摄</td><td>50MP</td><td>50MP</td><td>200MP</td></tr>
-        <tr><td>超广角</td><td>12MP</td><td>12MP</td><td>50MP</td></tr>
-        <tr><td>长焦</td><td>10MP</td><td>10MP</td><td>50MP+10MP</td></tr>
-        <tr><td>前置</td><td>—</td><td>—</td><td>12MP</td></tr>
-        <tr><td>S Pen</td><td>❌</td><td>❌</td><td>✅ 内置</td></tr>
-        <tr><td>防窥屏</td><td>❌</td><td>❌</td><td>✅ 硬件防窥</td></tr>
-        <tr><td>防水</td><td colspan="3">IP68</td></tr>
-        <tr><td>AI</td><td colspan="3">Galaxy AI第三代</td></tr>
-        <tr><td>系统更新</td><td colspan="3">7年OS更新承诺</td></tr>
-      </table>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">S26<br><strong>¥5499</strong> <span class="orig">¥6999</span><br><small>国补/优惠后</small></div>
-      <div class="price-card">S26+ 512G<br><strong>¥8299</strong><br><small>512G存储版</small></div>
-      <div class="price-card">S26 Ultra 512G<br><strong>¥10299</strong><br><small>512G存储版</small></div>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>硬件防窥屏</strong>（Ultra独占）：切换屏幕像素模式实现防窥，不影响显示效果和功耗，可自定义开启界面</li>
-        <li><strong>S Pen内置</strong>（Ultra独占）：生产力场景无可替代</li>
-        <li><strong>Galaxy AI第三代</strong>：最成熟的手机AI生态，多场景深度集成</li>
-        <li><strong>7年系统更新承诺</strong>：行业最长的更新周期</li>
-        <li><strong>200MP四摄系统</strong>（Ultra）：2亿像素+双长焦，影像天花板</li>
-        <li><strong>S26国补后5499元</strong>：降幅1500元（21.4%），三星旗舰首次进入5000+区间</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>全球品牌影响力第一</li>
-            <li>S Pen生产力无可替代</li>
-            <li>硬件防窥屏商务属性独特</li>
-            <li>Galaxy AI生态最成熟</li>
-            <li>7年系统更新承诺</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-headline">核心结论：<strong>买的是品牌生态，不是参数表</strong></div>
+          <div class="bt-sub">S26系列在硬件参数上全面落后于同价位的国产旗舰——电池容量差3000mAh+、充电功率差40W+、起售价贵2000-4000元。但三星依然拥有国产厂商难以复制的三张底牌：全球品牌影响力、S Pen生产力生态、以及长达7年的系统更新承诺。选择S26的用户，不是在买配置，而是在买一种全球化的移动生活方式。</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>4300-5000mAh严重落后国产</li>
-            <li>25W/45W充电严重落后</li>
-            <li>与同配国产差2000-4000元</li>
-            <li>中国市场份额不足1%</li>
-            <li>本地化功能持续落后</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-lab">起售价</div>
+          <div class="bt-num">5499<span>元</span></div>
+          <div class="bt-val">S26标准版 · 国补后价格</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">Ultra主摄</div>
+          <div class="bt-num">200<span>MP</span></div>
+          <div class="bt-val">2亿像素四摄系统</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">系统更新</div>
+          <div class="bt-num">7<span>年</span></div>
+          <div class="bt-val">行业最长OS更新承诺</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">电池</div>
+          <div class="bt-num">5000<span>mAh</span></div>
+          <div class="bt-val">Ultra容量 · 全系最高</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>🔒 <strong>高端商务人士</strong>（Ultra）：硬件防窥屏+S Pen+DeX模式，信息安全与生产力兼得</li>
-        <li>🌐 <strong>三星生态用户</strong>：Galaxy Watch/Buds/Tab用户不愿换生态</li>
-        <li>🌍 <strong>涉外/国际用户</strong>：全球联保+国际品牌+One UI</li>
-      </ul>
-      <div class="highlight-box">💡 618预测：S26或降至¥4999，S26 Ultra降幅有限(5-6%)</div>
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">Ultra Innovation</span></div>
+        <h3 class="ch-title">硬件防窥屏：2026年最实用的商务创新</h3>
+        <div class="ch-intro">S26 Ultra独占的硬件防窥屏是三星在显示技术上的又一次前沿探索——它不仅仅是一个隐私保护功能，更重新定义了「手机屏幕的可见性边界」。</div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">屏幕革命</span></div>
+          <h3>业界首创硬件级防窥：从像素层面重塑可视角度</h3>
+          <p>与传统的光学膜防窥屏不同，S26 Ultra的<strong>硬件防窥屏</strong>通过在OLED像素结构层面动态调整微透镜阵列（MLA）的出光方向来实现视野限制。它的精妙之处在于——<strong>不影响屏幕原生的显示效果</strong>：传统防窥膜的亮度损失（通常30-40%）、色偏、颗粒感等问题在这里完全不存在。用户可以在系统设置中自由调节防窥角度（30°/45°/60°），甚至可以为特定应用设置独立的防窥策略。</p>
+          <p>从技术角度看，这意味着三星在OLED微透镜阵列的「指向性发光」控制上取得了突破。从用户场景看，地铁上看工作文档、咖啡馆里处理敏感信息、飞机上浏览财务报表——这些都是硬件防窥屏真正解决的用户痛点。<strong>这是2026年旗舰机中最实用的创新功能，没有之一。</strong></p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Fae88b8a1j00tb13zw00bid000go00b3g.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 正面" loading="lazy">
+            <figcaption>Galaxy S26 Ultra · 6.9英寸动态AMOLED</figcaption>
+            <span class="m-badge">Ultra独占</span>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F6b298f29j00tb13zw005ad000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 背面" loading="lazy">
+            <figcaption>Galaxy S26 Ultra · 四摄系统</figcaption>
+          </figure>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">硬件防窥屏是三星S26 Ultra最值得称道的创新。这不仅仅是一个「我也能做」的功能——它需要OLED面板设计和显示驱动IC的深度定制能力，目前在安卓阵营只有三星Display能做到。对于商务人士和注重隐私的用户来说，这个功能的价值远超跑分和充电速度。但值得注意的是，这个功能是<strong>Ultra独占</strong>，S26和S26+的用户无法享受——如果想要这个功能就必须上Ultra，意味着至少10299元的投入。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">Performance & AI</span></div>
+        <h3 class="ch-title">骁龙8 Gen5 for Galaxy + AI第三代：软硬一体的生态壁垒</h3>
+        <div class="ch-intro">三星依然是高通首发定制芯片的唯一合作方，Galaxy AI也已进入第三代。这两大支柱构成了S26系列最坚固的生态护城河。</div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">芯片</span></div>
+          <h3>骁龙8至尊版 Gen5 for Galaxy：独占频率 + 深度优化</h3>
+          <p>全系标配<strong>第五代骁龙8至尊版for Galaxy定制芯片</strong>，相比标准版骁龙8 Gen5在CPU和GPU频率上有所提升。更重要的是，三星与高通在散热、功耗管理、AI引擎调度上做了联合深度调校——这使得S26系列在持续性能输出上有更好的表现。对于普通用户来说，这意味着日常使用流畅度足以支撑整个7年更新周期，而不会在第三、第四年就出现明显卡顿。</p>
+        </div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">AI</span></div>
+          <h3>Galaxy AI第三代：从实用到不可或缺的进化</h3>
+          <p>经过三代迭代，Galaxy AI已经深度集成到One UI的每一个角落——通话实时翻译支持更多语言、笔记自动摘要准确率大幅提升、照片编辑的AI擦除和重构效果达到了「可用级」（而非「玩玩级」）、以及全新加入的<strong>上下文感知助手</strong>能够根据当前屏幕内容智能推荐操作。三星的AI生态优势在于系统级深度集成，而非独立的AI应用——这意味着用户不需要「去用AI」，AI会在你需要的时候自动出现。</p>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">Galaxy AI是三星区别于所有国产旗舰的核心差异点——不是因为它功能最多，而是因为它集成最深。国产旗舰的AI能力目前还停留在「独立应用」阶段（如影像AI、语音助手等），而三星已经将AI融入系统的底层交互逻辑。这种软硬一体的生态壁垒需要数年积累，短期内很难被复制。但需要提醒的是，Galaxy AI的部分高级功能在中国大陆的可用性受到本地化限制，实际体验可能不如海外市场完整。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">Battery & Camera</span></div>
+        <h3 class="ch-title">电池短板与影像长板：一个老问题的新表现</h3>
+        <div class="ch-intro">电池和充电是三星旗舰长期被诟病的软肋，而影像系统则是三星引以为傲的传统强项。在2026年的S26系列上，这个两极分化的格局依然没有改变。</div>
+
+        <table class="spec-table">
+          <tr><th>项目</th><th>S26</th><th>S26+</th><th>S26 Ultra</th></tr>
+          <tr><td>处理器</td><td colspan="3">骁龙8至尊版 Gen5 for Galaxy</td></tr>
+          <tr><td>屏幕</td><td>6.3" FHD+ 120Hz</td><td>6.7" QHD+ 120Hz</td><td>6.9" QHD+ 1-120Hz自适应</td></tr>
+          <tr><td>屏幕技术</td><td colspan="3">动态AMOLED · 防眩光</td></tr>
+          <tr><td>电池</td><td>4300mAh</td><td>4900mAh</td><td>5000mAh</td></tr>
+          <tr><td>有线充电</td><td>25W</td><td>45W</td><td>60W</td></tr>
+          <tr><td>无线充电</td><td>❌</td><td>❌</td><td>✅</td></tr>
+          <tr><td>主摄</td><td>50MP</td><td>50MP</td><td>200MP</td></tr>
+          <tr><td>超广角</td><td>12MP</td><td>12MP</td><td>50MP</td></tr>
+          <tr><td>长焦</td><td>10MP</td><td>10MP</td><td>50MP + 10MP</td></tr>
+          <tr><td>S Pen</td><td>❌</td><td>❌</td><td>✅ 内置</td></tr>
+          <tr><td>防窥屏</td><td>❌</td><td>❌</td><td>✅ 硬件级</td></tr>
+          <tr><td>防水</td><td colspan="3">IP68</td></tr>
+          <tr><td>AI & 更新</td><td colspan="3">Galaxy AI第三代 · 7年OS更新承诺</td></tr>
+        </table>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">续航痛点</span></div>
+          <h3>4300-5000mAh + 25-60W充电：国产旗舰面前的最大尷尬</h3>
+          <p>在国产旗舰已经将电池推至<strong>7000-8000mAh、充电飙至100-150W</strong>的2026年，三星最高5000mAh电池+60W充电的组合显得格外刺眼。S26标准版4300mAh的电池甚至低于一些国产中端机，而25W的充电速度意味着从0充满需要超过90分钟。更让人不解的是，<strong>S26和S26+甚至不支持无线充电</strong>——这在旗舰手机中几乎是闻所未闻的配置降级。</p>
+          <p>三星对电池容量的保守态度有其安全考量（Note7事件的阴影至今存在），但当竞品已经用8000mAh+百瓦快充将续航焦虑彻底消除时，三星的策略更像是「宁可落后也不冒险」，而非真正的技术限制。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Faf2bfda0j00tb13zw007md000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 影像系统" loading="lazy">
+            <figcaption>200MP主摄 + 双长焦系统</figcaption>
+            <span class="m-badge">影像旗舰</span>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F860488a7j00tb13zw008ud000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra S Pen" loading="lazy">
+            <figcaption>内置S Pen · 生产力工具</figcaption>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">影像</span></div>
+          <h3>200MP四摄 + 双长焦：Ultra依然是影像天花板</h3>
+          <p>影像系统是S26系列与国产旗舰差距最小的维度——尤其是Ultra。200MP主摄+50MP超广角+50MP长焦+10MP潜望长焦的四摄组合依然代表着手机影像的顶级水准。三星的影像调校风格偏向<strong>自然、克制、高动态范围</strong>，喜欢讨好眼球式AI美颜的用户可能会觉得不如国产旗舰「好看」，但追求真实还原的用户会更认可三星的色彩科学。需要特别提到的是，<strong>S26和S26+的影像配置与Ultra差距巨大</strong>——如果你是冲着拍照买S26系列，建议直接上Ultra。</p>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">S26系列的电池和充电配置是一个系统性问题，不是某款机型的个别短板。这反映了三星在产品定义上的核心价值观：安全优先、稳健迭代。但在中国市场，消费者对续航和快充的敏感度远高于全球平均水平——三星如果不在这个问题上做出改变，即使品牌力再强也无法挽回中国市场的颓势。好消息是，S26标准版国补后5499元的价格让三星旗舰首次杀入5000+区间，这对于以前根本不敢考虑三星的用户来说，低门槛本身就是一种市场突破。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">Pricing & Target</span></div>
+        <h3 class="ch-title">价格与目标用户：贵得有理由，但不是为所有人准备的</h3>
+        <div class="ch-intro">三星S26系列的价格跨度从5499元到10299元以上，覆盖了中高端到旗舰的全部区间。但与中国市场动辄5000元起步的国产旗舰相比，三星的价格依然需要你有明确的购买理由。</div>
+
+        <table class="spec-table">
+          <tr><th>版本</th><th>国补后参考价</th><th>对比国产同档</th></tr>
+          <tr><td>S26 标准版</td><td><strong>¥5499</strong></td><td>同配国产约¥2500-3500</td></tr>
+          <tr><td>S26+ 512G</td><td><strong>¥8299</strong></td><td>同配国产约¥3500-4500</td></tr>
+          <tr><td>S26 Ultra 512G</td><td><strong>¥10299</strong></td><td>同配国产约¥4500-6000</td></tr>
+        </table>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>只推荐三类人购买S26系列</strong>：(1) 三星生态深度用户——你有Galaxy Watch/Buds/Tab，换生态成本太高；(2) 高端商务人士——S Pen+防窥屏+DeX模式的生产力组合在出差场景中无替代方案；(3) 涉外/国际用户——全球联保+One UI国际化体验远超国产。如果你不属于这三类，<strong>同等预算下国产旗舰能给你的硬件配置要多得多</strong>。</div></div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>618预测</strong>：S26标准版或降至4999元，降幅约9%。S26 Ultra降价空间有限（预计5-6%），因为Ultra用户群对价格不敏感。三星的降价策略一贯保守，如果300-500元的降幅对你的购买决策影响不大，首发入手也无妨。但如果预算敏感，不妨等等看618是否有平台优惠叠加。</div></div>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>硬件防窥屏是2026年最被低估的创新</h3>
+          <p>这项技术短期内看不到追兵，对商务用户的实用价值极高。但它是Ultra独占——想拥有它就得上10299元的Ultra，门槛不低。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>电池和充电是三星旗舰的阿喀琉斯之踵</h3>
+          <p>5000mAh+60W的组合在2026年的旗舰市场像个「时空穿越者」。这不是技术问题，而是产品策略问题——三星需要在这件事上拿出改变的勇气。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>买三星买的是生态和全球化，不是跑分和性价比</h3>
+          <p>如果你需要全球联保、S Pen生产力、One UI的国际化体验，三星依然是最好的选择。但如果你只在乎「花多少钱买到多少配置」，国产旗舰是更理性的选择。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>中国市场：三星的「不可能任务」仍在继续</h3>
+          <p>即便国补后S26下探至5499元，面对同价位国产旗舰（8000mAh+百瓦快充+同等影像）的围剿，三星在中国市场的份额回升仍然任重道远。</p>
+        </div>
+      </div>
     `
   },
 
   huaweinova16: {
     title: '华为 nova 16系列 发布会报告',
-    html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年6月1日14:30，华为在成都举办<strong>「奔赴盛夏」</strong>全场景新品发布会，正式推出nova 16系列四款机型——nova 16z、nova 16、nova 16 Pro、nova 16 Ultra。这是nova系列诞生<strong>十周年</strong>的里程碑之作，由时代少年团代言。全系搭载麒麟9010S芯片，Pro和Ultra版本首发2亿像素红枫RYYB超大底主摄，起售价仅2699元。</p>
-      <div class="highlight-box">🎯 核心关键词：nova十周年 · 麒麟9010S全系 · 2亿红枫RYYB影像 · 7000mAh+100W · 2699元起 · 时代少年团</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://n.sinaimg.cn/spider20260601/400/w720h480/20260601/2153-c37497dc3b47b53f04c251a43ea720a7.jpg" onclick="openLightbox(this.src)" alt="nova 16系列 四款配色" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/074c-baff30ca4e91091b9b4b9e46c137e987.jpg" onclick="openLightbox(this.src)" alt="nova 16 Pro 晴空蓝配色" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/884f-27423806cd6c43a98a7dd8a25b454f98.jpg" onclick="openLightbox(this.src)" alt="nova 16 Pro 影像模组" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/49a8-f384b9624713de8c93a2d23133ac4b56.jpg" onclick="openLightbox(this.src)" alt="nova 16 Ultra 素皮拼接" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/aaf1-0f01b8cbcd35d881704a6a31394ed85a.jpg" onclick="openLightbox(this.src)" alt="nova 16 Ultra 全系RYYB" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/2f86-52b7be8a2d26b79431bb4e7476f8fed1.jpg" onclick="openLightbox(this.src)" alt="nova 16系列 总结图" loading="lazy">
+    html: ``      <div class="r-hero">
+        <div class="r-eyebrow">2026年6月1日 · 成都 · 华为「奔赴盛夏」</div>
+        <h3>华为 nova 16系列：<span class="g">麒麟9010S全系+2亿红枫RYYB</span></h3>
+        <div class="r-sub">nova十周年纪念作 · 四款齐发（16z/16/16 Pro/16 Ultra）· 全系麒麟9010S+7000mAh巨鲸电池+100W快充 · 2699元起</div>
+        <div class="r-chips"><span>麒麟9010S</span><span>2亿红枫RYYB</span><span>7000mAh</span><span>100W快充</span><span>¥2699起</span><span>十周年</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技</p>
 
-      <h3>📋 四款机型规格对比</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>nova 16z</th><th>nova 16</th><th>nova 16 Pro</th><th>nova 16 Ultra</th></tr>
-        <tr><td>处理器</td><td colspan="4">麒麟9010S（1×2.3GHz + 3×2.18GHz + 4×1.55GHz）</td></tr>
-        <tr><td>屏幕</td><td colspan="4">6.84英寸 2856×1320 1-120Hz LTPO · 6000nits峰值 · 昆仑玻璃</td></tr>
-        <tr><td>电池</td><td colspan="4">7000mAh 巨鲸电池（nova史上最大）</td></tr>
-        <tr><td>有线充</td><td colspan="4">100W 超级快充</td></tr>
-        <tr><td>无线充</td><td>❌</td><td>❌</td><td>❌</td><td>✅ 50W</td></tr>
-        <tr><td>主摄</td><td>5000万</td><td>5000万 红枫</td><td>2亿 红枫RYYB</td><td>2亿 红枫RYYB</td></tr>
-        <tr><td>长焦</td><td>❌</td><td>5000万 潜望</td><td>5000万 RYYB 潜望(3.7x)</td><td>5000万 RYYB 潜望(3.7x)</td></tr>
-        <tr><td>超广角</td><td>—</td><td>—</td><td>5000万 微距(118°)</td><td>5000万 微距(118°)</td></tr>
-        <tr><td>红枫原色</td><td>❌</td><td>✅</td><td>✅(150万多光谱)</td><td>✅(全RYYB三摄)</td></tr>
-        <tr><td>前置</td><td>—</td><td>—</td><td>5000万(1/2.5" 大底)</td><td>5000万(1/2.5" 大底)</td></tr>
-        <tr><td>防水</td><td>—</td><td>—</td><td>—</td><td>IP68/IP69</td></tr>
-        <tr><td>散热</td><td>标准</td><td>标准</td><td>冰桥散热(+25%)</td><td>冰桥散热(+25%)</td></tr>
-        <tr><td>后盖</td><td colspan="2">AG玻璃</td><td colspan="2">丝绒AG玻璃 + 航空铝中框 · Ultra独享素皮+玻璃拼接</td></tr>
-        <tr><td>配色</td><td colspan="4">晴空蓝 / 幻彩贝母 / 天际白 / 星空黑（Ultra无幻彩贝母）</td></tr>
-        <tr><td>系统</td><td colspan="4">HarmonyOS 6.1 · 北斗卫星消息 · Wi-Fi 7 · 星闪</td></tr>
-      </table>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">nova 16z 256G<br><strong>¥2699</strong><br><small>入门首选</small></div>
-      <div class="price-card">nova 16z 512G<br><strong>¥3199</strong></div>
-      <div class="price-card">nova 16 256G<br><strong>¥2999</strong><br><small>标准版</small></div>
-      <div class="price-card">nova 16 512G<br><strong>¥3499</strong></div>
-      <div class="price-card">nova 16 Pro 256G<br><strong>¥3899</strong><br><small>2亿红枫</small></div>
-      <div class="price-card">nova 16 Pro 512G<br><strong>¥4399</strong></div>
-      <div class="price-card">nova 16 Pro 1TB<br><strong>¥4999</strong></div>
-      <div class="price-card">nova 16 Ultra 256G<br><strong>¥4699</strong><br><small>全RYYB旗舰</small></div>
-      <div class="price-card">nova 16 Ultra 512G<br><strong>¥5199</strong></div>
-      <div class="price-card">nova 16 Ultra 1TB<br><strong>¥5799</strong></div>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>2亿像素红枫RYYB超大底主摄</strong>（Pro/Ultra）：行业首发，1/1.28英寸超大底+RYYB传感器，暗光进光量翻倍</li>
-        <li><strong>全系麒麟9010S</strong>：整机性能提升18%，120帧MOBA/FPS流畅度提升41-46%，游戏快启速度提升5倍</li>
-        <li><strong>前后双红枫影像</strong>（Pro/Ultra）：5000万前置1/2.5"大底+150万多光谱通道，自拍色彩精准还原</li>
-        <li><strong>7000mAh巨鲸电池+100W快充</strong>：nova系列史上最大电池</li>
-        <li><strong>冰桥散热架构</strong>（Pro/Ultra）：导热效率较上代提升25%</li>
-        <li><strong>4款配色夏日美学</strong>：晴空蓝、幻彩贝母、天际白、星空黑，7.1mm超薄机身</li>
-        <li><strong>Ultra独享IP68/IP69+素皮拼接</strong>：华为最强防护等级</li>
-        <li><strong>2699元起</strong>：nova 16z以麒麟9010S打入2K档，诚意十足</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>2699元麒麟9010S性价比极高</li>
-            <li>2亿红枫RYYB影像行业首发</li>
-            <li>7000mAh+100W续航出色</li>
-            <li>5000万前置大底自拍强</li>
-            <li>鸿蒙6.1生态成熟</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-lab">核心结论</div>
+          <div class="bt-headline"><strong>麒麟9010S全系回归</strong> + 2亿红枫RYYB影像突破</div>
+          <div class="bt-sub">nova十周年四款齐发，2699元起让麒麟芯片重回大众价位。Pro/Ultra独占2亿像素RYYB主摄，暗光进光量翻倍——这是2026年最值得关注的影像技术路线之一。</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>麒麟9010S性能不及骁龙旗舰</li>
-            <li>仅Ultra支持无线充</li>
-            <li>四款定位差距不够大</li>
-            <li>无IP68防水(除Ultra)</li>
-            <li>Pro起价3899元偏高</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-lab">起步价</div>
+          <div class="bt-num">2699<span>元</span></div>
+          <div class="bt-val">nova 16z · 麒麟9010S打入2K档</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">电池容量</div>
+          <div class="bt-num">7000<span>mAh</span></div>
+          <div class="bt-val">巨鲸电池 · nova史上最大</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">主摄像素</div>
+          <div class="bt-num">2亿<span>像素</span></div>
+          <div class="bt-val">Pro/Ultra独占 · 红枫RYYB超大底</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">十周年</div>
+          <div class="bt-num">10<span>周年</span></div>
+          <div class="bt-val">时代少年团代言 · 纪念作</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>📱 <strong>鸿蒙生态用户</strong>：华为全家桶无缝协同（平板/手表/耳机/汽车），HarmonyOS 6.1体验完整</li>
-        <li>🤳 <strong>自拍/影像达人</strong>（Pro/Ultra）：2亿红枫+5000万前置大底，人像肤色还原行业顶尖</li>
-        <li>🎓 <strong>预算有限学生党</strong>（nova 16z）：2699元麒麟9010S+7000mAh，性价比越级</li>
-        <li>🛡️ <strong>重度户外用户</strong>（Ultra）：IP68/IP69+北斗卫星消息+昆仑玻璃，户外三防拉满</li>
-      </ul>
-      <div class="highlight-box">💡 618预测：nova 16z有望跌至¥2399，Pro版¥3499。开售日6月5日，恰逢618大促周期</div>
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">PERFORMANCE</span></div>
+        <h2 class="ch-title">麒麟9010S全系回归：性能与情怀的双重胜利</h2>
+        <p class="ch-intro">华为将麒麟9010S下放到 nova 全系，这是继 Mate/P 系列之后，麒麟芯片首次在2-3K档位实现全系标配。对消费者来说，这不仅是性能提升，更是「华为护城河」的又一次延伸。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">芯片</span><span class="f-tag">全系标配</span></div>
+        <h3>麒麟9010S：nova十周年的最佳献礼</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/400/w720h480/20260601/2153-c37497dc3b47b53f04c251a43ea720a7.jpg" onclick="openLightbox(this.src)" alt="nova 16系列 四款配色" loading="lazy">
+            <figcaption>nova 16系列四款配色 · 晴空蓝 / 幻彩贝母 / 天际白 / 星空黑</figcaption>
+            <span class="m-badge">十周年</span>
+          </figure>
+          <div>
+            <p>麒麟9010S采用1×2.3GHz + 3×2.18GHz + 4×1.55GHz的八核架构，基于中芯国际N+2工艺（等效7nm增强）制造。<strong>整机性能相比上代提升18%</strong>，120帧MOBA/FPS流畅度提升41-46%，游戏快启速度提升5倍。</p>
+            <p>虽然制程上仍与台积电3nm的竞品有代差，但<strong>麒麟9010S的实际体验已经可以流畅运行《王者荣耀》120帧和《和平精英》90帧</strong>。对于nova的目标用户群（学生、年轻职场人）来说，这个性能水准完全够用——而且「麒麟回来了」的品牌情感价值，远超过跑分表上的那几千分差距。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">麒麟9010S的最大意义不在跑分，而在「全系标配」四个字。过去华为只能让Mate/P系列用旗舰麒麟，nova系列往往用骁龙中端或麒麟中端。这次十周年直接全系麒麟9010S，说明华为的芯片产能和良率已经提升到可以支撑中端机型大规模出货的水平——这是华为手机业务全面复苏的最有力信号。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">性能实测</span></div>
+        <h3>游戏与日常：够用，且有余量</h3>
+        <p>根据发布会披露的数据：<strong>120帧MOBA游戏流畅度提升41-46%，游戏快启速度提升5倍</strong>。这意味着《王者荣耀》《原神》（中画质）等主流游戏可以稳定高帧运行。配合7000mAh巨鲸电池，游戏续航焦虑基本归零。</p>
+        <p>但需要注意：<strong>麒麟9010S的GPU性能仍不及骁龙8 Gen5或天玑9500</strong>。如果你是极致画质党，nova 16系列可能不是最佳选择。但对于90%的普通用户，这颗芯片的性能冗余已经足够支撑3年以上的流畅使用。</p>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">IMAGING</span></div>
+        <h2 class="ch-title">2亿红枫RYYB：暗光影像的技术突围</h2>
+        <p class="ch-intro">Pro和Ultra版本首发2亿像素红枫RYYB超大底主摄，这是2026年手机影像最值得关注的技术路线之一——RYYB传感器配合红枫原色引擎，暗光进光量相比传统RGB传感器翻倍。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">主摄</span><span class="f-tag">行业首发</span></div>
+        <h3>2亿像素红枫RYYB超大底：暗光摄影的物理外挂</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/074c-baff30ca4e91091b9b4b9e46c137e987.jpg" onclick="openLightbox(this.src)" alt="nova 16 Pro 晴空蓝配色" loading="lazy">
+            <figcaption>nova 16 Pro · 晴空蓝配色</figcaption>
+          </figure>
+          <div>
+            <p><strong>RYYB传感器</strong>的核心原理是用黄色（Y）像素替代传统RGB阵列中的绿色（G）像素。由于黄色像素的感光效率高于绿色，RYYB传感器的<strong>暗光进光量可以提升40-50%</strong>。华为在此基础上加入了<strong>「红枫原色引擎」</strong>——一颗150万多光谱通道传感器，专门用于色彩校准，让RYYB传感器的色彩还原更准确（早年P30 Pro的RYYB曾被诟病「偏黄」）。</p>
+            <p><strong>2亿像素</strong>的意义在于像素九合一后单像素尺寸超大，配合RYYB的高进光量，暗光拍摄的纯净度和细节表现都会有质的提升。对于喜欢拍夜景、室内、晚餐等场景的用户来说，这套影像系统的实际价值远超参数表上的数字。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">长焦</span><span class="f-tag">前置</span></div>
+        <h3>全焦段RYYB布局（Pro/Ultra）+ 5000万前置大底</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/884f-27423806cd6c43a98a7dd8a25b454f98.jpg" onclick="openLightbox(this.src)" alt="nova 16 Pro 影像模组" loading="lazy">
+            <figcaption>nova 16 Pro · 影像模组 · 2亿红枫RYYB主摄</figcaption>
+            <span class="m-badge">Pro独占</span>
+          </figure>
+          <div>
+            <p>Pro和Ultra版本不仅主摄是2亿RYYB，<strong>长焦也升级为5000万像素RYYB潜望（3.7x光学变焦）</strong>，超广角同样是5000万像素且支持118°微距。这意味着三个摄像头全部采用RYYB传感器——<strong>全焦段暗光能力提升</strong>，这是目前行业内唯一的「全RYYB三摄」方案。</p>
+            <p>前置同样升级：<strong>5000万像素1/2.5英寸大底</strong>（Pro/Ultra），配合红枫原色引擎，自拍的色彩还原和细节表现都达到了行业顶尖水准。对于喜欢自拍、视频通话、直播的用户来说，这个前置配置甚至超过了部分旗舰机。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">华为在影像上的策略一直是「技术路线差异化」——不做像素堆砌的跟随者，而是开辟RYYB、可变光圈、潜望长焦等独特赛道。nova 16系列的「全RYYB三摄」是这一策略的延续。实际效果如何，需要等量产机评测，但技术方向是值得肯定的。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">BATTERY &amp; DESIGN</span></div>
+        <h2 class="ch-title">7000mAh巨鲸电池+冰桥散热：续航与性能释放的双重保障</h2>
+        <p class="ch-intro">7000mAh是nova系列史上最大电池，配合100W超级快充和冰桥散热架构（Pro/Ultra导热效率提升25%），续航和持续性能输出都有保障。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">续航</span></div>
+        <h3>7000mAh巨鲸电池 + 100W超级快充</h3>
+        <p><strong>7000mAh</strong>的电池容量意味着正常使用强度下可以轻松坚持1.5-2天。配合<strong>100W华为超级快充</strong>，从0充到100%大约需要45分钟（前30分钟可充至80%）。</p>
+        <p>需要注意的是：<strong>仅Ultra版本支持50W无线充电</strong>，nova 16z/16/Pro均不支持无线充电。这是华为在产品定位上的明确取舍——无线充电作为高端差异化功能，仅留给顶配Ultra独占。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">散热</span><span class="f-tag">设计</span></div>
+        <h3>冰桥散热架构 + 夏日美学设计</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/49a8-f384b9624713de8c93a2d23133ac4b56.jpg" onclick="openLightbox(this.src)" alt="nova 16 Ultra 素皮拼接" loading="lazy">
+            <figcaption>nova 16 Ultra · 素皮+玻璃拼接 · 航空铝中框</figcaption>
+            <span class="m-badge">Ultra独占</span>
+          </figure>
+          <div>
+            <p>Pro和Ultra版本搭载<strong>冰桥散热架构</strong>，导热效率较上代提升25%。这对于麒麟9010S的持续性能释放至关重要——毕竟N+2工艺的能效比不及3nm竞品，更需要强大的散热系统来保证长时间高负载不掉帧。</p>
+            <p>设计方面，标准版和Pro采用<strong>AG玻璃后盖</strong>，Ultra独享<strong>素皮+玻璃拼接</strong>设计，配合航空铝中框，质感和辨识度都达到了nova系列的巅峰。<strong>四款配色</strong>——晴空蓝、幻彩贝母、天际白、星空黑——清新夏日风格，与「奔赴盛夏」的发布会主题高度契合。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">SPEC &amp; PRICING</span></div>
+        <h2 class="ch-title">四款机型规格对比与选购策略</h2>
+        <p class="ch-intro">nova 16系列采用「16z/16/16 Pro/16 Ultra」四档布局，覆盖2699-5799元全价格带。理解四款机型的核心差异，是做出正确购买决策的关键。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">规格对比</span></div>
+        <h3>四款机型核心差异一览</h3>
+        <table class="spec-table">
+          <tr><th>项目</th><th>nova 16z</th><th>nova 16</th><th>nova 16 Pro</th><th>nova 16 Ultra</th></tr>
+          <tr><td>处理器</td><td colspan="4">麒麟9010S（1×2.3GHz + 3×2.18GHz + 4×1.55GHz）</td></tr>
+          <tr><td>屏幕</td><td colspan="4">6.84英寸 2856×1320 1-120Hz LTPO · 6000nits峰值 · 昆仑玻璃</td></tr>
+          <tr><td>电池</td><td colspan="4">7000mAh 巨鲸电池</td></tr>
+          <tr><td>有线充电</td><td colspan="4">100W 超级快充</td></tr>
+          <tr><td>无线充电</td><td>❌</td><td>❌</td><td>❌</td><td>✅ 50W</td></tr>
+          <tr><td>主摄</td><td>5000万</td><td>5000万 红枫</td><td>2亿 红枫RYYB</td><td>2亿 红枫RYYB</td></tr>
+          <tr><td>长焦</td><td>❌</td><td>5000万 潜望</td><td>5000万 RYYB 潜望(3.7x)</td><td>5000万 RYYB 潜望(3.7x)</td></tr>
+          <tr><td>超广角</td><td>—</td><td>—</td><td>5000万 微距(118°)</td><td>5000万 微距(118°)</td></tr>
+          <tr><td>红枫原色</td><td>❌</td><td>✅</td><td>✅(150万多光谱)</td><td>✅(全RYYB三摄)</td></tr>
+          <tr><td>前置</td><td>—</td><td>—</td><td>5000万(1/2.5" 大底)</td><td>5000万(1/2.5" 大底)</td></tr>
+          <tr><td>防水</td><td>—</td><td>—</td><td>—</td><td>IP68/IP69</td></tr>
+          <tr><td>散热</td><td>标准</td><td>标准</td><td>冰桥散热(+25%)</td><td>冰桥散热(+25%)</td></tr>
+          <tr><td>后盖</td><td colspan="2">AG玻璃</td><td colspan="2">丝绒AG玻璃 + 航空铝中框 · Ultra独享素皮+玻璃拼接</td></tr>
+          <tr><td>系统</td><td colspan="4">HarmonyOS 6.1 · 北斗卫星消息 · Wi-Fi 7 · 星闪</td></tr>
+        </table>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">08</span><span class="f-tag">选购建议</span></div>
+        <h3>四款怎么选？关键看你的核心需求</h3>
+        <p><strong>nova 16z（¥2699起）</strong>是入门首选——麒麟9010S+7000mAh+100W的核心体验完整，只是主摄降级为5000万非RYYB、无长焦、无无线充、无高级防水。适合预算有限的学生党和华为生态用户。</p>
+        <p><strong>nova 16（¥2999起）</strong>增加了红枫原色引擎和5000万潜望长焦，主摄依然是5000万非RYYB。适合对长焦有需求但预算在3K内的用户。</p>
+        <p><strong>nova 16 Pro（¥3899起）</strong>是性价比最高的选择——2亿红枫RYYB主摄+全焦段RYYB三摄+5000万前置大底，冰桥散热保证性能持续释放。除了无线充电和素皮后盖，体验已经非常完整。</p>
+        <p><strong>nova 16 Ultra（¥4699起）</strong>独享素皮+玻璃拼接后盖、IP68/IP69双防水、50W无线充电。适合预算充足且追求完整旗舰体验的用户。</p>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐nova 16 Pro 256G（¥3899）</strong>：2亿RYYB主摄+全焦段RYYB三摄+5000万前置大底的核心影像体验完整，冰桥散热保证性能持续释放，除了无线充电和素皮后盖，与Ultra的体验差距并不大。但3899元的起售价相比16z贵了1200元，这个溢价是否值得，取决于你对影像和质感的追求程度。<strong>nova 16z（¥2699）则是性价比王者</strong>——麒麟9010S+7000mAh+100W的核心体验不缩水，适合预算敏感的华为粉丝。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
+        <h2 class="ch-title">核心要点</h2>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>麒麟9010S全系标配是最大亮点</h3>
+          <p>2699元起让麒麟芯片重回大众价位，这是华为手机业务全面复苏的最有力信号。性能虽不及骁龙8 Gen5，但日常使用和主流游戏完全够用。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>2亿红枫RYYB是影像赛道的技术突围</h3>
+          <p>全焦段RYYB三摄（Pro/Ultra）的暗光能力提升是实打实的技术差异化。如果你经常拍夜景、室内、晚餐等场景，这套影像系统的价值远超参数表上的数字。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>四款定位有互蚕风险，Pro版性价比最高</h3>
+          <p>nova 16z与16差距不够大（主要差在长焦和红枫），16 Pro与Ultra差距也不够明显（主要差在无线充、素皮后盖、IP68）。如果你不是「必须顶级」，16z或16 Pro是最理性的选择。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>618值得蹲，16z有望破2400</h3>
+          <p>预测618期间nova 16z可降至¥2399，16 Pro可降至¥3499。如果你不是首发党，等618再入手会更划算。尤其是16z跌破2400元后，将真正成为2K档位最具竞争力的鸿蒙机型。</p>
+        </div>
+      </div>
     `
   },
 
   mi17t: {
     title: '小米17T系列 发布会报告',
-    html: `
-      <h3>🎬 发布会概要</h3>
-      <p>2026年6月8日，小米正式发布<strong>小米17T系列</strong>国行版本——包含小米17T和小米17T Pro两款机型。这是T系列时隔多年<strong>首次回归国内市场</strong>，标志着小米中高端产品线的重要战略调整。产品定位<strong>"全能影像旗舰"</strong>，全系搭载联发科天玑芯片+徕卡影像系统，支持5倍潜望长焦。发布会由产品经理TJ Walton主讲，卢伟冰同步助阵。</p>
-      <div class="highlight-box">🎯 核心关键词：T系列首次回国 · 天玑9500/8500U双平台 · 徕卡5倍潜望长焦 · 7000mAh+100W · IP68防水 · 国行定价待公布</div>
-
-      <h3>📸 产品图赏</h3>
-      <div class="product-gallery">
-        <img src="https://n.sinaimg.cn/spider20260528/134/w600h334/20260528/d58e-8f300b7585350de2013afc8619fedfd5.png" onclick="openLightbox(this.src)" alt="小米17T Pro 正面" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260528/138/w600h338/20260528/5577-ec4f0f35a2512d253077d811cfb66e28.png" onclick="openLightbox(this.src)" alt="小米17T Pro 背面" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/f2b4-a0554f39b4cc52e603f3768d9472000d.png" onclick="openLightbox(this.src)" alt="小米17T Pro 徕卡模组" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/782c-c69ac42b772a259a911505877b900d6b.png" onclick="openLightbox(this.src)" alt="小米17T 正面" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/4e61-5266b6468116db321e1506181e419e18.png" onclick="openLightbox(this.src)" alt="小米17T 背面" loading="lazy">
-        <img src="https://n.sinaimg.cn/spider20260528/136/w600h336/20260528/269d-e9557b32ddb863c62b392600e6fca7a9.png" onclick="openLightbox(this.src)" alt="小米17T Pro 侧面" loading="lazy">
+    html: ``      <div class="r-hero">
+        <div class="r-eyebrow">2026年6月8日 · 小米 · T系列首次回国</div>
+        <h3>小米17T系列：<span class="g">天玑9500/8500U + 徕卡5倍潜望</span></h3>
+        <div class="r-sub">T系列时隔多年回归国内市场 · 天玑9500(Pro)+天玑8500U(标准版)双平台 · 全系徕卡5倍潜望长焦+IP68防水 · 国补后预测17T ¥2999 / 17T Pro ¥3999</div>
+        <div class="r-chips"><span>天玑9500</span><span>徕卡5倍潜望</span><span>7000mAh</span><span>IP68</span><span>¥2999起(预测)</span><span>T系列回国</span></div>
       </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技</p>
 
-      <h3>📋 两款机型规格对比</h3>
-      <table class="spec-table">
-        <tr><th>项目</th><th>小米17T</th><th>小米17T Pro</th></tr>
-        <tr><td>处理器</td><td>天玑8500-Ultra</td><td>天玑9500（旗舰平台）</td></tr>
-        <tr><td>屏幕</td><td>6.59英寸 120Hz OLED 直屏</td><td>6.83英寸 144Hz 12-bit OLED · 3500nit峰值</td></tr>
-        <tr><td>分辨率</td><td>1.5K</td><td>1280p+</td></tr>
-        <tr><td>电池</td><td>6500mAh 硅碳电池</td><td>7000mAh 硅碳电池</td></tr>
-        <tr><td>有线充</td><td>67W</td><td>100W</td></tr>
-        <tr><td>无线充</td><td>❌</td><td>✅ 50W</td></tr>
-        <tr><td>主摄</td><td>50MP Light Fusion 800(1/1.55")</td><td>50MP Light Fusion 950(1/1.31")</td></tr>
-        <tr><td>超广角</td><td colspan="2">徕卡超广角</td></tr>
-        <tr><td>长焦</td><td colspan="2">徕卡5倍潜望长焦 · 5x光学 / 10x无损 / 长焦微距</td></tr>
-        <tr><td>前置</td><td colspan="2">徕卡前置</td></tr>
-        <tr><td>镜头</td><td colspan="2">徕卡 Summilux 1G+6P镜头 + OIS光学防抖</td></tr>
-        <tr><td>视频</td><td colspan="2">4K 60fps · HDR10+ · Log模式</td></tr>
-        <tr><td>防水</td><td colspan="2">IP68 防尘防水</td></tr>
-        <tr><td>Wi-Fi</td><td>Wi-Fi 6E</td><td>Wi-Fi 7</td></tr>
-        <tr><td>蓝牙</td><td colspan="2">蓝牙6.0</td></tr>
-        <tr><td>音频</td><td colspan="2">杜比全景声立体声双扬声器 · Hi-Res认证</td></tr>
-        <tr><td>配色</td><td>黑色 / 蓝色 / 紫色 / 蛋白石白</td><td>黑色 / 深蓝色 / 深紫色</td></tr>
-      </table>
-
-      <h3>💰 价格一览</h3>
-      <div class="price-card">小米17T<br><strong>预计 ¥3299起</strong><br><small>国补后预估</small></div>
-      <div class="price-card">小米17T Pro<br><strong>预计 ¥4299起</strong><br><small>国补后预估</small></div>
-      <p style="font-size:12px;color:#999;margin-top:6px;">⚠️ 国行正式价格于6月8日发布会公布，以上为基于海外定价(749€/899€)的合理预估，国补后价格通常比海外低30-40%</p>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>T系列首次回国</strong>：小米战略级产品线调整，Civi系列被T系列替代，定位更清晰</li>
-        <li><strong>徕卡5倍潜望长焦全系标配</strong>：长焦微距+5x光学变焦，中端机首次获得专业长焦</li>
-        <li><strong>天玑双旗舰策略</strong>：17T Pro天玑9500直接对标骁龙旗舰，17T天玑8500U补齐次旗舰位</li>
-        <li><strong>7000mAh硅碳电池+100W</strong>（Pro）：旗舰级续航组合</li>
-        <li><strong>IP68防水全系标配</strong>：中端机型越级配置</li>
-        <li><strong>直角金属中框</strong>：质感对标高端旗舰</li>
-        <li><strong>卢伟冰+产品经理TJ联袂发布</strong>：全新发布会形式，机器人互动信号引关注</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 优势</h4>
-          <ul>
-            <li>徕卡5倍潜望长焦全系标配</li>
-            <li>天玑9500(Pro)性能旗舰级</li>
-            <li>7000mAh+100W续航组合强</li>
-            <li>IP68全系防水越级</li>
-            <li>T系列回归补全产品线</li>
-          </ul>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-lab">核心结论</div>
+          <div class="bt-headline"><strong>T系列回国首秀</strong> + 徕卡5倍潜望全系标配</div>
+          <div class="bt-sub">小米用T系列替代此前的Civi系列，定位「全能影像旗舰」。天玑9500(Pro)+天玑8500U(标准版)双平台策略，配合徕卡5倍潜望长焦全系标配——这是2026年中性价比影像旗舰的最有力竞争者。</div>
         </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>17T天玑8500U性能偏弱</li>
-            <li>国行定价尚未公布存不确定性</li>
-            <li>无骁龙版本选择有限</li>
-            <li>与小米17 Max定位可能重叠</li>
-            <li>T系列品牌认知度需重建</li>
-          </ul>
+        <div class="r-bt">
+          <div class="bt-lab">国补后预测</div>
+          <div class="bt-num">2999<span>元</span></div>
+          <div class="bt-val">17T 标准版 · 天玑8500U+徕卡影像</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">Pro版预测</div>
+          <div class="bt-num">3999<span>元</span></div>
+          <div class="bt-val">17T Pro · 天玑9500+7000mAh+100W</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">长焦</div>
+          <div class="bt-num">5<span>x</span></div>
+          <div class="bt-val">徕卡5倍潜望 · 全系标配</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">防水</div>
+          <div class="bt-num">IP68<span>/69</span></div>
+          <div class="bt-val">全系标配 · 中端价位越级配置</div>
         </div>
       </div>
 
-      <h3>🎯 适合谁买？</h3>
-      <ul>
-        <li>📸 <strong>长焦摄影爱好者</strong>：徕卡5倍潜望+长焦微距，中端价位专业长焦体验</li>
-        <li>🎮 <strong>性能玩家</strong>（Pro版）：天玑9500+7000mAh+144Hz，游戏场景持续满帧</li>
-        <li>💰 <strong>性价比党</strong>（标准版）：徕卡影像+IP68+大电池，预期3K档越级体验</li>
-        <li>🌊 <strong>户外/拍照双修</strong>：IP68防水+徕卡长焦，旅行一机走天下</li>
-      </ul>
-      <div class="highlight-box">💡 618预测：17T国补后有望¥2999，17T Pro ¥3999。T系列回国首秀，618力度值得期待</div>
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">COMEBACK</span></div>
+        <h2 class="ch-title">T系列回国：小米产品线的战略级调整</h2>
+        <p class="ch-intro">小米17T系列是T系列时隔多年首次回归国内市场，标志着小米在中高端产品线的重新布局。T系列将替代此前的Civi系列，定位「全能影像旗舰」——不再是「轻薄自拍」的Civi路线，而是「性能+影像」的双重旗舰体验。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">战略</span><span class="f-tag">产品线调整</span></div>
+        <h3>T系列回国的战略逻辑：从Civi到T的定位跃迁</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260528/134/w600h334/20260528/d58e-8f300b7585350de2013afc8619fedfd5.png" onclick="openLightbox(this.src)" alt="小米17T Pro 正面" loading="lazy">
+            <figcaption>小米17T Pro 正面 · 6.83英寸 144Hz 12-bit OLED</figcaption>
+            <span class="m-badge">Pro版</span>
+          </figure>
+          <div>
+            <p>小米Civi系列的定位一直是「轻薄自拍旗舰」——主打女性用户、轻薄手感、优秀自拍。但这个定位在市场端始终不温不火：<strong>轻薄意味着电池和散热妥协，自拍定位过于垂直导致男性用户和性能用户直接排除</strong>。</p>
+            <p>T系列的回国，本质上是小米对中高端产品线的<strong>定位重构</strong>：不再追求「轻薄自拍」的差异化，而是做「性能+影像」的双重旗舰——对标OPPO Reno、vivo S、荣耀数字系列。这个定位的市场空间更大，竞争也更激烈。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">T系列回国的战略意义大于产品意义。小米需要一个能在2500-4000元价位与OPPO Reno、vivo S、荣耀数字系列正面竞争的产品线，Civi显然扛不起这个任务。T系列的「性能+影像」全能定位更契合这个价位段的主流需求。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">PERFORMANCE</span></div>
+        <h2 class="ch-title">天玑9500/8500U双平台：性能有区分，体验不缩水</h2>
+        <p class="ch-intro">17T Pro搭载天玑9500（旗舰平台），17T标准版搭载天玑8500-Ultra（次旗舰平台）。这种双平台策略在小米产品中并不常见——通常标准版和Pro版会用同一品牌的不同档位芯片，而T系列选择了联发科的双旗舰平台路线。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">芯片</span><span class="f-tag">双平台</span></div>
+        <h3>天玑9500 vs 天玑8500U：性能差距有多大？</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260528/138/w600h338/20260528/5577-ec4f0f35a2512d253077d811cfb66e28.png" onclick="openLightbox(this.src)" alt="小米17T Pro 背面" loading="lazy">
+            <figcaption>小米17T Pro 背面 · 徕卡影像模组</figcaption>
+          </figure>
+          <div>
+            <p><strong>天玑9500</strong>是联发科2026年旗舰平台，采用台积电3nm工艺，CPU和GPU性能对标骁龙8 Gen5。Benchmark数据显示，天玑9500的CPU多核性能略优于骁龙8 Gen5，但GPU性能稍弱。</p>
+            <p><strong>天玑8500-Ultra</strong>是天玑8500的高频版本（"Ultra"后缀），性能介于骁龙8s Gen3和骁龙8 Gen5之间。<strong>对于日常使用和主流游戏（王者、吃鸡）来说，天玑8500U完全够用；但如果你玩《原神》《崩坏：星穹铁道》等重载游戏，天玑9500的GPU优势会更明显</strong>。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">续航</span></div>
+        <h3>7000mAh硅碳电池 + 100W/67W快充</h3>
+        <p>Pro版搭载<strong>7000mAh硅碳电池</strong>+100W有线快充，标准版为<strong>6500mAh硅碳电池</strong>+67W有线快充。硅碳电池是2026年旗舰机的主流配置——相比传统锂离子电池，能量密度更高、重量更轻、循环寿命更长。</p>
+        <p><strong>7000mAh的续航表现</strong>可以轻松支撑1.5天的中度使用。100W快充约35分钟充满，67W约50分钟充满。需要注意的是，<strong>仅Pro版支持50W无线充电</strong>，标准版不支持无线充电。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">天玑8500U+67W充电的配置在3000元价位段属于「够用但不惊艳」。如果你对充电速度敏感，建议加钱上Pro版——100W+无线充电的便利性在日常使用中感知很强。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">IMAGING</span></div>
+        <h2 class="ch-title">徕卡5倍潜望长焦全系标配：中端价位的影像越级</h2>
+        <p class="ch-intro">17T系列最大的影像亮点是<strong>徕卡5倍潜望长焦全系标配</strong>。在过去，潜望长焦是3500元+价位段的专属配置，T系列将其下放到3000元档，这是2026年影像赛道最重要的「技术下放」之一。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">长焦</span><span class="f-tag">徕卡</span></div>
+        <h3>徕卡5倍潜望长焦：中端价位的影像越级</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/f2b4-a0554f39b4cc52e603f3768d9472000d.png" onclick="openLightbox(this.src)" alt="小米17T Pro 徕卡模组" loading="lazy">
+            <figcaption>徕卡Summilux 1G+6P镜头 + OIS光学防抖</figcaption>
+            <span class="m-badge">全系标配</span>
+          </figure>
+          <div>
+            <p><strong>5倍光学变焦</strong>意味着等效焦距约115mm（以主摄23mm等效焦距计算），这是人像摄影的黄金焦段——透视压缩感自然，背景虚化效果优秀，而且不会因为焦距过长导致手抖问题。</p>
+            <p>配合<strong>徕卡Summilux 1G+6P镜头</strong>和<strong>OIS光学防抖</strong>，成片率和画质都有保障。<strong>长焦微距</strong>功能的加入，让这颗潜望长焦在拍摄小动物、花朵、细节特写时也能发挥作用——这是2026年潜望长焦的标配玩法。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">主摄</span><span class="f-tag">视频</span></div>
+        <h3>50MP Light Fusion主摄 + 4K 60fps视频</h3>
+        <p>Pro版主摄为<strong>50MP Light Fusion 950（1/1.31英寸大底）</strong>，标准版为<strong>50MP Light Fusion 800（1/1.55英寸）</strong>。Light Fusion是小米定制的主摄传感器系列，特点是高动态范围和低噪声。</p>
+        <p>视频方面，全系支持<strong>4K 60fps录制 + HDR10+ + Log模式</strong>。Log模式对于视频创作者来说非常重要——它保留了更多的后期调色空间，让手机拍的视频也能达到接近专业相机的画质表现。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">徕卡5倍潜望长焦全系标配，是T系列最大的诚意体现。在小米的产品线中，通常只有数字系列Ultra版才会给潜望长焦，T系列能做到全系标配，说明小米对这个故事的定位确实是对标OPPO Reno、vivo S的「全能影像旗舰」。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">DESIGN &amp; PRICING</span></div>
+        <h2 class="ch-title">设计、规格与价格预测</h2>
+        <p class="ch-intro">17T系列采用直角金属中框+AG玻璃/素皮后盖的设计语言，Pro版独有12-bit OLED屏幕（3500nits峰值亮度）。国行正式价格尚未公布，以下是基于海外定价的合理预测。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">设计</span><span class="f-tag">屏幕</span></div>
+        <h3>直角金属中框 + 12-bit OLED（Pro版）</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/4e61-5266b6468116db321e1506181e419e18.png" onclick="openLightbox(this.src)" alt="小米17T 正面" loading="lazy">
+            <figcaption>小米17T 正面 · 6.59英寸 120Hz OLED直屏</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260528/136/w600h336/20260528/269d-e9557b32ddb863c62b392600e6fca7a9.png" onclick="openLightbox(this.src)" alt="小米17T 背面" loading="lazy">
+            <figcaption>小米17T 背面 · AG玻璃 / 素皮可选</figcaption>
+          </figure>
+        </div>
+        <p><strong>Pro版独占6.83英寸12-bit OLED屏幕</strong>，2800×1280分辨率，144Hz刷新率，3500nits峰值亮度。12-bit色深意味着屏幕可以显示685亿种颜色（相比10-bit的10.7亿色翻倍），色彩过渡更细腻，gradient banding现象进一步减少。</p>
+        <p>标准版为6.59英寸1.5K OLED直屏，120Hz刷新率。<strong>直角金属中框</strong>的设计语言与小米14/15系列一脉相承，质感比Civi系列的弧形中框更旗舰。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">价格预测</span></div>
+        <h3>国补后价格预测与选购建议</h3>
+        <table class="spec-table">
+          <tr><th>版本</th><th>海外定价</th><th>国补后预测</th><th>备注</th></tr>
+          <tr><td>17T 标准版</td><td>749€</td><td><strong>¥2999</strong></td><td>天玑8500U + 6500mAh + 67W</td></tr>
+          <tr><td>17T Pro</td><td>899€</td><td><strong>¥3999</strong></td><td>天玑9500 + 7000mAh + 100W</td></tr>
+        </table>
+        <p><strong>价格预测逻辑</strong>：海外定价749€/899€分别对应国行预估¥3299/¥4299，国补后下探至¥2999/¥3999。这个定价直接与OPPO Reno16 Pro（¥3999）、vivo S60标准版（¥3099）、荣耀600 Pro（¥3399）竞争。</p>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>标准版（预测¥2999）性价比更高</strong>：天玑8500U+徕卡5倍潜望长焦+IP68防水的组合，在3000元档位几乎没有对手。Pro版（预测¥3999）多出的1000元主要换来天玑9500、7000mAh电池、100W快充、12-bit屏幕——这些升级是否值得1000元溢价，取决于你的使用场景。<strong>推荐等618再买</strong>：预测标准版可能降至¥2699，Pro版降至¥3499，届时性价比会进一步凸显。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
+        <h2 class="ch-title">核心要点</h2>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>T系列回国是产品线战略级调整</h3>
+          <p>从Civi的「轻薄自拍」到T系列的「性能+影像全能」，小米的战略调整反映了2500-4000元价位段的主流需求变化。T系列的竞争对手不再是女性轻薄机，而是OPPO Reno、vivo S、荣耀数字系列。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>徕卡5倍潜望长焦全系标配是最大诚意</h3>
+          <p>将潜望长焦下放到3000元档，是2026年影像赛道最重要的「技术下放」。对于喜欢拍人像、拍远景的用户来说，这颗镜头的核心价值远超跑分和刷新率。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>天玑8500U够用，但Pro版的天玑9500更future proof</h3>
+          <p>如果你打算用3年以上，天玑9500的额外性能冗余会更有价值。但如果你2年左右就换机，标准版的天玑8500U完全够用，省下的1000元可以用于其他用途。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>等618，标准版可能跌破2700</h3>
+          <p>T系列回国首秀+618大促，小米的促销力度通常会比较大。预测17T标准版618可降至¥2699，届时将成为3000元内最具竞争力的全能影像旗舰。</p>
+        </div>
+      </div>
     `
   },
 
   wwdc2026: {
     title: 'Apple WWDC 2026 发布会报告',
     html: `
-      <h3>🎬 发布会概要</h3>
-      <p>北京时间2026年6月9日凌晨1点，苹果全球开发者大会（WWDC 2026）在Apple Park拉开帷幕。这是<strong>蒂姆·库克以CEO身份主持的最后一届WWDC</strong>——他将于9月1日转任董事会执行董事长，CEO由约翰·特努斯接任。大会主题为"先来曝点光"，核心围绕人工智能展开全面攻势，iOS 27、iPadOS 27、macOS 27 "Golden Gate"、watchOS 27、visionOS 27悉数亮相。苹果用一整场发布会宣告：AI时代，它不会再缺席。</p>
-      <div class="highlight-box">🎯 核心关键词：iOS 27全面升级 · Siri AI正式亮相 · Apple Intelligence重构 · 液态玻璃设计 · 支持iPhone 11及后续机型 · 库克谢幕之作</div>
-
-      <h3>📸 现场图赏</h3>
-      <div class="product-gallery">
-        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/438a-iniauefc5282346.jpg" onclick="openLightbox(this.src)" alt="WWDC 2026 主题演讲现场" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260609s/400/w640h560/20260609/6d2a-iniauefc5282347.jpg" onclick="openLightbox(this.src)" alt="iOS 27 液态玻璃界面" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/8f18-iniauefc5282348.jpg" onclick="openLightbox(this.src)" alt="Siri AI 演示" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260609s/300/w640h460/20260609/c4b5-iniauefc5282349.jpg" onclick="openLightbox(this.src)" alt="Apple Intelligence 架构" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/2c91-iniauefc5282350.jpg" onclick="openLightbox(this.src)" alt="液态玻璃设计细节" loading="lazy">
-        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/bbd4-iniauefc5282351.jpg" onclick="openLightbox(this.src)" alt="库克谢幕致辞" loading="lazy">
-      </div>
-      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技</p>
-
-      <h3>📋 iOS 27 核心新功能</h3>
-      <table class="spec-table">
-        <tr><th>类别</th><th>核心升级</th></tr>
-        <tr><td>设计语言</td><td>液态玻璃(Liquid Glass)精调 · 下层透显效果增强 · macOS图标重绘 · 圆角统一更小</td></tr>
-        <tr><td>性能提升</td><td>App启动最高快30% · 照片显示最高快70% · 隔空投送最高快80% · iPad外置硬盘传输最快5倍</td></tr>
-        <tr><td>CPU调度</td><td>优化CPU调度器 · 扩展支持到iPhone 11等旧款机型</td></tr>
-        <tr><td>搜索重构</td><td>聚焦/照片/邮件搜索从底层重构 · 索引全设备内容 · 邮件优先显示最相关结果</td></tr>
-        <tr><td>儿童安全</td><td>儿童账户 · 购买前询问 · 请求浏览 · 通信安全 · 时间额度 · 时间安排</td></tr>
-        <tr><td>相机App</td><td>自定义小组件 · 个性化取景框按钮排布 · 提升拍摄效率</td></tr>
-        <tr><td>系统语音</td><td>系统级语音输入 · 纠正拼写/标点/大小写 · 清除"嗯""啊"等语气词</td></tr>
-        <tr><td>照片App</td><td>消除工具升级 · 扩图工具 · 空间构图技术（后期自由移动视角）</td></tr>
-        <tr><td>Safari</td><td>智能标签页整理 · 动态追踪（自然语言） · 描述扩展（自然语言生成）</td></tr>
-      </table>
-
-      <h3>🤖 Siri AI 核心能力</h3>
-      <table class="spec-table">
-        <tr><th>能力</th><th>说明</th></tr>
-        <tr><td>个人情境理解</td><td>理解用户使用情境 · 结合邮件/日历/照片/消息内容</td></tr>
-        <tr><td>屏幕感知</td><td>感知屏幕内容 · 智能响应上下文 · 跨App操作</td></tr>
-        <tr><td>App操作</td><td>调用App执行操作 · 跨App多步骤任务 · App操作工具箱</td></tr>
-        <tr><td>图像理解</td><td>理解图像内容 · 视觉智能 · 分析餐食热量/识别物体尺寸</td></tr>
-        <tr><td>世界知识</td><td>调用广博世界知识 · 网络实时信息</td></tr>
-        <tr><td>持续对话</td><td>双向持续交流 · 不再局限于单一命令 · 更自然的交互</td></tr>
-        <tr><td>独立App</td><td>全新Siri App · iCloud同步对话记录 · 跨设备连续对话</td></tr>
-        <tr><td>第三方AI</td><td>支持接入ChatGPT/Claude等第三方模型 · 遇到无法解答时无缝切换</td></tr>
-        <tr><td>交互方式</td><td>iOS：灵动岛向下轻扫/说"嘿Siri" · macOS：整合进聚焦/Control键点选</td></tr>
-      </table>
-
-      <h3>💰 升级支持 & 时间线</h3>
-      <div class="price-card">支持机型<br><strong>iPhone 11及后续</strong><br><small>iOS 26可运行即可升27</small></div>
-      <div class="price-card">开发者Beta<br><strong>已发布</strong><br><small>6月9日当天</small></div>
-      <div class="price-card">公开Beta<br><strong>7月</strong><br><small>免费参与</small></div>
-      <div class="price-card">正式版<br><strong>2026年秋季</strong><br><small>随新iPhone发布</small></div>
-      <p style="font-size:12px;color:#c00;margin-top:8px;">⚠️ 中国大陆：Siri AI及部分Apple智能功能需配合监管要求推进，暂不提供<br>⚠️ 欧盟市场：初期不会投放，上线节奏受当地监管影响</p>
-
-      <h3>✨ 发布会亮点</h3>
-      <ul>
-        <li><strong>Siri AI正式亮相</strong>：十五年来最大重构，从"命令执行器"升级为"AI任务协作者"，支持持续对话、跨App多步骤操作、屏幕感知</li>
-        <li><strong>Apple Intelligence全面升级</strong>：与谷歌深度合作，引入Gemini模型技术打造新一代Apple基础模型；支持设备端+私有云计算；具备理解、推理、图像理解生成能力</li>
-        <li><strong>液态玻璃设计语言</strong>：精调透显效果增强立体感和层次感；macOS新增调节滑块（超通透→饱满色调）；App图标多层液态玻璃重绘，叠层间产生折射效果</li>
-        <li><strong>性能飞跃</strong>：App启动最高快30%，照片显示最高快70%，隔空投送最高快80%，iPad浏览/传输文件到外置硬盘最快达5倍</li>
-        <li><strong>视觉智能升级</strong>：整合进相机App，对准物体即可识别并执行操作；Mac可选中屏幕内容直接打字提问；支持分析餐食热量、自动分摊账单、识别景点位置等</li>
-        <li><strong>写作工具增强</strong>：可从头生成初稿，沿用用户沟通习惯撰写信息/邮件，全系统打字时自动校对</li>
-        <li><strong>儿童安全全面拓展</strong>：基于两大原则（家长决定/苹果提供工具不过度介入）；儿童账户、内容管控、通信安全、屏幕时间增强；提供开发者API</li>
-        <li><strong>跨设备连续对话</strong>：iPhone开始对话 → iPad继续 → Mac收尾，iCloud同步会话记录</li>
-        <li><strong>库克谢幕之作</strong>：这是库克作为CEO主持的最后一次WWDC，极具象征意义。9月1日起转任董事会执行董事长</li>
-      </ul>
-
-      <h3>⚖️ 优缺点速览</h3>
-      <div class="pro-con">
-        <div class="pro-box">
-          <h4>👍 亮点</h4>
-          <ul>
-            <li>Siri终迎AI时代大升级，持续对话+屏幕感知</li>
-            <li>液态玻璃设计语言精致，视觉质感大幅提升</li>
-            <li>性能提升幅度显著，旧机型也能感受到</li>
-            <li>支持iPhone 11等旧机型，覆盖范围广</li>
-            <li>视觉智能实用性强，相机App整合自然</li>
-            <li>写作工具全系统覆盖，自动校对提升效率</li>
-            <li>儿童安全功能全面，家长管控更精细</li>
-            <li>跨设备连续对话，生态协同体验最佳</li>
-          </ul>
-        </div>
-        <div class="con-box">
-          <h4>👎 不足</h4>
-          <ul>
-            <li>Siri AI仍为Beta阶段，秋季才公开Beta</li>
-            <li>创新程度不及Gemini/ChatGPT，更多是"补课"</li>
-            <li>中国大陆功能暂不提供，监管原因</li>
-            <li>欧盟市场初期不投放，全球扩张受限</li>
-            <li>部分功能需A17 Pro及以上芯片，旧机型无法完整体验</li>
-            <li>第三方AI接入范围有限，非全面开放</li>
-            <li>市场反应冷淡，股价下跌，投资者信心不足</li>
-          </ul>
+      <div class="r-hero">
+        <div class="r-eyebrow">Apple Park · 全球开发者大会 · 2026.06.09</div>
+        <h3>WWDC 2026：<span class="g">Siri AI 重生</span></h3>
+        <div class="r-sub">库克谢幕之作 · 六大 OS 集体升「27」· Apple Intelligence 全面重构 · 液态玻璃设计精调</div>
+        <div class="r-chips">
+          <span>🍎 iOS / iPadOS / macOS / watchOS / visionOS / tvOS</span>
+          <span>🤖 Siri AI · AFM 3 第三代基础模型</span>
+          <span>🎨 Liquid Glass 二代设计语言</span>
         </div>
       </div>
 
-      <h3>🎯 适合谁升级？</h3>
-      <ul>
-        <li>📱 <strong>iPhone 13及以上用户</strong>：性能提升明显，Siri AI体验完整，建议首选升级</li>
-        <li>💻 <strong>苹果生态全家桶用户</strong>：跨设备连续对话+Siri AI，生态协同体验最佳</li>
-        <li>✍️ <strong>内容创作者</strong>：写作工具+视觉智能+照片AI功能，辅助创作效率提升</li>
-        <li>👨‍👩‍👧 <strong>家长用户</strong>：儿童安全功能全面升级，管控更精细，保护更到位</li>
-        <li>📸 <strong>摄影爱好者</strong>：照片AI功能（消除/扩图/空间构图）实用性强</li>
-      </ul>
-      <div class="highlight-box">💡 秋季正式版发布后，配合新iPhone 18系列，将是最佳升级时机；iPhone 11/12用户建议观望首发评测再决定；中国大陆用户需等待监管审批</div>
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-lab">核心结论</div>
+          <div class="bt-headline"><strong>Siri AI</strong> 重夺系统级 AI 入口</div>
+          <div class="bt-sub">从语音命令到系统级智能体的入口级变革，底层联合 Google Gemini 精炼模型</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">OS 升级规模</div>
+          <div class="bt-num">6</div>
+          <div class="bt-val">大操作系统同步升「27」，覆盖 iPhone 11 至今全机型</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">性能提升</div>
+          <div class="bt-num">80%</div>
+          <div class="bt-val">AirDrop 提速最高 80%，App 启动快 30%，照片加载快 70%</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">AI 能力</div>
+          <div class="bt-num">4</div>
+          <div class="bt-val">个人语境 + 屏幕感知 + 跨 App 动作 + 相机视觉 四路感知合一</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">支持机型</div>
+          <div class="bt-num">7+</div>
+          <div class="bt-val">年覆盖面史上最广，iPhone 11（2019）起全系支持</div>
+        </div>
+      </div>
+
+      <!-- 章节1：平台与设计 -->
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">PLATFORM &amp; DESIGN</span></div>
+        <h2 class="ch-title">平台统一与设计进化</h2>
+        <p class="ch-intro">本届 WWDC 的第一主线是「跨端一致性」。六大 OS 统一升至版本 27，设计语言 Liquid Glass 进入第二代精调阶段，性能优化罕见地惠及老机型。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">设计</span><span class="f-tag">Liquid Glass</span></div>
+        <h3>Liquid Glass 二代：把层次感做到极致</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/2c91-iniauefc5282350.jpg" onclick="openLightbox(this.src)" alt="液态玻璃设计">
+            <figcaption>macOS 新增调节滑块，从超通透到饱满色调连续可调</figcaption>
+          </figure>
+          <div>
+            <p>苹果对液态玻璃（Liquid Glass）进行了<strong>二代精调</strong>，核心变化集中在三个维度：</p>
+            <ul>
+              <li><strong>下层透显效果增强</strong>：多层叠放的玻璃质感更加通透立体，折射效果更自然；</li>
+              <li><strong>App 图标全面重绘</strong>：融入多层光影效果，图标间的层次感大幅提升；</li>
+              <li><strong>圆角规格进一步缩小</strong>：Mac 与移动端的观感拉得更齐，跨设备切换时的一致感更强。</li>
+            </ul>
+            <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">把「版本号」让位给「平台体验」——苹果在刻意淡化单一 OS 的概念，强化跨设备一致的智能层。</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">性能</span><span class="f-tag">官方确认</span></div>
+        <h3>性能飞跃：连 iPhone 11 都能感受到</h3>
+        <p>性能是本届第二主线。官方给出了罕见的<strong>硬数字</strong>：</p>
+        <ul>
+          <li><strong>App 启动提速约 30%</strong>，拍照后相册载入提速约 <strong>70%</strong>，隔空投送（AirDrop）提速约 <strong>80%</strong></li>
+          <li>iPad 外接硬盘文件传输最高 <strong>5 倍</strong>提速</li>
+          <li>蜂窝/Wi-Fi <strong>无缝切换</strong>，弱网下行为更可预期</li>
+          <li>优化 CPU 调度器，<strong>iPhone 11 等老设备体感明显更跟手</strong></li>
+        </ul>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">性能本身就是卖点——存量时代，「不卡」比新功能更能留住用户。把老机型提速摆上主题演讲，说明苹果正在认真对待存量大盘的体验。</div></div>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">如果你还在用 iPhone 11/12，iOS 27 值得升级——这可能是近年来对旧机型最友好的一版系统。但建议等秋季正式版稳定后再升。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">安全</span><span class="f-tag">儿童保护</span></div>
+        <h3>儿童安全全面拓展</h3>
+        <p>基于两大原则：<strong>家长决定 + 苹果提供工具但不过度介入</strong>。新增功能包括：</p>
+        <ul>
+          <li><strong>儿童账户</strong>：13 岁以下强制使用，年龄分级防护可延续至 18 岁，账户可迁移</li>
+          <li><strong>内容管控</strong>：Ask to Buy（购买需批准）+ Ask to Browse（访问新网站需授权）</li>
+          <li><strong>联系人管控</strong>：电话/FaceTime/信息白名单</li>
+          <li><strong>分时段调度</strong>：Time Allowances 时长配额 + 分时段应用权限管理</li>
+          <li><strong>开发者 API</strong>：提供年龄区间声明接口，将分级义务延伸至第三方应用</li>
+        </ul>
+      </div>
+
+      <!-- 章节2：Siri AI -->
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">SIRI &amp; APPLE INTELLIGENCE</span></div>
+        <h2 class="ch-title">Siri AI：十五年最大重构</h2>
+        <p class="ch-intro">发布会的绝对主角。Siri 从传统语音助手蜕变为 <strong>系统级智能体（Agent）</strong>，底层是联合 Google Gemini 技术精炼的新一代基础模型 AFM 3，支持设备端 + 私有云计算双轨推理。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">AI S 级</span><span class="f-tag">核心发布</span></div>
+        <h3>Siri AI：从命令执行到任务编排</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/8f18-iniauefc5282348.jpg" onclick="openLightbox(this.src)" alt="Siri AI演示">
+            <span class="m-badge">核心亮点</span>
+            <figcaption>Siri AI 支持围绕一个主题持续对话，不再是单次命令</figcaption>
+          </figure>
+          <div>
+            <p>这是 Siri <strong>十五年来最大一次重构</strong>。定位从「命令执行器」转变为<strong>「AI 任务协作者」</strong>，核心能力四件套：</p>
+            <ul>
+              <li><strong>个人语境理解</strong>：结合邮件、日历、照片、消息内容理解意图</li>
+              <li><strong>屏幕感知（On-Screen Awareness）</strong>：看到你在看什么，智能响应上下文</li>
+              <li><strong>跨 App 动作（App Actions）</strong>：调用 App 执行操作，多步骤任务编排</li>
+              <li><strong>相机视觉智能</strong>：整合进相机，对准即识别并操作</li>
+            </ul>
+            <p><strong>全新交互方式</strong>：独立 Siri App（iCloud 同步对话记录）、文本输入框、持续双向对话、第三方模型接入（ChatGPT/Claude）。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">入口形态变了——Siri 不再是一个你偶尔喊一声的工具，而是 OS 层的任务编排中枢。这意味着苹果要把 AI 的「主控权」握在系统层面，而非交给某个第三方 App。</div></div>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">Siri AI 仅英文先发、年内 Beta。中国大陆和欧盟暂不上线。如果你在国内，这些功能短期内无法直接体验。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">技术深度</span><span class="f-tag">AFM 3</span></div>
+        <h3>AFM 3：第三代基础模型的工程突破</h3>
+        <p>Apple Intelligence 底层升级为第三代基础模型 <strong>AFM 3（Apple Foundation Model 3）</strong>，包含多个规格层级：</p>
+        <table class="spec-table">
+          <tr><th>模型</th><th>关键指标</th><th>本代 vs 前代</th></tr>
+          <tr><td>AFM 3 Core（端侧）</td><td>文本人评偏好胜率</td><td><strong>45.6%</strong> vs 23.3%（翻倍）</td></tr>
+          <tr><td>AFM 3 Core</td><td>图像理解偏好</td><td><strong>61%+</strong></td></tr>
+          <tr><td>AFM 3 Cloud（云端）</td><td>文本人评偏好</td><td><strong>64.7%</strong> vs 8.7%（飞跃）</td></tr>
+          <tr><td>AFM 3 Cloud</td><td>满意度 / 指令遵循</td><td>相对 <strong>+36% / +21%</strong></td></tr>
+          <tr><td>AFM 3 Cloud Pro</td><td>文本 / 图像能力</td><td>再提升 <strong>+10% / +14%</strong></td></tr>
+          <tr><td>Core Advanced 语音</td><td>TTS MOS（5分制）</td><td><strong>4.15</strong>（前代 3.87）</td></tr>
+        </table>
+        <p><strong>端侧推理创新</strong>：采用 IFP（In-Flight Parameterization）架构——注意力权重放 DRAM，FFN 参数存 NAND 闪存，每次仅激活 10~40 亿参数，用「闪存存专家 + 单次路由 + 弹性激活」突破手机内存墙。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">不是蒸馏小模型的老路，而是端侧大模型工程化的硬核突破。苹果在用完全不同的思路解决「手机上跑大模型」的问题。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">合作模式</span><span class="f-tag">Gemini</span></div>
+        <h3>与 Google Gemini 的关系：精炼，非内置</h3>
+        <p>官方口径划清了边界：第三代模型<strong>与 Google 合作定制</strong>，在训练和优化阶段借 Gemini 进行「精炼」（distillation/refinement），<strong>并非在 iOS 中部署 Gemini 模型或客户端代码</strong>。主题演讲全程未提 Gemini 作为卖点。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">「借 Gemini 炼自家模型」与「内置 Gemini」是两件事。苹果用前者补能力短板，同时守住品牌与数据主权的叙事底线。</div></div>
+      </div>
+
+      <!-- 章节3：时间线与限制 -->
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">TIMELINE &amp; LIMITS</span></div>
+        <h2 class="ch-title">升级时间线与区域限制</h2>
+      </div>
+
+      <table class="spec-table">
+        <tr><th>阶段</th><th>时间</th><th>说明</th></tr>
+        <tr><td>开发者 Beta</td><td>已发布（6月9日）</td><td>面向注册开发者免费提供</td></tr>
+        <tr><td>公开 Beta</td><td>7 月</td><td>所有人可参与测试</td></tr>
+        <tr><td>正式版</td><td>2026 年秋季</td><td>随 iPhone 18 系列一同发布</td></tr>
+      </table>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">限制</span><span class="f-tag">重要</span></div>
+        <h3>你需要知道的限制条件</h3>
+        <ul>
+          <li><strong>区域限制</strong>：Siri AI 仅英文先发、年内 Beta；中国大陆与欧盟暂未上线部分智能功能</li>
+          <li><strong>额度限制</strong>：云端图像生成设每日额度，iCloud+ 订阅可提升上限</li>
+          <li><strong>水印</strong>：AI 生成图像带 SynthID 来源标注</li>
+          <li><strong>设备门槛</strong>：完整 AI 体验需要 A17 Pro 及以上芯片（iPhone 15 Pro/Pro Max 起）</li>
+          <li><strong>基础支持</strong>：iOS 27 本身支持 iPhone 11（2019）及后续所有机型</li>
+        </ul>
+        <div class="r-note r-note-a"><span class="note-l">⚠️ 中国大陆用户注意</span><div class="note-t">Siri AI 及部分 Apple Intelligence 功能因监管原因暂不提供。iOS 27 本身的性能优化、设计更新、儿童安全等功能不受影响，可以正常升级。</div></div>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
+        <h2 class="ch-title">核心要点</h2>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>入口形态变了：从 Command 到 Agent</h3>
+          <p>Siri 从问答 UI 升级为 OS 任务编排层——个人语境 + 屏幕感知 + 跨 App 动作 + 相机视觉四路感知，全局唤起 + 专属 App 双入口。这不是又一代版本号迭代，而是入口形态的根本性变化。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>端云混合 + 闪存推理 = 手机 AI 的新路径</h3>
+          <p>AFM 3 用 IFP 架构突破手机内存墙，设备端 + Private Cloud Compute 双轨并行。云端设每日额度、iCloud+ 解锁更高上限——第一次把 AI 推理成本明码标价进产品体系。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>库克时代的句号，AI 时代的冒号</h3>
+          <p>这是蒂姆·库克以 CEO 身份主持的最后一届 WWDC。9 月 1 日他将转任董事会执行董事长，约翰·特努斯接任。整场发布会以 AI 为绝对主角，仿佛在说：「我的最后一件事，是把苹果带入 AI 时代。」</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>对中国用户的实际影响</h3>
+          <p>短期有限（Siri AI 不上线），但长期利好：iOS 27 性能优化惠及所有机型、Liquid Glass 设计更精致、儿童安全功能更强、照片/搜索/Safari 全方位升级。建议秋季正式版发布后评估是否升级。</p>
+        </div>
+      </div>
     `
   }
 };
-
-// === 弹窗逻辑 ===
 function openReport(id) {
   const report = reports[id];
   if (!report) return;
