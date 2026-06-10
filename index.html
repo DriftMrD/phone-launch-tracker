@@ -455,6 +455,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
           主题演讲回放
         </a>
+        <button class="report-btn" onclick="openReport('wwdc2026')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          发布会报告
+        </button>
       </div>
     </div>
   </div>
@@ -1302,6 +1306,113 @@ const reports = {
         <li>🌊 <strong>户外/拍照双修</strong>：IP68防水+徕卡长焦，旅行一机走天下</li>
       </ul>
       <div class="highlight-box">💡 618预测：17T国补后有望¥2999，17T Pro ¥3999。T系列回国首秀，618力度值得期待</div>
+    `
+  },
+
+  wwdc2026: {
+    title: 'Apple WWDC 2026 发布会报告',
+    html: `
+      <h3>🎬 发布会概要</h3>
+      <p>北京时间2026年6月9日凌晨1点，苹果全球开发者大会（WWDC 2026）在Apple Park拉开帷幕。这是<strong>蒂姆·库克以CEO身份主持的最后一届WWDC</strong>——他将于9月1日转任董事会执行董事长，CEO由约翰·特努斯接任。大会主题为"先来曝点光"，核心围绕人工智能展开全面攻势，iOS 27、iPadOS 27、macOS 27 "Golden Gate"、watchOS 27、visionOS 27悉数亮相。苹果用一整场发布会宣告：AI时代，它不会再缺席。</p>
+      <div class="highlight-box">🎯 核心关键词：iOS 27全面升级 · Siri AI正式亮相 · Apple Intelligence重构 · 液态玻璃设计 · 支持iPhone 11及后续机型 · 库克谢幕之作</div>
+
+      <h3>📸 现场图赏</h3>
+      <div class="product-gallery">
+        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/438a-iniauefc5282346.jpg" onclick="openLightbox(this.src)" alt="WWDC 2026 主题演讲现场" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260609s/400/w640h560/20260609/6d2a-iniauefc5282347.jpg" onclick="openLightbox(this.src)" alt="iOS 27 液态玻璃界面" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/8f18-iniauefc5282348.jpg" onclick="openLightbox(this.src)" alt="Siri AI 演示" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260609s/300/w640h460/20260609/c4b5-iniauefc5282349.jpg" onclick="openLightbox(this.src)" alt="Apple Intelligence 架构" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/2c91-iniauefc5282350.jpg" onclick="openLightbox(this.src)" alt="液态玻璃设计细节" loading="lazy">
+        <img src="https://n.sinaimg.cn/sinakd20260609s/267/w640h427/20260609/bbd4-iniauefc5282351.jpg" onclick="openLightbox(this.src)" alt="库克谢幕致辞" loading="lazy">
+      </div>
+      <p class="img-caption">点击图片查看大图 · 图片来源：新浪科技</p>
+
+      <h3>📋 iOS 27 核心新功能</h3>
+      <table class="spec-table">
+        <tr><th>类别</th><th>核心升级</th></tr>
+        <tr><td>设计语言</td><td>液态玻璃(Liquid Glass)精调 · 下层透显效果增强 · macOS图标重绘 · 圆角统一更小</td></tr>
+        <tr><td>性能提升</td><td>App启动最高快30% · 照片显示最高快70% · 隔空投送最高快80% · iPad外置硬盘传输最快5倍</td></tr>
+        <tr><td>CPU调度</td><td>优化CPU调度器 · 扩展支持到iPhone 11等旧款机型</td></tr>
+        <tr><td>搜索重构</td><td>聚焦/照片/邮件搜索从底层重构 · 索引全设备内容 · 邮件优先显示最相关结果</td></tr>
+        <tr><td>儿童安全</td><td>儿童账户 · 购买前询问 · 请求浏览 · 通信安全 · 时间额度 · 时间安排</td></tr>
+        <tr><td>相机App</td><td>自定义小组件 · 个性化取景框按钮排布 · 提升拍摄效率</td></tr>
+        <tr><td>系统语音</td><td>系统级语音输入 · 纠正拼写/标点/大小写 · 清除"嗯""啊"等语气词</td></tr>
+        <tr><td>照片App</td><td>消除工具升级 · 扩图工具 · 空间构图技术（后期自由移动视角）</td></tr>
+        <tr><td>Safari</td><td>智能标签页整理 · 动态追踪（自然语言） · 描述扩展（自然语言生成）</td></tr>
+      </table>
+
+      <h3>🤖 Siri AI 核心能力</h3>
+      <table class="spec-table">
+        <tr><th>能力</th><th>说明</th></tr>
+        <tr><td>个人情境理解</td><td>理解用户使用情境 · 结合邮件/日历/照片/消息内容</td></tr>
+        <tr><td>屏幕感知</td><td>感知屏幕内容 · 智能响应上下文 · 跨App操作</td></tr>
+        <tr><td>App操作</td><td>调用App执行操作 · 跨App多步骤任务 · App操作工具箱</td></tr>
+        <tr><td>图像理解</td><td>理解图像内容 · 视觉智能 · 分析餐食热量/识别物体尺寸</td></tr>
+        <tr><td>世界知识</td><td>调用广博世界知识 · 网络实时信息</td></tr>
+        <tr><td>持续对话</td><td>双向持续交流 · 不再局限于单一命令 · 更自然的交互</td></tr>
+        <tr><td>独立App</td><td>全新Siri App · iCloud同步对话记录 · 跨设备连续对话</td></tr>
+        <tr><td>第三方AI</td><td>支持接入ChatGPT/Claude等第三方模型 · 遇到无法解答时无缝切换</td></tr>
+        <tr><td>交互方式</td><td>iOS：灵动岛向下轻扫/说"嘿Siri" · macOS：整合进聚焦/Control键点选</td></tr>
+      </table>
+
+      <h3>💰 升级支持 & 时间线</h3>
+      <div class="price-card">支持机型<br><strong>iPhone 11及后续</strong><br><small>iOS 26可运行即可升27</small></div>
+      <div class="price-card">开发者Beta<br><strong>已发布</strong><br><small>6月9日当天</small></div>
+      <div class="price-card">公开Beta<br><strong>7月</strong><br><small>免费参与</small></div>
+      <div class="price-card">正式版<br><strong>2026年秋季</strong><br><small>随新iPhone发布</small></div>
+      <p style="font-size:12px;color:#c00;margin-top:8px;">⚠️ 中国大陆：Siri AI及部分Apple智能功能需配合监管要求推进，暂不提供<br>⚠️ 欧盟市场：初期不会投放，上线节奏受当地监管影响</p>
+
+      <h3>✨ 发布会亮点</h3>
+      <ul>
+        <li><strong>Siri AI正式亮相</strong>：十五年来最大重构，从"命令执行器"升级为"AI任务协作者"，支持持续对话、跨App多步骤操作、屏幕感知</li>
+        <li><strong>Apple Intelligence全面升级</strong>：与谷歌深度合作，引入Gemini模型技术打造新一代Apple基础模型；支持设备端+私有云计算；具备理解、推理、图像理解生成能力</li>
+        <li><strong>液态玻璃设计语言</strong>：精调透显效果增强立体感和层次感；macOS新增调节滑块（超通透→饱满色调）；App图标多层液态玻璃重绘，叠层间产生折射效果</li>
+        <li><strong>性能飞跃</strong>：App启动最高快30%，照片显示最高快70%，隔空投送最高快80%，iPad浏览/传输文件到外置硬盘最快达5倍</li>
+        <li><strong>视觉智能升级</strong>：整合进相机App，对准物体即可识别并执行操作；Mac可选中屏幕内容直接打字提问；支持分析餐食热量、自动分摊账单、识别景点位置等</li>
+        <li><strong>写作工具增强</strong>：可从头生成初稿，沿用用户沟通习惯撰写信息/邮件，全系统打字时自动校对</li>
+        <li><strong>儿童安全全面拓展</strong>：基于两大原则（家长决定/苹果提供工具不过度介入）；儿童账户、内容管控、通信安全、屏幕时间增强；提供开发者API</li>
+        <li><strong>跨设备连续对话</strong>：iPhone开始对话 → iPad继续 → Mac收尾，iCloud同步会话记录</li>
+        <li><strong>库克谢幕之作</strong>：这是库克作为CEO主持的最后一次WWDC，极具象征意义。9月1日起转任董事会执行董事长</li>
+      </ul>
+
+      <h3>⚖️ 优缺点速览</h3>
+      <div class="pro-con">
+        <div class="pro-box">
+          <h4>👍 亮点</h4>
+          <ul>
+            <li>Siri终迎AI时代大升级，持续对话+屏幕感知</li>
+            <li>液态玻璃设计语言精致，视觉质感大幅提升</li>
+            <li>性能提升幅度显著，旧机型也能感受到</li>
+            <li>支持iPhone 11等旧机型，覆盖范围广</li>
+            <li>视觉智能实用性强，相机App整合自然</li>
+            <li>写作工具全系统覆盖，自动校对提升效率</li>
+            <li>儿童安全功能全面，家长管控更精细</li>
+            <li>跨设备连续对话，生态协同体验最佳</li>
+          </ul>
+        </div>
+        <div class="con-box">
+          <h4>👎 不足</h4>
+          <ul>
+            <li>Siri AI仍为Beta阶段，秋季才公开Beta</li>
+            <li>创新程度不及Gemini/ChatGPT，更多是"补课"</li>
+            <li>中国大陆功能暂不提供，监管原因</li>
+            <li>欧盟市场初期不投放，全球扩张受限</li>
+            <li>部分功能需A17 Pro及以上芯片，旧机型无法完整体验</li>
+            <li>第三方AI接入范围有限，非全面开放</li>
+            <li>市场反应冷淡，股价下跌，投资者信心不足</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🎯 适合谁升级？</h3>
+      <ul>
+        <li>📱 <strong>iPhone 13及以上用户</strong>：性能提升明显，Siri AI体验完整，建议首选升级</li>
+        <li>💻 <strong>苹果生态全家桶用户</strong>：跨设备连续对话+Siri AI，生态协同体验最佳</li>
+        <li>✍️ <strong>内容创作者</strong>：写作工具+视觉智能+照片AI功能，辅助创作效率提升</li>
+        <li>👨‍👩‍👧 <strong>家长用户</strong>：儿童安全功能全面升级，管控更精细，保护更到位</li>
+        <li>📸 <strong>摄影爱好者</strong>：照片AI功能（消除/扩图/空间构图）实用性强</li>
+      </ul>
+      <div class="highlight-box">💡 秋季正式版发布后，配合新iPhone 18系列，将是最佳升级时机；iPhone 11/12用户建议观望首发评测再决定；中国大陆用户需等待监管审批</div>
     `
   }
 };
