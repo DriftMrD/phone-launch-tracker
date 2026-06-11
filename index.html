@@ -5,419 +5,534 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>手机发布会追踪器 2026</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@600;700;900&display=swap');
+
   :root {
-    --bg: #fafaf9;
-    --card: #ffffff;
-    --border: #e5e5e0;
-    --text: #1a1a1a;
-    --muted: #737373;
-    --accent-vivo: #415fff;
-    --accent-xiaomi: #ff6900;
-    --accent-honor: #1a6fe8;
-    --accent-oppo: #1a9c2d;
-    --accent-huawei: #c4161c;
-    --accent-apple: #333;
-    --accent-samsung: #1428a0;
-    --tag-released: #16a34a;
-    --tag-upcoming: #eab308;
-    --tag-later: #8b5cf6;
-    --report-accent: #2563eb;
+    --bg-deep: #08090c;
+    --bg-surface: #0e1015;
+    --bg-card: #14161d;
+    --bg-card-hover: #1a1d28;
+    --border: rgba(255,255,255,.06);
+    --border-hover: rgba(255,255,255,.12);
+    --text: #eaeaf0;
+    --text-secondary: #8a8fa3;
+    --text-muted: #555b70;
+
+    /* Brand accents */
+    --vivo: #415fff;
+    --xiaomi: #ff6a00;
+    --honor: #1a7ef5;
+    --oppo: #1db954;
+    --huawei: #cf1234;
+    --apple: #f5f5f7;
+    --samsung: #1a73e8;
+    --redmi: #ff4e33;
+
+    --released: #22c55e;
+    --upcoming: #f59e0b;
+    --later: #a78bfa;
+    --report: #6366f1;
+
+    --radius: 16px;
+    --radius-sm: 10px;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-serif: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px 80px; }
-  header { text-align: center; padding: 40px 0 24px; }
-  header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
-  header p { color: var(--muted); font-size: 14px; margin-top: 6px; }
-  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 20px 0 28px; }
-  .filter-btn {
-    padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
-    background: var(--card); font-size: 13px; cursor: pointer; transition: all 0.2s;
-    color: var(--text); font-weight: 500;
-  }
-  .filter-btn:hover { border-color: #aaa; }
-  .filter-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
-  .section-title {
-    font-size: 13px; font-weight: 600; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 1px;
-    margin: 28px 0 12px; padding-left: 2px;
-  }
-  .card {
-    background: var(--card); border-radius: 14px; border: 1px solid var(--border);
-    padding: 20px 22px; margin-bottom: 12px; display: flex; align-items: center;
-    gap: 16px; transition: transform 0.15s, box-shadow 0.15s; cursor: default;
-  }
-  .card:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-  .brand-icon {
-    width: 48px; height: 48px; border-radius: 12px; display: flex;
-    align-items: center; justify-content: center; font-size: 18px;
-    font-weight: 700; color: #fff; flex-shrink: 0;
-  }
-  .card-body { flex: 1; min-width: 0; }
-  .card-body h3 { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
-  .card-meta {
-    font-size: 13px; color: var(--muted);
-    display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 4px;
-  }
-  .card-meta span { white-space: nowrap; }
-  .tag {
-    display: inline-block; padding: 3px 10px; border-radius: 12px;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.3px; white-space: nowrap;
-  }
-  .tag-released { background: #dcfce7; color: #15803d; }
-  .tag-upcoming { background: #fef9c3; color: #a16207; }
-  .tag-later { background: #ede9fe; color: #6d28d9; }
-  .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-  .link-btn {
-    display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px;
-    border-radius: 8px; font-size: 12px; font-weight: 500; text-decoration: none;
-    border: 1px solid var(--border); color: var(--text); transition: all 0.15s; background: var(--bg);
-  }
-  .link-btn:hover { border-color: #999; background: #f0f0f0; }
-  .link-btn svg { width: 14px; height: 14px; }
-  .report-btn {
-    display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px;
-    border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none;
-    border: 1px solid var(--report-accent); color: #fff; transition: all 0.15s;
-    background: var(--report-accent); cursor: pointer;
-  }
-  .report-btn:hover { background: #1d4ed8; border-color: #1d4ed8; }
-  .report-btn svg { width: 14px; height: 14px; }
-  .divider { border: none; border-top: 1px dashed var(--border); margin: 24px 0 4px; }
-  .update-hint {
-    text-align: center; font-size: 12px; color: var(--muted); margin-top: 32px;
-    padding: 12px; background: var(--card); border-radius: 10px; border: 1px dashed var(--border);
-  }
-  .hidden { display: none !important; }
 
-  /* === 报告弹窗 === */
-  .overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
-    animation: fadeIn 0.2s;
-  }
-  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  .report-panel {
-    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
-    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
-  }
-  .report-header {
-    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .report-header h2 { font-size: 20px; font-weight: 700; }
-  .report-header .close-btn {
-    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
-    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s; color: var(--muted);
-  }
-  .report-header .close-btn:hover { background: #e5e5e5; }
-  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
-  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
-  .report-body h3:first-child { margin-top: 0; }
-  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
-  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
-  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
-  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
-  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
-  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
-  .report-body .price-card {
-    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
-    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
-  }
-  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
-  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
-  .report-body .highlight-box {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
-    border: 1px solid #fcd34d;
-  }
-  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
-  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
-  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
-  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
-  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
-  .report-body .product-gallery {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
-  }
-  .report-body .product-gallery img {
-    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
-    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
-    border: 1px solid var(--border);
-  }
-  .report-body .product-gallery img:hover {
-    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  }
-  .report-body .hero-img {
-    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
-    max-height: 320px; border: 1px solid var(--border);
-  }
-  .report-body .img-caption {
-    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
-  }
-
-  /* === 报告内容：杂志式升级 === */
-  .report-body {
-    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
-    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
-    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
-    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
-    --r-dark: #0b0b0f; --r-tile: #17181d;
-    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
-    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
-    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
-    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+  html {
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
-  .report-body > *:first-child { margin-top: 0; }
 
-  /* Hero 头部 */
-  .report-body .r-hero {
-    background: var(--r-dark); color: #fff; border-radius: 16px;
-    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
-  }
-  .report-body .r-hero::before {
-    content:''; position:absolute; inset:0; background:
-      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
-      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
-      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
-  }
-  .report-body .r-hero > * { position: relative; }
-  .report-body .r-hero .r-eyebrow {
-    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
-    text-transform:uppercase; margin-bottom:14px;
-  }
-  .report-body .r-hero h3 {
-    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
-    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
-  }
-  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-hero .r-sub {
-    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
-  }
-  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
-  .report-body .r-hero .r-chips span {
-    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-deep);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 
-  /* Bento 摘要网格 */
-  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
-  .report-body .r-bt {
-    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
-    display:flex; flex-direction:column; justify-content:center;
-  }
-  .report-body .r-bt-hero {
-    grid-column: span 2; background:
-      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
-      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
-  }
-  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
-  .report-body .r-bt .bt-num {
-    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
-    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
-  }
-  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
-  .report-body .r-bt-hero .bt-headline {
-    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
-  }
-  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
-
-  /* 章节带 */
-  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
-  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .report-body .r-chapter .ch-num {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
-    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
-  }
-  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
-  .report-body .r-chapter .ch-title {
-    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
-  }
-  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
-
-  /* 功能条目 */
-  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
-  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
-  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
-  .report-body .r-f-meta .f-idx {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
-    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
-  }
-  .report-body .r-f-meta .f-tag {
-    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
-    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
-  }
-  .report-body .r-feat h3 {
-    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
-    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
-  }
-  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
-  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
-  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
-  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
-  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
-
-  /* 图文并排 */
-  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
-
-  /* 图片卡片 */
-  .report-body .r-fig {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; position:relative;
-  }
-  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
-  .report-body .r-fig img:hover { transform:scale(1.02); }
-  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
-  .report-body .r-fig .m-badge {
-    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
-    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  /* ===== Background Atmosphere ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,.12), transparent 55%),
+      radial-gradient(ellipse 60% 50% at 85% 40%, rgba(79,70,229,.07), transparent 50%),
+      radial-gradient(ellipse 50% 40% at 10% 70%, rgba(16,185,129,.05), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
   }
 
-  /* 画廊网格 */
-  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
-  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
-  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
-  .report-body .r-gtile {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; display:flex; flex-direction:column;
+  /* ===== Hero Section ===== */
+  .hero {
+    position: relative;
+    padding: 72px 24px 48px;
+    text-align: center;
+    z-index: 1;
   }
-  .report-body .r-gtile .g-box {
-    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
   }
-  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
-  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
-  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
-  .report-body .r-gtile .m-badge { top:10px; left:10px; }
 
-  /* 全幅图 */
-  .report-body .r-wide {
-    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.03);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
   }
-  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
-  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
+  .hero-badge span.dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--released);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.3); }
+  }
 
-  /* 点评 / 分析 Note */
-  .report-body .r-note {
-    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  .hero h1 {
+    font-family: var(--font-sans);
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 14px;
   }
-  .report-body .r-note .note-l {
-    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
-    text-transform:uppercase; margin-bottom:5px;
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--report) 0%, #a78bfa 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
-  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
-  .report-body .r-note-c {
-    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
-  }
-  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
-  .report-body .r-note-c .note-t { color:#2d3357; }
-  .report-body .r-note-a {
-    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
-  }
-  .report-body .r-note-a .note-l { color:var(--r-amber); }
-  .report-body .r-note-a .note-t { color:#5d3c10; }
-  .report-body .r-note-t strong { font-weight:800; }
 
-  /* Key Takeaways */
-  .report-body .r-take {
-    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
-    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
-    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  .hero-desc {
+    font-size: clamp(13px, 1.6vw, 15.5px);
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto 8px;
+    line-height: 1.65;
   }
-  .report-body .r-take:first-child { margin-top:24px; }
-  .report-body .r-take-n {
-    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
-    letter-spacing:-.02em; flex:none;
-    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: var(--text-muted);
   }
-  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
-  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+  .hero-meta strong { color: var(--text-secondary); font-weight: 600; }
 
-  /* 规格表升级 */
-  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
-  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
-  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-family: var(--font-sans);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: var(--text);
+  }
+  .hero-stat .label {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
 
-  /* 价格卡升级 */
-  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
-  .report-body .price-card strong { font-size:17px; }
+  /* ===== Main Content ===== */
+  .main-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 20px 64px;
+  }
 
-  /* highlight-box 升级 */
-  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
+  /* ===== Filter Bar ===== */
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    padding: 6px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.02);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+  .filter-btn {
+    padding: 8px 22px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { color: var(--text); background: rgba(255,255,255,.04); }
+  .filter-btn.active {
+    background: var(--text);
+    color: var(--bg-deep);
+  }
 
-  /* 覆盖旧样式 */
-  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
-  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
-  .report-body ul { padding-left:20px; margin-bottom:12px; }
-  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
-  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
-  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
-  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
-  .report-body .pro-con > div { padding:16px; border-radius:12px; }
-  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
-  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
-  /* Lightbox for enlarged view */
+  /* ===== Section Title ===== */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 36px 0 16px;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-hover), transparent);
+  }
+  .section-title {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .section-count {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255,255,255,.04);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  /* ===== Card ===== */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--brand-accent, rgba(255,255,255,.1)), transparent);
+    opacity: 0;
+    transition: opacity .25s;
+  }
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,.3), 0 0 0 1px var(--border-hover);
+  }
+  .card:hover::before { opacity: 1; }
+
+  /* Brand Icon */
+  .brand-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .brand-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,.15), transparent 60%);
+  }
+
+  /* Card Body */
+  .card-body { min-width: 0; }
+  .card-body h3 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 16px;
+    margin-top: 4px;
+  }
+  .card-meta span {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  /* Tags */
+  .tags { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3.5px 11px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    white-space: nowrap;
+  }
+  .tag-released {
+    background: rgba(34,197,94,.1);
+    color: var(--released);
+    border: 1px solid rgba(34,197,94,.2);
+  }
+  .tag-upcoming {
+    background: rgba(245,158,11,.1);
+    color: var(--upcoming);
+    border: 1px solid rgba(245,158,11,.2);
+  }
+  .tag-later {
+    background: rgba(167,139,250,.1);
+    color: var(--later);
+    border: 1px solid rgba(167,139,250,.2);
+  }
+
+  /* Links */
+  .links {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.02);
+    transition: all .18s;
+  }
+  .link-btn:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    background: rgba(255,255,255,.05);
+  }
+  .link-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .report-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(99,102,241,.35);
+    background: linear-gradient(135deg, var(--report), #818cf8);
+    transition: all .2s;
+    box-shadow: 0 2px 10px rgba(99,102,241,.2);
+  }
+  .report-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(99,102,241,.35);
+    filter: brightness(1.08);
+  }
+  .report-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Divider */
+  .divider {
+    border: none;
+    height: 1px;
+    margin: 36px 0 8px;
+    background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+  }
+
+  /* Update Hint */
+  .update-hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 48px;
+    padding: 20px 24px;
+    border-radius: var(--radius);
+    background: rgba(255,255,255,.015);
+    border: 1px solid var(--border);
+    line-height: 1.75;
+  }
+  .update-hint strong { color: var(--text-secondary); }
+
+  .hidden { display: none !important; }
+
+  /* ===== Lightbox (for images on this page) ===== */
   .lightbox {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
-    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,.88);
+    display: none;
+    align-items: center;
+    justify-content: center;
     cursor: zoom-out;
+    backdrop-filter: blur(12px);
   }
-  .lightbox.show { display: flex; }
+  .lightbox.show { display: flex; animation: lb-fade .2s ease; }
+  @keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
   .lightbox img {
-    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 12px 48px rgba(0,0,0,.5);
   }
 
-  @media (max-width: 600px) {
-    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
-    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
-    header h1 { font-size: 22px; }
-    .report-header { padding: 18px 20px 14px; }
-    .report-header h2 { font-size: 17px; }
-    .report-body { padding: 18px 20px 28px; }
-    .report-body .pro-con { grid-template-columns: 1fr; }
-    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
-    .report-body .r-bento { grid-template-columns:1fr; }
-    .report-body .r-bt-hero { grid-column:auto; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
-    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
-    .report-body .r-hero { padding:28px 20px 24px; }
-    .report-body .r-hero h3 { font-size:22px; }
-    .report-body .r-feat h3 { font-size:19px; }
-    .report-body .r-chapter .ch-title { font-size:20px; }
+  /* ===== Responsive ===== */
+  @media (max-width: 720px) {
+    .hero { padding: 48px 16px 36px; }
+    .hero-stats { gap: 24px; }
+    .hero-stat .num { font-size: 24px; }
+    .main-wrap { padding: 0 14px 56px; }
+    .card {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 18px 18px;
+    }
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+    .card-body h3 { font-size: 15.5px; }
+    .card-meta span { font-size: 11.5px; }
+    .filter-btn { padding: 7px 16px; font-size: 12.5px; }
+    .section-header { margin: 28px 0 12px; }
+    .hero-meta { gap: 12px; font-size: 11.5px; }
+  }
+
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 28px; }
+    .hero-stats { gap: 18px; }
+    .hero-stat .num { font-size: 21px; }
+    .links { gap: 6px; }
+    .link-btn, .report-btn { padding: 5px 11px; font-size: 11.5px; }
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>📱 手机发布会追踪器</h1>
-    <p>2026 年 5–9 月 · 华为 / 荣耀 / vivo / OPPO / 小米 / 苹果 / 三星</p>
-    <p style="font-size:12px; color:#aaa; margin-top:4px;">最后更新：2026-06-10</p>
-  </header>
 
-  <div class="filter-bar">
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span>2026 追踪中</div>
+  <h1><em>手机发布会</em>追踪器</h1>
+  <p class="hero-desc">华为 · 荣耀 · vivo · OPPO · 小米 · 苹果 · 三星<br>全景追踪，深度报告</p>
+  <div class="hero-meta">
+    <span><strong>9</strong> 场发布会</span>
+    <span><strong>7</strong> 大品牌</span>
+    <span><strong>5–9月</strong> 密集发布季</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">8</div>
+      <div class="label">已发布 / 已举行</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">2</div>
+      <div class="label">即将发布</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">2</div>
+      <div class="label">稍晚发布</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">9</div>
+      <div class="label">份深度报告</div>
+    </div>
+  </div>
+</section>
+
+<div class="main-wrap">
+
+  <!-- Filter Bar -->
+  <nav class="filter-bar">
     <button class="filter-btn active" data-filter="all">全部</button>
     <button class="filter-btn" data-filter="released">已发布</button>
     <button class="filter-btn" data-filter="upcoming">即将发布</button>
     <button class="filter-btn" data-filter="later">稍晚发布</button>
+  </nav>
+
+  <!-- ===== 5月下旬 ===== -->
+  <div class="section-header">
+    <span class="section-title">5 月 · 密集发布期</span>
+    <div class="section-line"></div>
   </div>
 
-  <!-- ===== 5月下旬密集发布期 ===== -->
-  <div class="section-title">5 月 · 密集发布期</div>
-
   <!-- iQOO 15T -->
-  <div class="card" data-brand="vivo" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-vivo)">iQ</div>
+  <div class="card" data-brand="vivo" data-status="released" style="--brand-accent: var(--vivo)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--vivo), #7c3aed)">iQ</div>
     <div class="card-body">
       <h3>iQOO 15T</h3>
       <div class="card-meta">
@@ -425,33 +540,33 @@
         <span>⚡ 天玑9500 Monster版</span>
         <span>🔋 8000mAh</span>
       </div>
-      <div style="margin-top:6px">
+      <div class="tags">
         <span class="tag tag-released">已发布</span>
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.vivo.com.cn/vivo/iqoo15t/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           官网
         </a>
         <a class="link-btn" href="https://www.iqoo.com/cn" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           iQOO商城
         </a>
         <a class="link-btn" href="https://www.bilibili.com/video/BV1usLm6xEnG/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
-          发布会回放
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          回放
         </a>
         <a class="report-btn" target="_blank" href="reports/iqoo15t.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
   <!-- 小米17 Max -->
-  <div class="card" data-brand="xiaomi" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-xiaomi)">Mi</div>
+  <div class="card" data-brand="xiaomi" data-status="released" style="--brand-accent: var(--xiaomi)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--xiaomi), #cc5500)">Mi</div>
     <div class="card-body">
       <h3>小米17 Max</h3>
       <div class="card-meta">
@@ -459,29 +574,29 @@
         <span>📷 徕卡2亿像素主摄</span>
         <span>🔋 8000mAh</span>
       </div>
-      <div style="margin-top:6px">
+      <div class="tags">
         <span class="tag tag-released">已发布</span>
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.mi.com/prod/xiaomi-17-max" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           小米官网
         </a>
         <a class="link-btn" href="https://live.bilibili.com/545342" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
-          B站直播间
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          B站直播
         </a>
         <a class="report-btn" target="_blank" href="reports/mi17max.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
   <!-- 荣耀600系列 -->
-  <div class="card" data-brand="honor" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-honor)">荣</div>
+  <div class="card" data-brand="honor" data-status="released" style="--brand-accent: var(--honor)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--honor), #0d5ec4)">荣</div>
     <div class="card-body">
       <h3>荣耀600系列</h3>
       <div class="card-meta">
@@ -489,33 +604,33 @@
         <span>📷 2亿像素4K闪光微单</span>
         <span>🔋 8600mAh</span>
       </div>
-      <div style="margin-top:6px">
+      <div class="tags">
         <span class="tag tag-released">已发布</span>
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.honor.com/cn/activity/honor-600-series-launch/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           发布会官网
         </a>
         <a class="link-btn" href="https://www.honor.com/cn/phones/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           荣耀商城
         </a>
         <a class="link-btn" href="https://www.bilibili.com/video/BV1nXGW6MEUa/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
-          发布会回放
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          回放
         </a>
         <a class="report-btn" target="_blank" href="reports/honor600.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
   <!-- OPPO Reno16系列 -->
-  <div class="card" data-brand="oppo" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-oppo)">OP</div>
+  <div class="card" data-brand="oppo" data-status="released" style="--brand-accent: var(--oppo)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--oppo), #16954a)">OP</div>
     <div class="card-body">
       <h3>OPPO Reno16系列</h3>
       <div class="card-meta">
@@ -523,29 +638,29 @@
         <span>📷 实况影像+3D悬浮星球</span>
         <span>💰 国补后2999起</span>
       </div>
-      <div style="margin-top:6px">
+      <div class="tags">
         <span class="tag tag-released">已发布</span>
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.oppo.com/cn/smartphones/series/reno/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           OPPO官网
         </a>
         <a class="link-btn" href="https://shop.oppo.com/cn/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           OPPO商城
         </a>
         <a class="report-btn" target="_blank" href="reports/opporeno16.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
   <!-- vivo S60 -->
-  <div class="card" data-brand="vivo" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-vivo)">v</div>
+  <div class="card" data-brand="vivo" data-status="released" style="--brand-accent: var(--vivo)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--vivo), #7c3aed)">v</div>
     <div class="card-body">
       <h3>vivo S60系列</h3>
       <div class="card-meta">
@@ -554,19 +669,21 @@
         <span>🔋 7200mAh蓝海电池</span>
         <span>👆 3D超声波指纹2.0</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-released">已发布</span></div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://www.vivo.com.cn/vivo/s60/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           vivo官网
         </a>
         <a class="link-btn" href="https://shop.vivo.com.cn/product/10012053" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           vivo商城
         </a>
         <a class="report-btn" target="_blank" href="reports/vivs60.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
@@ -575,44 +692,50 @@
   <hr class="divider">
 
   <!-- ===== 6月 ===== -->
-  <div class="section-title">6 月 · 持续发布</div>
+  <div class="section-header">
+    <span class="section-title">6 月 · 持续发布</span>
+    <div class="section-line"></div>
+  </div>
 
-  <div class="card" data-brand="huawei" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-huawei)">HW</div>
+  <!-- 华为 nova 16 -->
+  <div class="card" data-brand="huawei" data-status="released" style="--brand-accent: var(--huawei)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--huawei), #9a0d1c)">HW</div>
     <div class="card-body">
       <h3>华为 nova 16系列 · 十周年</h3>
       <div class="card-meta">
         <span>📅 6月1日 14:30 · 成都</span>
-        <span>🎉 十周年 · 四款齐发</span>
+        <span>🎉 四款齐发</span>
         <span>⚡ 麒麟9010S</span>
         <span>📷 2亿红枫影像</span>
         <span>🔋 7000mAh + 100W</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-released">已发布</span></div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://consumer.huawei.com/cn/phones/nova16-pro/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           华为官网
         </a>
         <a class="link-btn" href="https://www.vmall.com/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           华为商城
         </a>
         <a class="link-btn" href="https://www.bilibili.com/video/BV1jBGezuEQC/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
-          发布会回放
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          回放
         </a>
         <a class="report-btn" target="_blank" href="reports/huaweinova16.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
-  <!-- 小米17T系列 -->
-  <div class="card" data-brand="xiaomi" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-xiaomi)">Mi</div>
+  <!-- 小米17T -->
+  <div class="card" data-brand="xiaomi" data-status="released" style="--brand-accent: var(--xiaomi)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--xiaomi), #cc5500)">Mi</div>
     <div class="card-body">
       <h3>小米17T系列 · T系列首次回国</h3>
       <div class="card-meta">
@@ -621,62 +744,67 @@
         <span>📷 徕卡5倍潜望长焦</span>
         <span>🔋 7000mAh + 100W</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-released">已发布</span></div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://www.mi.com/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           小米官网
         </a>
         <a class="link-btn" href="https://www.mi.com/shop/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           小米商城
         </a>
         <a class="link-btn" href="https://live.bilibili.com/545342" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
-          B站直播间
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          B站直播
         </a>
         <a class="report-btn" target="_blank" href="reports/mi17t.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
-  <div class="card" data-brand="apple" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-apple)">🍎</div>
+  <!-- WWDC 2026 -->
+  <div class="card" data-brand="apple" data-status="released" style="--brand-accent: #888">
+    <div class="brand-icon" style="background: linear-gradient(135deg, #333, #111)">A</div>
     <div class="card-body">
       <h3>Apple WWDC 2026</h3>
       <div class="card-meta">
-        <span>📅 6月9日–13日 · 已举行</span>
-        <span>💻 iOS 27 · Siri AI · Apple Intelligence升级</span>
-        <span>⚠️ 非新机发布 · 库克最后一届WWDC</span>
+        <span>📅 6月9日–13日</span>
+        <span>💻 iOS 27 · Siri AI · Apple Intelligence</span>
+        <span>⚠️ 库克最后一届WWDC</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-released">已举行</span></div>
+      <div class="tags">
+        <span class="tag tag-released">已举行</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://developer.apple.com/wwdc26/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           WWDC官网
         </a>
         <a class="link-btn" href="https://www.apple.com.cn/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           Apple中国
         </a>
         <a class="link-btn" href="https://www.apple.com/apple-events/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
           主题演讲回放
         </a>
         <a class="report-btn" target="_blank" href="reports/wwdc2026.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
   <!-- vivo X Fold 6 -->
-  <div class="card" data-brand="vivo" data-status="upcoming">
-    <div class="brand-icon" style="background:var(--accent-vivo)">v</div>
+  <div class="card" data-brand="vivo" data-status="upcoming" style="--brand-accent: var(--vivo)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--vivo), #7c3aed)">v</div>
     <div class="card-body">
       <h3>vivo X Fold 6 · 折叠屏旗舰</h3>
       <div class="card-meta">
@@ -686,35 +814,38 @@
         <span>🔋 7000mAh级</span>
         <span>📱 ~217g轻薄</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-upcoming">即将发布</span></div>
+      <div class="tags">
+        <span class="tag tag-upcoming">即将发布</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://www.vivo.com.cn/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           vivo官网
         </a>
       </div>
     </div>
   </div>
 
-  <!-- 华为HDC 2026 -->
-  <div class="card" data-brand="huawei" data-status="upcoming">
-    <div class="brand-icon" style="background:var(--accent-huawei)">HW</div>
+  <!-- 华为 HDC 2026 -->
+  <div class="card" data-brand="huawei" data-status="upcoming" style="--brand-accent: var(--huawei)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--huawei), #9a0d1c)">HW</div>
     <div class="card-body">
       <h3>华为 HDC 2026 开发者大会</h3>
       <div class="card-meta">
         <span>📅 6月12日–14日 · 东莞松山湖</span>
         <span>🖥️ 鸿蒙7.0全球首发</span>
         <span>🤖 端侧AI+盘古大模型</span>
-        <span>⚠️ 非新机发布</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-upcoming">即将举行</span></div>
+      <div class="tags">
+        <span class="tag tag-upcoming">即将举行</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://developer.huawei.com/consumer/cn/hdc/2026" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           HDC官网
         </a>
         <a class="link-btn" href="https://consumer.huawei.com/cn/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           华为官网
         </a>
       </div>
@@ -724,11 +855,14 @@
   <hr class="divider">
 
   <!-- ===== 9月及以后 ===== -->
-  <div class="section-title">9 月及以后</div>
+  <div class="section-header">
+    <span class="section-title">9 月及以后</span>
+    <div class="section-line"></div>
+  </div>
 
-  <!-- Redmi K100系列 -->
-  <div class="card" data-brand="xiaomi" data-status="later">
-    <div class="brand-icon" style="background:var(--accent-xiaomi)">红</div>
+  <!-- Redmi K100 -->
+  <div class="card" data-brand="xiaomi" data-status="later" style="--brand-accent: var(--redmi)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--redmi), #cc3300)">红</div>
     <div class="card-body">
       <h3>Redmi K100系列 · K系史上最强</h3>
       <div class="card-meta">
@@ -738,18 +872,21 @@
         <span>🔋 8000mAh+级</span>
         <span>📱 185Hz超高刷直屏</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-later">稍晚发布</span></div>
+      <div class="tags">
+        <span class="tag tag-later">稍晚发布</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://www.mi.com/redmi" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           Redmi官网
         </a>
       </div>
     </div>
   </div>
 
-  <div class="card" data-brand="apple" data-status="later">
-    <div class="brand-icon" style="background:var(--accent-apple)">🍎</div>
+  <!-- iPhone 18 Pro -->
+  <div class="card" data-brand="apple" data-status="later" style="--brand-accent: #888">
+    <div class="brand-icon" style="background: linear-gradient(135deg, #444, #222)">A</div>
     <div class="card-body">
       <h3>iPhone 18 Pro系列 + 首款折叠iPhone</h3>
       <div class="card-meta">
@@ -758,18 +895,21 @@
         <span>📡 自研C2基带</span>
         <span>📱 折叠iPhone同步亮相</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-later">稍晚发布</span></div>
+      <div class="tags">
+        <span class="tag tag-later">稍晚发布</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://www.apple.com.cn/iphone/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           iPhone官网
         </a>
       </div>
     </div>
   </div>
 
-  <div class="card" data-brand="samsung" data-status="released">
-    <div class="brand-icon" style="background:var(--accent-samsung)">S</div>
+  <!-- 三星 S26 -->
+  <div class="card" data-brand="samsung" data-status="released" style="--brand-accent: var(--samsung)">
+    <div class="brand-icon" style="background: linear-gradient(135deg, var(--samsung), #0d47a1)">S</div>
     <div class="card-body">
       <h3>三星 Galaxy S26系列</h3>
       <div class="card-meta">
@@ -777,37 +917,38 @@
         <span>⚡ 骁龙8至尊for Galaxy</span>
         <span>🤖 Galaxy AI</span>
       </div>
-      <div style="margin-top:6px"><span class="tag tag-released">已发布</span></div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
       <div class="links">
         <a class="link-btn" href="https://www.samsung.com.cn/smartphones/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           三星手机官网
         </a>
         <a class="link-btn" href="https://www.samsung.com.cn/dotcom/20260226-global-unpack/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
           Unpacked回放
         </a>
         <a class="report-btn" target="_blank" href="reports/samsungs26.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          发布会报告
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
   <div class="update-hint">
-    💡 <strong>持续更新</strong>：本页面支持滚动更新。已发布机型可点击蓝色「发布会报告」按钮查看详细报告。<br>
-    数据来源：各品牌官网、科技媒体 · 截至 2026-06-10 · 具体信息以官方为准
+    <strong>持续更新中</strong> · 已发布机型可点击渐变「报告」按钮查看完整深度分析报告<br>
+    数据来源：各品牌官方、科技媒体 · 截至 2026-06-11 · 具体信息以官方为准
   </div>
+
+</div><!-- /.main-wrap -->
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="">
 </div>
 
-<!-- ========== 图片查看灯箱 ========== -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightboxImg" src="" alt="查看大图">
-</div>
-
-
-// === 报告数据 ===
 <script>
 // === Lightbox ===
 function openLightbox(src) {
@@ -817,39 +958,73 @@ function openLightbox(src) {
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('show');
 }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
 
 // === 筛选逻辑 ===
 (function() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.card');
-  const sectionTitles = document.querySelectorAll('.section-title');
+  const sectionHeaders = document.querySelectorAll('.section-header');
+  const dividers = document.querySelectorAll('.divider');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
+      let visibleCount = 0;
+
       cards.forEach(card => {
         const status = card.dataset.status;
         const show = filter === 'all' || status === filter;
         card.classList.toggle('hidden', !show);
+        if (show) visibleCount++;
       });
-      sectionTitles.forEach(title => {
-        let next = title.nextElementSibling;
+
+      // Hide empty section headers and dividers
+      sectionHeaders.forEach(header => {
+        let el = header.nextElementSibling;
         let hasVisible = false;
-        while (next && !next.classList.contains('section-title') && !next.classList.contains('divider')) {
-          if (next.classList.contains('card') && !next.classList.contains('hidden')) {
+        while (el && !el.classList.contains('section-header') && !el.classList.contains('divider')) {
+          if (el.classList.contains('card') && !el.classList.contains('hidden')) {
             hasVisible = true;
             break;
           }
-          next = next.nextElementSibling;
+          el = el.nextElementSibling;
         }
-        title.classList.toggle('hidden', !hasVisible);
+        header.style.display = hasVisible ? '' : 'none';
+      });
+
+      dividers.forEach(div => {
+        // Show divider if there are visible cards after it
+        let el = div.nextElementSibling;
+        let hasVisibleAfter = false;
+        while (el) {
+          if (el.classList.contains('card') && !el.classList.contains('hidden')) {
+            hasVisibleAfter = true;
+            break;
+          }
+          if (el.classList.contains('section-header')) break;
+          el = el.nextElementSibling;
+        }
+        // Also check if there are visible cards before it
+        let prevEl = div.previousElementSibling;
+        let hasVisibleBefore = false;
+        while (prevEl) {
+          if (prevEl.classList.contains('card') && !prevEl.classList.contains('hidden')) {
+            hasVisibleBefore = true;
+            break;
+          }
+          if (prevEl.classList.contains('section-header')) break;
+          prevEl = prevEl.previousElementSibling;
+        }
+        div.style.display = (hasVisibleAfter && hasVisibleBefore) ? '' : 'none';
       });
     });
   });
 })();
-
 </script>
 </body>
 </html>
