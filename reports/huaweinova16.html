@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华为 nova 16系列 发布会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --border: #e5e5e0;
+    --text: #1a1a1a;
+    --muted: #737373;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  :root {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+  /* === 报告弹窗 === */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
+    animation: fadeIn 0.2s;
+  }
+  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .report-panel {
+    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
+    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
+  }
+  .report-header {
+    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .report-header h2 { font-size: 20px; font-weight: 700; }
+  .report-header .close-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
+    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s; color: var(--muted);
+  }
+  .report-header .close-btn:hover { background: #e5e5e5; }
+  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
+  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+  .report-body h3:first-child { margin-top: 0; }
+  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
+  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
+  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
+  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
+  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
+  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
+  .report-body .price-card {
+    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
+    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
+  }
+  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
+  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
+  .report-body .highlight-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
+    border: 1px solid #fcd34d;
+  }
+  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
+  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
+  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
+  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
+  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
+  .report-body .product-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
+  }
+  .report-body .product-gallery img {
+    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
+    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    border: 1px solid var(--border);
+  }
+  .report-body .product-gallery img:hover {
+    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .report-body .hero-img {
+    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
+    max-height: 320px; border: 1px solid var(--border);
+  }
+  .report-body .img-caption {
+    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+  }
+
+  /* === 报告内容：杂志式升级 === */
+  .report-body {
+    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
+    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
+    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
+    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
+    --r-dark: #0b0b0f; --r-tile: #17181d;
+    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
+    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
+    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
+    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .report-body > *:first-child { margin-top: 0; }
+
+  /* Hero 头部 */
+  .report-body .r-hero {
+    background: var(--r-dark); color: #fff; border-radius: 16px;
+    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
+  }
+  .report-body .r-hero::before {
+    content:''; position:absolute; inset:0; background:
+      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
+      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
+      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
+  }
+  .report-body .r-hero > * { position: relative; }
+  .report-body .r-hero .r-eyebrow {
+    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
+    text-transform:uppercase; margin-bottom:14px;
+  }
+  .report-body .r-hero h3 {
+    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
+    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
+  }
+  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-hero .r-sub {
+    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
+  }
+  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
+  .report-body .r-hero .r-chips span {
+    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  }
+
+  /* Bento 摘要网格 */
+  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
+  .report-body .r-bt {
+    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .report-body .r-bt-hero {
+    grid-column: span 2; background:
+      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
+      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
+  }
+  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
+  .report-body .r-bt .bt-num {
+    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
+    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
+  }
+  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
+  .report-body .r-bt-hero .bt-headline {
+    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
+  }
+  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
+
+  /* 章节带 */
+  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
+  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .report-body .r-chapter .ch-num {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
+    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
+  }
+  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
+  .report-body .r-chapter .ch-title {
+    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
+  }
+  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
+
+  /* 功能条目 */
+  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
+  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
+  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
+  .report-body .r-f-meta .f-idx {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
+    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
+  }
+  .report-body .r-f-meta .f-tag {
+    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
+    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
+  }
+  .report-body .r-feat h3 {
+    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
+    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
+  }
+  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
+  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
+  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
+  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
+  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
+
+  /* 图文并排 */
+  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
+
+  /* 图片卡片 */
+  .report-body .r-fig {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; position:relative;
+  }
+  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
+  .report-body .r-fig img:hover { transform:scale(1.02); }
+  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
+  .report-body .r-fig .m-badge {
+    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
+    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  }
+
+  /* 画廊网格 */
+  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
+  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
+  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
+  .report-body .r-gtile {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; display:flex; flex-direction:column;
+  }
+  .report-body .r-gtile .g-box {
+    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  }
+  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
+  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
+  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
+  .report-body .r-gtile .m-badge { top:10px; left:10px; }
+
+  /* 全幅图 */
+  .report-body .r-wide {
+    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  }
+  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
+  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
+
+  /* 点评 / 分析 Note */
+  .report-body .r-note {
+    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  }
+  .report-body .r-note .note-l {
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
+    text-transform:uppercase; margin-bottom:5px;
+  }
+  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
+  .report-body .r-note-c {
+    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
+  }
+  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
+  .report-body .r-note-c .note-t { color:#2d3357; }
+  .report-body .r-note-a {
+    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
+  }
+  .report-body .r-note-a .note-l { color:var(--r-amber); }
+  .report-body .r-note-a .note-t { color:#5d3c10; }
+  .report-body .r-note-t strong { font-weight:800; }
+
+  /* Key Takeaways */
+  .report-body .r-take {
+    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
+    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
+    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  }
+  .report-body .r-take:first-child { margin-top:24px; }
+  .report-body .r-take-n {
+    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
+    letter-spacing:-.02em; flex:none;
+    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
+  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+
+  /* 规格表升级 */
+  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
+  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
+  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
+
+  /* 价格卡升级 */
+  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
+  .report-body .price-card strong { font-size:17px; }
+
+  /* highlight-box 升级 */
+  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
+
+  /* 覆盖旧样式 */
+  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
+  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
+  .report-body ul { padding-left:20px; margin-bottom:12px; }
+  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
+  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
+  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
+  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
+  .report-body .pro-con > div { padding:16px; border-radius:12px; }
+  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
+  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
+  /* Lightbox for enlarged view */
+  /* Lightbox for enlarged view */
+  .lightbox {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
+    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
+    header h1 { font-size: 22px; }
+    .report-header { padding: 18px 20px 14px; }
+    .report-header h2 { font-size: 17px; }
+    .report-body { padding: 18px 20px 28px; }
+    .report-body .pro-con { grid-template-columns: 1fr; }
+    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
+    .report-body .r-bento { grid-template-columns:1fr; }
+    .report-body .r-bt-hero { grid-column:auto; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
+    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
+    .report-body .r-hero { padding:28px 20px 24px; }
+    .report-body .r-hero h3 { font-size:22px; }
+    .report-body .r-feat h3 { font-size:19px; }
+    .report-body .r-chapter .ch-title { font-size:20px; }
+  }
+
+  .report-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 24px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+  }
+  .back-link:hover { border-color: #aaa; }
+  .back-link svg { width: 16px; height: 16px; }
+
+  @media (max-width: 600px) {
+    .report-page { padding: 12px 12px 48px; }
+    .back-link { font-size: 12px; }
+    .report-body .r-hero { padding: 24px 18px 20px; }
+    .report-body .r-hero h3 { font-size: 20px; }
+    .report-body .r-bento { grid-template-columns: 1fr; }
+    .report-body .r-bt-hero { grid-column: auto; }
+    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
+    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
+    .report-body .r-feat h3 { font-size: 18px; }
+    .report-body .r-chapter .ch-title { font-size: 19px; }
+  }
+
+</style>
+</head>
+<body>
+<div class="report-page">
+  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
+  <div class="report-body">
+
+      <div class="r-hero">
+        <div class="r-eyebrow">2026年6月1日 · 成都 · 华为「奔赴盛夏」</div>
+        <h3>华为 nova 16系列：<span class="g">麒麟9010S全系+2亿红枫RYYB</span></h3>
+        <div class="r-sub">nova十周年纪念作 · 四款齐发（16z/16/16 Pro/16 Ultra）· 全系麒麟9010S+7000mAh巨鲸电池+100W快充 · 2699元起</div>
+        <div class="r-chips"><span>麒麟9010S</span><span>2亿红枫RYYB</span><span>7000mAh</span><span>100W快充</span><span>¥2699起</span><span>十周年</span></div>
+      </div>
+
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-lab">核心结论</div>
+          <div class="bt-headline"><strong>麒麟9010S全系回归</strong> + 2亿红枫RYYB影像突破</div>
+          <div class="bt-sub">nova十周年四款齐发，2699元起让麒麟芯片重回大众价位。Pro/Ultra独占2亿像素RYYB主摄，暗光进光量翻倍——这是2026年最值得关注的影像技术路线之一。</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">起步价</div>
+          <div class="bt-num">2699<span>元</span></div>
+          <div class="bt-val">nova 16z · 麒麟9010S打入2K档</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">电池容量</div>
+          <div class="bt-num">7000<span>mAh</span></div>
+          <div class="bt-val">巨鲸电池 · nova史上最大</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">主摄像素</div>
+          <div class="bt-num">2亿<span>像素</span></div>
+          <div class="bt-val">Pro/Ultra独占 · 红枫RYYB超大底</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">十周年</div>
+          <div class="bt-num">10<span>周年</span></div>
+          <div class="bt-val">时代少年团代言 · 纪念作</div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">PERFORMANCE</span></div>
+        <h2 class="ch-title">麒麟9010S全系回归：性能与情怀的双重胜利</h2>
+        <p class="ch-intro">华为将麒麟9010S下放到 nova 全系，这是继 Mate/P 系列之后，麒麟芯片首次在2-3K档位实现全系标配。对消费者来说，这不仅是性能提升，更是「华为护城河」的又一次延伸。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">芯片</span><span class="f-tag">全系标配</span></div>
+        <h3>麒麟9010S：nova十周年的最佳献礼</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/400/w720h480/20260601/2153-c37497dc3b47b53f04c251a43ea720a7.jpg" onclick="openLightbox(this.src)" alt="nova 16系列 四款配色" loading="lazy">
+            <figcaption>nova 16系列四款配色 · 晴空蓝 / 幻彩贝母 / 天际白 / 星空黑</figcaption>
+            <span class="m-badge">十周年</span>
+          </figure>
+          <div>
+            <p>麒麟9010S采用1×2.3GHz + 3×2.18GHz + 4×1.55GHz的八核架构，基于中芯国际N+2工艺（等效7nm增强）制造。<strong>整机性能相比上代提升18%</strong>，120帧MOBA/FPS流畅度提升41-46%，游戏快启速度提升5倍。</p>
+            <p>虽然制程上仍与台积电3nm的竞品有代差，但<strong>麒麟9010S的实际体验已经可以流畅运行《王者荣耀》120帧和《和平精英》90帧</strong>。对于nova的目标用户群（学生、年轻职场人）来说，这个性能水准完全够用——而且「麒麟回来了」的品牌情感价值，远超过跑分表上的那几千分差距。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">麒麟9010S的最大意义不在跑分，而在「全系标配」四个字。过去华为只能让Mate/P系列用旗舰麒麟，nova系列往往用骁龙中端或麒麟中端。这次十周年直接全系麒麟9010S，说明华为的芯片产能和良率已经提升到可以支撑中端机型大规模出货的水平——这是华为手机业务全面复苏的最有力信号。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">性能实测</span></div>
+        <h3>游戏与日常：够用，且有余量</h3>
+        <p>根据发布会披露的数据：<strong>120帧MOBA游戏流畅度提升41-46%，游戏快启速度提升5倍</strong>。这意味着《王者荣耀》《原神》（中画质）等主流游戏可以稳定高帧运行。配合7000mAh巨鲸电池，游戏续航焦虑基本归零。</p>
+        <p>但需要注意：<strong>麒麟9010S的GPU性能仍不及骁龙8 Gen5或天玑9500</strong>。如果你是极致画质党，nova 16系列可能不是最佳选择。但对于90%的普通用户，这颗芯片的性能冗余已经足够支撑3年以上的流畅使用。</p>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">IMAGING</span></div>
+        <h2 class="ch-title">2亿红枫RYYB：暗光影像的技术突围</h2>
+        <p class="ch-intro">Pro和Ultra版本首发2亿像素红枫RYYB超大底主摄，这是2026年手机影像最值得关注的技术路线之一——RYYB传感器配合红枫原色引擎，暗光进光量相比传统RGB传感器翻倍。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">主摄</span><span class="f-tag">行业首发</span></div>
+        <h3>2亿像素红枫RYYB超大底：暗光摄影的物理外挂</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/074c-baff30ca4e91091b9b4b9e46c137e987.jpg" onclick="openLightbox(this.src)" alt="nova 16 Pro 晴空蓝配色" loading="lazy">
+            <figcaption>nova 16 Pro · 晴空蓝配色</figcaption>
+          </figure>
+          <div>
+            <p><strong>RYYB传感器</strong>的核心原理是用黄色（Y）像素替代传统RGB阵列中的绿色（G）像素。由于黄色像素的感光效率高于绿色，RYYB传感器的<strong>暗光进光量可以提升40-50%</strong>。华为在此基础上加入了<strong>「红枫原色引擎」</strong>——一颗150万多光谱通道传感器，专门用于色彩校准，让RYYB传感器的色彩还原更准确（早年P30 Pro的RYYB曾被诟病「偏黄」）。</p>
+            <p><strong>2亿像素</strong>的意义在于像素九合一后单像素尺寸超大，配合RYYB的高进光量，暗光拍摄的纯净度和细节表现都会有质的提升。对于喜欢拍夜景、室内、晚餐等场景的用户来说，这套影像系统的实际价值远超参数表上的数字。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">长焦</span><span class="f-tag">前置</span></div>
+        <h3>全焦段RYYB布局（Pro/Ultra）+ 5000万前置大底</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/884f-27423806cd6c43a98a7dd8a25b454f98.jpg" onclick="openLightbox(this.src)" alt="nova 16 Pro 影像模组" loading="lazy">
+            <figcaption>nova 16 Pro · 影像模组 · 2亿红枫RYYB主摄</figcaption>
+            <span class="m-badge">Pro独占</span>
+          </figure>
+          <div>
+            <p>Pro和Ultra版本不仅主摄是2亿RYYB，<strong>长焦也升级为5000万像素RYYB潜望（3.7x光学变焦）</strong>，超广角同样是5000万像素且支持118°微距。这意味着三个摄像头全部采用RYYB传感器——<strong>全焦段暗光能力提升</strong>，这是目前行业内唯一的「全RYYB三摄」方案。</p>
+            <p>前置同样升级：<strong>5000万像素1/2.5英寸大底</strong>（Pro/Ultra），配合红枫原色引擎，自拍的色彩还原和细节表现都达到了行业顶尖水准。对于喜欢自拍、视频通话、直播的用户来说，这个前置配置甚至超过了部分旗舰机。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">华为在影像上的策略一直是「技术路线差异化」——不做像素堆砌的跟随者，而是开辟RYYB、可变光圈、潜望长焦等独特赛道。nova 16系列的「全RYYB三摄」是这一策略的延续。实际效果如何，需要等量产机评测，但技术方向是值得肯定的。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">BATTERY &amp; DESIGN</span></div>
+        <h2 class="ch-title">7000mAh巨鲸电池+冰桥散热：续航与性能释放的双重保障</h2>
+        <p class="ch-intro">7000mAh是nova系列史上最大电池，配合100W超级快充和冰桥散热架构（Pro/Ultra导热效率提升25%），续航和持续性能输出都有保障。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">续航</span></div>
+        <h3>7000mAh巨鲸电池 + 100W超级快充</h3>
+        <p><strong>7000mAh</strong>的电池容量意味着正常使用强度下可以轻松坚持1.5-2天。配合<strong>100W华为超级快充</strong>，从0充到100%大约需要45分钟（前30分钟可充至80%）。</p>
+        <p>需要注意的是：<strong>仅Ultra版本支持50W无线充电</strong>，nova 16z/16/Pro均不支持无线充电。这是华为在产品定位上的明确取舍——无线充电作为高端差异化功能，仅留给顶配Ultra独占。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">散热</span><span class="f-tag">设计</span></div>
+        <h3>冰桥散热架构 + 夏日美学设计</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260601/370/w720h450/20260601/49a8-f384b9624713de8c93a2d23133ac4b56.jpg" onclick="openLightbox(this.src)" alt="nova 16 Ultra 素皮拼接" loading="lazy">
+            <figcaption>nova 16 Ultra · 素皮+玻璃拼接 · 航空铝中框</figcaption>
+            <span class="m-badge">Ultra独占</span>
+          </figure>
+          <div>
+            <p>Pro和Ultra版本搭载<strong>冰桥散热架构</strong>，导热效率较上代提升25%。这对于麒麟9010S的持续性能释放至关重要——毕竟N+2工艺的能效比不及3nm竞品，更需要强大的散热系统来保证长时间高负载不掉帧。</p>
+            <p>设计方面，标准版和Pro采用<strong>AG玻璃后盖</strong>，Ultra独享<strong>素皮+玻璃拼接</strong>设计，配合航空铝中框，质感和辨识度都达到了nova系列的巅峰。<strong>四款配色</strong>——晴空蓝、幻彩贝母、天际白、星空黑——清新夏日风格，与「奔赴盛夏」的发布会主题高度契合。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">SPEC &amp; PRICING</span></div>
+        <h2 class="ch-title">四款机型规格对比与选购策略</h2>
+        <p class="ch-intro">nova 16系列采用「16z/16/16 Pro/16 Ultra」四档布局，覆盖2699-5799元全价格带。理解四款机型的核心差异，是做出正确购买决策的关键。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">规格对比</span></div>
+        <h3>四款机型核心差异一览</h3>
+        <table class="spec-table">
+          <tr><th>项目</th><th>nova 16z</th><th>nova 16</th><th>nova 16 Pro</th><th>nova 16 Ultra</th></tr>
+          <tr><td>处理器</td><td colspan="4">麒麟9010S（1×2.3GHz + 3×2.18GHz + 4×1.55GHz）</td></tr>
+          <tr><td>屏幕</td><td colspan="4">6.84英寸 2856×1320 1-120Hz LTPO · 6000nits峰值 · 昆仑玻璃</td></tr>
+          <tr><td>电池</td><td colspan="4">7000mAh 巨鲸电池</td></tr>
+          <tr><td>有线充电</td><td colspan="4">100W 超级快充</td></tr>
+          <tr><td>无线充电</td><td>❌</td><td>❌</td><td>❌</td><td>✅ 50W</td></tr>
+          <tr><td>主摄</td><td>5000万</td><td>5000万 红枫</td><td>2亿 红枫RYYB</td><td>2亿 红枫RYYB</td></tr>
+          <tr><td>长焦</td><td>❌</td><td>5000万 潜望</td><td>5000万 RYYB 潜望(3.7x)</td><td>5000万 RYYB 潜望(3.7x)</td></tr>
+          <tr><td>超广角</td><td>—</td><td>—</td><td>5000万 微距(118°)</td><td>5000万 微距(118°)</td></tr>
+          <tr><td>红枫原色</td><td>❌</td><td>✅</td><td>✅(150万多光谱)</td><td>✅(全RYYB三摄)</td></tr>
+          <tr><td>前置</td><td>—</td><td>—</td><td>5000万(1/2.5" 大底)</td><td>5000万(1/2.5" 大底)</td></tr>
+          <tr><td>防水</td><td>—</td><td>—</td><td>—</td><td>IP68/IP69</td></tr>
+          <tr><td>散热</td><td>标准</td><td>标准</td><td>冰桥散热(+25%)</td><td>冰桥散热(+25%)</td></tr>
+          <tr><td>后盖</td><td colspan="2">AG玻璃</td><td colspan="2">丝绒AG玻璃 + 航空铝中框 · Ultra独享素皮+玻璃拼接</td></tr>
+          <tr><td>系统</td><td colspan="4">HarmonyOS 6.1 · 北斗卫星消息 · Wi-Fi 7 · 星闪</td></tr>
+        </table>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">08</span><span class="f-tag">选购建议</span></div>
+        <h3>四款怎么选？关键看你的核心需求</h3>
+        <p><strong>nova 16z（¥2699起）</strong>是入门首选——麒麟9010S+7000mAh+100W的核心体验完整，只是主摄降级为5000万非RYYB、无长焦、无无线充、无高级防水。适合预算有限的学生党和华为生态用户。</p>
+        <p><strong>nova 16（¥2999起）</strong>增加了红枫原色引擎和5000万潜望长焦，主摄依然是5000万非RYYB。适合对长焦有需求但预算在3K内的用户。</p>
+        <p><strong>nova 16 Pro（¥3899起）</strong>是性价比最高的选择——2亿红枫RYYB主摄+全焦段RYYB三摄+5000万前置大底，冰桥散热保证性能持续释放。除了无线充电和素皮后盖，体验已经非常完整。</p>
+        <p><strong>nova 16 Ultra（¥4699起）</strong>独享素皮+玻璃拼接后盖、IP68/IP69双防水、50W无线充电。适合预算充足且追求完整旗舰体验的用户。</p>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐nova 16 Pro 256G（¥3899）</strong>：2亿RYYB主摄+全焦段RYYB三摄+5000万前置大底的核心影像体验完整，冰桥散热保证性能持续释放，除了无线充电和素皮后盖，与Ultra的体验差距并不大。但3899元的起售价相比16z贵了1200元，这个溢价是否值得，取决于你对影像和质感的追求程度。<strong>nova 16z（¥2699）则是性价比王者</strong>——麒麟9010S+7000mAh+100W的核心体验不缩水，适合预算敏感的华为粉丝。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
+        <h2 class="ch-title">核心要点</h2>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>麒麟9010S全系标配是最大亮点</h3>
+          <p>2699元起让麒麟芯片重回大众价位，这是华为手机业务全面复苏的最有力信号。性能虽不及骁龙8 Gen5，但日常使用和主流游戏完全够用。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>2亿红枫RYYB是影像赛道的技术突围</h3>
+          <p>全焦段RYYB三摄（Pro/Ultra）的暗光能力提升是实打实的技术差异化。如果你经常拍夜景、室内、晚餐等场景，这套影像系统的价值远超参数表上的数字。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>四款定位有互蚕风险，Pro版性价比最高</h3>
+          <p>nova 16z与16差距不够大（主要差在长焦和红枫），16 Pro与Ultra差距也不够明显（主要差在无线充、素皮后盖、IP68）。如果你不是「必须顶级」，16z或16 Pro是最理性的选择。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>618值得蹲，16z有望破2400</h3>
+          <p>预测618期间nova 16z可降至¥2399，16 Pro可降至¥3499。如果你不是首发党，等618再入手会更划算。尤其是16z跌破2400元后，将真正成为2K档位最具竞争力的鸿蒙机型。</p>
+        </div>
+      </div>
+    
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+// Lightbox for images
+document.querySelectorAll('.report-body img').forEach(function(img) {
+  img.addEventListener('click', function() {
+    document.getElementById('lightboxImg').src = this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>

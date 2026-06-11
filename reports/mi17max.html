@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小米17 Max 发布会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --border: #e5e5e0;
+    --text: #1a1a1a;
+    --muted: #737373;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  :root {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+  /* === 报告弹窗 === */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
+    animation: fadeIn 0.2s;
+  }
+  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .report-panel {
+    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
+    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
+  }
+  .report-header {
+    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .report-header h2 { font-size: 20px; font-weight: 700; }
+  .report-header .close-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
+    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s; color: var(--muted);
+  }
+  .report-header .close-btn:hover { background: #e5e5e5; }
+  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
+  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+  .report-body h3:first-child { margin-top: 0; }
+  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
+  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
+  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
+  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
+  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
+  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
+  .report-body .price-card {
+    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
+    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
+  }
+  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
+  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
+  .report-body .highlight-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
+    border: 1px solid #fcd34d;
+  }
+  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
+  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
+  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
+  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
+  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
+  .report-body .product-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
+  }
+  .report-body .product-gallery img {
+    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
+    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    border: 1px solid var(--border);
+  }
+  .report-body .product-gallery img:hover {
+    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .report-body .hero-img {
+    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
+    max-height: 320px; border: 1px solid var(--border);
+  }
+  .report-body .img-caption {
+    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+  }
+
+  /* === 报告内容：杂志式升级 === */
+  .report-body {
+    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
+    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
+    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
+    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
+    --r-dark: #0b0b0f; --r-tile: #17181d;
+    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
+    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
+    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
+    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .report-body > *:first-child { margin-top: 0; }
+
+  /* Hero 头部 */
+  .report-body .r-hero {
+    background: var(--r-dark); color: #fff; border-radius: 16px;
+    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
+  }
+  .report-body .r-hero::before {
+    content:''; position:absolute; inset:0; background:
+      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
+      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
+      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
+  }
+  .report-body .r-hero > * { position: relative; }
+  .report-body .r-hero .r-eyebrow {
+    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
+    text-transform:uppercase; margin-bottom:14px;
+  }
+  .report-body .r-hero h3 {
+    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
+    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
+  }
+  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-hero .r-sub {
+    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
+  }
+  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
+  .report-body .r-hero .r-chips span {
+    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  }
+
+  /* Bento 摘要网格 */
+  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
+  .report-body .r-bt {
+    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .report-body .r-bt-hero {
+    grid-column: span 2; background:
+      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
+      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
+  }
+  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
+  .report-body .r-bt .bt-num {
+    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
+    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
+  }
+  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
+  .report-body .r-bt-hero .bt-headline {
+    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
+  }
+  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
+
+  /* 章节带 */
+  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
+  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .report-body .r-chapter .ch-num {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
+    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
+  }
+  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
+  .report-body .r-chapter .ch-title {
+    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
+  }
+  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
+
+  /* 功能条目 */
+  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
+  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
+  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
+  .report-body .r-f-meta .f-idx {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
+    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
+  }
+  .report-body .r-f-meta .f-tag {
+    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
+    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
+  }
+  .report-body .r-feat h3 {
+    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
+    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
+  }
+  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
+  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
+  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
+  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
+  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
+
+  /* 图文并排 */
+  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
+
+  /* 图片卡片 */
+  .report-body .r-fig {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; position:relative;
+  }
+  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
+  .report-body .r-fig img:hover { transform:scale(1.02); }
+  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
+  .report-body .r-fig .m-badge {
+    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
+    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  }
+
+  /* 画廊网格 */
+  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
+  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
+  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
+  .report-body .r-gtile {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; display:flex; flex-direction:column;
+  }
+  .report-body .r-gtile .g-box {
+    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  }
+  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
+  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
+  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
+  .report-body .r-gtile .m-badge { top:10px; left:10px; }
+
+  /* 全幅图 */
+  .report-body .r-wide {
+    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  }
+  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
+  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
+
+  /* 点评 / 分析 Note */
+  .report-body .r-note {
+    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  }
+  .report-body .r-note .note-l {
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
+    text-transform:uppercase; margin-bottom:5px;
+  }
+  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
+  .report-body .r-note-c {
+    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
+  }
+  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
+  .report-body .r-note-c .note-t { color:#2d3357; }
+  .report-body .r-note-a {
+    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
+  }
+  .report-body .r-note-a .note-l { color:var(--r-amber); }
+  .report-body .r-note-a .note-t { color:#5d3c10; }
+  .report-body .r-note-t strong { font-weight:800; }
+
+  /* Key Takeaways */
+  .report-body .r-take {
+    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
+    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
+    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  }
+  .report-body .r-take:first-child { margin-top:24px; }
+  .report-body .r-take-n {
+    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
+    letter-spacing:-.02em; flex:none;
+    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
+  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+
+  /* 规格表升级 */
+  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
+  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
+  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
+
+  /* 价格卡升级 */
+  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
+  .report-body .price-card strong { font-size:17px; }
+
+  /* highlight-box 升级 */
+  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
+
+  /* 覆盖旧样式 */
+  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
+  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
+  .report-body ul { padding-left:20px; margin-bottom:12px; }
+  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
+  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
+  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
+  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
+  .report-body .pro-con > div { padding:16px; border-radius:12px; }
+  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
+  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
+  /* Lightbox for enlarged view */
+  /* Lightbox for enlarged view */
+  .lightbox {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
+    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
+    header h1 { font-size: 22px; }
+    .report-header { padding: 18px 20px 14px; }
+    .report-header h2 { font-size: 17px; }
+    .report-body { padding: 18px 20px 28px; }
+    .report-body .pro-con { grid-template-columns: 1fr; }
+    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
+    .report-body .r-bento { grid-template-columns:1fr; }
+    .report-body .r-bt-hero { grid-column:auto; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
+    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
+    .report-body .r-hero { padding:28px 20px 24px; }
+    .report-body .r-hero h3 { font-size:22px; }
+    .report-body .r-feat h3 { font-size:19px; }
+    .report-body .r-chapter .ch-title { font-size:20px; }
+  }
+
+  .report-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 24px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+  }
+  .back-link:hover { border-color: #aaa; }
+  .back-link svg { width: 16px; height: 16px; }
+
+  @media (max-width: 600px) {
+    .report-page { padding: 12px 12px 48px; }
+    .back-link { font-size: 12px; }
+    .report-body .r-hero { padding: 24px 18px 20px; }
+    .report-body .r-hero h3 { font-size: 20px; }
+    .report-body .r-bento { grid-template-columns: 1fr; }
+    .report-body .r-bt-hero { grid-column: auto; }
+    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
+    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
+    .report-body .r-feat h3 { font-size: 18px; }
+    .report-body .r-chapter .ch-title { font-size: 19px; }
+  }
+
+</style>
+</head>
+<body>
+<div class="report-page">
+  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
+  <div class="report-body">
+
+      <div class="r-hero">
+        <div class="r-eyebrow">2026年5月21日 · 北京 · 小米</div>
+        <h3>小米17 Max：<span class="g">大屏标准版旗舰</span></h3>
+        <div class="r-sub">6.9寸极窄四等边大直屏 + 徕卡2亿像素三摄 + 8000mAh金沙江电池，4299元起的大屏旗舰几乎无竞品</div>
+        <div class="r-chips"><span>6.9寸大直屏</span><span>徕卡影像</span><span>8000mAh</span><span>骁龙8Gen5</span><span>¥4299起</span></div>
+      </div>
+
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-num">4299<span>元起</span></div>
+          <div>国补后入手价 · 大屏旗舰唯一选择</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">6.9<span>英寸</span></div>
+          <div>屏幕尺寸</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">2亿<span>像素</span></div>
+          <div>徕卡主摄</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">8000<span>mAh</span></div>
+          <div>金沙江电池</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-num">1.28<span>mm</span></div>
+          <div>四等边窄边框</div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">01</div>
+        <div class="ch-kick">Display</div>
+        <h3 class="ch-title">6.9寸极窄四等边：大屏党的终极答案</h3>
+        <div class="ch-intro">在所有主流品牌都放弃超大屏旗舰的2026年，小米17 Max 的6.9寸极窄四等边大直屏几乎是市场上的唯一选择。</div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F62122dc3j00tfeclh004ac001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 6.9寸大屏" loading="lazy">
+            <figcaption>6.9英寸 极窄四等边大直屏</figcaption>
+            <span class="m-badge">95.4%屏占比</span>
+          </figure>
+          <div>
+            <div class="r-feat">
+              <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">屏幕</span></div>
+              <h3>1.28mm极窄边框 + 95.4%屏占比</h3>
+              <p>这块6.9英寸的大直屏采用了目前行业最先进的封装工艺，将四边边框压缩至仅1.28mm，实现了95.4%的超高屏占比。3500nit的峰值亮度确保户外强光下依然清晰可见。对于习惯大屏浏览、多任务分屏、或者单纯喜欢「大就是爽」的用户来说，这块屏幕的视觉冲击力是中小屏机型无法比拟的。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">大屏旗舰市场已经很久没有新鲜血液了。三星Galaxy S Ultra系列虽然也大，但价格动辄8000+；其他品牌基本退守6.7-6.8寸区间。小米17 Max以4299元的价格切入，本质上是在做一个「大屏平权」的产品策略——让喜欢大屏但预算有限的用户有了真正值得考虑的选择。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">02</div>
+        <div class="ch-kick">Camera</div>
+        <h3 class="ch-title">徕卡光学三摄：大屏+专业影像的罕见组合</h3>
+        <div class="ch-intro">通常大屏机型的影像系统会有所妥协，但小米17 Max 搭载了完整的徕卡光学三摄，包括2亿像素主摄和70mm潜望中焦镜头。</div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">主摄</span></div>
+          <h3>2亿像素徕卡主摄（1/1.4" f/1.65）</h3>
+          <p>这颗主摄采用1/1.4英寸大底传感器，支持像素九合一技术。f/1.65的大光圈保证了充足的进光量，夜景拍摄表现优秀。配合徕卡经典的色彩调校，成片自带一种「德味」——色彩真实而不艳俗，对比度克制而有层次。2亿像素的高分辨率也为后期裁切提供了充足的空间。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fe4980c98j00tfecen009yc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 徕卡三摄" loading="lazy">
+            <figcaption>徕卡光学三摄模组</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ff237a4baj00tfeclr002rc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 潜望长焦" loading="lazy">
+            <figcaption>70mm潜望中焦镜头</figcaption>
+            <span class="m-badge">3x/6x无损变焦</span>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">长焦</span></div>
+          <h3>70mm潜望中焦：人像与远景双优</h3>
+          <p>70mm等效焦距是摄影界公认的「黄金人像焦段」。这颗潜望中焦镜头支持3倍和6倍无损光学变焦，拍人像时能获得自然的透视压缩感（不会像主摄广角那样产生面部畸变），拍远景时画质损失远小于数码变焦。对于喜欢摄影的用户来说，这是比数字参数更实在的体验升级。</p>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">03</div>
+        <div class="ch-kick">Performance & Battery</div>
+        <h3 class="ch-title">性能与续航：水桶机的标准答案</h3>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">芯片</span></div>
+          <h3>第五代骁龙8至尊版</h3>
+          <p>搭载当前安卓阵营最强处理器——第五代骁龙8至尊版（Snapdragon 8 Elite Gen 5）。无论是日常应用的流畅度、大型3D游戏的帧率稳定性，还是AI计算任务的响应速度，都处于行业第一梯队。配合LPDDR5X内存和UFS 4.1闪存组成了完整的性能铁三角，未来3-4年的性能冗余有保障。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Ffa1cd67ej00tfeceo007mc000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 续航" loading="lazy">
+            <figcaption>8000mAh 金沙江电池</figcaption>
+          </figure>
+          <div>
+            <div class="r-feat">
+              <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">续航</span></div>
+              <h3>8000mAh金沙江电池 + 100W/50W双快充</h3>
+              <p>8000mAh的金沙江电池让小米17 Max成为真正的「续航焦虑终结者」。正常使用强度下可以轻松坚持两天一充；即便是重度使用（游戏+视频+导航），一天也完全没问题。100W有线快充约35分钟充满，50W无线快充则提供了桌面办公场景下的便捷补电能力——这在同价位产品中是比较少见的配置组合。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">04</div>
+        <div class="ch-kick">Design & Build</div>
+        <h3 class="ch-title">龙鳞纤维后盖：辨识度拉满</h3>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2F18504762j00tfecem00h0c000z500qdc.png&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 整体外观" loading="lazy">
+            <figcaption>小米17 Max 正面观感</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fcms-bucket.ws.126.net%2F2026%2F0522%2Fa7028a22j00tfeclz003mc001bf00zkc.jpg&thumbnail=660x2147483647&quality=80&type=jpg" alt="小米17 Max 细节" loading="lazy">
+            <figcaption>龙鳞纤维后盖纹理</figcaption>
+            <span class="m-badge">独家材质</span>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">设计</span></div>
+          <h3>龙鳞纤维后盖：科技感与手感的平衡</h3>
+          <p>小米为17 Max研发了全新的龙鳞纤维后盖材质，表面呈现出独特的鳞片状纹理，不仅视觉上极具辨识度，实际手感也相当出色——既有类似素皮的防滑特性，又具备接近玻璃的耐磨性。不过需要提醒的是，6.9寸大屏+大电池的组合意味着整机重量可能超过220g，单手操作会比较吃力，建议线下体验后再做决定。</p>
+        </div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>重量是大屏旗舰无法回避的问题</strong>。如果你之前没用过200g以上的手机，220g左右的握持感可能需要适应期。另外，6.9寸屏幕对女性用户或手小的用户来说确实偏大。强烈建议去小米之家实际上手体验半小时以上，确认自己能接受尺寸和重量再下单。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-num">05</div>
+        <div class="ch-kick">Pricing</div>
+        <h3 class="ch-title">价格策略与选购建议</h3>
+
+        <table class="spec-table">
+          <tr><th>版本</th><th>原价</th><th>国补后</th></tr>
+          <tr><td>起步价（12+256G）</td><td>¥4799</td><td><strong>¥4299</strong></td></tr>
+        </table>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">小米17 Max 目前只公布了一个起步价，具体存储版本和完整价格体系预计会在后续渠道逐步完善。4299元的起步价相比同配置的小米17标准版贵了约800-1000元，这个溢价主要来自：大屏、更大电池、以及相对稀缺的市场定位。考虑到市面上几乎没有直接竞品，这个定价是有一定话语权的。</div></div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>618值得关注但不急抢</strong>：预测618期间到手价可能在¥3799-3999区间。如果不在意首发权益（赠品、分期免息等），等一等618大概率会更划算。但如果你是大屏刚需用户且当前手机已不堪重负，早买早享受也是合理的——毕竟这款产品的核心价值在于「大屏+全能」，而不是便宜几百块钱。</div></div>
+      </div>
+
+      <div class="r-take">
+        <h3 class="take-t">核心结论</h3>
+        <div class="take-card">
+          <h4>大屏旗舰市场独苗</h4>
+          <p>6.9寸极窄四等边在当前市场几乎没有替代品，大屏党终于有了一个价位合理的选择。</p>
+        </div>
+        <div class="take-card">
+          <h4>影像不缩水</h4>
+          <p>徕卡2亿像素三摄+70mm潜望中焦，影像配置达到了旗舰水准，不是大屏机常见的「够用就行」水平。</p>
+        </div>
+        <div class="take-card">
+          <h4>重量是最大门槛</h4>
+          <p>预估超220g的重量加上6.9寸的尺寸，对部分用户来说是物理层面的劝退，务必线下体验。</p>
+        </div>
+        <div class="take-card">
+          <h4>618有望到3799</h4>
+          <p>预测618期间价格可下探至3799-3999元，届时性价比将进一步凸显，适合观望型用户出手。</p>
+        </div>
+      </div>
+    
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+// Lightbox for images
+document.querySelectorAll('.report-body img').forEach(function(img) {
+  img.addEventListener('click', function() {
+    document.getElementById('lightboxImg').src = this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>

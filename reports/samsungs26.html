@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三星 Galaxy S26系列 发布会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --border: #e5e5e0;
+    --text: #1a1a1a;
+    --muted: #737373;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  :root {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+  /* === 报告弹窗 === */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
+    animation: fadeIn 0.2s;
+  }
+  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .report-panel {
+    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
+    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
+  }
+  .report-header {
+    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .report-header h2 { font-size: 20px; font-weight: 700; }
+  .report-header .close-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
+    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s; color: var(--muted);
+  }
+  .report-header .close-btn:hover { background: #e5e5e5; }
+  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
+  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+  .report-body h3:first-child { margin-top: 0; }
+  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
+  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
+  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
+  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
+  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
+  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
+  .report-body .price-card {
+    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
+    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
+  }
+  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
+  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
+  .report-body .highlight-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
+    border: 1px solid #fcd34d;
+  }
+  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
+  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
+  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
+  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
+  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
+  .report-body .product-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
+  }
+  .report-body .product-gallery img {
+    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
+    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    border: 1px solid var(--border);
+  }
+  .report-body .product-gallery img:hover {
+    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .report-body .hero-img {
+    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
+    max-height: 320px; border: 1px solid var(--border);
+  }
+  .report-body .img-caption {
+    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+  }
+
+  /* === 报告内容：杂志式升级 === */
+  .report-body {
+    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
+    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
+    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
+    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
+    --r-dark: #0b0b0f; --r-tile: #17181d;
+    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
+    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
+    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
+    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .report-body > *:first-child { margin-top: 0; }
+
+  /* Hero 头部 */
+  .report-body .r-hero {
+    background: var(--r-dark); color: #fff; border-radius: 16px;
+    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
+  }
+  .report-body .r-hero::before {
+    content:''; position:absolute; inset:0; background:
+      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
+      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
+      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
+  }
+  .report-body .r-hero > * { position: relative; }
+  .report-body .r-hero .r-eyebrow {
+    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
+    text-transform:uppercase; margin-bottom:14px;
+  }
+  .report-body .r-hero h3 {
+    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
+    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
+  }
+  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-hero .r-sub {
+    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
+  }
+  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
+  .report-body .r-hero .r-chips span {
+    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  }
+
+  /* Bento 摘要网格 */
+  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
+  .report-body .r-bt {
+    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .report-body .r-bt-hero {
+    grid-column: span 2; background:
+      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
+      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
+  }
+  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
+  .report-body .r-bt .bt-num {
+    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
+    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
+  }
+  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
+  .report-body .r-bt-hero .bt-headline {
+    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
+  }
+  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
+
+  /* 章节带 */
+  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
+  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .report-body .r-chapter .ch-num {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
+    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
+  }
+  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
+  .report-body .r-chapter .ch-title {
+    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
+  }
+  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
+
+  /* 功能条目 */
+  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
+  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
+  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
+  .report-body .r-f-meta .f-idx {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
+    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
+  }
+  .report-body .r-f-meta .f-tag {
+    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
+    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
+  }
+  .report-body .r-feat h3 {
+    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
+    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
+  }
+  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
+  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
+  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
+  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
+  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
+
+  /* 图文并排 */
+  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
+
+  /* 图片卡片 */
+  .report-body .r-fig {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; position:relative;
+  }
+  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
+  .report-body .r-fig img:hover { transform:scale(1.02); }
+  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
+  .report-body .r-fig .m-badge {
+    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
+    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  }
+
+  /* 画廊网格 */
+  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
+  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
+  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
+  .report-body .r-gtile {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; display:flex; flex-direction:column;
+  }
+  .report-body .r-gtile .g-box {
+    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  }
+  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
+  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
+  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
+  .report-body .r-gtile .m-badge { top:10px; left:10px; }
+
+  /* 全幅图 */
+  .report-body .r-wide {
+    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  }
+  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
+  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
+
+  /* 点评 / 分析 Note */
+  .report-body .r-note {
+    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  }
+  .report-body .r-note .note-l {
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
+    text-transform:uppercase; margin-bottom:5px;
+  }
+  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
+  .report-body .r-note-c {
+    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
+  }
+  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
+  .report-body .r-note-c .note-t { color:#2d3357; }
+  .report-body .r-note-a {
+    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
+  }
+  .report-body .r-note-a .note-l { color:var(--r-amber); }
+  .report-body .r-note-a .note-t { color:#5d3c10; }
+  .report-body .r-note-t strong { font-weight:800; }
+
+  /* Key Takeaways */
+  .report-body .r-take {
+    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
+    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
+    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  }
+  .report-body .r-take:first-child { margin-top:24px; }
+  .report-body .r-take-n {
+    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
+    letter-spacing:-.02em; flex:none;
+    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
+  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+
+  /* 规格表升级 */
+  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
+  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
+  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
+
+  /* 价格卡升级 */
+  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
+  .report-body .price-card strong { font-size:17px; }
+
+  /* highlight-box 升级 */
+  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
+
+  /* 覆盖旧样式 */
+  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
+  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
+  .report-body ul { padding-left:20px; margin-bottom:12px; }
+  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
+  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
+  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
+  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
+  .report-body .pro-con > div { padding:16px; border-radius:12px; }
+  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
+  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
+  /* Lightbox for enlarged view */
+  /* Lightbox for enlarged view */
+  .lightbox {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
+    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
+    header h1 { font-size: 22px; }
+    .report-header { padding: 18px 20px 14px; }
+    .report-header h2 { font-size: 17px; }
+    .report-body { padding: 18px 20px 28px; }
+    .report-body .pro-con { grid-template-columns: 1fr; }
+    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
+    .report-body .r-bento { grid-template-columns:1fr; }
+    .report-body .r-bt-hero { grid-column:auto; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
+    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
+    .report-body .r-hero { padding:28px 20px 24px; }
+    .report-body .r-hero h3 { font-size:22px; }
+    .report-body .r-feat h3 { font-size:19px; }
+    .report-body .r-chapter .ch-title { font-size:20px; }
+  }
+
+  .report-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 24px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+  }
+  .back-link:hover { border-color: #aaa; }
+  .back-link svg { width: 16px; height: 16px; }
+
+  @media (max-width: 600px) {
+    .report-page { padding: 12px 12px 48px; }
+    .back-link { font-size: 12px; }
+    .report-body .r-hero { padding: 24px 18px 20px; }
+    .report-body .r-hero h3 { font-size: 20px; }
+    .report-body .r-bento { grid-template-columns: 1fr; }
+    .report-body .r-bt-hero { grid-column: auto; }
+    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
+    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
+    .report-body .r-feat h3 { font-size: 18px; }
+    .report-body .r-chapter .ch-title { font-size: 19px; }
+  }
+
+</style>
+</head>
+<body>
+<div class="report-page">
+  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
+  <div class="report-body">
+      <div class="r-hero">
+        <div class="r-eyebrow">2026年2月26日 · Galaxy Unpacked · 三星电子</div>
+        <h3>Galaxy S26系列：<span class="g">安卓旗舰的「保守革新」</span></h3>
+        <div class="r-sub">第五代骁龙8至尊版for Galaxy全系标配，Ultra独占硬件防窥屏与S Pen，Galaxy AI第三代全面进化。但在国产旗舰已将电池推至8000mAh+百瓦快充的2026年，三星的5000mAh+60W组合是否还有说服力？</div>
+        <div class="r-chips"><span>骁龙8 Gen5</span><span>硬件防窥屏</span><span>S Pen</span><span>Galaxy AI</span><span>200MP</span><span>7年更新</span></div>
+      </div>
+
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-headline">核心结论：<strong>买的是品牌生态，不是参数表</strong></div>
+          <div class="bt-sub">S26系列在硬件参数上全面落后于同价位的国产旗舰——电池容量差3000mAh+、充电功率差40W+、起售价贵2000-4000元。但三星依然拥有国产厂商难以复制的三张底牌：全球品牌影响力、S Pen生产力生态、以及长达7年的系统更新承诺。选择S26的用户，不是在买配置，而是在买一种全球化的移动生活方式。</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">起售价</div>
+          <div class="bt-num">5499<span>元</span></div>
+          <div class="bt-val">S26标准版 · 国补后价格</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">Ultra主摄</div>
+          <div class="bt-num">200<span>MP</span></div>
+          <div class="bt-val">2亿像素四摄系统</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">系统更新</div>
+          <div class="bt-num">7<span>年</span></div>
+          <div class="bt-val">行业最长OS更新承诺</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">电池</div>
+          <div class="bt-num">5000<span>mAh</span></div>
+          <div class="bt-val">Ultra容量 · 全系最高</div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">Ultra Innovation</span></div>
+        <h3 class="ch-title">硬件防窥屏：2026年最实用的商务创新</h3>
+        <div class="ch-intro">S26 Ultra独占的硬件防窥屏是三星在显示技术上的又一次前沿探索——它不仅仅是一个隐私保护功能，更重新定义了「手机屏幕的可见性边界」。</div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">屏幕革命</span></div>
+          <h3>业界首创硬件级防窥：从像素层面重塑可视角度</h3>
+          <p>与传统的光学膜防窥屏不同，S26 Ultra的<strong>硬件防窥屏</strong>通过在OLED像素结构层面动态调整微透镜阵列（MLA）的出光方向来实现视野限制。它的精妙之处在于——<strong>不影响屏幕原生的显示效果</strong>：传统防窥膜的亮度损失（通常30-40%）、色偏、颗粒感等问题在这里完全不存在。用户可以在系统设置中自由调节防窥角度（30°/45°/60°），甚至可以为特定应用设置独立的防窥策略。</p>
+          <p>从技术角度看，这意味着三星在OLED微透镜阵列的「指向性发光」控制上取得了突破。从用户场景看，地铁上看工作文档、咖啡馆里处理敏感信息、飞机上浏览财务报表——这些都是硬件防窥屏真正解决的用户痛点。<strong>这是2026年旗舰机中最实用的创新功能，没有之一。</strong></p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Fae88b8a1j00tb13zw00bid000go00b3g.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 正面" loading="lazy">
+            <figcaption>Galaxy S26 Ultra · 6.9英寸动态AMOLED</figcaption>
+            <span class="m-badge">Ultra独占</span>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F6b298f29j00tb13zw005ad000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 背面" loading="lazy">
+            <figcaption>Galaxy S26 Ultra · 四摄系统</figcaption>
+          </figure>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">硬件防窥屏是三星S26 Ultra最值得称道的创新。这不仅仅是一个「我也能做」的功能——它需要OLED面板设计和显示驱动IC的深度定制能力，目前在安卓阵营只有三星Display能做到。对于商务人士和注重隐私的用户来说，这个功能的价值远超跑分和充电速度。但值得注意的是，这个功能是<strong>Ultra独占</strong>，S26和S26+的用户无法享受——如果想要这个功能就必须上Ultra，意味着至少10299元的投入。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">Performance & AI</span></div>
+        <h3 class="ch-title">骁龙8 Gen5 for Galaxy + AI第三代：软硬一体的生态壁垒</h3>
+        <div class="ch-intro">三星依然是高通首发定制芯片的唯一合作方，Galaxy AI也已进入第三代。这两大支柱构成了S26系列最坚固的生态护城河。</div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">芯片</span></div>
+          <h3>骁龙8至尊版 Gen5 for Galaxy：独占频率 + 深度优化</h3>
+          <p>全系标配<strong>第五代骁龙8至尊版for Galaxy定制芯片</strong>，相比标准版骁龙8 Gen5在CPU和GPU频率上有所提升。更重要的是，三星与高通在散热、功耗管理、AI引擎调度上做了联合深度调校——这使得S26系列在持续性能输出上有更好的表现。对于普通用户来说，这意味着日常使用流畅度足以支撑整个7年更新周期，而不会在第三、第四年就出现明显卡顿。</p>
+        </div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">AI</span></div>
+          <h3>Galaxy AI第三代：从实用到不可或缺的进化</h3>
+          <p>经过三代迭代，Galaxy AI已经深度集成到One UI的每一个角落——通话实时翻译支持更多语言、笔记自动摘要准确率大幅提升、照片编辑的AI擦除和重构效果达到了「可用级」（而非「玩玩级」）、以及全新加入的<strong>上下文感知助手</strong>能够根据当前屏幕内容智能推荐操作。三星的AI生态优势在于系统级深度集成，而非独立的AI应用——这意味着用户不需要「去用AI」，AI会在你需要的时候自动出现。</p>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">Galaxy AI是三星区别于所有国产旗舰的核心差异点——不是因为它功能最多，而是因为它集成最深。国产旗舰的AI能力目前还停留在「独立应用」阶段（如影像AI、语音助手等），而三星已经将AI融入系统的底层交互逻辑。这种软硬一体的生态壁垒需要数年积累，短期内很难被复制。但需要提醒的是，Galaxy AI的部分高级功能在中国大陆的可用性受到本地化限制，实际体验可能不如海外市场完整。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">Battery & Camera</span></div>
+        <h3 class="ch-title">电池短板与影像长板：一个老问题的新表现</h3>
+        <div class="ch-intro">电池和充电是三星旗舰长期被诟病的软肋，而影像系统则是三星引以为傲的传统强项。在2026年的S26系列上，这个两极分化的格局依然没有改变。</div>
+
+        <table class="spec-table">
+          <tr><th>项目</th><th>S26</th><th>S26+</th><th>S26 Ultra</th></tr>
+          <tr><td>处理器</td><td colspan="3">骁龙8至尊版 Gen5 for Galaxy</td></tr>
+          <tr><td>屏幕</td><td>6.3" FHD+ 120Hz</td><td>6.7" QHD+ 120Hz</td><td>6.9" QHD+ 1-120Hz自适应</td></tr>
+          <tr><td>屏幕技术</td><td colspan="3">动态AMOLED · 防眩光</td></tr>
+          <tr><td>电池</td><td>4300mAh</td><td>4900mAh</td><td>5000mAh</td></tr>
+          <tr><td>有线充电</td><td>25W</td><td>45W</td><td>60W</td></tr>
+          <tr><td>无线充电</td><td>❌</td><td>❌</td><td>✅</td></tr>
+          <tr><td>主摄</td><td>50MP</td><td>50MP</td><td>200MP</td></tr>
+          <tr><td>超广角</td><td>12MP</td><td>12MP</td><td>50MP</td></tr>
+          <tr><td>长焦</td><td>10MP</td><td>10MP</td><td>50MP + 10MP</td></tr>
+          <tr><td>S Pen</td><td>❌</td><td>❌</td><td>✅ 内置</td></tr>
+          <tr><td>防窥屏</td><td>❌</td><td>❌</td><td>✅ 硬件级</td></tr>
+          <tr><td>防水</td><td colspan="3">IP68</td></tr>
+          <tr><td>AI & 更新</td><td colspan="3">Galaxy AI第三代 · 7年OS更新承诺</td></tr>
+        </table>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">续航痛点</span></div>
+          <h3>4300-5000mAh + 25-60W充电：国产旗舰面前的最大尷尬</h3>
+          <p>在国产旗舰已经将电池推至<strong>7000-8000mAh、充电飙至100-150W</strong>的2026年，三星最高5000mAh电池+60W充电的组合显得格外刺眼。S26标准版4300mAh的电池甚至低于一些国产中端机，而25W的充电速度意味着从0充满需要超过90分钟。更让人不解的是，<strong>S26和S26+甚至不支持无线充电</strong>——这在旗舰手机中几乎是闻所未闻的配置降级。</p>
+          <p>三星对电池容量的保守态度有其安全考量（Note7事件的阴影至今存在），但当竞品已经用8000mAh+百瓦快充将续航焦虑彻底消除时，三星的策略更像是「宁可落后也不冒险」，而非真正的技术限制。</p>
+        </div>
+
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2Faf2bfda0j00tb13zw007md000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra 影像系统" loading="lazy">
+            <figcaption>200MP主摄 + 双长焦系统</figcaption>
+            <span class="m-badge">影像旗舰</span>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2026%2F0226%2F860488a7j00tb13zw008ud000go009dg.jpg&thumbnail=660x2147483647&quality=80&type=jpg" onclick="openLightbox(this.src)" alt="Galaxy S26 Ultra S Pen" loading="lazy">
+            <figcaption>内置S Pen · 生产力工具</figcaption>
+          </figure>
+        </div>
+
+        <div class="r-feat">
+          <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">影像</span></div>
+          <h3>200MP四摄 + 双长焦：Ultra依然是影像天花板</h3>
+          <p>影像系统是S26系列与国产旗舰差距最小的维度——尤其是Ultra。200MP主摄+50MP超广角+50MP长焦+10MP潜望长焦的四摄组合依然代表着手机影像的顶级水准。三星的影像调校风格偏向<strong>自然、克制、高动态范围</strong>，喜欢讨好眼球式AI美颜的用户可能会觉得不如国产旗舰「好看」，但追求真实还原的用户会更认可三星的色彩科学。需要特别提到的是，<strong>S26和S26+的影像配置与Ultra差距巨大</strong>——如果你是冲着拍照买S26系列，建议直接上Ultra。</p>
+        </div>
+
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">S26系列的电池和充电配置是一个系统性问题，不是某款机型的个别短板。这反映了三星在产品定义上的核心价值观：安全优先、稳健迭代。但在中国市场，消费者对续航和快充的敏感度远高于全球平均水平——三星如果不在这个问题上做出改变，即使品牌力再强也无法挽回中国市场的颓势。好消息是，S26标准版国补后5499元的价格让三星旗舰首次杀入5000+区间，这对于以前根本不敢考虑三星的用户来说，低门槛本身就是一种市场突破。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">Pricing & Target</span></div>
+        <h3 class="ch-title">价格与目标用户：贵得有理由，但不是为所有人准备的</h3>
+        <div class="ch-intro">三星S26系列的价格跨度从5499元到10299元以上，覆盖了中高端到旗舰的全部区间。但与中国市场动辄5000元起步的国产旗舰相比，三星的价格依然需要你有明确的购买理由。</div>
+
+        <table class="spec-table">
+          <tr><th>版本</th><th>国补后参考价</th><th>对比国产同档</th></tr>
+          <tr><td>S26 标准版</td><td><strong>¥5499</strong></td><td>同配国产约¥2500-3500</td></tr>
+          <tr><td>S26+ 512G</td><td><strong>¥8299</strong></td><td>同配国产约¥3500-4500</td></tr>
+          <tr><td>S26 Ultra 512G</td><td><strong>¥10299</strong></td><td>同配国产约¥4500-6000</td></tr>
+        </table>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>只推荐三类人购买S26系列</strong>：(1) 三星生态深度用户——你有Galaxy Watch/Buds/Tab，换生态成本太高；(2) 高端商务人士——S Pen+防窥屏+DeX模式的生产力组合在出差场景中无替代方案；(3) 涉外/国际用户——全球联保+One UI国际化体验远超国产。如果你不属于这三类，<strong>同等预算下国产旗舰能给你的硬件配置要多得多</strong>。</div></div>
+
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>618预测</strong>：S26标准版或降至4999元，降幅约9%。S26 Ultra降价空间有限（预计5-6%），因为Ultra用户群对价格不敏感。三星的降价策略一贯保守，如果300-500元的降幅对你的购买决策影响不大，首发入手也无妨。但如果预算敏感，不妨等等看618是否有平台优惠叠加。</div></div>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>硬件防窥屏是2026年最被低估的创新</h3>
+          <p>这项技术短期内看不到追兵，对商务用户的实用价值极高。但它是Ultra独占——想拥有它就得上10299元的Ultra，门槛不低。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>电池和充电是三星旗舰的阿喀琉斯之踵</h3>
+          <p>5000mAh+60W的组合在2026年的旗舰市场像个「时空穿越者」。这不是技术问题，而是产品策略问题——三星需要在这件事上拿出改变的勇气。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>买三星买的是生态和全球化，不是跑分和性价比</h3>
+          <p>如果你需要全球联保、S Pen生产力、One UI的国际化体验，三星依然是最好的选择。但如果你只在乎「花多少钱买到多少配置」，国产旗舰是更理性的选择。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>中国市场：三星的「不可能任务」仍在继续</h3>
+          <p>即便国补后S26下探至5499元，面对同价位国产旗舰（8000mAh+百瓦快充+同等影像）的围剿，三星在中国市场的份额回升仍然任重道远。</p>
+        </div>
+      </div>
+    
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+// Lightbox for images
+document.querySelectorAll('.report-body img').forEach(function(img) {
+  img.addEventListener('click', function() {
+    document.getElementById('lightboxImg').src = this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>

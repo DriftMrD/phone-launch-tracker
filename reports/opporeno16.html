@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPPO Reno16系列 发布会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --border: #e5e5e0;
+    --text: #1a1a1a;
+    --muted: #737373;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  :root {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+  /* === 报告弹窗 === */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
+    animation: fadeIn 0.2s;
+  }
+  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .report-panel {
+    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
+    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
+  }
+  .report-header {
+    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .report-header h2 { font-size: 20px; font-weight: 700; }
+  .report-header .close-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
+    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s; color: var(--muted);
+  }
+  .report-header .close-btn:hover { background: #e5e5e5; }
+  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
+  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
+  .report-body h3:first-child { margin-top: 0; }
+  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
+  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
+  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
+  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
+  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
+  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
+  .report-body .price-card {
+    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
+    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
+  }
+  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
+  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
+  .report-body .highlight-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
+    border: 1px solid #fcd34d;
+  }
+  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
+  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
+  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
+  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
+  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
+  .report-body .product-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
+  }
+  .report-body .product-gallery img {
+    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
+    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    border: 1px solid var(--border);
+  }
+  .report-body .product-gallery img:hover {
+    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .report-body .hero-img {
+    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
+    max-height: 320px; border: 1px solid var(--border);
+  }
+  .report-body .img-caption {
+    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+  }
+
+  /* === 报告内容：杂志式升级 === */
+  .report-body {
+    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
+    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
+    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
+    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
+    --r-dark: #0b0b0f; --r-tile: #17181d;
+    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
+    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
+    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
+    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .report-body > *:first-child { margin-top: 0; }
+
+  /* Hero 头部 */
+  .report-body .r-hero {
+    background: var(--r-dark); color: #fff; border-radius: 16px;
+    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
+  }
+  .report-body .r-hero::before {
+    content:''; position:absolute; inset:0; background:
+      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
+      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
+      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
+  }
+  .report-body .r-hero > * { position: relative; }
+  .report-body .r-hero .r-eyebrow {
+    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
+    text-transform:uppercase; margin-bottom:14px;
+  }
+  .report-body .r-hero h3 {
+    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
+    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
+  }
+  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-hero .r-sub {
+    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
+  }
+  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
+  .report-body .r-hero .r-chips span {
+    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  }
+
+  /* Bento 摘要网格 */
+  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
+  .report-body .r-bt {
+    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .report-body .r-bt-hero {
+    grid-column: span 2; background:
+      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
+      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
+  }
+  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
+  .report-body .r-bt .bt-num {
+    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
+    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
+  }
+  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
+  .report-body .r-bt-hero .bt-headline {
+    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
+  }
+  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
+
+  /* 章节带 */
+  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
+  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .report-body .r-chapter .ch-num {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
+    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
+  }
+  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
+  .report-body .r-chapter .ch-title {
+    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
+  }
+  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
+
+  /* 功能条目 */
+  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
+  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
+  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
+  .report-body .r-f-meta .f-idx {
+    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
+    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
+  }
+  .report-body .r-f-meta .f-tag {
+    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
+    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
+  }
+  .report-body .r-feat h3 {
+    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
+    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
+  }
+  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
+  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
+  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
+  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
+  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
+
+  /* 图文并排 */
+  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
+
+  /* 图片卡片 */
+  .report-body .r-fig {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; position:relative;
+  }
+  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
+  .report-body .r-fig img:hover { transform:scale(1.02); }
+  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
+  .report-body .r-fig .m-badge {
+    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
+    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  }
+
+  /* 画廊网格 */
+  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
+  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
+  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
+  .report-body .r-gtile {
+    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
+    background:#fff; display:flex; flex-direction:column;
+  }
+  .report-body .r-gtile .g-box {
+    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  }
+  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
+  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
+  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
+  .report-body .r-gtile .m-badge { top:10px; left:10px; }
+
+  /* 全幅图 */
+  .report-body .r-wide {
+    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  }
+  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
+  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
+
+  /* 点评 / 分析 Note */
+  .report-body .r-note {
+    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  }
+  .report-body .r-note .note-l {
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
+    text-transform:uppercase; margin-bottom:5px;
+  }
+  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
+  .report-body .r-note-c {
+    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
+  }
+  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
+  .report-body .r-note-c .note-t { color:#2d3357; }
+  .report-body .r-note-a {
+    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
+  }
+  .report-body .r-note-a .note-l { color:var(--r-amber); }
+  .report-body .r-note-a .note-t { color:#5d3c10; }
+  .report-body .r-note-t strong { font-weight:800; }
+
+  /* Key Takeaways */
+  .report-body .r-take {
+    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
+    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
+    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  }
+  .report-body .r-take:first-child { margin-top:24px; }
+  .report-body .r-take-n {
+    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
+    letter-spacing:-.02em; flex:none;
+    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
+  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+
+  /* 规格表升级 */
+  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
+  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
+  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
+
+  /* 价格卡升级 */
+  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
+  .report-body .price-card strong { font-size:17px; }
+
+  /* highlight-box 升级 */
+  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
+
+  /* 覆盖旧样式 */
+  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
+  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
+  .report-body ul { padding-left:20px; margin-bottom:12px; }
+  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
+  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
+  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
+  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
+  .report-body .pro-con > div { padding:16px; border-radius:12px; }
+  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
+  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
+  /* Lightbox for enlarged view */
+  /* Lightbox for enlarged view */
+  .lightbox {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
+    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
+    header h1 { font-size: 22px; }
+    .report-header { padding: 18px 20px 14px; }
+    .report-header h2 { font-size: 17px; }
+    .report-body { padding: 18px 20px 28px; }
+    .report-body .pro-con { grid-template-columns: 1fr; }
+    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
+    .report-body .r-bento { grid-template-columns:1fr; }
+    .report-body .r-bt-hero { grid-column:auto; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
+    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
+    .report-body .r-hero { padding:28px 20px 24px; }
+    .report-body .r-hero h3 { font-size:22px; }
+    .report-body .r-feat h3 { font-size:19px; }
+    .report-body .r-chapter .ch-title { font-size:20px; }
+  }
+
+  .report-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 24px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+  }
+  .back-link:hover { border-color: #aaa; }
+  .back-link svg { width: 16px; height: 16px; }
+
+  @media (max-width: 600px) {
+    .report-page { padding: 12px 12px 48px; }
+    .back-link { font-size: 12px; }
+    .report-body .r-hero { padding: 24px 18px 20px; }
+    .report-body .r-hero h3 { font-size: 20px; }
+    .report-body .r-bento { grid-template-columns: 1fr; }
+    .report-body .r-bt-hero { grid-column: auto; }
+    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
+    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
+    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
+    .report-body .r-feat h3 { font-size: 18px; }
+    .report-body .r-chapter .ch-title { font-size: 19px; }
+  }
+
+</style>
+</head>
+<body>
+<div class="report-page">
+  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
+  <div class="report-body">
+
+      <div class="r-hero">
+        <div class="r-eyebrow">2026年5月25日 · "Reno Land奇幻夜" · OPPO</div>
+        <h3>OPPO Reno16：<span class="g">3D悬浮星球的视觉魔法</span></h3>
+        <div class="r-sub">行业首创3D冰透悬浮工艺 · 2亿像素三摄+云台OIS · 6.32寸188g小直屏 · 实况随心贴社交玩法，颜值与手感的双重极致</div>
+        <div class="r-chips"><span>3D悬浮星球</span><span>2亿三摄</span><span>6.32寸188g</span><span>云台OIS</span><span>¥2999起</span></div>
+      </div>
+
+      <div class="r-bento">
+        <div class="r-bt r-bt-hero">
+          <div class="bt-lab">核心结论</div>
+          <div class="bt-headline"><strong>3D悬浮工艺</strong> 让设计成为最强卖点</div>
+          <div class="bt-sub">嵌入式微纳米印刷技术首次量产，玻璃表面呈现裸眼3D悬浮星球效果——这不是参数，是让你忍不住翻过来看背面的魔力</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">起步价</div>
+          <div class="bt-num">2999<span>元</span></div>
+          <div class="bt-val">Reno16 国补后 · 小直屏+2亿三摄入门价</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">重量</div>
+          <div class="bt-num">188<span>g</span></div>
+          <div class="bt-val">标准版6.32寸小直屏 · 当下稀缺轻薄选择</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">后盖工艺</div>
+          <div class="bt-num">3D<span>悬浮</span></div>
+          <div class="bt-val">行业首创冰透悬浮工艺 · 裸眼3D效果</div>
+        </div>
+        <div class="r-bt">
+          <div class="bt-lab">长焦</div>
+          <div class="bt-num">3.5<span>x</span></div>
+          <div class="bt-val">Pro版潜望光学变焦 · 120x数码变焦</div>
+        </div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">CRAFTSMANSHIP</span></div>
+        <h2 class="ch-title">3D悬浮星球：手机工艺的天花板级创新</h2>
+        <p class="ch-intro">OPPO Reno16系列最引人注目的不是任何一颗芯片或镜头，而是后盖——一块看起来像悬浮着微型星球的玻璃。这项工艺的实现难度和量产意义，远比表面看起来要大得多。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">工艺</span><span class="f-tag">行业首创</span></div>
+        <h3>3D冰透悬浮工艺：微纳米印刷的技术突破</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/d9a4-b2bbd949522bd29f55fead45f8640bbb.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 3D悬浮星球" loading="lazy">
+            <figcaption>3D冰透悬浮工艺 · 裸眼3D悬浮星球效果</figcaption>
+            <span class="m-badge">行业首创</span>
+          </figure>
+          <div>
+            <p>这项工艺的官方名称是「3D冰透悬浮工艺」，核心技术是<strong>嵌入式微纳米印刷技术</strong>的首次大规模量产应用。简而言之：通过在玻璃内部不同深度层印刷微米级图案，利用光线折射和视觉错觉，让平面的玻璃表面呈现出立体的悬浮星球效果。关键在于，这<strong>不是贴膜、不是浮雕、不是全息投影</strong>，而是真正的内层印刷工艺——触摸时表面是完全平整的玻璃。</p>
+            <p>这项工艺此前只在概念机和限量版上出现过，Reno16是首次在量产机型上实现。良品率和成本控制是最大的工程挑战，OPPO能把它做到量产，本身就是供应链能力的证明。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">当所有品牌都在卷芯片、卷镜头、卷电池的时候，OPPO选择在后盖工艺上做差异化——这是一个聪明的策略。因为性能和影像的差距正在缩小，但设计质感的差异是用户每天都能感受到的。3D悬浮星球是那种「别人看到你手机一定会问一句」的设计，这种社交属性在Reno系列的目标人群（年轻女性、时尚用户）中价值极高。</div></div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">设计</span><span class="f-tag">一体冷雕</span></div>
+        <h3>一体冷雕玻璃：镜头模组与后盖的浑然天成</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/b3cf-b33033fbb944fb6747ddbed749c7c2f1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 星环颗粒" loading="lazy">
+            <figcaption>一体冷雕玻璃 · 镜头模组与后盖浑然一体</figcaption>
+          </figure>
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/131c-72693f29313defc6c4715702e12ee9bf.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 悬浮效果" loading="lazy">
+            <figcaption>不同角度下的悬浮效果变化</figcaption>
+            <span class="m-badge">角度敏感</span>
+          </figure>
+        </div>
+        <p>除了3D悬浮工艺，Reno16 Pro还采用了<strong>一体冷雕玻璃</strong>工艺——摄像头模组区域与后盖是一整块玻璃，通过精密冷雕工艺一体成型，没有任何接缝或台阶。这种设计在视觉上更加简洁统一，触感上也更顺滑，是当前手机后盖工艺的最高水准之一。</p>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">IMAGING</span></div>
+        <h2 class="ch-title">2亿三摄+云台OIS：颜值之外的实力派</h2>
+        <p class="ch-intro">Reno16系列不是只有好看的皮囊。2亿像素三摄系统、Pro版云台OIS防抖、5000万潜望长焦——这套影像配置在3-4K档位属于完整且能打的水准。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">影像</span><span class="f-tag">云台OIS</span></div>
+        <h3>云台OIS防抖：视频和实况的稳定基石</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/515/w1269h846/20260525/7455-7dd3cd8ac0a5776f4f1b59f924554ac4.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 摄像头模组" loading="lazy">
+            <figcaption>Reno16 Pro 2亿像素云台OIS三摄模组</figcaption>
+          </figure>
+          <div>
+            <p>Pro版搭载<strong>2亿像素云台OIS主摄</strong>（f/1.8大光圈）。云台OIS的原理是在传统光学防抖的基础上增加了更大范围的悬浮镜片补偿，防抖角度和精度都远超普通OIS。实际效果是：<strong>走路时拍视频几乎不抖、暗光实况照片不糊、长焦端手持也稳</strong>——这三个场景恰恰是用户最常遇到「拍废了」的时刻。</p>
+            <p>标准版同样拥有2亿像素主摄+5000万超广角+5000万潜望长焦的完整三摄组合，只是缺少云台OIS和部分Pro版算法。对于大部分日常拍摄场景，标准版的影像能力已经足够出色。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">功能</span><span class="f-tag">实况随心贴</span></div>
+        <h3>实况随心贴：从拍照工具到社交玩法的进化</h3>
+        <p>OPPO在实况照片上的策略与荣耀不同——荣耀强调「全焦段4K直出」的技术突破，OPPO更侧重<strong>「社交玩法」</strong>的体验创新。实况随心贴允许用户在Live照片上叠加模板、贴纸、文字等元素，直接发布到社交平台。配合AI一键闪记功能，可以在拍摄瞬间自动生成带有创意模板的实况内容。</p>
+        <p>这不是技术层面的硬核突破，但对目标用户群（小红书、抖音重度用户）来说，<strong>好玩比好用更重要</strong>——能一键生成好看的朋友圈/小红书素材，比拍出一张完美的照片更有日常价值。</p>
+        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">荣耀和OPPO同日发布，都主打「实况照片」，但路线截然不同。荣耀走的是「画质+全焦段」的技术路线，OPPO走的是「玩法+社交」的体验路线。没有对错，只有取舍——这取决于你是更在意拍出来的照片品质，还是更在意发出去的社交效果。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">SIZE & FEEL</span></div>
+        <h2 class="ch-title">6.32寸+188g：小屏手感的稀缺价值</h2>
+        <p class="ch-intro">在2026年手机动辄6.7寸+200g+的时代，Reno16标准版的6.32寸+188g组合，本身就是一种差异化。小屏不是参数劣势，而是手感优势。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">手感</span><span class="f-tag">稀缺价值</span></div>
+        <h3>188g轻+6.32寸小：当下最稀缺的手感组合</h3>
+        <div class="r-cols">
+          <figure class="r-fig">
+            <img src="https://n.sinaimg.cn/spider20260525/0/w1440h960/20260525/ba06-0a5067b3ca1cbde1b3d1fb69bd02c9e1.jpg" onclick="openLightbox(this.src)" alt="Reno16 Pro 正面外观" loading="lazy">
+            <figcaption>Reno16 Pro 正面 · 1.15mm四等窄边直屏</figcaption>
+          </figure>
+          <div>
+            <p>6.32寸OLED小直屏+188g重量，在当前安卓阵营中几乎找不到第二家。小米13/14是6.36寸+180g级别，但它们是2023-2024年的产品；2026年还在做小屏轻薄的，Reno16标准版是唯一选择。</p>
+            <p>小屏的代价是明确的：<strong>6700mAh电池在8000mAh时代偏小</strong>，天玑8550 SUPER的性能也不占优。但如果你是女性用户或手小用户，好的握持感是每天拿起手机100次都能感受到的「存在感」——这比偶尔打一局游戏的帧率差异重要得多。</p>
+          </div>
+        </div>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">如果你对「小屏+轻薄」有刚需，Reno16标准版是目前安卓阵营几乎唯一的新选择。但6700mAh电池确实是个需要权衡的点——如果你是重度用户（每天亮屏8小时+），可能需要一天两充。建议去线下实际握持体验，确认6.32寸的手感确实适合你。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">PRICING & CHOICE</span></div>
+        <h2 class="ch-title">价格策略与双版本选择</h2>
+        <p class="ch-intro">Reno16系列只出两档——标准版和Pro版，定价逻辑比荣耀600的三档更清晰。</p>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">规格</span><span class="f-tag">对比</span></div>
+        <h3>两款机型核心差异</h3>
+        <table class="spec-table">
+          <tr><th>项目</th><th>Reno16 标准版</th><th>Reno16 Pro</th></tr>
+          <tr><td>处理器</td><td>天玑8550 SUPER</td><td>天玑9500s</td></tr>
+          <tr><td>屏幕</td><td>6.32" 1.5K 小直屏</td><td>6.78" 1.5K LTPO · 1.15mm四等窄</td></tr>
+          <tr><td>电池</td><td>6700mAh</td><td>7000mAh</td></tr>
+          <tr><td>无线充</td><td>❌</td><td>50W</td></tr>
+          <tr><td>主摄</td><td>2亿像素(HP5)</td><td>2亿像素 云台OIS(f/1.8)</td></tr>
+          <tr><td>潜望长焦</td><td>5000万(JN5)</td><td>5000万 3.5x光学/120x数码</td></tr>
+          <tr><td>防水</td><td>—</td><td>IP68/69</td></tr>
+          <tr><td>指纹</td><td>—</td><td>3D超声波</td></tr>
+          <tr><td>重量</td><td>~188g</td><td>—</td></tr>
+          <tr><td>国补价</td><td><strong>¥2999</strong></td><td><strong>¥3999</strong></td></tr>
+        </table>
+      </div>
+
+      <div class="r-feat">
+        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">分析</span><span class="f-tag">选购</span></div>
+        <h3>标准版还是Pro版？关键看这三个问题</h3>
+        <p><strong>你更看重手感还是性能？</strong>标准版6.32寸+188g是手感之王，但天玑8550 SUPER性能有限；Pro版6.78寸+天玑9500s性能更强，但失去了小屏手感。</p>
+        <p><strong>你拍视频多吗？</strong>云台OIS是Pro版独占，如果你经常拍vlog或实况视频，Pro版的价值会非常明显。如果只是日常随手拍，标准版的2亿三摄完全够用。</p>
+        <p><strong>1000元的差价值不值？</strong>Pro版比标准版贵1000元，多出天玑9500s、云台OIS、IP68/69、3D超声波指纹、50W无线充、更大屏幕和电池。如果你在意防护和充电便利性，Pro版的溢价是合理的。</p>
+        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>手小/预算有限选标准版（¥2999）</strong>：6.32寸+188g的手感无可替代，2亿三摄+实况随心贴的核心体验不缺。<strong>拍视频/追求完整旗舰选Pro版（¥3999）</strong>：云台OIS+IP68+无线充+天玑9500s是完整的旗舰配置。618期间标准版有望降至¥2699，Pro版¥3499，届时入手更划算。</div></div>
+      </div>
+
+      <div class="r-chapter">
+        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
+        <h2 class="ch-title">核心要点</h2>
+      </div>
+
+      <div class="r-take">
+        <div class="r-take-n">01</div>
+        <div class="r-take-b">
+          <h3>3D悬浮工艺是年度最惊艳设计</h3>
+          <p>微纳米印刷技术首次量产，裸眼3D悬浮效果独一无二。在「千机一面」的市场里，这是让Reno16脱颖而出最强的差异化武器。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">02</div>
+        <div class="r-take-b">
+          <h3>小屏手感是稀缺价值</h3>
+          <p>6.32寸+188g的标准版是2026年安卓阵营几乎唯一的小屏新选择。6700mAh电池是代价，但对目标用户来说手感>续航。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">03</div>
+        <div class="r-take-b">
+          <h3>与荣耀600同日对打，路线不同</h3>
+          <p>荣耀600主打「4K Live画质+大电池」，OPPO Reno16主打「3D悬浮设计+小屏手感」。同一价格带、同一发布日，目标人群有明显差异——选谁取决于你更在意什么。</p>
+        </div>
+      </div>
+      <div class="r-take">
+        <div class="r-take-n">04</div>
+        <div class="r-take-b">
+          <h3>618标准版可蹲¥2699</h3>
+          <p>预测Reno16标准版618可降至¥2699，Pro版¥3499。如果你被3D悬浮星球种草但不急，618的入手价会更友好。</p>
+        </div>
+      </div>
+    
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+// Lightbox for images
+document.querySelectorAll('.report-body img').forEach(function(img) {
+  img.addEventListener('click', function() {
+    document.getElementById('lightboxImg').src = this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>
