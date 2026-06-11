@@ -6,568 +6,1044 @@
 <title>小米17T系列 发布会报告 · 手机发布会追踪器</title>
 <style>
   :root {
-    --bg: #fafaf9;
-    --card: #ffffff;
-    --border: #e5e5e0;
-    --text: #1a1a1a;
-    --muted: #737373;
+    --bg: #14110e;
+    --surface: #1a1715;
+    --card: #1e1b18;
+    --card-hover: #24211d;
+    --border: #2a2520;
+    --border-light: #332d27;
+    --accent: #ff5722;
+    --accent-glow: rgba(255,87,34,0.35);
+    --accent-dim: rgba(255,87,34,0.12);
+    --cyan: #00c853;
+    --cyan-dim: rgba(0,200,83,0.1);
+    --leica: #e11b22;
+    --leica-dim: rgba(225,27,34,0.1);
+    --text: #ebe5de;
+    --text-secondary: #a09890;
+    --text-muted: #6b6560;
+    --white: #f5f0ea;
+    --grad-1: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,87,34,0.2) 0%, transparent 60%);
+    --grad-2: radial-gradient(ellipse 60% 50% at 30% 40%, rgba(255,87,34,0.08) 0%, transparent 55%);
+    --font-sans: 'PingFang SC', 'SF Pro SC', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --font-display: 'PingFang SC', 'SF Pro SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: var(--font-sans);
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  :root {
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-  /* === 报告弹窗 === */
-  .overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
-    animation: fadeIn 0.2s;
+
+  /* Main container */
+  .report-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 28px 80px;
+    position: relative;
   }
-  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  .report-panel {
-    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
-    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
+
+  /* ==================== HERO ==================== */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 40px;
+    margin: 0 -28px;
+    overflow: hidden;
   }
-  .report-header {
-    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 45%, rgba(255,87,34,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 25% 35%, rgba(255,87,34,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 75% 35%, rgba(255,87,34,0.06) 0%, transparent 50%);
+    z-index: 0;
   }
-  .report-header h2 { font-size: 20px; font-weight: 700; }
-  .report-header .close-btn {
-    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
-    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s; color: var(--muted);
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 280px;
+    background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+    z-index: 1;
   }
-  .report-header .close-btn:hover { background: #e5e5e5; }
-  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
-  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
-  .report-body h3:first-child { margin-top: 0; }
-  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
-  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
-  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
-  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
-  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
-  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
-  .report-body .price-card {
-    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
-    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
+
+  .hero > * { position: relative; z-index: 2; }
+
+  .hero-date {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
-  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
-  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
-  .report-body .highlight-box {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
-    border: 1px solid #fcd34d;
+
+  .hero-date::before,
+  .hero-date::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent));
   }
-  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
-  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
-  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
-  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
-  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
-  .report-body .product-gallery {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
+
+  .hero-date::after {
+    background: linear-gradient(to left, transparent, var(--accent));
   }
-  .report-body .product-gallery img {
-    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
-    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    background: rgba(255,87,34,0.2);
+    border: 1px solid rgba(255,87,34,0.3);
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+
+  .hero h1 .grad {
+    background: linear-gradient(135deg, #ff5722 0%, #ff8a50 50%, #ff5722 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .hero-chips span {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: all 0.2s;
+  }
+
+  .hero-chips span:hover {
+    background: rgba(255,87,34,0.12);
+    border-color: rgba(255,87,34,0.3);
+    color: var(--accent);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.5;
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll span {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .hero-scroll svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-muted);
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(8px); }
+    60% { transform: translateX(-50%) translateY(4px); }
+  }
+
+  /* ==================== DIAGONAL SECTION DIVIDER ==================== */
+  .diag-section {
+    position: relative;
+    margin: 40px -28px;
+    padding: 40px 28px;
+  }
+
+  .diag-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,87,34,0.15), transparent);
+  }
+
+  .diag-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,87,34,0.25));
+  }
+
+  /* ==================== BENTO GRID ==================== */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0 0 48px;
+  }
+
+  .bento-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+
+  .bento-card:hover {
+    background: var(--card-hover);
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+  }
+
+  .bento-card.span-2 { grid-column: span 2; }
+  .bento-card.hero-card {
+    grid-column: span 4;
+    background:
+      radial-gradient(ellipse 70% 50% at 85% 20%, rgba(255,87,34,0.1), transparent 60%),
+      var(--card);
+    border-color: var(--border-light);
+    padding: 28px 28px;
+  }
+
+  .bento-label {
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .bento-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .bento-num .unit {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-left: 2px;
+  }
+
+  .bento-val {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .bento-card.hero-card .bento-headline {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .bento-card.hero-card .bento-headline .grad {
+    background: linear-gradient(135deg, #ff5722, #ff8a50);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bento-card.hero-card .bento-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* ==================== CHAPTER ==================== */
+  .chapter {
+    margin: 56px 0 12px;
+    position: relative;
+  }
+
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .chapter-num {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--white);
+    background: var(--accent);
+    padding: 4px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .chapter-kicker {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .chapter-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--white);
+    margin: 0 0 14px;
+  }
+
+  .chapter-intro {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 680px;
+  }
+
+  /* ==================== FEATURE BLOCK ==================== */
+  .feat {
+    margin: 32px 0;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .feat:first-of-type { border-top: none; padding-top: 0; }
+
+  .feat-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .feat-idx {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.03em;
+  }
+
+  .feat-tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #ff8a50;
+    background: var(--accent-dim);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  .feat-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 800;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin: 0 0 16px;
+  }
+
+  .feat p {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.82;
+    margin-bottom: 12px;
+  }
+
+  .feat p strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .feat ul {
+    padding-left: 20px;
+    margin: 10px 0 16px;
+  }
+
+  .feat li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+
+  .feat li strong { color: var(--text); }
+
+  /* ==================== COLUMNS ==================== */
+  .cols {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr);
+    gap: 28px;
+    align-items: start;
+    margin: 20px 0;
+  }
+
+  .cols-2 { grid-template-columns: 1fr 1fr; }
+
+  /* ==================== FIGURE ==================== */
+  .fig {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--surface);
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .fig:hover { border-color: var(--border-light); }
+
+  .fig img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .fig img:hover { transform: scale(1.03); }
+
+  .fig figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    border-top: 1px solid var(--border);
+    line-height: 1.55;
+    background: var(--card);
+  }
+
+  .fig-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--white);
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+
+  /* ==================== NOTE / CALLOUT ==================== */
+  .note {
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .note-analyst {
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,200,83,0.15);
+    border-left: 3px solid var(--cyan);
+  }
+
+  .note-analyst .note-label { color: var(--cyan); }
+
+  .note-buy {
+    background: var(--accent-dim);
+    border: 1px solid rgba(255,87,34,0.15);
+    border-left: 3px solid var(--accent);
+  }
+
+  .note-buy .note-label { color: var(--accent); }
+
+  .note-ai {
+    background: var(--leica-dim);
+    border: 1px solid rgba(225,27,34,0.15);
+    border-left: 3px solid var(--leica);
+  }
+
+  .note-ai .note-label { color: var(--leica); }
+
+  .note-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .note-text {
+    font-size: 14.5px;
+    line-height: 1.72;
+    color: var(--text);
+  }
+
+  .note-text strong { font-weight: 800; }
+
+  /* ==================== TECH BORDER (Dimensity) ==================== */
+  .tech-border {
+    position: relative;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 24px;
+    background: var(--card);
+    overflow: hidden;
+  }
+
+  .tech-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0,200,83,0.25), transparent 40%, transparent 60%, rgba(0,200,83,0.25));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .tech-border::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: 40px;
+    width: 80px;
+    height: 1px;
+    background: var(--cyan);
+    opacity: 0.6;
+  }
+
+  /* ==================== SPEC TABLE ==================== */
+  .spec-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 16px 0 24px;
+    font-size: 14px;
+    border-radius: 12px;
+    overflow: hidden;
     border: 1px solid var(--border);
   }
-  .report-body .product-gallery img:hover {
-    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  }
-  .report-body .hero-img {
-    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
-    max-height: 320px; border: 1px solid var(--border);
-  }
-  .report-body .img-caption {
-    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+
+  .spec-table th {
+    background: var(--card);
+    text-align: left;
+    padding: 11px 16px;
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--border);
   }
 
-  /* === 报告内容：杂志式升级 === */
-  .report-body {
-    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
-    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
-    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
-    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
-    --r-dark: #0b0b0f; --r-tile: #17181d;
-    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
-    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
-    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
-    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
-    -webkit-font-smoothing: antialiased;
-  }
-  .report-body > *:first-child { margin-top: 0; }
-
-  /* Hero 头部 */
-  .report-body .r-hero {
-    background: var(--r-dark); color: #fff; border-radius: 16px;
-    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
-  }
-  .report-body .r-hero::before {
-    content:''; position:absolute; inset:0; background:
-      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
-      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
-      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
-  }
-  .report-body .r-hero > * { position: relative; }
-  .report-body .r-hero .r-eyebrow {
-    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
-    text-transform:uppercase; margin-bottom:14px;
-  }
-  .report-body .r-hero h3 {
-    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
-    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
-  }
-  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-hero .r-sub {
-    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
-  }
-  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
-  .report-body .r-hero .r-chips span {
-    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  .spec-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    background: var(--surface);
   }
 
-  /* Bento 摘要网格 */
-  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
-  .report-body .r-bt {
-    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
-    display:flex; flex-direction:column; justify-content:center;
-  }
-  .report-body .r-bt-hero {
-    grid-column: span 2; background:
-      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
-      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
-  }
-  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
-  .report-body .r-bt .bt-num {
-    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
-    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
-  }
-  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
-  .report-body .r-bt-hero .bt-headline {
-    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
-  }
-  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
+  .spec-table tr:last-child td { border-bottom: none; }
 
-  /* 章节带 */
-  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
-  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .report-body .r-chapter .ch-num {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
-    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
-  }
-  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
-  .report-body .r-chapter .ch-title {
-    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
-  }
-  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
+  .spec-table td strong { color: var(--text); font-weight: 700; }
 
-  /* 功能条目 */
-  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
-  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
-  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
-  .report-body .r-f-meta .f-idx {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
-    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
-  }
-  .report-body .r-f-meta .f-tag {
-    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
-    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
-  }
-  .report-body .r-feat h3 {
-    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
-    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
-  }
-  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
-  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
-  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
-  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
-  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
-
-  /* 图文并排 */
-  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
-
-  /* 图片卡片 */
-  .report-body .r-fig {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; position:relative;
-  }
-  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
-  .report-body .r-fig img:hover { transform:scale(1.02); }
-  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
-  .report-body .r-fig .m-badge {
-    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
-    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  /* ==================== KEY TAKEAWAYS ==================== */
+  .takeaway {
+    display: flex;
+    gap: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin: 16px 0;
+    transition: all 0.2s;
   }
 
-  /* 画廊网格 */
-  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
-  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
-  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
-  .report-body .r-gtile {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; display:flex; flex-direction:column;
+  .takeaway:hover {
+    border-color: var(--border-light);
+    background: var(--card-hover);
   }
-  .report-body .r-gtile .g-box {
-    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
-  }
-  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
-  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
-  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
-  .report-body .r-gtile .m-badge { top:10px; left:10px; }
 
-  /* 全幅图 */
-  .report-body .r-wide {
-    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  .takeaway-num {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    flex: none;
+    color: var(--accent);
+    opacity: 0.85;
   }
-  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
-  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
 
-  /* 点评 / 分析 Note */
-  .report-body .r-note {
-    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  .takeaway-content h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 0 8px;
+    line-height: 1.3;
   }
-  .report-body .r-note .note-l {
-    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
-    text-transform:uppercase; margin-bottom:5px;
-  }
-  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
-  .report-body .r-note-c {
-    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
-  }
-  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
-  .report-body .r-note-c .note-t { color:#2d3357; }
-  .report-body .r-note-a {
-    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
-  }
-  .report-body .r-note-a .note-l { color:var(--r-amber); }
-  .report-body .r-note-a .note-t { color:#5d3c10; }
-  .report-body .r-note-t strong { font-weight:800; }
 
-  /* Key Takeaways */
-  .report-body .r-take {
-    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
-    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
-    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  .takeaway-content p {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
   }
-  .report-body .r-take:first-child { margin-top:24px; }
-  .report-body .r-take-n {
-    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
-    letter-spacing:-.02em; flex:none;
-    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
-  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
 
-  /* 规格表升级 */
-  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
-  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
-  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
-
-  /* 价格卡升级 */
-  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
-  .report-body .price-card strong { font-size:17px; }
-
-  /* highlight-box 升级 */
-  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
-
-  /* 覆盖旧样式 */
-  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
-  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
-  .report-body ul { padding-left:20px; margin-bottom:12px; }
-  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
-  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
-  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
-  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
-  .report-body .pro-con > div { padding:16px; border-radius:12px; }
-  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
-  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
-  /* Lightbox for enlarged view */
-  /* Lightbox for enlarged view */
+  /* ==================== LIGHTBOX ==================== */
   .lightbox {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
-    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
     cursor: zoom-out;
   }
+
   .lightbox.show { display: flex; }
+
   .lightbox img {
-    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 8px;
+    object-fit: contain;
     box-shadow: 0 8px 40px rgba(0,0,0,0.4);
   }
 
-  @media (max-width: 600px) {
-    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
-    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
-    header h1 { font-size: 22px; }
-    .report-header { padding: 18px 20px 14px; }
-    .report-header h2 { font-size: 17px; }
-    .report-body { padding: 18px 20px 28px; }
-    .report-body .pro-con { grid-template-columns: 1fr; }
-    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
-    .report-body .r-bento { grid-template-columns:1fr; }
-    .report-body .r-bt-hero { grid-column:auto; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
-    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
-    .report-body .r-hero { padding:28px 20px 24px; }
-    .report-body .r-hero h3 { font-size:22px; }
-    .report-body .r-feat h3 { font-size:19px; }
-    .report-body .r-chapter .ch-title { font-size:20px; }
+  /* ==================== FOOTER ==================== */
+  .page-footer {
+    text-align: center;
+    padding: 48px 0 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
   }
 
-  .report-page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 20px 16px 60px;
-  }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .page-footer p {
     font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    margin-bottom: 24px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    transition: all 0.15s;
-  }
-  .back-link:hover { border-color: #aaa; }
-  .back-link svg { width: 16px; height: 16px; }
-
-  @media (max-width: 600px) {
-    .report-page { padding: 12px 12px 48px; }
-    .back-link { font-size: 12px; }
-    .report-body .r-hero { padding: 24px 18px 20px; }
-    .report-body .r-hero h3 { font-size: 20px; }
-    .report-body .r-bento { grid-template-columns: 1fr; }
-    .report-body .r-bt-hero { grid-column: auto; }
-    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
-    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
-    .report-body .r-feat h3 { font-size: 18px; }
-    .report-body .r-chapter .ch-title { font-size: 19px; }
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 
+  /* ==================== MOBILE ==================== */
+  @media (max-width: 768px) {
+    .report-page { padding: 0 16px 60px; }
+
+    .hero {
+      min-height: 75vh;
+      padding: 48px 16px 32px;
+      margin: 0 -16px;
+    }
+
+    .hero h1 { font-size: 32px; }
+    .hero-sub { font-size: 15px; }
+
+    .bento { grid-template-columns: 1fr 1fr; }
+    .bento-card.span-2 { grid-column: span 2; }
+    .bento-card.hero-card { grid-column: span 2; }
+    .bento-card.hero-card .bento-headline { font-size: 18px; }
+    .bento-num { font-size: 30px; }
+
+    .cols { grid-template-columns: 1fr; gap: 18px; }
+    .cols-2 { grid-template-columns: 1fr; }
+
+    .chapter { margin: 40px 0 10px; }
+    .chapter-title { font-size: 24px; }
+
+    .feat { margin: 24px 0; padding: 24px 0; }
+    .feat-title { font-size: 20px; }
+
+    .takeaway { flex-direction: column; gap: 12px; padding: 20px; }
+    .takeaway-num { font-size: 36px; }
+
+    .hero-scroll { bottom: 30px; }
+  }
+
+  @media (max-width: 480px) {
+    .bento { grid-template-columns: 1fr; }
+    .bento-card.span-2 { grid-column: auto; }
+    .bento-card.hero-card { grid-column: auto; }
+
+    .hero h1 { font-size: 28px; }
+    .hero-sub { font-size: 14px; }
+
+    .spec-table th, .spec-table td { padding: 8px 10px; font-size: 12px; }
+  }
 </style>
 </head>
 <body>
+
 <div class="report-page">
-  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
-  <div class="report-body">
 
-      <div class="r-hero">
-        <div class="r-eyebrow">2026年6月8日 · 小米 · T系列首次回国</div>
-        <h3>小米17T系列：<span class="g">天玑9500/8500U + 徕卡5倍潜望</span></h3>
-        <div class="r-sub">T系列时隔多年回归国内市场 · 天玑9500(Pro)+天玑8500U(标准版)双平台 · 全系徕卡5倍潜望长焦+IP68防水 · 国补后预测17T ¥2999 / 17T Pro ¥3999</div>
-        <div class="r-chips"><span>天玑9500</span><span>徕卡5倍潜望</span><span>7000mAh</span><span>IP68</span><span>¥2999起(预测)</span><span>T系列回国</span></div>
-      </div>
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-date">2026年6月8日 · 小米 · T系列首次回国</div>
+    <div class="hero-tag">T系列 · 国内首发</div>
+    <h1>小米17T系列：<span class="grad">天玑9500<br>徕卡5倍潜望</span></h1>
+    <p class="hero-sub">T系列时隔多年回归国内市场 · 天玑9500(Pro)+天玑8500U(标准版)双平台 · 全系徕卡5倍潜望长焦+IP68防水 · 国补后预测17T ¥2999 / 17T Pro ¥3999</p>
+    <div class="hero-chips">
+      <span>天玑9500</span>
+      <span>徕卡5倍潜望</span>
+      <span>7000mAh</span>
+      <span>IP68</span>
+      <span>¥2999起(预测)</span>
+      <span>T系列回国</span>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
 
-      <div class="r-bento">
-        <div class="r-bt r-bt-hero">
-          <div class="bt-lab">核心结论</div>
-          <div class="bt-headline"><strong>T系列回国首秀</strong> + 徕卡5倍潜望全系标配</div>
-          <div class="bt-sub">小米用T系列替代此前的Civi系列，定位「全能影像旗舰」。天玑9500(Pro)+天玑8500U(标准版)双平台策略，配合徕卡5倍潜望长焦全系标配——这是2026年中性价比影像旗舰的最有力竞争者。</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">国补后预测</div>
-          <div class="bt-num">2999<span>元</span></div>
-          <div class="bt-val">17T 标准版 · 天玑8500U+徕卡影像</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">Pro版预测</div>
-          <div class="bt-num">3999<span>元</span></div>
-          <div class="bt-val">17T Pro · 天玑9500+7000mAh+100W</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">长焦</div>
-          <div class="bt-num">5<span>x</span></div>
-          <div class="bt-val">徕卡5倍潜望 · 全系标配</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">防水</div>
-          <div class="bt-num">IP68<span>/69</span></div>
-          <div class="bt-val">全系标配 · 中端价位越级配置</div>
-        </div>
-      </div>
+  <!-- ==================== BENTO ==================== -->
+  <div class="bento">
+    <div class="bento-card hero-card">
+      <div class="bento-label">核心结论</div>
+      <div class="bento-headline"><span class="grad">T系列回国首秀</span> + 徕卡5倍潜望全系标配</div>
+      <div class="bento-sub">小米用T系列替代此前的Civi系列，定位「全能影像旗舰」。天玑9500(Pro)+天玑8500U(标准版)双平台策略，配合徕卡5倍潜望长焦全系标配——这是2026年中性价比影像旗舰的最有力竞争者。</div>
+    </div>
 
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">COMEBACK</span></div>
-        <h2 class="ch-title">T系列回国：小米产品线的战略级调整</h2>
-        <p class="ch-intro">小米17T系列是T系列时隔多年首次回归国内市场，标志着小米在中高端产品线的重新布局。T系列将替代此前的Civi系列，定位「全能影像旗舰」——不再是「轻薄自拍」的Civi路线，而是「性能+影像」的双重旗舰体验。</p>
-      </div>
+    <div class="bento-card">
+      <div class="bento-label">国补后预测</div>
+      <div class="bento-num">2999<span class="unit">元</span></div>
+      <div class="bento-val">17T 标准版 · 天玑8500U+徕卡影像</div>
+    </div>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">战略</span><span class="f-tag">产品线调整</span></div>
-        <h3>T系列回国的战略逻辑：从Civi到T的定位跃迁</h3>
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/spider20260528/134/w600h334/20260528/d58e-8f300b7585350de2013afc8619fedfd5.png" onclick="openLightbox(this.src)" alt="小米17T Pro 正面" loading="lazy">
-            <figcaption>小米17T Pro 正面 · 6.83英寸 144Hz 12-bit OLED</figcaption>
-            <span class="m-badge">Pro版</span>
-          </figure>
-          <div>
-            <p>小米Civi系列的定位一直是「轻薄自拍旗舰」——主打女性用户、轻薄手感、优秀自拍。但这个定位在市场端始终不温不火：<strong>轻薄意味着电池和散热妥协，自拍定位过于垂直导致男性用户和性能用户直接排除</strong>。</p>
-            <p>T系列的回国，本质上是小米对中高端产品线的<strong>定位重构</strong>：不再追求「轻薄自拍」的差异化，而是做「性能+影像」的双重旗舰——对标OPPO Reno、vivo S、荣耀数字系列。这个定位的市场空间更大，竞争也更激烈。</p>
-          </div>
-        </div>
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">T系列回国的战略意义大于产品意义。小米需要一个能在2500-4000元价位与OPPO Reno、vivo S、荣耀数字系列正面竞争的产品线，Civi显然扛不起这个任务。T系列的「性能+影像」全能定位更契合这个价位段的主流需求。</div></div>
-      </div>
+    <div class="bento-card">
+      <div class="bento-label">Pro版预测</div>
+      <div class="bento-num">3999<span class="unit">元</span></div>
+      <div class="bento-val">17T Pro · 天玑9500+7000mAh+100W</div>
+    </div>
 
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">PERFORMANCE</span></div>
-        <h2 class="ch-title">天玑9500/8500U双平台：性能有区分，体验不缩水</h2>
-        <p class="ch-intro">17T Pro搭载天玑9500（旗舰平台），17T标准版搭载天玑8500-Ultra（次旗舰平台）。这种双平台策略在小米产品中并不常见——通常标准版和Pro版会用同一品牌的不同档位芯片，而T系列选择了联发科的双旗舰平台路线。</p>
-      </div>
+    <div class="bento-card">
+      <div class="bento-label">长焦</div>
+      <div class="bento-num">5<span class="unit">x</span></div>
+      <div class="bento-val">徕卡5倍潜望 · 全系标配</div>
+    </div>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">芯片</span><span class="f-tag">双平台</span></div>
-        <h3>天玑9500 vs 天玑8500U：性能差距有多大？</h3>
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/spider20260528/138/w600h338/20260528/5577-ec4f0f35a2512d253077d811cfb66e28.png" onclick="openLightbox(this.src)" alt="小米17T Pro 背面" loading="lazy">
-            <figcaption>小米17T Pro 背面 · 徕卡影像模组</figcaption>
-          </figure>
-          <div>
-            <p><strong>天玑9500</strong>是联发科2026年旗舰平台，采用台积电3nm工艺，CPU和GPU性能对标骁龙8 Gen5。Benchmark数据显示，天玑9500的CPU多核性能略优于骁龙8 Gen5，但GPU性能稍弱。</p>
-            <p><strong>天玑8500-Ultra</strong>是天玑8500的高频版本（"Ultra"后缀），性能介于骁龙8s Gen3和骁龙8 Gen5之间。<strong>对于日常使用和主流游戏（王者、吃鸡）来说，天玑8500U完全够用；但如果你玩《原神》《崩坏：星穹铁道》等重载游戏，天玑9500的GPU优势会更明显</strong>。</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">续航</span></div>
-        <h3>7000mAh硅碳电池 + 100W/67W快充</h3>
-        <p>Pro版搭载<strong>7000mAh硅碳电池</strong>+100W有线快充，标准版为<strong>6500mAh硅碳电池</strong>+67W有线快充。硅碳电池是2026年旗舰机的主流配置——相比传统锂离子电池，能量密度更高、重量更轻、循环寿命更长。</p>
-        <p><strong>7000mAh的续航表现</strong>可以轻松支撑1.5天的中度使用。100W快充约35分钟充满，67W约50分钟充满。需要注意的是，<strong>仅Pro版支持50W无线充电</strong>，标准版不支持无线充电。</p>
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">天玑8500U+67W充电的配置在3000元价位段属于「够用但不惊艳」。如果你对充电速度敏感，建议加钱上Pro版——100W+无线充电的便利性在日常使用中感知很强。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">IMAGING</span></div>
-        <h2 class="ch-title">徕卡5倍潜望长焦全系标配：中端价位的影像越级</h2>
-        <p class="ch-intro">17T系列最大的影像亮点是<strong>徕卡5倍潜望长焦全系标配</strong>。在过去，潜望长焦是3500元+价位段的专属配置，T系列将其下放到3000元档，这是2026年影像赛道最重要的「技术下放」之一。</p>
-      </div>
-
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">长焦</span><span class="f-tag">徕卡</span></div>
-        <h3>徕卡5倍潜望长焦：中端价位的影像越级</h3>
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/f2b4-a0554f39b4cc52e603f3768d9472000d.png" onclick="openLightbox(this.src)" alt="小米17T Pro 徕卡模组" loading="lazy">
-            <figcaption>徕卡Summilux 1G+6P镜头 + OIS光学防抖</figcaption>
-            <span class="m-badge">全系标配</span>
-          </figure>
-          <div>
-            <p><strong>5倍光学变焦</strong>意味着等效焦距约115mm（以主摄23mm等效焦距计算），这是人像摄影的黄金焦段——透视压缩感自然，背景虚化效果优秀，而且不会因为焦距过长导致手抖问题。</p>
-            <p>配合<strong>徕卡Summilux 1G+6P镜头</strong>和<strong>OIS光学防抖</strong>，成片率和画质都有保障。<strong>长焦微距</strong>功能的加入，让这颗潜望长焦在拍摄小动物、花朵、细节特写时也能发挥作用——这是2026年潜望长焦的标配玩法。</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">主摄</span><span class="f-tag">视频</span></div>
-        <h3>50MP Light Fusion主摄 + 4K 60fps视频</h3>
-        <p>Pro版主摄为<strong>50MP Light Fusion 950（1/1.31英寸大底）</strong>，标准版为<strong>50MP Light Fusion 800（1/1.55英寸）</strong>。Light Fusion是小米定制的主摄传感器系列，特点是高动态范围和低噪声。</p>
-        <p>视频方面，全系支持<strong>4K 60fps录制 + HDR10+ + Log模式</strong>。Log模式对于视频创作者来说非常重要——它保留了更多的后期调色空间，让手机拍的视频也能达到接近专业相机的画质表现。</p>
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">徕卡5倍潜望长焦全系标配，是T系列最大的诚意体现。在小米的产品线中，通常只有数字系列Ultra版才会给潜望长焦，T系列能做到全系标配，说明小米对这个故事的定位确实是对标OPPO Reno、vivo S的「全能影像旗舰」。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">DESIGN &amp; PRICING</span></div>
-        <h2 class="ch-title">设计、规格与价格预测</h2>
-        <p class="ch-intro">17T系列采用直角金属中框+AG玻璃/素皮后盖的设计语言，Pro版独有12-bit OLED屏幕（3500nits峰值亮度）。国行正式价格尚未公布，以下是基于海外定价的合理预测。</p>
-      </div>
-
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">设计</span><span class="f-tag">屏幕</span></div>
-        <h3>直角金属中框 + 12-bit OLED（Pro版）</h3>
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/4e61-5266b6468116db321e1506181e419e18.png" onclick="openLightbox(this.src)" alt="小米17T 正面" loading="lazy">
-            <figcaption>小米17T 正面 · 6.59英寸 120Hz OLED直屏</figcaption>
-          </figure>
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/spider20260528/136/w600h336/20260528/269d-e9557b32ddb863c62b392600e6fca7a9.png" onclick="openLightbox(this.src)" alt="小米17T 背面" loading="lazy">
-            <figcaption>小米17T 背面 · AG玻璃 / 素皮可选</figcaption>
-          </figure>
-        </div>
-        <p><strong>Pro版独占6.83英寸12-bit OLED屏幕</strong>，2800×1280分辨率，144Hz刷新率，3500nits峰值亮度。12-bit色深意味着屏幕可以显示685亿种颜色（相比10-bit的10.7亿色翻倍），色彩过渡更细腻，gradient banding现象进一步减少。</p>
-        <p>标准版为6.59英寸1.5K OLED直屏，120Hz刷新率。<strong>直角金属中框</strong>的设计语言与小米14/15系列一脉相承，质感比Civi系列的弧形中框更旗舰。</p>
-      </div>
-
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">价格预测</span></div>
-        <h3>国补后价格预测与选购建议</h3>
-        <table class="spec-table">
-          <tr><th>版本</th><th>海外定价</th><th>国补后预测</th><th>备注</th></tr>
-          <tr><td>17T 标准版</td><td>749€</td><td><strong>¥2999</strong></td><td>天玑8500U + 6500mAh + 67W</td></tr>
-          <tr><td>17T Pro</td><td>899€</td><td><strong>¥3999</strong></td><td>天玑9500 + 7000mAh + 100W</td></tr>
-        </table>
-        <p><strong>价格预测逻辑</strong>：海外定价749€/899€分别对应国行预估¥3299/¥4299，国补后下探至¥2999/¥3999。这个定价直接与OPPO Reno16 Pro（¥3999）、vivo S60标准版（¥3099）、荣耀600 Pro（¥3399）竞争。</p>
-        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>标准版（预测¥2999）性价比更高</strong>：天玑8500U+徕卡5倍潜望长焦+IP68防水的组合，在3000元档位几乎没有对手。Pro版（预测¥3999）多出的1000元主要换来天玑9500、7000mAh电池、100W快充、12-bit屏幕——这些升级是否值得1000元溢价，取决于你的使用场景。<strong>推荐等618再买</strong>：预测标准版可能降至¥2699，Pro版降至¥3499，届时性价比会进一步凸显。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
-        <h2 class="ch-title">核心要点</h2>
-      </div>
-
-      <div class="r-take">
-        <div class="r-take-n">01</div>
-        <div class="r-take-b">
-          <h3>T系列回国是产品线战略级调整</h3>
-          <p>从Civi的「轻薄自拍」到T系列的「性能+影像全能」，小米的战略调整反映了2500-4000元价位段的主流需求变化。T系列的竞争对手不再是女性轻薄机，而是OPPO Reno、vivo S、荣耀数字系列。</p>
-        </div>
-      </div>
-      <div class="r-take">
-        <div class="r-take-n">02</div>
-        <div class="r-take-b">
-          <h3>徕卡5倍潜望长焦全系标配是最大诚意</h3>
-          <p>将潜望长焦下放到3000元档，是2026年影像赛道最重要的「技术下放」。对于喜欢拍人像、拍远景的用户来说，这颗镜头的核心价值远超跑分和刷新率。</p>
-        </div>
-      </div>
-      <div class="r-take">
-        <div class="r-take-n">03</div>
-        <div class="r-take-b">
-          <h3>天玑8500U够用，但Pro版的天玑9500更future proof</h3>
-          <p>如果你打算用3年以上，天玑9500的额外性能冗余会更有价值。但如果你2年左右就换机，标准版的天玑8500U完全够用，省下的1000元可以用于其他用途。</p>
-        </div>
-      </div>
-      <div class="r-take">
-        <div class="r-take-n">04</div>
-        <div class="r-take-b">
-          <h3>等618，标准版可能跌破2700</h3>
-          <p>T系列回国首秀+618大促，小米的促销力度通常会比较大。预测17T标准版618可降至¥2699，届时将成为3000元内最具竞争力的全能影像旗舰。</p>
-        </div>
-      </div>
-    
+    <div class="bento-card">
+      <div class="bento-label">防水</div>
+      <div class="bento-num">IP68<span class="unit">/69</span></div>
+      <div class="bento-val">全系标配 · 中端价位越级配置</div>
+    </div>
   </div>
+
+  <!-- ==================== CHAPTER 01: T系列回国 ==================== -->
+  <div class="diag-section">
+    <div class="chapter">
+      <div class="chapter-header">
+        <span class="chapter-num">01</span>
+        <span class="chapter-kicker">COMEBACK</span>
+      </div>
+      <h2 class="chapter-title">T系列回国：小米产品线的战略级调整</h2>
+      <p class="chapter-intro">小米17T系列是T系列时隔多年首次回归国内市场，标志着小米在中高端产品线的重新布局。T系列将替代此前的Civi系列，定位「全能影像旗舰」——不再是「轻薄自拍」的Civi路线，而是「性能+影像」的双重旗舰体验。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-idx">01</span>
+      <span class="feat-tag">战略</span>
+      <span class="feat-tag">产品线调整</span>
+    </div>
+    <h3 class="feat-title">T系列回国的战略逻辑：从Civi到T的定位跃迁</h3>
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://n.sinaimg.cn/spider20260528/134/w600h334/20260528/d58e-8f300b7585350de2013afc8619fedfd5.png" onclick="openLightbox(this.src)" alt="小米17T Pro 正面" loading="lazy">
+        <figcaption>小米17T Pro 正面 · 6.83英寸 144Hz 12-bit OLED</figcaption>
+        <span class="fig-badge">Pro版</span>
+      </figure>
+      <div>
+        <p>小米Civi系列的定位一直是「轻薄自拍旗舰」——主打女性用户、轻薄手感、优秀自拍。但这个定位在市场端始终不温不火：<strong>轻薄意味着电池和散热妥协，自拍定位过于垂直导致男性用户和性能用户直接排除</strong>。</p>
+        <p>T系列的回国，本质上是小米对中高端产品线的<strong>定位重构</strong>：不再追求「轻薄自拍」的差异化，而是做「性能+影像」的双重旗舰——对标OPPO Reno、vivo S、荣耀数字系列。这个定位的市场空间更大，竞争也更激烈。</p>
+      </div>
+    </div>
+    <div class="note note-analyst">
+      <span class="note-label">点评</span>
+      <div class="note-text">T系列回国的战略意义大于产品意义。小米需要一个能在2500-4000元价位与OPPO Reno、vivo S、荣耀数字系列正面竞争的产品线，Civi显然扛不起这个任务。T系列的「性能+影像」全能定位更契合这个价位段的主流需求。</div>
+    </div>
+  </div>
+
+  <!-- ==================== CHAPTER 02: PERFORMANCE ==================== -->
+  <div class="diag-section">
+    <div class="chapter">
+      <div class="chapter-header">
+        <span class="chapter-num">02</span>
+        <span class="chapter-kicker">PERFORMANCE</span>
+      </div>
+      <h2 class="chapter-title">天玑9500/8500U双平台：<br>性能有区分，体验不缩水</h2>
+      <p class="chapter-intro">17T Pro搭载天玑9500（旗舰平台），17T标准版搭载天玑8500-Ultra（次旗舰平台）。这种双平台策略在小米产品中并不常见——通常标准版和Pro版会用同一品牌的不同档位芯片，而T系列选择了联发科的双旗舰平台路线。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-idx">02</span>
+      <span class="feat-tag">芯片</span>
+      <span class="feat-tag">双平台</span>
+    </div>
+    <h3 class="feat-title">天玑9500 vs 天玑8500U：性能差距有多大？</h3>
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://n.sinaimg.cn/spider20260528/138/w600h338/20260528/5577-ec4f0f35a2512d253077d811cfb66e28.png" onclick="openLightbox(this.src)" alt="小米17T Pro 背面" loading="lazy">
+        <figcaption>小米17T Pro 背面 · 徕卡影像模组</figcaption>
+      </figure>
+      <div>
+        <p><strong>天玑9500</strong>是联发科2026年旗舰平台，采用台积电3nm工艺，CPU和GPU性能对标骁龙8 Gen5。Benchmark数据显示，天玑9500的CPU多核性能略优于骁龙8 Gen5，但GPU性能稍弱。</p>
+        <p><strong>天玑8500-Ultra</strong>是天玑8500的高频版本（"Ultra"后缀），性能介于骁龙8s Gen3和骁龙8 Gen5之间。<strong>对于日常使用和主流游戏（王者、吃鸡）来说，天玑8500U完全够用；但如果你玩《原神》《崩坏：星穹铁道》等重载游戏，天玑9500的GPU优势会更明显</strong>。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-idx">03</span>
+      <span class="feat-tag">续航</span>
+    </div>
+    <h3 class="feat-title">7000mAh硅碳电池 + 100W/67W快充</h3>
+    <div class="tech-border">
+      <p>Pro版搭载<strong>7000mAh硅碳电池</strong>+100W有线快充，标准版为<strong>6500mAh硅碳电池</strong>+67W有线快充。硅碳电池是2026年旗舰机的主流配置——相比传统锂离子电池，能量密度更高、重量更轻、循环寿命更长。</p>
+      <p><strong>7000mAh的续航表现</strong>可以轻松支撑1.5天的中度使用。100W快充约35分钟充满，67W约50分钟充满。需要注意的是，<strong>仅Pro版支持50W无线充电</strong>，标准版不支持无线充电。</p>
+    </div>
+    <div class="note note-analyst">
+      <span class="note-label">点评</span>
+      <div class="note-text">天玑8500U+67W充电的配置在3000元价位段属于「够用但不惊艳」。如果你对充电速度敏感，建议加钱上Pro版——100W+无线充电的便利性在日常使用中感知很强。</div>
+    </div>
+  </div>
+
+  <!-- ==================== CHAPTER 03: IMAGING ==================== -->
+  <div class="diag-section">
+    <div class="chapter">
+      <div class="chapter-header">
+        <span class="chapter-num">03</span>
+        <span class="chapter-kicker">IMAGING</span>
+      </div>
+      <h2 class="chapter-title">徕卡5倍潜望长焦全系标配：<br>中端价位的影像越级</h2>
+      <p class="chapter-intro">17T系列最大的影像亮点是<strong>徕卡5倍潜望长焦全系标配</strong>。在过去，潜望长焦是3500元+价位段的专属配置，T系列将其下放到3000元档，这是2026年影像赛道最重要的「技术下放」之一。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-idx">04</span>
+      <span class="feat-tag">长焦</span>
+      <span class="feat-tag">徕卡</span>
+    </div>
+    <h3 class="feat-title">徕卡5倍潜望长焦：中端价位的影像越级</h3>
+    <div class="cols">
+      <figure class="fig" style="--fig-accent: var(--leica);">
+        <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/f2b4-a0554f39b4cc52e603f3768d9472000d.png" onclick="openLightbox(this.src)" alt="小米17T Pro 徕卡模组" loading="lazy">
+        <figcaption style="border-top-color: var(--leica-dim);">徕卡Summilux 1G+6P镜头 + OIS光学防抖</figcaption>
+        <span class="fig-badge" style="background: var(--leica);">全系标配</span>
+      </figure>
+      <div>
+        <p><strong>5倍光学变焦</strong>意味着等效焦距约115mm（以主摄23mm等效焦距计算），这是人像摄影的黄金焦段——透视压缩感自然，背景虚化效果优秀，而且不会因为焦距过长导致手抖问题。</p>
+        <p>配合<strong>徕卡Summilux 1G+6P镜头</strong>和<strong>OIS光学防抖</strong>，成片率和画质都有保障。<strong>长焦微距</strong>功能的加入，让这颗潜望长焦在拍摄小动物、花朵、细节特写时也能发挥作用——这是2026年潜望长焦的标配玩法。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-idx">05</span>
+      <span class="feat-tag">主摄</span>
+      <span class="feat-tag">视频</span>
+    </div>
+    <h3 class="feat-title">50MP Light Fusion主摄 + 4K 60fps视频</h3>
+    <p>Pro版主摄为<strong>50MP Light Fusion 950（1/1.31英寸大底）</strong>，标准版为<strong>50MP Light Fusion 800（1/1.55英寸）</strong>。Light Fusion是小米定制的主摄传感器系列，特点是高动态范围和低噪声。</p>
+    <p>视频方面，全系支持<strong>4K 60fps录制 + HDR10+ + Log模式</strong>。Log模式对于视频创作者来说非常重要——它保留了更多的后期调色空间，让手机拍的视频也能达到接近专业相机的画质表现。</p>
+    <div class="note note-analyst">
+      <span class="note-label">点评</span>
+      <div class="note-text">徕卡5倍潜望长焦全系标配，是T系列最大的诚意体现。在小米的产品线中，通常只有数字系列Ultra版才会给潜望长焦，T系列能做到全系标配，说明小米对这个故事的定位确实是对标OPPO Reno、vivo S的「全能影像旗舰」。</div>
+    </div>
+  </div>
+
+  <!-- ==================== CHAPTER 04: DESIGN & PRICING ==================== -->
+  <div class="diag-section">
+    <div class="chapter">
+      <div class="chapter-header">
+        <span class="chapter-num">04</span>
+        <span class="chapter-kicker">DESIGN &amp; PRICING</span>
+      </div>
+      <h2 class="chapter-title">设计、规格与价格预测</h2>
+      <p class="chapter-intro">17T系列采用直角金属中框+AG玻璃/素皮后盖的设计语言，Pro版独有12-bit OLED屏幕（3500nits峰值亮度）。国行正式价格尚未公布，以下是基于海外定价的合理预测。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-idx">06</span>
+      <span class="feat-tag">设计</span>
+      <span class="feat-tag">屏幕</span>
+    </div>
+    <h3 class="feat-title">直角金属中框 + 12-bit OLED（Pro版）</h3>
+    <div class="cols cols-2">
+      <figure class="fig">
+        <img src="https://n.sinaimg.cn/spider20260528/137/w600h337/20260528/4e61-5266b6468116db321e1506181e419e18.png" onclick="openLightbox(this.src)" alt="小米17T 正面" loading="lazy">
+        <figcaption>小米17T 正面 · 6.59英寸 120Hz OLED直屏</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="https://n.sinaimg.cn/spider20260528/136/w600h336/20260528/269d-e9557b32ddb863c62b392600e6fca7a9.png" onclick="openLightbox(this.src)" alt="小米17T 背面" loading="lazy">
+        <figcaption>小米17T 背面 · AG玻璃 / 素皮可选</figcaption>
+      </figure>
+    </div>
+    <p><strong>Pro版独占6.83英寸12-bit OLED屏幕</strong>，2800×1280分辨率，144Hz刷新率，3500nits峰值亮度。12-bit色深意味着屏幕可以显示685亿种颜色（相比10-bit的10.7亿色翻倍），色彩过渡更细腻，gradient banding现象进一步减少。</p>
+    <p>标准版为6.59英寸1.5K OLED直屏，120Hz刷新率。<strong>直角金属中框</strong>的设计语言与小米14/15系列一脉相承，质感比Civi系列的弧形中框更旗舰。</p>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-idx">07</span>
+      <span class="feat-tag">价格预测</span>
+    </div>
+    <h3 class="feat-title">国补后价格预测与选购建议</h3>
+    <table class="spec-table">
+      <tr><th>版本</th><th>海外定价</th><th>国补后预测</th><th>备注</th></tr>
+      <tr><td>17T 标准版</td><td>749€</td><td><strong>¥2999</strong></td><td>天玑8500U + 6500mAh + 67W</td></tr>
+      <tr><td>17T Pro</td><td>899€</td><td><strong>¥3999</strong></td><td>天玑9500 + 7000mAh + 100W</td></tr>
+    </table>
+    <p><strong>价格预测逻辑</strong>：海外定价749€/899€分别对应国行预估¥3299/¥4299，国补后下探至¥2999/¥3999。这个定价直接与OPPO Reno16 Pro（¥3999）、vivo S60标准版（¥3099）、荣耀600 Pro（¥3399）竞争。</p>
+    <div class="note note-buy">
+      <span class="note-label">购买启示</span>
+      <div class="note-text"><strong>标准版（预测¥2999）性价比更高</strong>：天玑8500U+徕卡5倍潜望长焦+IP68防水的组合，在3000元档位几乎没有对手。Pro版（预测¥3999）多出的1000元主要换来天玑9500、7000mAh电池、100W快充、12-bit屏幕——这些升级是否值得1000元溢价，取决于你的使用场景。<strong>推荐等618再买</strong>：预测标准版可能降至¥2699，Pro版降至¥3499，届时性价比会进一步凸显。</div>
+    </div>
+  </div>
+
+  <!-- ==================== KEY TAKEAWAYS ==================== -->
+  <div class="diag-section">
+    <div class="chapter">
+      <div class="chapter-header">
+        <span class="chapter-num">05</span>
+        <span class="chapter-kicker">KEY TAKEAWAYS</span>
+      </div>
+      <h2 class="chapter-title">核心要点</h2>
+    </div>
+
+    <div class="takeaway">
+      <div class="takeaway-num">01</div>
+      <div class="takeaway-content">
+        <h3>T系列回国是产品线战略级调整</h3>
+        <p>从Civi的「轻薄自拍」到T系列的「性能+影像全能」，小米的战略调整反映了2500-4000元价位段的主流需求变化。T系列的竞争对手不再是女性轻薄机，而是OPPO Reno、vivo S、荣耀数字系列。</p>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="takeaway-num">02</div>
+      <div class="takeaway-content">
+        <h3>徕卡5倍潜望长焦全系标配是最大诚意</h3>
+        <p>将潜望长焦下放到3000元档，是2026年影像赛道最重要的「技术下放」。对于喜欢拍人像、拍远景的用户来说，这颗镜头的核心价值远超跑分和刷新率。</p>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="takeaway-num">03</div>
+      <div class="takeaway-content">
+        <h3>天玑8500U够用，但Pro版的天玑9500更future proof</h3>
+        <p>如果你打算用3年以上，天玑9500的额外性能冗余会更有价值。但如果你2年左右就换机，标准版的天玑8500U完全够用，省下的1000元可以用于其他用途。</p>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <div class="takeaway-num">04</div>
+      <div class="takeaway-content">
+        <h3>等618，标准版可能跌破2700</h3>
+        <p>T系列回国首秀+618大促，小米的促销力度通常会比较大。预测17T标准版618可降至¥2699，届时将成为3000元内最具竞争力的全能影像旗舰。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>手机发布会追踪器 · 小米17T系列深度报告<br>数据截至 2026年6月8日 · 价格为国补后预测</p>
+  </footer>
+
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
   <img id="lightboxImg" src="" alt="查看大图">
 </div>
+
 <script>
-// Lightbox for images
-document.querySelectorAll('.report-body img').forEach(function(img) {
-  img.addEventListener('click', function() {
-    document.getElementById('lightboxImg').src = this.src;
-    document.getElementById('lightbox').classList.add('show');
-  });
-});
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
 });

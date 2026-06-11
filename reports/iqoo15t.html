@@ -3,540 +3,523 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iQOO 15T 发布会报告 · 手机发布会追踪器</title>
+<title>iQOO 15T · Monster级性能旗舰</title>
 <style>
-  :root {
-    --bg: #fafaf9;
-    --card: #ffffff;
-    --border: #e5e5e0;
-    --text: #1a1a1a;
-    --muted: #737373;
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text","Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#0a0a0f;
+    color:#e0e0ec;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  :root {
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-  /* === 报告弹窗 === */
-  .overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
-    animation: fadeIn 0.2s;
-  }
-  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  .report-panel {
-    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
-    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
-  }
-  .report-header {
-    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .report-header h2 { font-size: 20px; font-weight: 700; }
-  .report-header .close-btn {
-    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
-    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s; color: var(--muted);
-  }
-  .report-header .close-btn:hover { background: #e5e5e5; }
-  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
-  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
-  .report-body h3:first-child { margin-top: 0; }
-  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
-  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
-  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
-  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
-  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
-  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
-  .report-body .price-card {
-    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
-    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
-  }
-  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
-  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
-  .report-body .highlight-box {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
-    border: 1px solid #fcd34d;
-  }
-  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
-  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
-  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
-  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
-  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
-  .report-body .product-gallery {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
-  }
-  .report-body .product-gallery img {
-    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
-    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
-    border: 1px solid var(--border);
-  }
-  .report-body .product-gallery img:hover {
-    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  }
-  .report-body .hero-img {
-    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
-    max-height: 320px; border: 1px solid var(--border);
-  }
-  .report-body .img-caption {
-    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+  :root{
+    --cyan:#00f0ff;
+    --blue:#3b5bff;
+    --purple:#7c3aed;
+    --grad:linear-gradient(135deg,#3b5bff,#7c3aed);
+    --grad-wide:linear-gradient(116deg,#3b5bff,#7c3aed 52%,#ff5a36 118%);
+    --dark:#0a0a0f;
+    --tile:rgba(255,255,255,.04);
+    --tile-border:rgba(255,255,255,.07);
+    --muted:#6b6f85;
+    --text:#c8cad8;
+    --text-bright:#eef0f8;
+    --mono:'SF Mono',ui-monospace,Consolas,'Courier New',monospace;
+    --serif:'Source Han Serif SC','Noto Serif SC','Songti SC',Georgia,'PingFang SC',serif;
   }
 
-  /* === 报告内容：杂志式升级 === */
-  .report-body {
-    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
-    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
-    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
-    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
-    --r-dark: #0b0b0f; --r-tile: #17181d;
-    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
-    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
-    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
-    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
-    -webkit-font-smoothing: antialiased;
+  /* === HERO === */
+  .hero{
+    position:relative;
+    min-height:85vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px 32px 60px;
+    overflow:hidden;
   }
-  .report-body > *:first-child { margin-top: 0; }
-
-  /* Hero 头部 */
-  .report-body .r-hero {
-    background: var(--r-dark); color: #fff; border-radius: 16px;
-    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 80% -10%,rgba(59,91,255,.25),transparent 60%),
+      radial-gradient(ellipse 700px 400px at 10% 20%,rgba(124,58,237,.2),transparent 55%),
+      radial-gradient(ellipse 500px 300px at 50% 110%,rgba(0,240,255,.08),transparent 50%);
   }
-  .report-body .r-hero::before {
-    content:''; position:absolute; inset:0; background:
-      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
-      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
-      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(59,91,255,.03) 60px,rgba(59,91,255,.03) 61px);
+    pointer-events:none;
   }
-  .report-body .r-hero > * { position: relative; }
-  .report-body .r-hero .r-eyebrow {
-    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
-    text-transform:uppercase; margin-bottom:14px;
+  .hero-inner{position:relative;max-width:960px;margin:0 auto;width:100%;z-index:2}
+  .hero-eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:var(--cyan);
+    font-weight:700;text-transform:uppercase;margin-bottom:24px;
+    text-shadow:0 0 20px rgba(0,240,255,.4);
   }
-  .report-body .r-hero h3 {
-    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
-    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
+  .hero h1{
+    font-family:var(--serif);font-size:clamp(36px,6vw,68px);font-weight:900;line-height:1.08;
+    letter-spacing:-.02em;color:#fff;margin-bottom:20px;
   }
-  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-hero .r-sub {
-    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
+  .hero h1 .g{
+    background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
-  .report-body .r-hero .r-chips span {
-    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  .hero-sub{
+    font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:#a0a4be;line-height:1.7;max-width:640px;margin-bottom:28px;
   }
-
-  /* Bento 摘要网格 */
-  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
-  .report-body .r-bt {
-    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
-    display:flex; flex-direction:column; justify-content:center;
-  }
-  .report-body .r-bt-hero {
-    grid-column: span 2; background:
-      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
-      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
-  }
-  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
-  .report-body .r-bt .bt-num {
-    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
-    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
-  }
-  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
-  .report-body .r-bt-hero .bt-headline {
-    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
-  }
-  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
-
-  /* 章节带 */
-  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
-  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .report-body .r-chapter .ch-num {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
-    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
-  }
-  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
-  .report-body .r-chapter .ch-title {
-    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
-  }
-  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
-
-  /* 功能条目 */
-  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
-  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
-  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
-  .report-body .r-f-meta .f-idx {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
-    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
-  }
-  .report-body .r-f-meta .f-tag {
-    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
-    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
-  }
-  .report-body .r-feat h3 {
-    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
-    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
-  }
-  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
-  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
-  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
-  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
-  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
-
-  /* 图文并排 */
-  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
-
-  /* 图片卡片 */
-  .report-body .r-fig {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; position:relative;
-  }
-  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
-  .report-body .r-fig img:hover { transform:scale(1.02); }
-  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
-  .report-body .r-fig .m-badge {
-    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
-    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-chips span{
+    font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.06em;
+    background:rgba(0,240,255,.06);border:1px solid rgba(0,240,255,.18);
+    padding:6px 14px;border-radius:4px;
+    text-shadow:0 0 8px rgba(0,240,255,.25);
   }
 
-  /* 画廊网格 */
-  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
-  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
-  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
-  .report-body .r-gtile {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; display:flex; flex-direction:column;
+  /* 速度线装饰 */
+  .speed-lines{
+    position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+    width:320px;height:400px;pointer-events:none;opacity:.12;z-index:1;
   }
-  .report-body .r-gtile .g-box {
-    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
-  }
-  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
-  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
-  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
-  .report-body .r-gtile .m-badge { top:10px; left:10px; }
-
-  /* 全幅图 */
-  .report-body .r-wide {
-    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
-  }
-  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
-  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
-
-  /* 点评 / 分析 Note */
-  .report-body .r-note {
-    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
-  }
-  .report-body .r-note .note-l {
-    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
-    text-transform:uppercase; margin-bottom:5px;
-  }
-  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
-  .report-body .r-note-c {
-    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
-  }
-  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
-  .report-body .r-note-c .note-t { color:#2d3357; }
-  .report-body .r-note-a {
-    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
-  }
-  .report-body .r-note-a .note-l { color:var(--r-amber); }
-  .report-body .r-note-a .note-t { color:#5d3c10; }
-  .report-body .r-note-t strong { font-weight:800; }
-
-  /* Key Takeaways */
-  .report-body .r-take {
-    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
-    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
-    box-shadow:0 8px 28px rgba(20,30,80,.06);
-  }
-  .report-body .r-take:first-child { margin-top:24px; }
-  .report-body .r-take-n {
-    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
-    letter-spacing:-.02em; flex:none;
-    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
-  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
-
-  /* 规格表升级 */
-  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
-  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
-  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
-
-  /* 价格卡升级 */
-  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
-  .report-body .price-card strong { font-size:17px; }
-
-  /* highlight-box 升级 */
-  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
-
-  /* 覆盖旧样式 */
-  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
-  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
-  .report-body ul { padding-left:20px; margin-bottom:12px; }
-  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
-  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
-  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
-  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
-  .report-body .pro-con > div { padding:16px; border-radius:12px; }
-  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
-  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
-  /* Lightbox for enlarged view */
-  /* Lightbox for enlarged view */
-  .lightbox {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
-    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
-    cursor: zoom-out;
-  }
-  .lightbox.show { display: flex; }
-  .lightbox img {
-    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  .speed-lines div{
+    position:absolute;right:0;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,transparent,var(--cyan));
   }
 
-  @media (max-width: 600px) {
-    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
-    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
-    header h1 { font-size: 22px; }
-    .report-header { padding: 18px 20px 14px; }
-    .report-header h2 { font-size: 17px; }
-    .report-body { padding: 18px 20px 28px; }
-    .report-body .pro-con { grid-template-columns: 1fr; }
-    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
-    .report-body .r-bento { grid-template-columns:1fr; }
-    .report-body .r-bt-hero { grid-column:auto; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
-    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
-    .report-body .r-hero { padding:28px 20px 24px; }
-    .report-body .r-hero h3 { font-size:22px; }
-    .report-body .r-feat h3 { font-size:19px; }
-    .report-body .r-chapter .ch-title { font-size:20px; }
+  /* === CONTENT WRAPPER === */
+  .content{max-width:960px;margin:0 auto;padding:0 32px 100px;position:relative;z-index:2}
+
+  /* === BENTO GRID === */
+  .bento{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    grid-template-rows:auto auto;
+    gap:12px;
+    margin-bottom:64px;
+  }
+  .bt{
+    background:var(--tile);backdrop-filter:blur(20px);
+    border:1px solid var(--tile-border);border-radius:16px;
+    padding:24px 28px;display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .bt::before{
+    content:'';position:absolute;inset:0;border-radius:16px;
+    background:linear-gradient(135deg,rgba(59,91,255,.08),transparent 60%);
+    pointer-events:none;
+  }
+  .bt-price{
+    grid-row:span 2;
+    background:
+      radial-gradient(ellipse 400px 300px at 90% -20%,rgba(124,58,237,.35),transparent 65%),
+      radial-gradient(ellipse 350px 250px at -10% 110%,rgba(59,91,255,.3),transparent 60%),
+      rgba(255,255,255,.03);
+    border-color:rgba(124,58,237,.2);
+  }
+  .bt .bt-label{
+    font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.2em;color:var(--muted);text-transform:uppercase;
+  }
+  .bt .bt-num{
+    font-family:var(--serif);font-size:clamp(32px,5vw,48px);font-weight:900;line-height:1.05;
+    background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;
+    margin:6px 0;
+  }
+  .bt .bt-num span{font-size:.45em;opacity:.7}
+  .bt .bt-desc{font-size:13px;color:var(--muted);line-height:1.5}
+  .bt-price .bt-num{font-size:clamp(48px,7vw,72px)}
+  .bt-price .bt-desc{font-size:14px;color:#8b8fa8}
+
+  /* === CHAPTER === */
+  .chapter{margin-bottom:72px;position:relative}
+  .chapter-head{
+    display:flex;align-items:center;gap:16px;margin-bottom:28px;
+    padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .ch-num{
+    font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cyan);
+    border:1px solid rgba(0,240,255,.3);background:rgba(0,240,255,.06);
+    padding:4px 12px;border-radius:4px;letter-spacing:.06em;
+    text-shadow:0 0 12px rgba(0,240,255,.35);
+    box-shadow:0 0 16px rgba(0,240,255,.08);
+  }
+  .ch-kick{
+    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;
+    color:var(--purple);text-transform:uppercase;
+  }
+  .ch-title{
+    font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:900;
+    letter-spacing:-.01em;color:#fff;line-height:1.18;
+  }
+  .ch-intro{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:32px;max-width:700px}
+
+  /* === FEATURE === */
+  .feat{margin-bottom:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.05)}
+  .feat:first-child{border-top:none;padding-top:0}
+  .f-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .f-idx{
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);
+    border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);
+    padding:3px 10px;border-radius:4px;letter-spacing:.04em;
+  }
+  .f-tag{
+    font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;
+    color:var(--blue);background:rgba(59,91,255,.1);
+    padding:3px 12px;border-radius:3px;
+  }
+  .feat h3{
+    font-family:var(--serif);font-size:clamp(20px,3vw,26px);font-weight:900;
+    line-height:1.25;letter-spacing:-.008em;color:#fff;margin-bottom:14px;
+  }
+  .feat p{font-size:15.5px;color:var(--text);line-height:1.85;margin-bottom:12px}
+  .feat ul{padding-left:22px;margin:10px 0 14px}
+  .feat li{font-size:15px;color:var(--text);line-height:1.78;margin-bottom:6px}
+  .feat strong{color:#fff;font-weight:700}
+  .feat code{font-family:var(--mono);font-size:13px;background:rgba(59,91,255,.12);padding:2px 7px;border-radius:4px;color:var(--cyan)}
+
+  /* === COLS === */
+  .cols{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:28px;align-items:start;margin:24px 0}
+
+  /* === IMAGE FIGURE === */
+  .fig{
+    border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;
+    background:rgba(255,255,255,.02);position:relative;
+  }
+  .fig img{width:100%;display:block;cursor:pointer;transition:transform .2s,filter .2s}
+  .fig img:hover{transform:scale(1.02);filter:brightness(1.08)}
+  .fig figcaption{
+    font-size:12px;color:var(--muted);padding:10px 14px;
+    border-top:1px solid rgba(255,255,255,.06);line-height:1.5;
+    background:rgba(255,255,255,.02);
+  }
+  .fig .badge{
+    position:absolute;top:12px;left:12px;z-index:3;
+    font-family:var(--mono);font-size:10px;font-weight:700;color:var(--cyan);
+    background:rgba(10,10,15,.8);backdrop-filter:blur(8px);
+    padding:4px 10px;border-radius:4px;border:1px solid rgba(0,240,255,.2);
+    text-shadow:0 0 8px rgba(0,240,255,.3);
   }
 
-  .report-page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 20px 16px 60px;
+  /* === NOTE === */
+  .note{
+    border-radius:10px;padding:16px 20px;margin:20px 0;position:relative;
   }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    margin-bottom: 24px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    transition: all 0.15s;
+  .note-label{
+    display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;
   }
-  .back-link:hover { border-color: #aaa; }
-  .back-link svg { width: 16px; height: 16px; }
+  .note-text{font-size:14.5px;line-height:1.75}
+  .note-c{
+    background:rgba(59,91,255,.08);border:1px solid rgba(59,91,255,.15);
+    border-left:3px solid var(--blue);
+  }
+  .note-c .note-label{color:var(--blue)}
+  .note-c .note-text{color:#9ea4c4}
+  .note-a{
+    background:rgba(255,160,50,.06);border:1px solid rgba(255,160,50,.12);
+    border-left:3px solid #ffa032;
+  }
+  .note-a .note-label{color:#ffa032}
+  .note-a .note-text{color:#c4a880}
+  .note strong{font-weight:800;color:#fff}
 
-  @media (max-width: 600px) {
-    .report-page { padding: 12px 12px 48px; }
-    .back-link { font-size: 12px; }
-    .report-body .r-hero { padding: 24px 18px 20px; }
-    .report-body .r-hero h3 { font-size: 20px; }
-    .report-body .r-bento { grid-template-columns: 1fr; }
-    .report-body .r-bt-hero { grid-column: auto; }
-    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
-    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
-    .report-body .r-feat h3 { font-size: 18px; }
-    .report-body .r-chapter .ch-title { font-size: 19px; }
+  /* === SPEC TABLE === */
+  .spec-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px;border-radius:10px;overflow:hidden}
+  .spec-table th{
+    background:rgba(59,91,255,.15);color:var(--cyan);padding:12px 16px;
+    font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;
+    text-align:left;border-bottom:1px solid rgba(59,91,255,.2);
+  }
+  .spec-table td{
+    padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);
+    color:var(--text);font-size:14px;
+  }
+  .spec-table tr:hover td{background:rgba(255,255,255,.02)}
+  .spec-table strong{color:#fff}
+
+  /* === TAKEAWAYS === */
+  .takeaways{
+    background:
+      radial-gradient(ellipse 500px 300px at 90% 10%,rgba(124,58,237,.15),transparent 60%),
+      rgba(255,255,255,.02);
+    border:1px solid rgba(255,255,255,.06);border-radius:20px;
+    padding:40px 36px;margin-top:48px;
+  }
+  .takeaways h3{
+    font-family:var(--serif);font-size:28px;font-weight:900;color:#fff;
+    margin-bottom:28px;
+    background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .take-card{
+    padding:20px 24px;border-left:3px solid var(--purple);margin-bottom:16px;
+    background:rgba(255,255,255,.02);border-radius:0 10px 10px 0;
+  }
+  .take-card:last-child{margin-bottom:0}
+  .take-card h4{
+    font-family:var(--serif);font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;
+  }
+  .take-card p{font-size:14.5px;color:var(--text);line-height:1.74;margin:0}
+
+  /* === LIGHTBOX === */
+  .lightbox{
+    position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;
+    background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out;
+  }
+  .lightbox.show{display:flex}
+  .lightbox img{
+    max-width:92vw;max-height:88vh;border-radius:8px;object-fit:contain;
+    box-shadow:0 8px 60px rgba(59,91,255,.2);
   }
 
+  /* === GLOW SEPARATOR === */
+  .glow-sep{
+    height:1px;margin:0 -32px 64px;
+    background:linear-gradient(90deg,transparent,rgba(0,240,255,.2),rgba(124,58,237,.2),transparent);
+  }
+
+  /* === RESPONSIVE === */
+  @media(max-width:768px){
+    .hero{min-height:75vh;padding:60px 20px 40px}
+    .hero h1{font-size:clamp(28px,7vw,42px)}
+    .hero-sub{font-size:15px}
+    .content{padding:0 20px 80px}
+    .bento{grid-template-columns:1fr 1fr;gap:10px}
+    .bt-price{grid-column:span 2;grid-row:auto}
+    .cols{grid-template-columns:1fr;gap:18px}
+    .chapter{margin-bottom:52px}
+    .ch-title{font-size:clamp(20px,5vw,28px)}
+    .feat h3{font-size:clamp(18px,4vw,22px)}
+    .takeaways{padding:28px 20px}
+    .take-card{padding:16px 18px}
+    .glow-sep{margin:0 -20px 48px}
+    .speed-lines{display:none}
+  }
+  @media(max-width:480px){
+    .bento{grid-template-columns:1fr}
+    .bt-price{grid-column:auto}
+    .hero-chips span{font-size:10px;padding:5px 10px}
+  }
 </style>
 </head>
 <body>
-<div class="report-page">
-  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
-  <div class="report-body">
 
-      <div class="r-hero">
-        <div class="r-eyebrow">2026年5月20日 · 线上发布 · iQOO</div>
-        <h3>iQOO 15T：<span class="g">游戏视效超强的性能旗舰</span></h3>
-        <div class="r-sub">全球首发天玑9500 Monster版，2K 144Hz珠峰屏 + 8000mAh大电池，3299元起重塑性能旗舰性价比天花板</div>
-        <div class="r-chips"><span>天玑9500M</span><span>2K 144Hz</span><span>8000mAh</span><span>¥3299起</span><span>电竞芯片</span></div>
-      </div>
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="speed-lines">
+    <div style="top:20%;width:180px;opacity:.6"></div>
+    <div style="top:32%;width:240px;opacity:.8"></div>
+    <div style="top:44%;width:140px;opacity:.5"></div>
+    <div style="top:56%;width:280px;opacity:.9"></div>
+    <div style="top:68%;width:200px;opacity:.7"></div>
+    <div style="top:80%;width:160px;opacity:.4"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026.05.20 · 线上发布 · iQOO</div>
+    <h1>iQOO 15T<br><span class="g">游戏视效超强的性能旗舰</span></h1>
+    <div class="hero-sub">全球首发天玑9500 Monster版，2K 144Hz珠峰屏 + 8000mAh大电池，3299元起重塑性能旗舰性价比天花板</div>
+    <div class="hero-chips">
+      <span>天玑9500M</span><span>2K 144Hz</span><span>8000mAh</span><span>¥3299起</span><span>电竞芯片</span>
+    </div>
+  </div>
+</section>
 
-      <div class="r-bento">
-        <div class="r-bt r-bt-hero">
-          <div class="bt-num">3299<span>元起</span></div>
-          <div>国补后入手价 · 同档位性价比之王</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-num">2亿<span>像素</span></div>
-          <div>主摄规格</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-num">8000<span>mAh</span></div>
-          <div>电池容量</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-num">144<span>Hz</span></div>
-          <div>屏幕刷新率</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-num">100<span>W</span></div>
-          <div>有线快充</div>
-        </div>
-      </div>
+<!-- ===== BENTO ===== -->
+<div class="content">
+  <div class="bento">
+    <div class="bt bt-price">
+      <div class="bt-label">Starting Price</div>
+      <div class="bt-num">3299<span>元起</span></div>
+      <div class="bt-desc">国补后入手价 · 同档位性价比之王</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Camera</div>
+      <div class="bt-num">2亿<span>像素</span></div>
+      <div class="bt-desc">主摄规格</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Battery</div>
+      <div class="bt-num">8000<span>mAh</span></div>
+      <div class="bt-desc">电池容量</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Refresh</div>
+      <div class="bt-num">144<span>Hz</span></div>
+      <div class="bt-desc">屏幕刷新率</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Charge</div>
+      <div class="bt-num">100<span>W</span></div>
+      <div class="bt-desc">有线快充</div>
+    </div>
+  </div>
 
-      <div class="r-chapter">
-        <div class="ch-num">01</div>
-        <div class="ch-kick">Performance</div>
-        <h3 class="ch-title">Monster级性能释放</h3>
-        <div class="ch-intro">iQOO 15T 搭载联发科为游戏场景深度定制的天玑9500 Monster版处理器，配合自研 Q3 电竞芯片，在性能释放和游戏体验上做到了同档位的极致。</div>
+  <div class="glow-sep"></div>
 
-        <div class="r-feat">
-          <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">芯片</span></div>
-          <h3>天玑9500 Monster版全球首发</h3>
-          <p>这是联发科专门为 iQOO 定制的专属频率版本，基于台积电3nm工艺制程。相比标准版天玑9500，Monster版的CPU和GPU频率均有提升，尤其在 sustained performance（持续性能输出）方面表现突出——这对长时间高负载游戏场景至关重要。</p>
-        </div>
+  <!-- ===== CH01: Performance ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">01</span>
+      <span class="ch-kick">Performance</span>
+    </div>
+    <h2 class="ch-title">Monster级性能释放</h2>
+    <div class="ch-intro">iQOO 15T 搭载联发科为游戏场景深度定制的天玑9500 Monster版处理器，配合自研 Q3 电竞芯片，在性能释放和游戏体验上做到了同档位的极致。</div>
 
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZWGIKQHTAAEwD0xd1r8AAId7wMXaV4AATAn242.jpg" alt="iQOO 15T 天玑9500M芯片" loading="lazy">
-            <figcaption>天玑9500 Monster版 · 性能核心</figcaption>
-          </figure>
-          <div>
-            <div class="r-feat">
-              <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">电竞</span></div>
-              <h3>自研Q3电竞芯片：插帧·超分·视效增强三合一</h3>
-              <p>iQOO第三代自研电竞芯片Q3承担着游戏体验的「第二引擎」角色。它可以在不增加主SoC负担的前提下，实现游戏帧率插帧至144Hz、分辨率超分至2K、以及画面视效增强（色彩饱和度、对比度动态调整）。这意味着即便原生不支持高帧率或高分辨率的游戏，也能通过Q3芯片获得旗舰级的视觉体验。</p>
-            </div>
-          </div>
-        </div>
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">芯片</span></div>
+      <h3>天玑9500 Monster版全球首发</h3>
+      <p>这是联发科专门为 iQOO 定制的专属频率版本，基于台积电3nm工艺制程。相比标准版天玑9500，Monster版的CPU和GPU频率均有提升，尤其在 sustained performance（持续性能输出）方面表现突出——这对长时间高负载游戏场景至关重要。</p>
+    </div>
 
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">天玑9500M+Q3双芯组合是iQOO 15T最大的差异化卖点。在当前安卓阵营中，能同时做到「定制高频SoC+独立电竞芯片」的机型凤毛麟角。这套组合的实际意义在于：不仅跑分好看，更能在《原神》《崩坏：星穹铁道》等重载游戏中保持稳定帧率和较低发热——这才是玩家真正关心的。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-num">02</div>
-        <div class="ch-kick">Display</div>
-        <h3 class="ch-title">珠峰屏幕：同档唯一2K+144Hz</h3>
-        <div class="ch-intro">当竞品纷纷在标准版性能旗舰上回退到1.5K分辨率时，iQOO 15T 坚持使用2K 144Hz珠峰屏，这块屏幕本身就是产品力的有力证明。</div>
-
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZzmIZsSpAAC9Duy96jgAAId8AJEcNcAAL0m323.jpg" alt="iQOO 15T 2K 144Hz屏幕" loading="lazy">
-            <figcaption>6.82英寸 2K 144Hz 珠峰屏</figcaption>
-            <span class="m-badge">同档唯一</span>
-          </figure>
-          <div>
-            <div class="r-feat">
-              <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">屏幕</span></div>
-              <h3>6.82英寸 2K 分辨率 + 144Hz 刷新率</h3>
-              <p>这块6.82英寸的珠峰屏采用LTPO自适应刷新率技术，支持1Hz到144Hz的无级调节。2K分辨率意味着PPI超过500，文字和画面的精细程度远超1.5K竞品。对于游戏玩家而言，高刷新率带来的操作流畅感知是实实在在的竞技优势；对于日常使用，高分辨率的细腻观感则是越用越喜欢的「回不去」体验。</p>
-            </div>
-          </div>
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZWGIKQHTAAEwD0xd1r8AAId7wMXaV4AATAn242.jpg" alt="iQOO 15T 天玑9500M芯片" loading="lazy">
+        <figcaption>天玑9500 Monster版 · 性能核心</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">电竞</span></div>
+          <h3>自研Q3电竞芯片：插帧·超分·视效增强三合一</h3>
+          <p>iQOO第三代自研电竞芯片Q3承担着游戏体验的「第二引擎」角色。它可以在不增加主SoC负担的前提下，实现游戏帧率插帧至144Hz、分辨率超分至2K、以及画面视效增强（色彩饱和度、对比度动态调整）。这意味着即便原生不支持高帧率或高分辨率的游戏，也能通过Q3芯片获得旗舰级的视觉体验。</p>
         </div>
       </div>
+    </div>
 
-      <div class="r-chapter">
-        <div class="ch-num">03</div>
-        <div class="ch-kick">Battery & Camera</div>
-        <h3 class="ch-title">续航与影像：取舍之间见定位</h3>
-        <div class="ch-intro">8000mAh超大电池是2026年性能旗舰的新标配，但iQOO 15T在影像上的取舍也清晰地传达了它的产品定位——游戏第一，拍照够用就好。</div>
+    <div class="note note-c"><span class="note-label">点评</span><div class="note-text">天玑9500M+Q3双芯组合是iQOO 15T最大的差异化卖点。在当前安卓阵营中，能同时做到「定制高频SoC+独立电竞芯片」的机型凤毛麟角。这套组合的实际意义在于：不仅跑分好看，更能在《原神》《崩坏：星穹铁道》等重载游戏中保持稳定帧率和较低发热——这才是玩家真正关心的。</div></div>
+  </div>
 
-        <div class="r-feat">
-          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
-          <h3>8000mAh + 100W 有线快充</h3>
-          <p>8000mAh电池让iQOO 15T轻松应对全天候重度使用。《原神》最高画质一小时耗电约18%，意味着从早玩到晚完全可行。100W有线快充可在约28分钟内充满，充电速度处于行业主流偏上水平。但需要注意的是，本机<strong>不支持无线充电</strong>——这是成本控制的直接体现。</p>
-        </div>
+  <div class="glow-sep"></div>
 
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZZ-IfpMuAAEsDS6wiBYAAId7wOEHhEAASwl480.jpg" alt="iQOO 15T 影像系统" loading="lazy">
-            <figcaption>2亿像素主摄 + 5000万超广角</figcaption>
-          </figure>
-          <div>
-            <div class="r-feat">
-              <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">影像</span></div>
-              <h3>2亿像素主摄，但无潜望长焦</h3>
-              <p>影像配置采用2亿像素主摄+5000万超广角的组合，主摄传感器尺寸达到1/1.4英寸，白天成像质量不错，夜景也有一定竞争力。然而<strong>没有潜望长焦镜头</strong>是一个明显的短板——这意味着变焦能力仅限于数码裁切，3倍以上变焦画质下降明显。对于一款主打游戏的手机来说，这种取舍可以理解，但如果你对摄影有一定要求，需要做好心理准备。</p>
-            </div>
-          </div>
-        </div>
+  <!-- ===== CH02: Display ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">02</span>
+      <span class="ch-kick">Display</span>
+    </div>
+    <h2 class="ch-title">珠峰屏幕：同档唯一2K+144Hz</h2>
+    <div class="ch-intro">当竞品纷纷在标准版性能旗舰上回退到1.5K分辨率时，iQOO 15T 坚持使用2K 144Hz珠峰屏，这块屏幕本身就是产品力的有力证明。</div>
 
-        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">iQOO 15T的产品策略非常清晰：把预算集中在性能、屏幕、续航这三个游戏用户最关心的维度，而在无线充电、潜望长焦、IP68防水等「锦上添花」的功能上做减法。如果你是重度手游玩家或追求极致性价比的性能党，这些取舍完全合理；但如果你希望一台手机面面俱到，可能需要看看其他选项。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-num">04</div>
-        <div class="ch-kick">Design</div>
-        <h3 class="ch-title">外观与做工</h3>
-
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNbiCIHUNjAAW9fNVp-mMAAId-AFnFScABb2U090.jpg" alt="iQOO 15T 外观设计" loading="lazy">
-            <figcaption>iQOO 15T 整体外观</figcaption>
-          </figure>
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNacuIC474AAH2NmsJnnwAAId8gA2b8MAAfZO450.jpg" alt="iQOO 15T 设计细节" loading="lazy">
-            <figcaption>赛道传奇风格设计语言</figcaption>
-          </figure>
-        </div>
-
-        <div class="r-feat">
-          <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">设计</span></div>
-          <h3>延续赛道传奇，电竞基因鲜明</h3>
-          <p>iQOO 15T延续了标志性的赛道传奇设计语言，机身线条硬朗，摄像头模组区域有独特的像素风格装饰。整体辨识度很高，一眼就能看出是iQOO的游戏旗舰。但也正因为如此，它的目标人群相对明确——年轻、爱玩游戏、喜欢张扬设计的用户群体。</p>
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZzmIZsSpAAC9Duy96jgAAId8AJEcNcAAL0m323.jpg" alt="iQOO 15T 2K 144Hz屏幕" loading="lazy">
+        <figcaption>6.82英寸 2K 144Hz 珠峰屏</figcaption>
+        <span class="badge">同档唯一</span>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">屏幕</span></div>
+          <h3>6.82英寸 2K 分辨率 + 144Hz 刷新率</h3>
+          <p>这块6.82英寸的珠峰屏采用LTPO自适应刷新率技术，支持1Hz到144Hz的无级调节。2K分辨率意味着PPI超过500，文字和画面的精细程度远超1.5K竞品。对于游戏玩家而言，高刷新率带来的操作流畅感知是实实在在的竞技优势；对于日常使用，高分辨率的细腻观感则是越用越喜欢的「回不去」体验。</p>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="r-chapter">
-        <div class="ch-num">05</div>
-        <div class="ch-kick">Pricing</div>
-        <h3 class="ch-title">价格与选购建议</h3>
+  <div class="glow-sep"></div>
 
-        <table class="spec-table">
-          <tr><th>版本</th><th>原价</th><th>国补后</th></tr>
-          <tr><td>12+256G</td><td>¥3799</td><td><strong>¥3299</strong></td></tr>
-          <tr><td>16+256G</td><td>¥4699</td><td><strong>¥4199</strong></td></tr>
-          <tr><td>12+512G</td><td>¥4999</td><td><strong>¥4499</strong></td></tr>
-          <tr><td>16+512G</td><td>¥5399</td><td><strong>¥4899</strong></td></tr>
-          <tr><td>16+1TB</td><td>¥6199</td><td><strong>¥5699</strong></td></tr>
-        </table>
+  <!-- ===== CH03: Battery & Camera ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">03</span>
+      <span class="ch-kick">Battery & Camera</span>
+    </div>
+    <h2 class="ch-title">续航与影像：取舍之间见定位</h2>
+    <div class="ch-intro">8000mAh超大电池是2026年性能旗舰的新标配，但iQOO 15T在影像上的取舍也清晰地传达了它的产品定位——游戏第一，拍照够用就好。</div>
 
-        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐16+512G ¥4899版本</strong>：16GB运行内存确保多任务和游戏后台保活无忧，512GB存储足以容纳大型游戏+日常应用。12+256G入门版虽然只要3299元极具吸引力，但对于打算长期使用的游戏玩家来说，256GB存储可能会在未来1-2年内显得捉襟见肘。</div></div>
-      </div>
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
+      <h3>8000mAh + 100W 有线快充</h3>
+      <p>8000mAh电池让iQOO 15T轻松应对全天候重度使用。《原神》最高画质一小时耗电约18%，意味着从早玩到晚完全可行。100W有线快充可在约28分钟内充满，充电速度处于行业主流偏上水平。但需要注意的是，本机<strong>不支持无线充电</strong>——这是成本控制的直接体现。</p>
+    </div>
 
-      <div class="r-take">
-        <h3 class="take-t">核心结论</h3>
-        <div class="take-card">
-          <h4>性能旗舰新标杆</h4>
-          <p>天玑9500M+Q3电竞芯片的组合在同档位几乎没有对手，尤其适合追求极致游戏体验的用户。</p>
-        </div>
-        <div class="take-card">
-          <h4>2K屏稀缺性价值</h4>
-          <p>当竞品全面退守1.5K时，坚持2K 144Hz让iQOO 15T成为注重屏幕品质用户的几乎唯一选择。</p>
-        </div>
-        <div class="take-card">
-          <h4>取舍明确的定位</h4>
-          <p>砍掉无线充电、潜望长焦、IP68来换价格优势，产品逻辑清晰——适合目标用户，不适合追求全能者。</p>
-        </div>
-        <div class="take-card">
-          <h4>618值得蹲</h4>
-          <p>预测到手价可下探至¥2999左右，届时3K档位拿到这个配置，性价比将进一步放大。</p>
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNZZ-IfpMuAAEsDS6wiBYAAId7wOEHhEAASwl480.jpg" alt="iQOO 15T 影像系统" loading="lazy">
+        <figcaption>2亿像素主摄 + 5000万超广角</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">影像</span></div>
+          <h3>2亿像素主摄，但无潜望长焦</h3>
+          <p>影像配置采用2亿像素主摄+5000万超广角的组合，主摄传感器尺寸达到1/1.4英寸，白天成像质量不错，夜景也有一定竞争力。然而<strong>没有潜望长焦镜头</strong>是一个明显的短板——这意味着变焦能力仅限于数码裁切，3倍以上变焦画质下降明显。对于一款主打游戏的手机来说，这种取舍可以理解，但如果你对摄影有一定要求，需要做好心理准备。</p>
         </div>
       </div>
-    
+    </div>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text">iQOO 15T的产品策略非常清晰：把预算集中在性能、屏幕、续航这三个游戏用户最关心的维度，而在无线充电、潜望长焦、IP68防水等「锦上添花」的功能上做减法。如果你是重度手游玩家或追求极致性价比的性能党，这些取舍完全合理；但如果你希望一台手机面面俱到，可能需要看看其他选项。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== CH04: Design ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">04</span>
+      <span class="ch-kick">Design</span>
+    </div>
+    <h2 class="ch-title">外观与做工</h2>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNbiCIHUNjAAW9fNVp-mMAAId-AFnFScABb2U090.jpg" alt="iQOO 15T 外观设计" loading="lazy">
+        <figcaption>iQOO 15T 整体外观</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s2000x2000/g8/M00/07/09/ChMkLWoNacuIC474AAH2NmsJnnwAAId8gA2b8MAAfZO450.jpg" alt="iQOO 15T 设计细节" loading="lazy">
+        <figcaption>赛道传奇风格设计语言</figcaption>
+      </figure>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">设计</span></div>
+      <h3>延续赛道传奇，电竞基因鲜明</h3>
+      <p>iQOO 15T延续了标志性的赛道传奇设计语言，机身线条硬朗，摄像头模组区域有独特的像素风格装饰。整体辨识度很高，一眼就能看出是iQOO的游戏旗舰。但也正因为如此，它的目标人群相对明确——年轻、爱玩游戏、喜欢张扬设计的用户群体。</p>
+    </div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== CH05: Pricing ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">05</span>
+      <span class="ch-kick">Pricing</span>
+    </div>
+    <h2 class="ch-title">价格与选购建议</h2>
+
+    <table class="spec-table">
+      <tr><th>版本</th><th>原价</th><th>国补后</th></tr>
+      <tr><td>12+256G</td><td>¥3799</td><td><strong>¥3299</strong></td></tr>
+      <tr><td>16+256G</td><td>¥4699</td><td><strong>¥4199</strong></td></tr>
+      <tr><td>12+512G</td><td>¥4999</td><td><strong>¥4499</strong></td></tr>
+      <tr><td>16+512G</td><td>¥5399</td><td><strong>¥4899</strong></td></tr>
+      <tr><td>16+1TB</td><td>¥6199</td><td><strong>¥5699</strong></td></tr>
+    </table>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text"><strong>最推荐16+512G ¥4899版本</strong>：16GB运行内存确保多任务和游戏后台保活无忧，512GB存储足以容纳大型游戏+日常应用。12+256G入门版虽然只要3299元极具吸引力，但对于打算长期使用的游戏玩家来说，256GB存储可能会在未来1-2年内显得捉襟见肘。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== TAKEAWAYS ===== -->
+  <div class="takeaways">
+    <h3>核心结论</h3>
+    <div class="take-card">
+      <h4>性能旗舰新标杆</h4>
+      <p>天玑9500M+Q3电竞芯片的组合在同档位几乎没有对手，尤其适合追求极致游戏体验的用户。</p>
+    </div>
+    <div class="take-card">
+      <h4>2K屏稀缺性价值</h4>
+      <p>当竞品全面退守1.5K时，坚持2K 144Hz让iQOO 15T成为注重屏幕品质用户的几乎唯一选择。</p>
+    </div>
+    <div class="take-card">
+      <h4>取舍明确的定位</h4>
+      <p>砍掉无线充电、潜望长焦、IP68来换价格优势，产品逻辑清晰——适合目标用户，不适合追求全能者。</p>
+    </div>
+    <div class="take-card">
+      <h4>618值得蹲</h4>
+      <p>预测到手价可下探至¥2999左右，届时3K档位拿到这个配置，性价比将进一步放大。</p>
+    </div>
   </div>
 </div>
 
@@ -545,15 +528,14 @@
   <img id="lightboxImg" src="" alt="查看大图">
 </div>
 <script>
-// Lightbox for images
-document.querySelectorAll('.report-body img').forEach(function(img) {
-  img.addEventListener('click', function() {
-    document.getElementById('lightboxImg').src = this.src;
+document.querySelectorAll('.fig img, .fig img').forEach(function(img){
+  img.addEventListener('click',function(){
+    document.getElementById('lightboxImg').src=this.src;
     document.getElementById('lightbox').classList.add('show');
   });
 });
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show');
 });
 </script>
 </body>

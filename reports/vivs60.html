@@ -6,563 +6,816 @@
 <title>vivo S60系列 发布会报告 · 手机发布会追踪器</title>
 <style>
   :root {
-    --bg: #fafaf9;
-    --card: #ffffff;
-    --border: #e5e5e0;
-    --text: #1a1a1a;
-    --muted: #737373;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  :root {
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-  /* === 报告弹窗 === */
-  .overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
-    animation: fadeIn 0.2s;
-  }
-  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  .report-panel {
-    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
-    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
-  }
-  .report-header {
-    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .report-header h2 { font-size: 20px; font-weight: 700; }
-  .report-header .close-btn {
-    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
-    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s; color: var(--muted);
-  }
-  .report-header .close-btn:hover { background: #e5e5e5; }
-  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
-  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
-  .report-body h3:first-child { margin-top: 0; }
-  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
-  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
-  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
-  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
-  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
-  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
-  .report-body .price-card {
-    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
-    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
-  }
-  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
-  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
-  .report-body .highlight-box {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
-    border: 1px solid #fcd34d;
-  }
-  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
-  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
-  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
-  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
-  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
-  .report-body .product-gallery {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
-  }
-  .report-body .product-gallery img {
-    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
-    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
-    border: 1px solid var(--border);
-  }
-  .report-body .product-gallery img:hover {
-    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  }
-  .report-body .hero-img {
-    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
-    max-height: 320px; border: 1px solid var(--border);
-  }
-  .report-body .img-caption {
-    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
+    --v-bg: #12091a;
+    --v-bg-light: #1a0f26;
+    --v-accent: #415fff;
+    --v-pink: #f472b6;
+    --v-pink-soft: rgba(244, 114, 182, 0.15);
+    --v-accent-soft: rgba(65, 95, 255, 0.12);
+    --v-text: #f0e6f5;
+    --v-text-dim: #b8a8c8;
+    --v-text-muted: #7a6a8a;
+    --v-card-bg: rgba(255, 255, 255, 0.04);
+    --v-card-border: rgba(255, 255, 255, 0.08);
+    --v-grad: linear-gradient(135deg, #415fff 0%, #a855f7 50%, #f472b6 100%);
+    --v-grad-soft: linear-gradient(135deg, rgba(65,95,255,0.2) 0%, rgba(168,85,247,0.15) 50%, rgba(244,114,182,0.1) 100%);
+    --v-serif: Georgia, 'PingFang SC', 'Microsoft YaHei', serif;
+    --v-sans: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
   }
 
-  /* === 报告内容：杂志式升级 === */
-  .report-body {
-    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
-    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
-    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
-    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
-    --r-dark: #0b0b0f; --r-tile: #17181d;
-    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
-    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
-    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
-    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--v-sans);
+    background: var(--v-bg);
+    color: var(--v-text);
+    line-height: 1.7;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
-  .report-body > *:first-child { margin-top: 0; }
 
-  /* Hero 头部 */
-  .report-body .r-hero {
-    background: var(--r-dark); color: #fff; border-radius: 16px;
-    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
+  /* ====== HERO ====== */
+  .hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px 100px;
+    overflow: hidden;
   }
-  .report-body .r-hero::before {
-    content:''; position:absolute; inset:0; background:
-      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
-      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
-      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(800px 500px at 20% 30%, rgba(244, 114, 182, 0.22), transparent 60%),
+      radial-gradient(600px 400px at 80% 60%, rgba(65, 95, 255, 0.18), transparent 55%),
+      radial-gradient(500px 300px at 50% 90%, rgba(168, 85, 247, 0.12), transparent 50%),
+      radial-gradient(300px 200px at 70% 10%, rgba(244, 114, 182, 0.1), transparent 45%);
+    pointer-events: none;
   }
-  .report-body .r-hero > * { position: relative; }
-  .report-body .r-hero .r-eyebrow {
-    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
-    text-transform:uppercase; margin-bottom:14px;
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, var(--v-bg), transparent);
+    pointer-events: none;
   }
-  .report-body .r-hero h3 {
-    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
-    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
+  .hero-content { position: relative; z-index: 2; max-width: 860px; }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    color: var(--v-pink);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.9;
   }
-  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-hero .r-sub {
-    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
+  .hero h1 {
+    font-family: var(--v-serif);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
   }
-  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
-  .report-body .r-hero .r-chips span {
-    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  .hero h1 .g {
+    background: var(--v-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
-
-  /* Bento 摘要网格 */
-  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
-  .report-body .r-bt {
-    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
-    display:flex; flex-direction:column; justify-content:center;
+  .hero-sub {
+    font-size: 16px;
+    color: var(--v-text-dim);
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 auto 28px;
   }
-  .report-body .r-bt-hero {
-    grid-column: span 2; background:
-      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
-      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
-  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
-  .report-body .r-bt .bt-num {
-    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
-    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
-  }
-  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
-  .report-body .r-bt-hero .bt-headline {
-    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
-  }
-  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
-
-  /* 章节带 */
-  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
-  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .report-body .r-chapter .ch-num {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
-    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
-  }
-  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
-  .report-body .r-chapter .ch-title {
-    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
-  }
-  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
-
-  /* 功能条目 */
-  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
-  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
-  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
-  .report-body .r-f-meta .f-idx {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
-    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
-  }
-  .report-body .r-f-meta .f-tag {
-    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
-    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
-  }
-  .report-body .r-feat h3 {
-    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
-    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
-  }
-  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
-  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
-  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
-  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
-  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
-
-  /* 图文并排 */
-  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
-
-  /* 图片卡片 */
-  .report-body .r-fig {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; position:relative;
-  }
-  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
-  .report-body .r-fig img:hover { transform:scale(1.02); }
-  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
-  .report-body .r-fig .m-badge {
-    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
-    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  .hero-chips span {
+    font-size: 12px;
+    color: var(--v-text-dim);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 16px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
   }
 
-  /* 画廊网格 */
-  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
-  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
-  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
-  .report-body .r-gtile {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; display:flex; flex-direction:column;
+  /* Wave divider */
+  .wave-divider {
+    position: relative;
+    height: 80px;
+    margin-top: -1px;
+    overflow: hidden;
   }
-  .report-body .r-gtile .g-box {
-    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  .wave-divider svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
   }
-  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
-  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
-  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
-  .report-body .r-gtile .m-badge { top:10px; left:10px; }
 
-  /* 全幅图 */
-  .report-body .r-wide {
-    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  /* ====== CONTENT WRAPPER ====== */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    position: relative;
   }
-  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
-  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
 
-  /* 点评 / 分析 Note */
-  .report-body .r-note {
-    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  /* ====== BENTO ====== */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 40px 0 48px;
   }
-  .report-body .r-note .note-l {
-    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
-    text-transform:uppercase; margin-bottom:5px;
+  .bt {
+    background: var(--v-card-bg);
+    border: 1px solid var(--v-card-border);
+    border-radius: 28px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
-  .report-body .r-note-c {
-    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
+  .bt:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(65, 95, 255, 0.1);
   }
-  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
-  .report-body .r-note-c .note-t { color:#2d3357; }
-  .report-body .r-note-a {
-    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
+  .bt-hero {
+    grid-column: span 2;
+    background:
+      radial-gradient(400px 250px at 90% -10%, rgba(244, 114, 182, 0.15), transparent 65%),
+      radial-gradient(300px 200px at -5% 110%, rgba(65, 95, 255, 0.12), transparent 60%),
+      var(--v-card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 32px 28px;
   }
-  .report-body .r-note-a .note-l { color:var(--r-amber); }
-  .report-body .r-note-a .note-t { color:#5d3c10; }
-  .report-body .r-note-t strong { font-weight:800; }
+  .bt-lab {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--v-pink);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .bt-num {
+    font-family: var(--v-serif);
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.1;
+    background: var(--v-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 4px 0;
+  }
+  .bt-num span { font-size: 16px; font-weight: 500; margin-left: 4px; }
+  .bt-val { font-size: 13px; color: var(--v-text-muted); }
+  .bt-hero .bt-headline {
+    font-family: var(--v-serif);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--v-text);
+    margin-bottom: 10px;
+  }
+  .bt-hero .bt-headline strong {
+    background: var(--v-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bt-hero .bt-sub {
+    font-size: 14px;
+    color: var(--v-text-dim);
+    line-height: 1.65;
+  }
 
-  /* Key Takeaways */
-  .report-body .r-take {
-    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
-    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
-    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  /* ====== CHAPTER ====== */
+  .chapter {
+    margin: 56px 0 16px;
+    position: relative;
   }
-  .report-body .r-take:first-child { margin-top:24px; }
-  .report-body .r-take-n {
-    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
-    letter-spacing:-.02em; flex:none;
-    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  .ch-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
   }
-  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
-  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+  .ch-badge {
+    width: 48px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--v-serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--v-grad);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(65, 95, 255, 0.3);
+  }
+  .ch-kick {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--v-pink);
+    text-transform: uppercase;
+  }
+  .ch-title {
+    font-family: var(--v-serif);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    line-height: 1.25;
+    background: linear-gradient(90deg, var(--v-text) 0%, var(--v-text-dim) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .ch-intro {
+    font-size: 15px;
+    color: var(--v-text-dim);
+    line-height: 1.8;
+    max-width: 720px;
+  }
 
-  /* 规格表升级 */
-  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
-  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
-  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
+  /* Soft wave between sections */
+  .ch-wave {
+    height: 40px;
+    margin: 32px 0 16px;
+    opacity: 0.4;
+  }
 
-  /* 价格卡升级 */
-  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
-  .report-body .price-card strong { font-size:17px; }
+  /* ====== FEAT ====== */
+  .feat {
+    margin: 32px 0 8px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .feat:first-child { border-top: none; padding-top: 6px; }
+  .f-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .f-idx {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--v-text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 3px 10px;
+    border-radius: 8px;
+    letter-spacing: 0.04em;
+  }
+  .f-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--v-pink);
+    background: var(--v-pink-soft);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .feat h3 {
+    font-family: var(--v-serif);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+    color: var(--v-text);
+  }
+  .feat p {
+    font-size: 15px;
+    color: var(--v-text-dim);
+    line-height: 1.85;
+    margin-bottom: 12px;
+  }
+  .feat ul { padding-left: 22px; margin: 10px 0 14px; }
+  .feat li {
+    font-size: 14.5px;
+    color: var(--v-text-dim);
+    line-height: 1.8;
+    margin-bottom: 6px;
+  }
+  .feat strong { color: var(--v-text); font-weight: 600; }
 
-  /* highlight-box 升级 */
-  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
+  /* ====== COLUMNS ====== */
+  .cols {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    margin: 24px 0;
+  }
 
-  /* 覆盖旧样式 */
-  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
-  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
-  .report-body ul { padding-left:20px; margin-bottom:12px; }
-  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
-  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
-  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
-  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
-  .report-body .pro-con > div { padding:16px; border-radius:12px; }
-  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
-  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
-  /* Lightbox for enlarged view */
-  /* Lightbox for enlarged view */
+  /* ====== FIGURE / IMAGE CARDS ====== */
+  .fig {
+    margin: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--v-card-bg);
+    border: 1px solid var(--v-card-border);
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .fig:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 48px rgba(65, 95, 255, 0.12), 0 0 60px rgba(244, 114, 182, 0.06);
+  }
+  .fig img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .fig figcaption {
+    font-size: 12px;
+    color: var(--v-text-muted);
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    line-height: 1.55;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .m-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(65, 95, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ====== NOTE ====== */
+  .note {
+    border-radius: 24px;
+    padding: 20px 24px;
+    margin: 20px 0 8px;
+    position: relative;
+    backdrop-filter: blur(16px);
+  }
+  .note .note-l {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .note .note-t { font-size: 14.5px; line-height: 1.8; }
+  .note-c {
+    background: linear-gradient(135deg, rgba(65, 95, 255, 0.1), rgba(168, 85, 247, 0.08));
+    border: 1px solid rgba(65, 95, 255, 0.2);
+    box-shadow: 0 4px 24px rgba(65, 95, 255, 0.08);
+  }
+  .note-c .note-l { color: #8aa4ff; }
+  .note-c .note-t { color: var(--v-text-dim); }
+  .note-a {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(168, 85, 247, 0.08));
+    border: 1px solid rgba(244, 114, 182, 0.2);
+    box-shadow: 0 4px 24px rgba(244, 114, 182, 0.08);
+  }
+  .note-a .note-l { color: var(--v-pink); }
+  .note-a .note-t { color: var(--v-text-dim); }
+
+  /* ====== TABLE ====== */
+  .spec-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0 24px;
+    font-size: 14px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--v-card-bg);
+    border: 1px solid var(--v-card-border);
+  }
+  .spec-table th {
+    background: linear-gradient(135deg, rgba(65, 95, 255, 0.25), rgba(168, 85, 247, 0.15));
+    color: var(--v-text);
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .spec-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--v-text-dim);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* ====== TAKEAWAYS ====== */
+  .take {
+    display: flex;
+    gap: 20px;
+    background: var(--v-card-bg);
+    border: 1px solid var(--v-card-border);
+    border-radius: 28px;
+    padding: 28px 28px;
+    margin: 20px 0 10px;
+    backdrop-filter: blur(16px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .take:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(244, 114, 182, 0.08);
+  }
+  .take-n {
+    font-family: var(--v-serif);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    flex: none;
+    background: var(--v-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    min-width: 50px;
+  }
+  .take-b h3 {
+    font-family: var(--v-serif);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: var(--v-text);
+  }
+  .take-b p {
+    font-size: 14px;
+    color: var(--v-text-dim);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ====== LIGHTBOX ====== */
   .lightbox {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
-    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
     cursor: zoom-out;
+    backdrop-filter: blur(10px);
   }
   .lightbox.show { display: flex; }
   .lightbox img {
-    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 20px;
+    object-fit: contain;
+    box-shadow: 0 8px 60px rgba(0, 0, 0, 0.6);
   }
 
-  @media (max-width: 600px) {
-    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
-    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
-    header h1 { font-size: 22px; }
-    .report-header { padding: 18px 20px 14px; }
-    .report-header h2 { font-size: 17px; }
-    .report-body { padding: 18px 20px 28px; }
-    .report-body .pro-con { grid-template-columns: 1fr; }
-    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
-    .report-body .r-bento { grid-template-columns:1fr; }
-    .report-body .r-bt-hero { grid-column:auto; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
-    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
-    .report-body .r-hero { padding:28px 20px 24px; }
-    .report-body .r-hero h3 { font-size:22px; }
-    .report-body .r-feat h3 { font-size:19px; }
-    .report-body .r-chapter .ch-title { font-size:20px; }
+  /* ====== FLOATING PETALS DECORATION ====== */
+  .petal-deco {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .petal-deco span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(244, 114, 182, 0.15);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+  }
+  .petal-deco span:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+  .petal-deco span:nth-child(2) { top: 25%; left: 92%; animation-delay: 2s; width: 4px; height: 4px; }
+  .petal-deco span:nth-child(3) { top: 60%; left: 8%; animation-delay: 4s; width: 8px; height: 8px; }
+  .petal-deco span:nth-child(4) { top: 75%; left: 90%; animation-delay: 1s; }
+  .petal-deco span:nth-child(5) { top: 45%; left: 95%; animation-delay: 3s; width: 5px; height: 5px; }
+  .petal-deco span:nth-child(6) { top: 85%; left: 15%; animation-delay: 5s; width: 3px; height: 3px; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
   }
 
-  .report-page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 20px 16px 60px;
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .hero { min-height: 70vh; padding: 40px 20px 70px; }
+    .hero h1 { font-size: 30px; }
+    .hero-sub { font-size: 14px; }
+    .content { padding: 0 16px 60px; }
+    .bento { grid-template-columns: 1fr; gap: 12px; margin: 28px 0 36px; }
+    .bt-hero { grid-column: auto; padding: 24px 20px; }
+    .bt-num { font-size: 28px; }
+    .bt-hero .bt-headline { font-size: 18px; }
+    .chapter { margin: 40px 0 12px; }
+    .ch-title { font-size: 21px; }
+    .cols { grid-template-columns: 1fr; gap: 14px; }
+    .fig { border-radius: 20px; }
+    .take { flex-direction: column; gap: 12px; padding: 22px 20px; border-radius: 24px; }
+    .take-n { font-size: 30px; }
+    .spec-table { font-size: 12.5px; border-radius: 20px; }
+    .spec-table th, .spec-table td { padding: 10px 12px; }
+    .note { border-radius: 20px; padding: 16px 18px; }
+    .feat h3 { font-size: 19px; }
   }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    margin-bottom: 24px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    transition: all 0.15s;
-  }
-  .back-link:hover { border-color: #aaa; }
-  .back-link svg { width: 16px; height: 16px; }
-
-  @media (max-width: 600px) {
-    .report-page { padding: 12px 12px 48px; }
-    .back-link { font-size: 12px; }
-    .report-body .r-hero { padding: 24px 18px 20px; }
-    .report-body .r-hero h3 { font-size: 20px; }
-    .report-body .r-bento { grid-template-columns: 1fr; }
-    .report-body .r-bt-hero { grid-column: auto; }
-    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
-    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
-    .report-body .r-feat h3 { font-size: 18px; }
-    .report-body .r-chapter .ch-title { font-size: 19px; }
-  }
-
 </style>
 </head>
 <body>
-<div class="report-page">
-  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
-  <div class="report-body">
-      <div class="r-hero">
-        <div class="r-eyebrow">2026年5月29日 · 三亚 · 星星海发布会</div>
-        <h3>vivo S60系列：<span class="g">主打社交影像的Z世代潮机</span></h3>
-        <div class="r-sub">首发4K Live原相机与3D空间视效技术，7200mAh蓝海电池 + 3D超声波指纹2.0，以2899元起售价重新定义中端影像手机的价值标准。代言人田曦薇空降星星海，用一场海边发布会宣告S系列的全面进化。</div>
-        <div class="r-chips"><span>4K Live原相机</span><span>3D空间视效</span><span>7200mAh</span><span>超声波指纹</span><span>IP69</span><span>2899起</span></div>
-      </div>
 
-      <div class="r-bento">
-        <div class="r-bt r-bt-hero">
-          <div class="bt-headline">核心结论：<strong>影像是唯一护城河</strong></div>
-          <div class="bt-sub">vivo S60系列精准卡位2500-4000元社交影像赛道。4K Live原相机和3D空间视效是真正差异化的功能创新——不是参数堆砌，而是实实在在的拍摄体验升级。但元气版天玑7500性能短板和80W充电在同档位中略显保守，标准版3099的起售价也需要618促销来消化。</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">电池</div>
-          <div class="bt-num">7200<span>mAh</span></div>
-          <div class="bt-val">蓝海电池 · 80W有线快充</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">屏幕</div>
-          <div class="bt-num">144<span>Hz</span></div>
-          <div class="bt-val">6.59英寸 1.5K OLED直屏</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">起售价</div>
-          <div class="bt-num">2464<span>元</span></div>
-          <div class="bt-val">元气版 · 国补后价格</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">防水等级</div>
-          <div class="bt-num">IP69<span>/68</span></div>
-          <div class="bt-val">同档位最高防护标准</div>
-        </div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">Camera</span></div>
-        <h3 class="ch-title">4K Live原相机：不是参数升级，是创作方式的变革</h3>
-        <div class="ch-intro">vivo S60系列的核心卖点全部围绕影像展开。这不是简单的摄像头参数堆砌，而是一套从拍摄、处理到分享的完整影像体验链——其中4K Live原相机和3D空间视效是最具差异化的两项创新。</div>
-
-        <div class="r-feat">
-          <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">影像革命</span></div>
-          <h3>首发4K Live原相机：手机Livephoto的里程碑</h3>
-          <p>此前手机Livephoto最高分辨率停留在1080P，而vivo S60直接将Livephoto分辨率提升至<strong>4K超高清</strong>，配合地平线OIS光学防抖，彻底解决了Livephoto长期以来「抖、糊、差」的体验痛点。这不仅仅是分辨率的数字提升——4K意味着每一帧Livephoto都可以作为高清静态照片单独导出和使用，极大拓展了Livephoto的实际价值。</p>
-          <p>与之配套的是vivo开发的四大Livephoto创意玩法：<strong>Live调色盘</strong>支持录制过程中实时可视化调色，<strong>4K星光Live</strong>优化弱光场景下的动态捕捉，<strong>冷白人像Live</strong>专为人像肤色优化，<strong>灵感趣贴Live</strong>则是在动态影像上叠加创意贴纸。这套组合拳意味着vivo不是简单地把硬件升级了就完事，而是在软件体验层面做了深度思考。</p>
-        </div>
-
-        <div class="r-feat">
-          <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">社交创新</span></div>
-          <h3>3D空间视效 + 小红书深度合作：社交传播的精准卡位</h3>
-          <p>S60首发<strong>3D空间视效技术</strong>：任意选择一张Live封面帧，一键生成带有景深层次的3D空间效果，晃动手机即可呈现裸眼3D视觉。更关键的是，vivo与小红书达成了深度合作——<strong>S60是全行业唯一支持在小红书平台直接发布3D空间图的机型</strong>。这意味着S60用户在小红书上发布的内容天然具有更高的视觉冲击力和平台推荐权重。</p>
-          <p>这种「硬件功能 + 平台首发」的组合打法非常聪明。3D空间视效本身不是什么颠覆性技术，但通过锁定小红书这个Z世代最活跃的社交平台作为独占发布渠道，vivo成功将技术功能转化为社交货币——这正是S系列目标用户（18-30岁女性为主）最看重的价值。</p>
-        </div>
-
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIRk1wAAS--ij-P5YAAIdvQO_ay0ABL8S864.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海配色背面" loading="lazy">
-            <figcaption>vivo S60 星星海配色 · 星芒光刻工艺</figcaption>
-            <span class="m-badge">首发配色</span>
-          </figure>
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIJqTeAAW0LuZP0b8AAIdvQPEKj8ABbRG674.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海侧面" loading="lazy">
-            <figcaption>透明Deco设计 · 可自定义贴纸</figcaption>
-            <span class="m-badge">穿搭自由</span>
-          </figure>
-        </div>
-
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">vivo S60的影像策略非常清晰——不做全能影像旗舰，只做「社交媒体上最好看的那一台」。4K Live原相机和3D空间视效都不是硬核摄影爱好者关心的技术指标，但却是小红书、抖音等平台的内容创作利器。这种聚焦Z世代社交需求的精准定位，比盲目堆砌摄像头参数要高明得多。唯一的遗憾是标准版才配备长焦镜头，元气版在变焦能力上有所缺失。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">Design & Battery</span></div>
-        <h3 class="ch-title">颜值即正义：夏日设计语言与大电池的平衡术</h3>
-        <div class="ch-intro">S60系列在设计上延续了vivo S系列一贯的高颜值路线，同时塞入了7200mAh的大电池——这在影像中端机中是一个不小的工程挑战。</div>
-
-        <div class="r-feat">
-          <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">设计</span></div>
-          <h3>星星海配色 + 透明Deco：让你「穿」出新意</h3>
-          <p>后盖采用<strong>星芒光刻 + 一体浮光冷雕玻璃</strong>工艺，配合金属中框，手感和质感都达到了vivo中端机的最佳水准。三大夏日配色——<strong>星星海、初夏绿、仲夏夜</strong>——清新明亮，符合年轻用户审美。透明Deco摄像头模组灵感被认为来自于iPhone 17系列的设计方向，但vivo在此之上加入了贴纸自定义玩法，用户可以根据穿搭更换Deco区域的装饰贴纸，实现<strong>「手机也是穿搭单品」</strong>的概念。</p>
-        </div>
-
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNuIJRXsAAXVyWE1XDsAAIdvQPSs1QABdXh040.jpg" onclick="openLightbox(this.src)" alt="vivo S60 透明Deco设计" loading="lazy">
-            <figcaption>透明Deco摄像头模组 · 支持贴纸自定义</figcaption>
-          </figure>
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/spider20260514/713/w650h863/20260514/1df8-1440cc836f7ce1f7b817aea111d489ba.jpg" onclick="openLightbox(this.src)" alt="vivo S60 一体冷雕工艺" loading="lazy">
-            <figcaption>一体浮光冷雕玻璃 · 金属中框</figcaption>
-            <span class="m-badge">旗舰工艺</span>
-          </figure>
-        </div>
-
-        <div class="r-feat">
-          <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
-          <h3>7200mAh蓝海电池：续航扎实，充电略显保守</h3>
-          <p>7200mAh的超大容量电池让S60系列的续航表现达到了旗舰水平——即使在重度使用（社交媒体+拍照+视频）场景下也能轻松撑过一天半。然而<strong>80W有线快充在2026年的百瓦快充时代显得比较保守</strong>，从0充到满电大约需要50分钟。对于习惯「充电十分钟用半天」的用户来说，这可能是日常体验中最明显的短板。此外，<strong>全系不支持无线充电</strong>，考虑到S系列的目标用户画像（年轻女性、看重便利性），这是一个遗憾。</p>
-        </div>
-
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">7200mAh大电池是实打实的用户体验提升，而80W充电则暴露了vivo在产品定义上的取舍逻辑。S系列不是性能旗舰，不需要卷百瓦快充来秀肌肉。但问题是——中端机用户才是对快充感知最强的人群，因为他们往往没有随时充电的条件。如果下一代能在充电功率上追平主流水平，S60的续航竞争力会完整很多。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">Performance & Specs</span></div>
-        <h3 class="ch-title">性能与规格：标准版够用，元气版需谨慎</h3>
-        <div class="ch-intro">S60系列采用了标准版+元气版的双档策略，在核心处理器上做出了明显区隔——标准版搭载骁龙8s Gen3，元气版则是天玑7500。这种差异化定价策略意味着选购时需要格外注意版本差异。</div>
-
-        <table class="spec-table">
-          <tr><th>项目</th><th>S60 标准版</th><th>S60 元气版</th></tr>
-          <tr><td>处理器</td><td>第三代骁龙8s</td><td>联发科天玑7500</td></tr>
-          <tr><td>屏幕</td><td colspan="2">6.59英寸 1.5K OLED 直屏 · 144Hz刷新率 · 10.7亿色</td></tr>
-          <tr><td>电池+充电</td><td colspan="2">7200mAh蓝海电池 + 80W有线快充</td></tr>
-          <tr><td>主摄</td><td>5000万像素 OIS</td><td>5000万像素</td></tr>
-          <tr><td>长焦</td><td>✅ 光学长焦</td><td>❌ 无</td></tr>
-          <tr><td>影像算法</td><td colspan="2">✅ 完全一致（4K Live / 3D空间视效 / 地平线OIS）</td></tr>
-          <tr><td>指纹</td><td colspan="2">3D超声波指纹2.0（湿手秒开）</td></tr>
-          <tr><td>防水</td><td colspan="2">IP69 / IP68 双认证</td></tr>
-          <tr><td>特色功能</td><td colspan="2">校园游戏专网加速 · SGS抗跌耐摔 · NFC · 红外遥控</td></tr>
-          <tr><td>配色</td><td colspan="2">星星海 / 初夏绿 / 仲夏夜</td></tr>
-        </table>
-
-        <div class="r-feat">
-          <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">芯片</span></div>
-          <h3>骁龙8s Gen3 vs 天玑7500：不只是跑分差距</h3>
-          <p>标准版搭载的<strong>第三代骁龙8s</strong>基于台积电4nm工艺，GPU和AI性能对影像处理和游戏体验都有明显的加成——尤其是在4K Live原相机的实时渲染和3D空间视效的计算上，骁龙8s的ISP和NPU优势会直接转化为功能体验的提升。而<strong>元气版的天玑7500</strong>虽然日常使用流畅度没有问题，但在影像处理速度、游戏高帧率稳定性等场景下会有感知明显的差距。</p>
-          <p>好消息是，<strong>两款机型的影像算法完全一致</strong>——4K Live原相机、3D空间视效、地平线OIS防抖等功能在元气版上全部保留。这是vivo非常聪明的一个决策：让入门用户也能享受到S系列的核心影像体验，只是在处理器和长焦镜头这两个「可以接受降级」的维度做减法。</p>
-        </div>
-
-        <div class="r-feat">
-          <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">亮点</span></div>
-          <h3>3D超声波指纹2.0 + IP69防水：越级配置的诚意</h3>
-          <p>vivo在S60上延续了品牌「越级配置」的传统——<strong>3D超声波指纹2.0</strong>在2500-4000元价位段几乎是独一份的存在，支持湿手解锁的特性在日常使用中非常实用。而<strong>IP69/IP68双防水认证</strong>让S60在海边、雨天、浴室等场景下完全无后顾之忧，配合三亚海边发布会的场景叙事可谓恰到好处。再加上<strong>校园游戏专网加速、SGS抗跌耐摔认证、全功能NFC、红外遥控</strong>等实用配置，S60在体验细节上没有留下明显短板。</p>
-        </div>
-
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">S60系列的规格策略体现了vivo对中端市场的深刻理解：核心体验（影像、屏幕、指纹、防水）全力堆满，次要维度（处理器分级、无线充电砍掉）果断取舍。这种策略让元气版在2464元的价位上提供了远超同级的影响力和体验丰富度，也让标准版在3099元的价格上有了「贵得有道理」的底气。唯一需要提醒的是——如果你对长焦拍摄和游戏性能有需求，元气版的天玑7500和无长焦的短板可能会在半年后让你产生换机冲动。</div></div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">Pricing & Advice</span></div>
-        <h3 class="ch-title">价格分析与选购指南</h3>
-        <div class="ch-intro">国补后的价格让S60系列竞争力大增，但各版本之间的价差和配置差异需要仔细权衡。以下是各版本的国补后到手价与选购建议。</div>
-
-        <table class="spec-table">
-          <tr><th>版本</th><th>原价</th><th>国补后</th><th>推荐指数</th></tr>
-          <tr><td>元气版 8+256G</td><td>¥2899</td><td><strong>¥2464</strong></td><td>⭐⭐⭐⭐ · 入门首选</td></tr>
-          <tr><td>元气版 12+256G</td><td>¥3199</td><td><strong>¥2719</strong></td><td>⭐⭐⭐⭐⭐ · 最佳性价比</td></tr>
-          <tr><td>元气版 12+512G</td><td>¥3499</td><td><strong>¥2999</strong></td><td>⭐⭐⭐ · 大存储刚需可选</td></tr>
-          <tr><td>标准版 12+256G</td><td>¥3599</td><td><strong>¥3099</strong></td><td>⭐⭐⭐⭐ · 有长焦需求就选</td></tr>
-          <tr><td>标准版 16+512G</td><td>¥4399</td><td><strong>¥3899</strong></td><td>⭐⭐⭐ · 旗舰级预算用户</td></tr>
-        </table>
-
-        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐元气版12+256G（¥2719）</strong>。相比8+256G仅多出255元即可获得4GB额外内存，这对多任务和长期使用流畅度至关重要。如果你不玩原神级别的大型游戏、对长焦没有刚需，元气版的核心体验与标准版几乎一致——4K Live、3D空间视效、7200mAh、超声波指纹全部完整保留。而对于有长焦刚需的用户，<strong>标准版12+256G（¥3099）</strong>是最均衡的选择：骁龙8s Gen3+长焦镜头让S60具备了一定的「准旗舰」体验。</div></div>
-
-        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>618预测与入手时机</strong>：元气版8+256G有望降至¥2199左右，标准版12+256G可能触达¥2799。如果你不是发布会当天必须拿到的「首发党」，强烈建议等到618大促再入手——vivo S系列历年618降幅通常在200-400元之间。届时元气版8+256G在2000元出头就能买到4K Live原相机+3D空间视效+7200mAh+超声波指纹的组合，性价比将碾压同档位所有竞品。</div></div>
-      </div>
-
-      <div class="r-take">
-        <div class="r-take-n">01</div>
-        <div class="r-take-b">
-          <h3>影像是核心护城河，且护城河很深</h3>
-          <p>4K Live原相机和3D空间视效不是PPT创新，而是有实际使用场景的技术突破。配合小红书平台独占发布，S60在社交影像这个细分赛道上几乎没有直接对手。</p>
-        </div>
-      </div>
-      <div class="r-take">
-        <div class="r-take-n">02</div>
-        <div class="r-take-b">
-          <h3>元气版影像不缩水，是最诚意的入门方案</h3>
-          <p>vivo在元气版上保留全部影像算法的策略非常明智。2464元起就能体验到S60的核心价值，这是Z世代用户「花最少的钱，拍最好看的照片」的最优解。</p>
-        </div>
-      </div>
-      <div class="r-take">
-        <div class="r-take-n">03</div>
-        <div class="r-take-b">
-          <h3>标准版贵得有道理，但不是刚需</h3>
-          <p>骁龙8s Gen3和长焦镜头让标准版体验更完整，但3099元的起售价在多了一个零的元气版（2464元）面前稍显尴尬——差价645元主要换来更强的处理器和一个你可能一年用不了几次的长焦。</p>
-        </div>
-      </div>
-      <div class="r-take">
-        <div class="r-take-n">04</div>
-        <div class="r-take-b">
-          <h3>等618，这几乎是共识</h3>
-          <p>无论选哪个版本，618大促的降价会让S60系列的性价比再上一个台阶。元气版下探至2000元档后，将彻底改写中端影像手机的市场格局。</p>
-        </div>
-      </div>
-    
-  </div>
+<!-- Floating petal decoration -->
+<div class="petal-deco">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
 </div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026年5月29日 · 三亚 · 星星海发布会</div>
+    <h1>vivo S60系列：<span class="g">主打社交影像的Z世代潮机</span></h1>
+    <div class="hero-sub">首发4K Live原相机与3D空间视效技术，7200mAh蓝海电池 + 3D超声波指纹2.0，以2899元起售价重新定义中端影像手机的价值标准。代言人田曦薇空降星星海，用一场海边发布会宣告S系列的全面进化。</div>
+    <div class="hero-chips"><span>4K Live原相机</span><span>3D空间视效</span><span>7200mAh</span><span>超声波指纹</span><span>IP69</span><span>2899起</span></div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z" fill="#12091a" opacity="0.5"/>
+    <path d="M0,80 C360,140 720,20 1080,80 C1260,110 1380,60 1440,80 L1440,120 L0,120 Z" fill="#12091a"/>
+  </svg>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+  <div class="bento">
+    <div class="bt bt-hero">
+      <div class="bt-headline">核心结论：<strong>影像是唯一护城河</strong></div>
+      <div class="bt-sub">vivo S60系列精准卡位2500-4000元社交影像赛道。4K Live原相机和3D空间视效是真正差异化的功能创新——不是参数堆砌，而是实实在在的拍摄体验升级。但元气版天玑7500性能短板和80W充电在同档位中略显保守，标准版3099的起售价也需要618促销来消化。</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">电池</div>
+      <div class="bt-num">7200<span>mAh</span></div>
+      <div class="bt-val">蓝海电池 · 80W有线快充</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">屏幕</div>
+      <div class="bt-num">144<span>Hz</span></div>
+      <div class="bt-val">6.59英寸 1.5K OLED直屏</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">起售价</div>
+      <div class="bt-num">2464<span>元</span></div>
+      <div class="bt-val">元气版 · 国补后价格</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">防水等级</div>
+      <div class="bt-num">IP69<span>/68</span></div>
+      <div class="bt-val">同档位最高防护标准</div>
+    </div>
+  </div>
+
+  <!-- Chapter 01 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-badge">01</div>
+      <span class="ch-kick">Camera</span>
+    </div>
+    <h2 class="ch-title">4K Live原相机：不是参数升级，是创作方式的变革</h2>
+    <p class="ch-intro">vivo S60系列的核心卖点全部围绕影像展开。这不是简单的摄像头参数堆砌，而是一套从拍摄、处理到分享的完整影像体验链——其中4K Live原相机和3D空间视效是最具差异化的两项创新。</p>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">影像革命</span></div>
+      <h3>首发4K Live原相机：手机Livephoto的里程碑</h3>
+      <p>此前手机Livephoto最高分辨率停留在1080P，而vivo S60直接将Livephoto分辨率提升至<strong>4K超高清</strong>，配合地平线OIS光学防抖，彻底解决了Livephoto长期以来「抖、糊、差」的体验痛点。这不仅仅是分辨率的数字提升——4K意味着每一帧Livephoto都可以作为高清静态照片单独导出和使用，极大拓展了Livephoto的实际价值。</p>
+      <p>与之配套的是vivo开发的四大Livephoto创意玩法：<strong>Live调色盘</strong>支持录制过程中实时可视化调色，<strong>4K星光Live</strong>优化弱光场景下的动态捕捉，<strong>冷白人像Live</strong>专为人像肤色优化，<strong>灵感趣贴Live</strong>则是在动态影像上叠加创意贴纸。这套组合拳意味着vivo不是简单地把硬件升级了就完事，而是在软件体验层面做了深度思考。</p>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">社交创新</span></div>
+      <h3>3D空间视效 + 小红书深度合作：社交传播的精准卡位</h3>
+      <p>S60首发<strong>3D空间视效技术</strong>：任意选择一张Live封面帧，一键生成带有景深层次的3D空间效果，晃动手机即可呈现裸眼3D视觉。更关键的是，vivo与小红书达成了深度合作——<strong>S60是全行业唯一支持在小红书平台直接发布3D空间图的机型</strong>。这意味着S60用户在小红书上发布的内容天然具有更高的视觉冲击力和平台推荐权重。</p>
+      <p>这种「硬件功能 + 平台首发」的组合打法非常聪明。3D空间视效本身不是什么颠覆性技术，但通过锁定小红书这个Z世代最活跃的社交平台作为独占发布渠道，vivo成功将技术功能转化为社交货币——这正是S系列目标用户（18-30岁女性为主）最看重的价值。</p>
+    </div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIRk1wAAS--ij-P5YAAIdvQO_ay0ABL8S864.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海配色背面" loading="lazy">
+        <figcaption>vivo S60 星星海配色 · 星芒光刻工艺</figcaption>
+        <span class="m-badge">首发配色</span>
+      </figure>
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNqIJqTeAAW0LuZP0b8AAIdvQPEKj8ABbRG674.jpg" onclick="openLightbox(this.src)" alt="vivo S60 星星海侧面" loading="lazy">
+        <figcaption>透明Deco设计 · 可自定义贴纸</figcaption>
+        <span class="m-badge">穿搭自由</span>
+      </figure>
+    </div>
+
+    <div class="note note-c">
+      <span class="note-l">点评</span>
+      <div class="note-t">vivo S60的影像策略非常清晰——不做全能影像旗舰，只做「社交媒体上最好看的那一台」。4K Live原相机和3D空间视效都不是硬核摄影爱好者关心的技术指标，但却是小红书、抖音等平台的内容创作利器。这种聚焦Z世代社交需求的精准定位，比盲目堆砌摄像头参数要高明得多。唯一的遗憾是标准版才配备长焦镜头，元气版在变焦能力上有所缺失。</div>
+    </div>
+  </div>
+
+  <!-- Chapter 02 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-badge">02</div>
+      <span class="ch-kick">Design & Battery</span>
+    </div>
+    <h2 class="ch-title">颜值即正义：夏日设计语言与大电池的平衡术</h2>
+    <p class="ch-intro">S60系列在设计上延续了vivo S系列一贯的高颜值路线，同时塞入了7200mAh的大电池——这在影像中端机中是一个不小的工程挑战。</p>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">设计</span></div>
+      <h3>星星海配色 + 透明Deco：让你「穿」出新意</h3>
+      <p>后盖采用<strong>星芒光刻 + 一体浮光冷雕玻璃</strong>工艺，配合金属中框，手感和质感都达到了vivo中端机的最佳水准。三大夏日配色——<strong>星星海、初夏绿、仲夏夜</strong>——清新明亮，符合年轻用户审美。透明Deco摄像头模组灵感被认为来自于iPhone 17系列的设计方向，但vivo在此之上加入了贴纸自定义玩法，用户可以根据穿搭更换Deco区域的装饰贴纸，实现<strong>「手机也是穿搭单品」</strong>的概念。</p>
+    </div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="https://doc-fd.zol-img.com.cn/t_s640x2000_w1/g8/M00/07/08/ChMkLWoNHNuIJRXsAAXVyWE1XDsAAIdvQPSs1QABdXh040.jpg" onclick="openLightbox(this.src)" alt="vivo S60 透明Deco设计" loading="lazy">
+        <figcaption>透明Deco摄像头模组 · 支持贴纸自定义</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="https://n.sinaimg.cn/spider20260514/713/w650h863/20260514/1df8-1440cc836f7ce1f7b817aea111d489ba.jpg" onclick="openLightbox(this.src)" alt="vivo S60 一体冷雕工艺" loading="lazy">
+        <figcaption>一体浮光冷雕玻璃 · 金属中框</figcaption>
+        <span class="m-badge">旗舰工艺</span>
+      </figure>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
+      <h3>7200mAh蓝海电池：续航扎实，充电略显保守</h3>
+      <p>7200mAh的超大容量电池让S60系列的续航表现达到了旗舰水平——即使在重度使用（社交媒体+拍照+视频）场景下也能轻松撑过一天半。然而<strong>80W有线快充在2026年的百瓦快充时代显得比较保守</strong>，从0充到满电大约需要50分钟。对于习惯「充电十分钟用半天」的用户来说，这可能是日常体验中最明显的短板。此外，<strong>全系不支持无线充电</strong>，考虑到S系列的目标用户画像（年轻女性、看重便利性），这是一个遗憾。</p>
+    </div>
+
+    <div class="note note-c">
+      <span class="note-l">点评</span>
+      <div class="note-t">7200mAh大电池是实打实的用户体验提升，而80W充电则暴露了vivo在产品定义上的取舍逻辑。S系列不是性能旗舰，不需要卷百瓦快充来秀肌肉。但问题是——中端机用户才是对快充感知最强的人群，因为他们往往没有随时充电的条件。如果下一代能在充电功率上追平主流水平，S60的续航竞争力会完整很多。</div>
+    </div>
+  </div>
+
+  <!-- Chapter 03 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-badge">03</div>
+      <span class="ch-kick">Performance & Specs</span>
+    </div>
+    <h2 class="ch-title">性能与规格：标准版够用，元气版需谨慎</h2>
+    <p class="ch-intro">S60系列采用了标准版+元气版的双档策略，在核心处理器上做出了明显区隔——标准版搭载骁龙8s Gen3，元气版则是天玑7500。这种差异化定价策略意味着选购时需要格外注意版本差异。</p>
+
+    <table class="spec-table">
+      <tr><th>项目</th><th>S60 标准版</th><th>S60 元气版</th></tr>
+      <tr><td>处理器</td><td>第三代骁龙8s</td><td>联发科天玑7500</td></tr>
+      <tr><td>屏幕</td><td colspan="2">6.59英寸 1.5K OLED 直屏 · 144Hz刷新率 · 10.7亿色</td></tr>
+      <tr><td>电池+充电</td><td colspan="2">7200mAh蓝海电池 + 80W有线快充</td></tr>
+      <tr><td>主摄</td><td>5000万像素 OIS</td><td>5000万像素</td></tr>
+      <tr><td>长焦</td><td>✅ 光学长焦</td><td>❌ 无</td></tr>
+      <tr><td>影像算法</td><td colspan="2">✅ 完全一致（4K Live / 3D空间视效 / 地平线OIS）</td></tr>
+      <tr><td>指纹</td><td colspan="2">3D超声波指纹2.0（湿手秒开）</td></tr>
+      <tr><td>防水</td><td colspan="2">IP69 / IP68 双认证</td></tr>
+      <tr><td>特色功能</td><td colspan="2">校园游戏专网加速 · SGS抗跌耐摔 · NFC · 红外遥控</td></tr>
+      <tr><td>配色</td><td colspan="2">星星海 / 初夏绿 / 仲夏夜</td></tr>
+    </table>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">芯片</span></div>
+      <h3>骁龙8s Gen3 vs 天玑7500：不只是跑分差距</h3>
+      <p>标准版搭载的<strong>第三代骁龙8s</strong>基于台积电4nm工艺，GPU和AI性能对影像处理和游戏体验都有明显的加成——尤其是在4K Live原相机的实时渲染和3D空间视效的计算上，骁龙8s的ISP和NPU优势会直接转化为功能体验的提升。而<strong>元气版的天玑7500</strong>虽然日常使用流畅度没有问题，但在影像处理速度、游戏高帧率稳定性等场景下会有感知明显的差距。</p>
+      <p>好消息是，<strong>两款机型的影像算法完全一致</strong>——4K Live原相机、3D空间视效、地平线OIS防抖等功能在元气版上全部保留。这是vivo非常聪明的一个决策：让入门用户也能享受到S系列的核心影像体验，只是在处理器和长焦镜头这两个「可以接受降级」的维度做减法。</p>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">亮点</span></div>
+      <h3>3D超声波指纹2.0 + IP69防水：越级配置的诚意</h3>
+      <p>vivo在S60上延续了品牌「越级配置」的传统——<strong>3D超声波指纹2.0</strong>在2500-4000元价位段几乎是独一份的存在，支持湿手解锁的特性在日常使用中非常实用。而<strong>IP69/IP68双防水认证</strong>让S60在海边、雨天、浴室等场景下完全无后顾之忧，配合三亚海边发布会的场景叙事可谓恰到好处。再加上<strong>校园游戏专网加速、SGS抗跌耐摔认证、全功能NFC、红外遥控</strong>等实用配置，S60在体验细节上没有留下明显短板。</p>
+    </div>
+
+    <div class="note note-c">
+      <span class="note-l">点评</span>
+      <div class="note-t">S60系列的规格策略体现了vivo对中端市场的深刻理解：核心体验（影像、屏幕、指纹、防水）全力堆满，次要维度（处理器分级、无线充电砍掉）果断取舍。这种策略让元气版在2464元的价位上提供了远超同级的影响力和体验丰富度，也让标准版在3099元的价格上有了「贵得有道理」的底气。唯一需要提醒的是——如果你对长焦拍摄和游戏性能有需求，元气版的天玑7500和无长焦的短板可能会在半年后让你产生换机冲动。</div>
+    </div>
+  </div>
+
+  <!-- Chapter 04 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-badge">04</div>
+      <span class="ch-kick">Pricing & Advice</span>
+    </div>
+    <h2 class="ch-title">价格分析与选购指南</h2>
+    <p class="ch-intro">国补后的价格让S60系列竞争力大增，但各版本之间的价差和配置差异需要仔细权衡。以下是各版本的国补后到手价与选购建议。</p>
+
+    <table class="spec-table">
+      <tr><th>版本</th><th>原价</th><th>国补后</th><th>推荐指数</th></tr>
+      <tr><td>元气版 8+256G</td><td>¥2899</td><td><strong>¥2464</strong></td><td>⭐⭐⭐⭐ · 入门首选</td></tr>
+      <tr><td>元气版 12+256G</td><td>¥3199</td><td><strong>¥2719</strong></td><td>⭐⭐⭐⭐⭐ · 最佳性价比</td></tr>
+      <tr><td>元气版 12+512G</td><td>¥3499</td><td><strong>¥2999</strong></td><td>⭐⭐⭐ · 大存储刚需可选</td></tr>
+      <tr><td>标准版 12+256G</td><td>¥3599</td><td><strong>¥3099</strong></td><td>⭐⭐⭐⭐ · 有长焦需求就选</td></tr>
+      <tr><td>标准版 16+512G</td><td>¥4399</td><td><strong>¥3899</strong></td><td>⭐⭐⭐ · 旗舰级预算用户</td></tr>
+    </table>
+
+    <div class="note note-a">
+      <span class="note-l">购买启示</span>
+      <div class="note-t"><strong>最推荐元气版12+256G（¥2719）</strong>。相比8+256G仅多出255元即可获得4GB额外内存，这对多任务和长期使用流畅度至关重要。如果你不玩原神级别的大型游戏、对长焦没有刚需，元气版的核心体验与标准版几乎一致——4K Live、3D空间视效、7200mAh、超声波指纹全部完整保留。而对于有长焦刚需的用户，<strong>标准版12+256G（¥3099）</strong>是最均衡的选择：骁龙8s Gen3+长焦镜头让S60具备了一定的「准旗舰」体验。</div>
+    </div>
+
+    <div class="note note-a">
+      <span class="note-l">购买启示</span>
+      <div class="note-t"><strong>618预测与入手时机</strong>：元气版8+256G有望降至¥2199左右，标准版12+256G可能触达¥2799。如果你不是发布会当天必须拿到的「首发党」，强烈建议等到618大促再入手——vivo S系列历年618降幅通常在200-400元之间。届时元气版8+256G在2000元出头就能买到4K Live原相机+3D空间视效+7200mAh+超声波指纹的组合，性价比将碾压同档位所有竞品。</div>
+    </div>
+  </div>
+
+  <!-- Key Takeaways -->
+  <div style="margin-top: 56px;">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--v-pink); text-transform: uppercase; margin-bottom: 10px;">Key Takeaways</div>
+      <h2 style="font-family: var(--v-serif); font-size: 26px; font-weight: 700; background: var(--v-grad); -webkit-background-clip: text; background-clip: text; color: transparent;">核心要点</h2>
+    </div>
+
+    <div class="take">
+      <div class="take-n">01</div>
+      <div class="take-b">
+        <h3>影像是核心护城河，且护城河很深</h3>
+        <p>4K Live原相机和3D空间视效不是PPT创新，而是有实际使用场景的技术突破。配合小红书平台独占发布，S60在社交影像这个细分赛道上几乎没有直接对手。</p>
+      </div>
+    </div>
+    <div class="take">
+      <div class="take-n">02</div>
+      <div class="take-b">
+        <h3>元气版影像不缩水，是最诚意的入门方案</h3>
+        <p>vivo在元气版上保留全部影像算法的策略非常明智。2464元起就能体验到S60的核心价值，这是Z世代用户「花最少的钱，拍最好看的照片」的最优解。</p>
+      </div>
+    </div>
+    <div class="take">
+      <div class="take-n">03</div>
+      <div class="take-b">
+        <h3>标准版贵得有道理，但不是刚需</h3>
+        <p>骁龙8s Gen3和长焦镜头让标准版体验更完整，但3099元的起售价在多了一个零的元气版（2464元）面前稍显尴尬——差价645元主要换来更强的处理器和一个你可能一年用不了几次的长焦。</p>
+      </div>
+    </div>
+    <div class="take">
+      <div class="take-n">04</div>
+      <div class="take-b">
+        <h3>等618，这几乎是共识</h3>
+        <p>无论选哪个版本，618大促的降价会让S60系列的性价比再上一个台阶。元气版下探至2000元档后，将彻底改写中端影像手机的市场格局。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
   <img id="lightboxImg" src="" alt="查看大图">
 </div>
 <script>
-// Lightbox for images
-document.querySelectorAll('.report-body img').forEach(function(img) {
+// Lightbox
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+document.querySelectorAll('.fig img').forEach(function(img) {
   img.addEventListener('click', function() {
-    document.getElementById('lightboxImg').src = this.src;
-    document.getElementById('lightbox').classList.add('show');
+    openLightbox(this.src);
   });
 });
 document.addEventListener('keydown', function(e) {

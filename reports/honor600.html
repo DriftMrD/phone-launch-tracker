@@ -3,426 +3,743 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>荣耀600系列 发布会报告 · 手机发布会追踪器</title>
+<title>荣耀600系列 发布会报告</title>
 <style>
-  :root {
-    --bg: #fafaf9;
-    --card: #ffffff;
-    --border: #e5e5e0;
-    --text: #1a1a1a;
-    --muted: #737373;
-  }
+  /* ===== 全局基础 ===== */
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
+  html, body {
+    overflow-x: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  :root {
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-  /* === 报告弹窗 === */
-  .overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.45); z-index: 1000; display: none;
-    animation: fadeIn 0.2s;
-  }
-  .overlay.show { display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  .report-panel {
-    background: #fff; border-radius: 18px; max-width: 680px; width: 100%;
-    animation: slideUp 0.25s; overflow: hidden; margin: auto 0;
-  }
-  .report-header {
-    padding: 24px 28px 16px; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .report-header h2 { font-size: 20px; font-weight: 700; }
-  .report-header .close-btn {
-    width: 36px; height: 36px; border-radius: 50%; border: none; background: #f3f3f3;
-    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s; color: var(--muted);
-  }
-  .report-header .close-btn:hover { background: #e5e5e5; }
-  .report-body { padding: 24px 28px 32px; max-height: 75vh; overflow-y: auto; }
-  .report-body h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--text); }
-  .report-body h3:first-child { margin-top: 0; }
-  .report-body p { font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.7; }
-  .report-body ul { padding-left: 20px; margin-bottom: 10px; }
-  .report-body li { font-size: 14px; color: #444; margin-bottom: 4px; line-height: 1.6; }
-  .report-body .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 13px; }
-  .report-body .spec-table th { background: #f7f7f5; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid var(--border); }
-  .report-body .spec-table td { padding: 8px 12px; border: 1px solid var(--border); color: #333; }
-  .report-body .price-card {
-    display: inline-block; background: #f0f9ff; border: 1px solid #bae6fd;
-    border-radius: 10px; padding: 10px 16px; margin: 4px 6px 4px 0; font-size: 13px;
-  }
-  .report-body .price-card strong { color: #0369a1; font-size: 16px; }
-  .report-body .price-card .orig { text-decoration: line-through; color: #999; font-size: 12px; }
-  .report-body .highlight-box {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border-radius: 12px; padding: 14px 18px; margin: 12px 0; font-size: 14px;
-    border: 1px solid #fcd34d;
-  }
-  .report-body .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
-  .report-body .pro-con > div { border-radius: 10px; padding: 14px; font-size: 13px; }
-  .report-body .pro-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .report-body .con-box { background: #fef2f2; border: 1px solid #fecaca; }
-  .report-body .pro-con h4 { font-size: 13px; margin-bottom: 6px; }
-  .report-body .pro-con li { font-size: 13px; margin-bottom: 3px; }
-  .report-body .product-gallery {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px;
-  }
-  .report-body .product-gallery img {
-    width: 100%; border-radius: 10px; object-fit: cover; aspect-ratio: 4/3;
-    background: #f3f3f3; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
-    border: 1px solid var(--border);
-  }
-  .report-body .product-gallery img:hover {
-    transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  }
-  .report-body .hero-img {
-    width: 100%; border-radius: 14px; margin: 12px 0 16px; object-fit: cover;
-    max-height: 320px; border: 1px solid var(--border);
-  }
-  .report-body .img-caption {
-    font-size: 11px; color: #999; text-align: center; margin: -8px 0 12px;
-  }
-
-  /* === 报告内容：杂志式升级 === */
-  .report-body {
-    --r-ink: #1a1c22; --r-ink2: #454a56; --r-ink3: #7b818f;
-    --r-line: #e7e7e0; --r-indigo: #4655e8; --r-indigo-d: #222f96;
-    --r-indigo-bg: #eef0fe; --r-amber: #b96a08; --r-amber-d: #7d4a06;
-    --r-amber-bg: #fdf6ea; --r-amber-line: #e9a23b;
-    --r-dark: #0b0b0f; --r-tile: #17181d;
-    --r-grad: linear-gradient(116deg, #3b5bff, #7c3aed 52%, #ff5a36 118%);
-    --r-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
-    --r-mono: 'SF Mono', ui-monospace, Consolas, monospace;
-    font-size: 15.5px; line-height: 1.8; color: var(--r-ink);
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  .report-body > *:first-child { margin-top: 0; }
 
-  /* Hero 头部 */
-  .report-body .r-hero {
-    background: var(--r-dark); color: #fff; border-radius: 16px;
-    padding: 36px 28px 32px; margin: 0 0 24px; position: relative; overflow: hidden;
-  }
-  .report-body .r-hero::before {
-    content:''; position:absolute; inset:0; background:
-      radial-gradient(600px 300px at 85% -10%, rgba(124,58,237,.35), transparent 60%),
-      radial-gradient(480px 260px at 5% 10%, rgba(59,91,255,.28), transparent 60%),
-      radial-gradient(400px 220px at 55% 120%, rgba(255,90,54,.15), transparent 62%);
-  }
-  .report-body .r-hero > * { position: relative; }
-  .report-body .r-hero .r-eyebrow {
-    font-size: 11.5px; letter-spacing: .3em; color:#a7adc4; font-weight:700;
-    text-transform:uppercase; margin-bottom:14px;
-  }
-  .report-body .r-hero h3 {
-    font-family: var(--r-serif); font-size: 28px; font-weight:800; line-height:1.15;
-    letter-spacing:-.01em; color:#fff; margin:0 0 12px;
-  }
-  .report-body .r-hero h3 .g { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-hero .r-sub {
-    font-family: var(--r-serif); font-size: 15.5px; color:#cfd4e2; line-height:1.65; max-width:520px;
-  }
-  .report-body .r-hero .r-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
-  .report-body .r-hero .r-chips span {
-    font-size:11.5px; color:#b3b9c9; background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.1); padding:5px 12px; border-radius:999px;
+  /* ===== 荣耀品牌变量 ===== */
+  :root {
+    --bg-deep: #0a0e14;
+    --bg-surface: #111820;
+    --bg-elevated: #161f2a;
+    --border-subtle: rgba(26, 111, 232, 0.15);
+    --border-light: rgba(255, 255, 255, 0.06);
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --text-muted: #5c6370;
+    --accent-blue: #1a6fe8;
+    --accent-blue-soft: rgba(26, 111, 232, 0.12);
+    --accent-gold: #d4a853;
+    --accent-gold-soft: rgba(212, 168, 83, 0.10);
+    --serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, 'PingFang SC', serif;
+    --mono: 'SF Mono', ui-monospace, Consolas, monospace;
   }
 
-  /* Bento 摘要网格 */
-  .report-body .r-bento { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:20px 0 24px; }
-  .report-body .r-bt {
-    background: var(--r-tile); border:1px solid #26272e; border-radius:14px; padding:16px 18px;
-    display:flex; flex-direction:column; justify-content:center;
+  /* ===== 容器 ===== */
+  .report-page {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
   }
-  .report-body .r-bt-hero {
-    grid-column: span 2; background:
-      radial-gradient(340px 200px at 88% -20%, rgba(124,58,237,.42), transparent 65%),
-      radial-gradient(280px 180px at -5% 110%, rgba(59,91,255,.35), transparent 60%), var(--r-tile);
-  }
-  .report-body .r-bt .bt-lab { font-size:11px; font-weight:800; letter-spacing:.18em; color:#80869a; text-transform:uppercase; }
-  .report-body .r-bt .bt-num {
-    font-family: var(--r-serif); font-size:30px; font-weight:800; line-height:1.1;
-    background: var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:4px 0;
-  }
-  .report-body .r-bt .bt-val { font-size:13px; color:#9ba1b4; }
-  .report-body .r-bt-hero .bt-headline {
-    font-family: var(--r-serif); font-size:20px; font-weight:800; line-height:1.25; color:#fff; margin-bottom:6px;
-  }
-  .report-body .r-bt-hero .bt-headline strong { background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .report-body .r-bt-hero .bt-sub { font-size:13px; color:#9ba1b4; line-height:1.55; }
 
-  /* 章节带 */
-  .report-body .r-chapter { margin:32px 0 8px; padding:22px 20px 18px; background:#f2f2ec; border-radius:14px; border-top:3px solid var(--r-indigo); }
-  .report-body .r-chapter .ch-meta { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .report-body .r-chapter .ch-num {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:#fff;
-    background: var(--r-ink); padding:3px 9px; border-radius:7px; letter-spacing:.04em;
+  /* ===== HERO 区域 — 全屏沉浸式 ===== */
+  .hero-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 48px 72px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0e14 0%, #0d1520 50%, #0b1019 100%);
   }
-  .report-body .r-chapter .ch-kick { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--r-indigo-d); text-transform:uppercase; }
-  .report-body .r-chapter .ch-title {
-    font-family: var(--r-serif); font-size:24px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.2;
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(26, 111, 232, 0.18) 0%, transparent 70%);
+    filter: blur(60px);
+    animation: pulseBlue 6s ease-in-out infinite alternate;
   }
-  .report-body .r-chapter .ch-intro { font-size:15px; color:var(--r-ink2); margin-top:10px; line-height:1.75; }
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(212, 168, 83, 0.08) 0%, transparent 70%);
+    filter: blur(50px);
+  }
+  @keyframes pulseBlue {
+    from { opacity: 0.7; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.08); }
+  }
 
-  /* 功能条目 */
-  .report-body .r-feat { margin:24px 0 4px; padding-top:20px; border-top:1px solid var(--r-line); }
-  .report-body .r-feat:first-child { border-top:none; padding-top:4px; }
-  .report-body .r-f-meta { display:flex; align-items:center; gap:7px; margin-bottom:10px; }
-  .report-body .r-f-meta .f-idx {
-    font-family: var(--r-mono); font-size:11px; font-weight:700; color:var(--r-ink3);
-    border:1px solid var(--r-line); background:#fff; padding:2px 8px; border-radius:6px; letter-spacing:.03em;
+  /* 光圈装饰元素 */
+  .hero-section .aperture-ring {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    width: 280px;
+    height: 280px;
+    opacity: 0.06;
   }
-  .report-body .r-f-meta .f-tag {
-    font-size:11px; font-weight:700; letter-spacing:.02em; color:var(--r-indigo-d);
-    background:var(--r-indigo-bg); padding:3px 10px; border-radius:999px;
+  .hero-section .aperture-ring svg { width: 100%; height: 100%; }
+
+  /* 快门叶片装饰 */
+  .shutter-blades {
+    position: absolute;
+    bottom: 12%;
+    right: 12%;
+    width: 160px;
+    height: 160px;
+    opacity: 0.04;
+    animation: rotateSlow 30s linear infinite;
   }
-  .report-body .r-feat h3 {
-    font-family: var(--r-serif); font-size:22px; font-weight:800; line-height:1.28;
-    letter-spacing:-.008em; margin:0 0 12px; color:var(--r-ink);
+  @keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+  /* Hero 文字内容 */
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
   }
-  .report-body .r-feat p { font-size:15.5px; color:var(--r-ink2); line-height:1.82; margin-bottom:10px; }
-  .report-body .r-feat ul { padding-left:20px; margin:8px 0 12px; }
-  .report-body .r-feat li { font-size:15px; color:var(--r-ink2); line-height:1.75; margin-bottom:5px; }
-  .report-body .r-feat strong { color:var(--r-ink); font-weight:700; }
-  .report-body .r-feat code { font-family:var(--r-mono); font-size:13px; background:#eef0f6; padding:1.5px 6px; border-radius:5px; color:var(--r-indigo-d); }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-title .highlight {
+    background: linear-gradient(135deg, var(--accent-blue), #4da3ff, var(--accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-desc {
+    font-family: var(--serif);
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: rgba(201, 209, 217, 0.65);
+    line-height: 1.75;
+    max-width: 600px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-chips span {
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    color: rgba(159, 178, 210, 0.8);
+    background: rgba(26, 111, 232, 0.09);
+    border: 1px solid rgba(26, 111, 232, 0.18);
+    padding: 6px 16px;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+  }
+  .hero-chips span:hover {
+    background: rgba(26, 111, 232, 0.18);
+    border-color: rgba(26, 111, 232, 0.35);
+    color: #fff;
+  }
+
+  /* ===== Bento 数据网格 ===== */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 40px 24px 0;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+  }
+  .bento-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .bento-card:hover::before { opacity: 0.5; }
+  .bento-card:hover { border-color: rgba(26, 111, 232, 0.25); transform: translateY(-2px); }
+  .bento-hero {
+    grid-column: span 2;
+    background:
+      radial-gradient(400px 220px at 90% -10%, rgba(26, 111, 232, 0.12), transparent 65%),
+      radial-gradient(300px 180px at 0% 110%, rgba(212, 168, 83, 0.06), transparent 60%),
+      var(--bg-surface);
+    border-color: rgba(26, 111, 232, 0.2);
+  }
+  .bento-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .bento-value {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 36px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    margin: 4px 0;
+  }
+  .bento-value span {
+    font-size: 0.45em;
+    color: var(--accent-blue);
+    font-weight: 600;
+  }
+  .bento-note {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+  .bento-hero .bento-headline {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .bento-hero .bento-headline strong {
+    background: linear-gradient(135deg, var(--accent-blue), #6baaff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bento-hero .bento-sub {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 580px;
+  }
+
+  /* ===== 章节区域（照片框风格）===== */
+  .chapter-section {
+    padding: 56px 24px;
+    position: relative;
+  }
+  .chapter-box {
+    background: var(--bg-elevated);
+    border-radius: 20px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+  }
+  /* 照片框式边框效果 */
+  .chapter-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(26, 111, 232, 0.2) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(212, 168, 83, 0.12) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* 圆形徽章编号（相机按钮样式） */
+  .ch-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .ch-badge {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-blue), #1565c8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(26, 111, 232, 0.3), inset 0 1px 2px rgba(255,255,255,0.15);
+    position: relative;
+  }
+  .ch-badge::after {
+    content: ''; position: absolute;
+    inset: 3px; border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+  }
+  .ch-kick {
+    font-size: 10px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--accent-blue);
+  }
+  .ch-title {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .ch-intro {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-top: 14px;
+  }
+
+  /* ===== 功能条目 ===== */
+  .feat-block {
+    margin: 36px 0 0;
+    padding-top: 28px;
+    border-top: 1px dashed rgba(26, 111, 232, 0.12);
+  }
+  .feat-block:first-child { border-top: none; padding-top: 0; }
+  .feat-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .feat-idx {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+    background: rgba(26, 111, 232, 0.06);
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+  .feat-tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--accent-blue);
+    background: var(--accent-blue-soft);
+    border: 1px solid rgba(26, 111, 232, 0.2);
+    padding: 3px 12px;
+    border-radius: 999px;
+  }
+  .feat-block h3 {
+    font-family: var(--serif);
+    font-size: clamp(19px, 2.5vw, 23px);
+    font-weight: 800;
+    line-height: 1.28;
+    letter-spacing: -0.008em;
+    margin: 0 0 14px;
+    color: var(--text-primary);
+  }
+  .feat-block p {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.82;
+    margin-bottom: 12px;
+  }
+  .feat-block strong { color: var(--text-primary); font-weight: 700; }
+  .feat-block ul { padding-left: 20px; margin: 8px 0 14px; }
+  .feat-block li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.78;
+    margin-bottom: 5px;
+  }
 
   /* 图文并排 */
-  .report-body .r-cols { display:grid; grid-template-columns:minmax(0,4fr) minmax(0,5fr); gap:28px; align-items:start; margin:18px 0; }
-
-  /* 图片卡片 */
-  .report-body .r-fig {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; position:relative;
-  }
-  .report-body .r-fig img { width:100%; display:block; cursor:pointer; transition:transform .15s; }
-  .report-body .r-fig img:hover { transform:scale(1.02); }
-  .report-body .r-fig figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; background:#fafafa; }
-  .report-body .r-fig .m-badge {
-    position:absolute; top:10px; left:10px; z-index:2; font-size:10.5px; font-weight:700; color:#fff;
-    background:rgba(12,13,17,.78); backdrop-filter:blur(4px); padding:3px 8px; border-radius:6px;
+  .cols-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5.5fr);
+    gap: 32px;
+    align-items: start;
+    margin: 20px 0;
   }
 
-  /* 画廊网格 */
-  .report-body .r-gal { display:grid; gap:14px; margin:20px 0 8px; }
-  .report-body .r-gal.g2 { grid-template-columns:repeat(2,1fr); }
-  .report_body .r-gal.g3 { grid-template-columns:repeat(3,1fr); }
-  .report-body .r-gtile {
-    margin:0; border:1px solid var(--r-line); border-radius:13px; overflow:hidden;
-    background:#fff; display:flex; flex-direction:column;
+  /* 图片卡片 — 照片框风格 */
+  .photo-frame {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(26, 111, 232, 0.05);
   }
-  .report-body .r-gtile .g-box {
-    background:#f4f4ef; display:flex; align-items:center; justify-content:center; height:220px; overflow:hidden;
+  .photo-frame img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.35s ease;
+    display: block;
   }
-  .report-body .r-gal.g2 .r-gtile .g-box { height:240px; }
-  .report-body .r-gtile .g-box img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; cursor:pointer; }
-  .report-body .r-gtile figcaption { font-size:12px; color:var(--r-ink3); padding:9px 13px; border-top:1px solid var(--r-line); line-height:1.55; flex:1; }
-  .report-body .r-gtile .m-badge { top:10px; left:10px; }
+  .photo-frame img:hover { transform: scale(1.03); }
+  .photo-frame figcaption {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+  .photo-frame .frame-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: rgba(10, 14, 20, 0.8);
+    backdrop-filter: blur(6px);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-  /* 全幅图 */
-  .report-body .r-wide {
-    margin:20px 0 8px; border:1px solid var(--r-line); border-radius:14px; overflow:hidden;
+  /* 点评卡片 — 浅蓝背景 */
+  .review-card {
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 18px 0 4px;
+    position: relative;
+    border: 1px solid rgba(26, 111, 232, 0.15);
+    background: rgba(26, 111, 232, 0.07);
+    backdrop-filter: blur(8px);
   }
-  .report-body .r-wide img { width:100%; display:block; cursor:pointer; }
-  .report-body .r-wide figcaption { font-size:12px; color:var(--r-ink3); padding:9px 14px; background:#fff; border-top:1px solid var(--r-line); }
+  .review-card.review-insight {
+    background: rgba(26, 111, 232, 0.06);
+    border-color: rgba(26, 111, 232, 0.18);
+    border-left: 3px solid var(--accent-blue);
+  }
+  .review-card.review-tip {
+    background: rgba(212, 168, 83, 0.06);
+    border-color: rgba(212, 168, 83, 0.18);
+    border-left: 3px solid var(--accent-gold);
+  }
+  .review-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .review-insight .review-label { color: var(--accent-blue); }
+  .review-tip .review-label { color: var(--accent-gold); }
+  .review-text {
+    font-size: 14.5px;
+    line-height: 1.76;
+    color: var(--text-secondary);
+  }
+  .review-text strong { font-weight: 800; }
 
-  /* 点评 / 分析 Note */
-  .report-body .r-note {
-    border-radius:11px; padding:13px 17px; margin:14px 0 4px; position:relative;
+  /* 规格表 — 胶片/拍立得风格 */
+  .spec-table-wrap { margin: 16px 0 22px; overflow-x: auto; }
+  .spec-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13.5px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
-  .report-body .r-note .note-l {
-    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.12em;
-    text-transform:uppercase; margin-bottom:5px;
+  .spec-table thead th {
+    background: linear-gradient(135deg, #141c27, #1a2433);
+    color: var(--accent-blue);
+    padding: 13px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(26, 111, 232, 0.2);
   }
-  .report-body .r-note .note-t { font-size:14.5px; line-height:1.72; }
-  .report-body .r-note-c {
-    background:var(--r-indigo-bg); border:1px solid #dde2fd; border-left:3px solid var(--r-indigo);
+  .spec-table tbody tr {
+    background: var(--bg-surface);
+    transition: background 0.2s;
   }
-  .report-body .r-note-c .note-l { color:var(--r-indigo-d); }
-  .report-body .r-note-c .note-t { color:#2d3357; }
-  .report-body .r-note-a {
-    background:var(--r-amber-bg); border:1px solid #f4e4c4; border-left:3px solid var(--r-amber-line);
+  .spec-table tbody tr:hover { background: rgba(26, 111, 232, 0.04); }
+  .spec-table tbody tr:not(:last-child) td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   }
-  .report-body .r-note-a .note-l { color:var(--r-amber); }
-  .report-body .r-note-a .note-t { color:#5d3c10; }
-  .report-body .r-note-t strong { font-weight:800; }
+  .spec-table td {
+    padding: 12px 16px;
+    color: var(--text-secondary);
+  }
+  .spec-table td:first-child {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 12.5px;
+  }
+  .spec-table td strong {
+    color: var(--accent-gold);
+    font-weight: 800;
+    font-size: 15px;
+  }
 
   /* Key Takeaways */
-  .report-body .r-take {
-    display:flex; gap:22px; background:#fff; border:1px solid var(--r-line);
-    border-radius:16px; padding:28px 30px; margin:20px 0 8px;
-    box-shadow:0 8px 28px rgba(20,30,80,.06);
+  .takeaway-list { padding: 0 24px 64px; }
+  .takeaway-item {
+    display: flex;
+    gap: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    padding: 30px 32px;
+    margin-bottom: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .report-body .r-take:first-child { margin-top:24px; }
-  .report-body .r-take-n {
-    font-family: var(--r-serif); font-size:38px; font-weight:800; line-height:1;
-    letter-spacing:-.02em; flex:none;
-    background:var(--r-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  .takeaway-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent-blue), var(--accent-gold));
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+    transition: opacity 0.3s;
   }
-  .report-body .r-take-b h3 { font-family:var(--r-serif); font-size:19px; font-weight:800; margin:0 0 8px; color:var(--r-ink); }
-  .report-body .r-take-b p { font-size:14.5px; color:var(--r-ink2); line-height:1.74; margin:0; }
+  .takeaway-item:hover::before { opacity: 1; }
+  .takeaway-item:hover {
+    border-color: rgba(26, 111, 232, 0.2);
+    transform: translateX(4px);
+  }
+  .takeaway-num {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, var(--accent-blue), #4da3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.85;
+  }
+  .takeaway-body h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    color: var(--text-primary);
+  }
+  .takeaway-body p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.74;
+    margin: 0;
+  }
 
-  /* 规格表升级 */
-  .report-body .spec-table { margin:14px 0 18px; font-size:14px; border-radius:10px; overflow:hidden; }
-  .report-body .spec-table th { background:var(--r-ink); color:#fff; padding:10px 14px; font-size:13px; }
-  .report-body .spec-table td { padding:10px 14px; font-size:14px; color:var(--r-ink2); }
-
-  /* 价格卡升级 */
-  .report-body .price-card { padding:12px 18px; font-size:13.5px; margin:5px 7px 5px 0; }
-  .report-body .price-card strong { font-size:17px; }
-
-  /* highlight-box 升级 */
-  .report-body .highlight-box { font-size:14.5px; line-height:1.7; padding:14px 20px; }
-
-  /* 覆盖旧样式 */
-  .report-body h3 { font-family: var(--r-serif); font-size:22px; font-weight:800; letter-spacing:-.008em; margin:28px 0 10px; color:var(--r-ink); }
-  .report-body p { font-size:15.5px; color:var(--r-ink2); line-height:1.8; margin-bottom:10px; }
-  .report-body ul { padding-left:20px; margin-bottom:12px; }
-  .report-body li { font-size:15px; color:var(--r-ink2); margin-bottom:5px; line-height:1.72; }
-  .report-body .product-gallery { gap:10px; margin:16px 0 18px; }
-  .report-body .product-gallery img { aspect-ratio:4/3; border-radius:12px; }
-  .report-body .pro-con { gap:14px; margin:12px 0 18px; }
-  .report-body .pro-con > div { padding:16px; border-radius:12px; }
-  .report-body .pro-con h4 { font-size:13.5px; margin-bottom:8px; }
-  .report-body .pro-con li { font-size:13.5px; margin-bottom:4px; }
-  /* Lightbox for enlarged view */
-  /* Lightbox for enlarged view */
+  /* ===== Lightbox ===== */
   .lightbox {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
-    background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
     cursor: zoom-out;
+    backdrop-filter: blur(20px);
   }
   .lightbox.show { display: flex; }
   .lightbox img {
-    max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
-  }
-
-  @media (max-width: 600px) {
-    .card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
-    .brand-icon { width: 40px; height: 40px; font-size: 15px; }
-    header h1 { font-size: 22px; }
-    .report-header { padding: 18px 20px 14px; }
-    .report-header h2 { font-size: 17px; }
-    .report-body { padding: 18px 20px 28px; }
-    .report-body .pro-con { grid-template-columns: 1fr; }
-    .report-body .r-cols { grid-template-columns:1fr; gap:16px; }
-    .report-body .r-bento { grid-template-columns:1fr; }
-    .report-body .r-bt-hero { grid-column:auto; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns:1fr; }
-    .report-body .r-take { flex-direction:column; gap:10px; padding:20px; }
-    .report-body .r-hero { padding:28px 20px 24px; }
-    .report-body .r-hero h3 { font-size:22px; }
-    .report-body .r-feat h3 { font-size:19px; }
-    .report-body .r-chapter .ch-title { font-size:20px; }
-  }
-
-  .report-page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 20px 16px 60px;
-  }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    margin-bottom: 24px;
-    padding: 8px 14px;
+    max-width: 92vw;
+    max-height: 88vh;
     border-radius: 10px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    transition: all 0.15s;
-  }
-  .back-link:hover { border-color: #aaa; }
-  .back-link svg { width: 16px; height: 16px; }
-
-  @media (max-width: 600px) {
-    .report-page { padding: 12px 12px 48px; }
-    .back-link { font-size: 12px; }
-    .report-body .r-hero { padding: 24px 18px 20px; }
-    .report-body .r-hero h3 { font-size: 20px; }
-    .report-body .r-bento { grid-template-columns: 1fr; }
-    .report-body .r-bt-hero { grid-column: auto; }
-    .report-body .r-cols { grid-template-columns: 1fr; gap: 14px; }
-    .report-body .r-gal.g2, .report-body .r-gal.g3 { grid-template-columns: 1fr; }
-    .report-body .r-take { flex-direction: column; gap: 10px; padding: 20px; }
-    .report-body .r-feat h3 { font-size: 18px; }
-    .report-body .r-chapter .ch-title { font-size: 19px; }
+    object-fit: contain;
+    box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  /* ===== 响应式 ===== */
+  @media (max-width: 720px) {
+    .hero-section {
+      min-height: 75vh;
+      padding: 56px 24px 48px;
+    }
+    .hero-section .aperture-ring { width: 180px; height: 180px; right: 4%; opacity: 0.04; }
+    .shutter-blades { width: 100px; height: 100px; right: 6%; }
+    .bento-grid {
+      grid-template-columns: 1fr;
+      padding: 32px 16px 0;
+      gap: 10px;
+    }
+    .bento-hero { grid-column: auto; }
+    .chapter-section { padding: 40px 16px; }
+    .chapter-box { padding: 28px 22px; border-radius: 16px; }
+    .cols-layout { grid-template-columns: 1fr; gap: 20px; }
+    .cols-layout .photo-frame { order: -1; }
+    .takeaway-item {
+      flex-direction: column;
+      gap: 12px;
+      padding: 22px 20px;
+    }
+    .spec-table { font-size: 12px; }
+    .spec-table th, .spec-table td { padding: 10px 12px; }
+  }
+
+  @media (max-width: 420px) {
+    .hero-title { font-size: 26px; }
+    .hero-desc { font-size: 14px; }
+    .hero-chips span { font-size: 10.5px; padding: 5px 12px; }
+    .bento-card { padding: 18px 20px; }
+    .chapter-box { padding: 22px 18px; }
+  }
 </style>
 </head>
 <body>
+
 <div class="report-page">
-  <a class="back-link" href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>返回发布会列表</a>
-  <div class="report-body">
 
-      <div class="r-hero">
-        <div class="r-eyebrow">2026年5月25日 · 厦门 · 荣耀</div>
-        <h3>荣耀600系列：<span class="g">4K Live 微单革命</span></h3>
-        <div class="r-sub">全焦段4K Live直出 · 0.98mm极窄四等边 · 8600mAh青海湖电池 · 三档2294–3399元国补全覆盖，2亿像素4K Live首次下探2K档</div>
-        <div class="r-chips"><span>4K Live直出</span><span>0.98mm极窄边</span><span>8600mAh</span><span>2亿OIS</span><span>¥2294起</span></div>
+  <!-- ========== HERO 区域 ========== -->
+  <section class="hero-section">
+    <!-- 光圈SVG装饰 -->
+    <div class="aperture-ring">
+      <svg viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="96" stroke="#1a6fe8" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="84" stroke="#1a6fe8" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="68" stroke="#1a6fe8" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="48" stroke="#d4a853" stroke-width="0.5"/>
+        <path d="M100 4 A96 96 0 0 1 196 100" stroke="#1a6fe8" stroke-width="0.8" fill="none" opacity="0.5"/>
+        <g stroke="#1a6fe8" stroke-width="0.4" opacity="0.3">
+          <line x1="100" y1="4" x2="100" y2="196"/><line x1="4" y1="100" x2="196" y2="100"/>
+          <line x1="29" y1="29" x2="171" y2="171"/><line x1="171" y1="29" x2="29" y2="171"/>
+        </g>
+        <polygon points="100,20 115,85 185,100 115,115 100,180 85,115 15,100 85,85"
+                 stroke="#d4a853" stroke-width="0.5" fill="none" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <!-- 快门叶片SVG -->
+    <div class="shutter-blades">
+      <svg viewBox="0 0 100 100" fill="none">
+        <path d="M50 2 L58 40 L98 50 L58 60 L50 98 L42 60 L2 50 L42 40 Z" stroke="#1a6fe8" stroke-width="0.6" fill="none"/>
+        <path d="M50 12 L54 43 L88 50 L54 57 L50 88 L46 57 L12 50 L46 43 Z" stroke="#d4a853" stroke-width="0.4" fill="none"/>
+        <circle cx="50" cy="50" r="6" stroke="#1a6fe8" stroke-width="0.5" fill="none"/>
+      </svg>
+    </div>
+
+    <div class="hero-eyebrow">2026年5月25日 · 厦门 · 荣耀</div>
+    <h1 class="hero-title">荣耀600系列：<span class="highlight">4K Live 微单革命</span></h1>
+    <p class="hero-desc">全焦段4K Live直出 · 0.98mm极窄四等边 · 8600mAh青海湖电池 · 三档2294–3399元国补全覆盖，2亿像素4K Live首次下探2K档</p>
+    <div class="hero-chips">
+      <span>4K Live直出</span><span>0.98mm极窄边</span><span>8600mAh</span><span>2亿OIS</span><span>¥2294起</span>
+    </div>
+  </section>
+
+  <!-- ========== Bento 数据摘要 ========== -->
+  <div class="bento-grid">
+    <div class="bento-card bento-hero">
+      <div class="bento-label">核心结论</div>
+      <div class="bento-headline"><strong>4K Live</strong> 重新定义手机实况影像</div>
+      <div class="bento-sub">从0.6x超广角到7x长焦，全焦段4K Live直出，配合行业首创AI变焦闪光灯，暗光实况不再是禁区</div>
+    </div>
+    <div class="bento-card">
+      <div class="bento-label">起步价</div>
+      <div class="bento-value">2294<span>元</span></div>
+      <div class="bento-note">元气版国补后 · 2亿像素+4K Live首次破2K3</div>
+    </div>
+    <div class="bento-card">
+      <div class="bento-label">电池容量</div>
+      <div class="bento-value">8600<span>mAh</span></div>
+      <div class="bento-note">超级版青海湖电池 · Pro版约9000mAh更猛</div>
+    </div>
+    <div class="bento-card">
+      <div class="bento-label">边框宽度</div>
+      <div class="bento-value">0.98<span>mm</span></div>
+      <div class="bento-note">行业最窄四等边 · 视觉冲击力极强</div>
+    </div>
+    <div class="bento-card">
+      <div class="bento-label">光学变焦</div>
+      <div class="bento-value">3.5<span>x</span></div>
+      <div class="bento-note">Pro版潜望长焦 · 0.6x–7x光学品质覆盖</div>
+    </div>
+  </div>
+
+  <!-- ========== 第一章：4K Live影像 ========== -->
+  <section class="chapter-section">
+    <div class="chapter-box">
+      <div class="ch-meta">
+        <div class="ch-badge">01</div>
+        <span class="ch-kick">LIVE IMAGING</span>
       </div>
+      <h2 class="ch-title">4K Live直出：手机实况影像的质变</h2>
+      <p class="ch-intro">荣耀600系列最大的技术突破不在于硬件参数本身，而在于把「4K Live实况照片」从一个概念变成了一个全焦段可用的完整功能——这是2026年手机影像赛道最值得关注的技术路线之一。</p>
 
-      <div class="r-bento">
-        <div class="r-bt r-bt-hero">
-          <div class="bt-lab">核心结论</div>
-          <div class="bt-headline"><strong>4K Live</strong> 重新定义手机实况影像</div>
-          <div class="bt-sub">从0.6x超广角到7x长焦，全焦段4K Live直出，配合行业首创AI变焦闪光灯，暗光实况不再是禁区</div>
+      <div class="feat-block">
+        <div class="feat-meta">
+          <span class="feat-idx">01</span>
+          <span class="feat-tag">影像</span>
+          <span class="feat-tag">行业首创</span>
         </div>
-        <div class="r-bt">
-          <div class="bt-lab">起步价</div>
-          <div class="bt-num">2294<span>元</span></div>
-          <div class="bt-val">元气版国补后 · 2亿像素+4K Live首次破2K3</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">电池容量</div>
-          <div class="bt-num">8600<span>mAh</span></div>
-          <div class="bt-val">超级版青海湖电池 · Pro版约9000mAh更猛</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">边框宽度</div>
-          <div class="bt-num">0.98<span>mm</span></div>
-          <div class="bt-val">行业最窄四等边 · 视觉冲击力极强</div>
-        </div>
-        <div class="r-bt">
-          <div class="bt-lab">光学变焦</div>
-          <div class="bt-num">3.5<span>x</span></div>
-          <div class="bt-val">Pro版潜望长焦 · 0.6x–7x光学品质覆盖</div>
-        </div>
-      </div>
-
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">01</span><span class="ch-kick">LIVE IMAGING</span></div>
-        <h2 class="ch-title">4K Live直出：手机实况影像的质变</h2>
-        <p class="ch-intro">荣耀600系列最大的技术突破不在于硬件参数本身，而在于把「4K Live实况照片」从一个概念变成了一个全焦段可用的完整功能——这是2026年手机影像赛道最值得关注的技术路线之一。</p>
-      </div>
-
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">01</span><span class="f-tag">影像</span><span class="f-tag">行业首创</span></div>
         <h3>全焦段4K Live直出：从0.6x到7x的完整覆盖</h3>
         <p>目前市面上的Live实况照片功能，绝大多数只支持主摄拍摄，且分辨率被限制在1080P甚至更低。荣耀600 Pro做到了<strong>0.6x超广角到7x长焦的全焦段4K Live直出</strong>——这意味着无论你用超广角拍风景、主摄拍人像、还是长焦拍远景，都能生成4K分辨率的实况照片，而且可以在拍摄后自由选择最佳帧。这不是简单的参数堆叠，而是对用户拍摄场景的完整覆盖。</p>
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">4K Live的真正价值不在「4K」这个数字，而在于「全焦段」三个字。过去实况照片是主摄专属功能，长焦和超广角场景只能拍静态——这等于告诉你：想拍实况，只能用主摄。荣耀600 Pro打破了这个限制，让实况照片的使用场景从「偶尔拍拍」扩展到「随时可拍」。</div></div>
+        <div class="review-card review-insight">
+          <span class="review-label">点评</span>
+          <p class="review-text">4K Live的真正价值不在「4K」这个数字，而在于「全焦段」三个字。过去实况照片是主摄专属功能，长焦和超广角场景只能拍静态——这等于告诉你：想拍实况，只能用主摄。荣耀600 Pro打破了这个限制，让实况照片的使用场景从「偶尔拍拍」扩展到「随时可拍」。</p>
+        </div>
       </div>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">02</span><span class="f-tag">闪光灯</span><span class="f-tag">AI变焦</span></div>
+      <div class="feat-block">
+        <div class="feat-meta">
+          <span class="feat-idx">02</span>
+          <span class="feat-tag">闪光灯</span>
+          <span class="feat-tag">AI变焦</span>
+        </div>
         <h3>双对称AI变焦闪光灯：暗光实况的最后一公里</h3>
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/1da3-42ccdb52af6381ecaad415d88952f11e.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 猫眼双子星环" loading="lazy">
+        <div class="cols-layout">
+          <figure class="photo-frame">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/1da3-42ccdb52af6381ecaad415d88952f11e.jpg" alt="荣耀600 Pro 猫眼双子星环" loading="lazy">
             <figcaption>猫眼双子星环 · 双对称AI变焦闪光灯</figcaption>
-            <span class="m-badge">行业首创</span>
+            <span class="frame-badge">行业首创</span>
           </figure>
           <div>
             <p>这是本次发布会最被低估的技术创新。传统手机闪光灯只有一颗，照射角度固定——拍近处时过曝，拍远处时照不到。荣耀600 Pro首创<strong>双对称AI变焦闪光灯</strong>，两颗闪光灯可根据对焦距离智能调节功率和角度：拍近物时两灯低功率柔和补光，拍远景时高功率远距投射。配合AI算法实时调整色温，解决了「闪光灯拍出来像鬼片」的老大难问题。</p>
@@ -430,21 +747,31 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">02</span><span class="ch-kick">DISPLAY & BATTERY</span></div>
-        <h2 class="ch-title">极窄边框与超大电池：视觉与续航的双重越级</h2>
-        <p class="ch-intro">0.98mm四等边和8600mAh青海湖电池，分别代表了当前手机工业设计和电池技术的最前沿。这两个卖点叠加在一起，构成了荣耀600系列最坚实的硬件底座。</p>
+  <!-- 第二章：屏幕与电池 -->
+  <section class="chapter-section">
+    <div class="chapter-box">
+      <div class="ch-meta">
+        <div class="ch-badge">02</div>
+        <span class="ch-kick">DISPLAY & BATTERY</span>
       </div>
+      <h2 class="ch-title">极窄边框与超大电池：视觉与续航的双重越级</h2>
+      <p class="ch-intro">0.98mm四等边和8600mAh青海湖电池，分别代表了当前手机工业设计和电池技术的最前沿。这两个卖点叠加在一起，构成了荣耀600系列最坚实的硬件底座。</p>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">03</span><span class="f-tag">屏幕</span><span class="f-tag">四等边</span></div>
+      <div class="feat-block">
+        <div class="feat-meta">
+          <span class="feat-idx">03</span>
+          <span class="feat-tag">屏幕</span>
+          <span class="feat-tag">四等边</span>
+        </div>
         <h3>0.98mm极窄四等边：正面视觉的终极形态</h3>
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/a116-bfa8cb181d2786fb4af4678183deb63a.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 青苹果配色" loading="lazy">
+        <div class="cols-layout">
+          <figure class="photo-frame">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/267/w640h427/20260525/a116-bfa8cb181d2786fb4af4678183deb63a.jpg" alt="荣耀600 Pro 青苹果配色" loading="lazy">
             <figcaption>荣耀600 Pro 青苹果配色 · 0.98mm四等边</figcaption>
-            <span class="m-badge">行业最窄</span>
+            <span class="frame-badge">行业最窄</span>
           </figure>
           <div>
             <p>0.98mm是目前手机行业能做到的最窄边框宽度。四边等宽意味着屏幕上下左右的黑边完全一致，视觉上呈现出一种「悬浮屏」的观感。这块6.57英寸1.5K 120Hz绿洲护眼屏在参数上不是最顶尖的，但<strong>0.98mm四等边带来的正面冲击力，远比分辨率数字更直观</strong>——你拿起手机的第一眼，就会被这块屏幕的沉浸感折服。</p>
@@ -452,113 +779,160 @@
         </div>
       </div>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span><span class="f-tag">青海湖</span></div>
+      <div class="feat-block">
+        <div class="feat-meta">
+          <span class="feat-idx">04</span>
+          <span class="feat-tag">续航</span>
+          <span class="feat-tag">青海湖</span>
+        </div>
         <h3>8600mAh青海湖电池：Pro版约9000mAh更猛</h3>
         <p>超级版搭载8600mAh青海湖电池，Pro版更是达到了约9000mAh——能量密度932Wh/L。这是什么概念？正常使用两天一充完全没问题，重度使用也能撑一整天。配合80W有线快充（Pro版额外支持50W无线+27W反向充电），续航焦虑基本归零。</p>
         <p>不过需要指出的是，<strong>80W有线充电在2026年属于偏保守的规格</strong>——同价位竞品已经开始普及100W甚至120W。大电池换来了续航，但充电速度确实有让步。</p>
-        <div class="r-note r-note-c"><span class="note-l">点评</span><div class="note-t">荣耀选择了「大电池慢充电」而非「小电池快充电」的路线。从日常使用角度看，前者更实用——没人想每天抱着充电器等30分钟。但80W确实是个短板，尤其是当你从20%紧急补电时，100W和80W的速度差距是可感知的。</div></div>
+        <div class="review-card review-insight">
+          <span class="review-label">点评</span>
+          <p class="review-text">荣耀选择了「大电池慢充电」而非「小电池快充电」的路线。从日常使用角度看，前者更实用——没人想每天抱着充电器等30分钟。但80W确实是个短板，尤其是当你从20%紧急补电时，100W和80W的速度差距是可感知的。</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">03</span><span class="ch-kick">DESIGN & IDENTITY</span></div>
-        <h2 class="ch-title">3D星河美学：把辨识度做成了信仰</h2>
-        <p class="ch-intro">42颗钻闪四芒星、3D星河美学、猫眼双子星环——荣耀600系列的设计语言在当前千机一面的手机市场里，是少数真正能做到「拿出来就有人问这是什么手机」的产品。</p>
+  <!-- 第三章：设计美学 -->
+  <section class="chapter-section">
+    <div class="chapter-box">
+      <div class="ch-meta">
+        <div class="ch-badge">03</div>
+        <span class="ch-kick">DESIGN & IDENTITY</span>
       </div>
+      <h2 class="ch-title">3D星河美学：把辨识度做成了信仰</h2>
+      <p class="ch-intro">42颗钻闪四芒星、3D星河美学、猫眼双子星环——荣耀600系列的设计语言在当前千机一面的手机市场里，是少数真正能做到「拿出来就有人问这是什么手机」的产品。</p>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">05</span><span class="f-tag">设计</span><span class="f-tag">3D星河</span></div>
+      <div class="feat-block">
+        <div class="feat-meta">
+          <span class="feat-idx">05</span>
+          <span class="feat-tag">设计</span>
+          <span class="feat-tag">3D星河</span>
+        </div>
         <h3>42颗钻闪四芒星 + 3D星河美学后盖</h3>
-        <div class="r-cols">
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/4912-3757962399c80dd663f8a09c8fe1e74c.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星配色" loading="lazy">
+        <div class="cols-layout">
+          <figure class="photo-frame">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/4912-3757962399c80dd663f8a09c8fe1e74c.jpg" alt="荣耀600 Pro 幸运星配色" loading="lazy">
             <figcaption>幸运星配色 · 42颗钻闪四芒星后盖</figcaption>
           </figure>
-          <figure class="r-fig">
-            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/5c52-4413dc2e55d382837c765db6a2ffb88b.jpg" onclick="openLightbox(this.src)" alt="荣耀600 Pro 幸运星细节" loading="lazy">
+          <figure class="photo-frame">
+            <img src="https://n.sinaimg.cn/sinakd20260525s/600/w600h800/20260525/5c52-4413dc2e55d382837c765db6a2ffb88b.jpg" alt="荣耀600 Pro 幸运星细节" loading="lazy">
             <figcaption>3D星河美学 · 光线下呈现流动星河效果</figcaption>
-            <span class="m-badge">肖战同款</span>
+            <span class="frame-badge">肖战同款</span>
           </figure>
         </div>
         <p>后盖采用3D微弧玻璃工艺，表面嵌入42颗微米级钻闪颗粒，在光线照射下呈现四芒星阵列的流动效果。这种设计在手机上极为罕见——多数品牌追求的是极简或质感，荣耀追求的是「被看见」。猫眼双子星环的摄像头模组同样辨识度极高，灵感来源于猫眼宝石的光学折射效果。</p>
-        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t">3D星河美学的视觉效果照片很难完全传达，强烈建议线下体验真机。如果你在意手机外观的独特性和社交属性，这个设计是加分项；但如果你偏好低调内敛的风格，可能需要考虑是否接受如此高调的视觉表达。</div></div>
+        <div class="review-card review-tip">
+          <span class="review-label">购买启示</span>
+          <p class="review-text">3D星河美学的视觉效果照片很难完全传达，强烈建议线下体验真机。如果你在意手机外观的独特性和社交属性，这个设计是加分项；但如果你偏好低调内敛的风格，可能需要考虑是否接受如此高调的视觉表达。</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">04</span><span class="ch-kick">PRICING & STRATEGY</span></div>
-        <h2 class="ch-title">三档定位与选购策略</h2>
-        <p class="ch-intro">荣耀600系列采用「Pro版+超级版+元气版」三档布局，覆盖2294-3399元全价格带。表面上是全价格带覆盖，实际上三档之间的差异化逻辑需要仔细拆解。</p>
+  <!-- 第四章：价格策略 -->
+  <section class="chapter-section">
+    <div class="chapter-box">
+      <div class="ch-meta">
+        <div class="ch-badge">04</div>
+        <span class="ch-kick">PRICING & STRATEGY</span>
       </div>
+      <h2 class="ch-title">三档定位与选购策略</h2>
+      <p class="ch-intro">荣耀600系列采用「Pro版+超级版+元气版」三档布局，覆盖2294-3399元全价格带。表面上是全价格带覆盖，实际上三档之间的差异化逻辑需要仔细拆解。</p>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">06</span><span class="f-tag">规格</span><span class="f-tag">对比</span></div>
+      <div class="feat-block">
+        <div class="feat-meta">
+          <span class="feat-idx">06</span>
+          <span class="feat-tag">规格</span>
+          <span class="feat-tag">对比</span>
+        </div>
         <h3>三款机型核心差异</h3>
-        <table class="spec-table">
-          <tr><th>项目</th><th>Pro版</th><th>超级版</th><th>元气版</th></tr>
-          <tr><td>处理器</td><td>骁龙8E / 天玑8550E</td><td>骁龙8S Gen4</td><td>—</td></tr>
-          <tr><td>电池</td><td>~9000mAh</td><td>8600mAh</td><td>—</td></tr>
-          <tr><td>无线充</td><td>50W</td><td>❌</td><td>❌</td></tr>
-          <tr><td>潜望长焦</td><td>5000万 3.5x光学</td><td>❌</td><td>❌</td></tr>
-          <tr><td>AI变焦闪光灯</td><td>✅</td><td>—</td><td>—</td></tr>
-          <tr><td>防水</td><td>IP68/69/69K</td><td>—</td><td>—</td></tr>
-          <tr><td>指纹</td><td>3D超声波</td><td>—</td><td>—</td></tr>
-          <tr><td>国补价</td><td><strong>¥3399</strong></td><td><strong>¥2804</strong></td><td><strong>¥2294</strong></td></tr>
-        </table>
+        <div class="spec-table-wrap">
+          <table class="spec-table">
+            <tr><th>项目</th><th>Pro版</th><th>超级版</th><th>元气版</th></tr>
+            <tr><td>处理器</td><td>骁龙8E / 天玑8550E</td><td>骁龙8S Gen4</td><td>—</td></tr>
+            <tr><td>电池</td><td>~9000mAh</td><td>8600mAh</td><td>—</td></tr>
+            <tr><td>无线充</td><td>50W</td><td>❌</td><td>❌</td></tr>
+            <tr><td>潜望长焦</td><td>5000万 3.5x光学</td><td>❌</td><td>❌</td></tr>
+            <tr><td>AI变焦闪光灯</td><td>✅</td><td>—</td><td>—</td></tr>
+            <tr><td>防水</td><td>IP68/69/69K</td><td>—</td><td>—</td></tr>
+            <tr><td>指纹</td><td>3D超声波</td><td>—</td><td>—</td></tr>
+            <tr><td>国补价</td><td><strong>¥3399</strong></td><td><strong>¥2804</strong></td><td><strong>¥2294</strong></td></tr>
+          </table>
+        </div>
       </div>
 
-      <div class="r-feat">
-        <div class="r-f-meta"><span class="f-idx">07</span><span class="f-tag">分析</span><span class="f-tag">选购</span></div>
+      <div class="feat-block">
+        <div class="feat-meta">
+          <span class="feat-idx">07</span>
+          <span class="feat-tag">分析</span>
+          <span class="feat-tag">选购</span>
+        </div>
         <h3>谁值得买？关键看你的核心需求</h3>
         <p><strong>Pro版（¥3399）</strong>是唯一拥有完整旗舰配置的版本——潜望长焦、AI闪光灯、IP68/69/69K三防、3D超声波指纹、50W无线充。如果你对摄影和防护有要求，595元的差价换来这些功能是划算的。</p>
         <p><strong>超级版（¥2804）</strong>是最纠结的选择。骁龙8S Gen4性能不弱但也不算旗舰，8600mAh电池是核心卖点，但没有长焦、没有无线充、没有高等级防水。<strong>本质上它是一台「大电池+好屏幕+4K Live」的功能聚焦型产品</strong>——适合续航刚需但预算有限的人群。</p>
         <p><strong>元气版（¥2294）</strong>是最纯粹的选择——用最低的价格获得4K Live直出+2亿像素+0.98mm极窄边+大电池的核心体验，没有任何需要纠结的中间地带。</p>
-        <div class="r-note r-note-a"><span class="note-l">购买启示</span><div class="note-t"><strong>最推荐元气版（¥2294）或Pro版（¥3399）</strong>：要么用最低价拿到核心体验，要么加到Pro获得完整旗舰。超级版处于一个尴尬的中间地带——相比元气版贵了510元但核心体验差异不大，相比Pro版便宜595元但缺失太多关键功能。除非8600mAh是你唯一的刚需，否则两个极端版本性价比更高。</div></div>
+        <div class="review-card review-tip">
+          <span class="review-label">购买启示</span>
+          <p class="review-text"><strong>最推荐元气版（¥2294）或Pro版（¥3399）</strong>：要么用最低价拿到核心体验，要么加到Pro获得完整旗舰。超级版处于一个尴尬的中间地带——相比元气版贵了510元但核心体验差异不大，相比Pro版便宜595元但缺失太多关键功能。除非8600mAh是你唯一的刚需，否则两个极端版本性价比更高。</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="r-chapter">
-        <div class="ch-meta"><span class="ch-num">05</span><span class="ch-kick">KEY TAKEAWAYS</span></div>
-        <h2 class="ch-title">核心要点</h2>
+  <!-- 第五章：核心要点 -->
+  <section class="chapter-section">
+    <div class="chapter-box">
+      <div class="ch-meta">
+        <div class="ch-badge">05</div>
+        <span class="ch-kick">KEY TAKEAWAYS</span>
       </div>
+      <h2 class="ch-title">核心要点</h2>
+    </div>
+  </section>
 
-      <div class="r-take">
-        <div class="r-take-n">01</div>
-        <div class="r-take-b">
-          <h3>4K Live是影像赛道的新变量</h3>
-          <p>全焦段4K Live直出+AI变焦闪光灯的组合，让实况照片从「偶尔拍拍」升级为「随时可拍」。这是2026年手机影像最值得关注的技术方向。</p>
-        </div>
+  <div class="takeaway-list">
+    <div class="takeaway-item">
+      <div class="takeaway-num">01</div>
+      <div class="takeaway-body">
+        <h3>4K Live是影像赛道的新变量</h3>
+        <p>全焦段4K Live直出+AI变焦闪光灯的组合，让实况照片从「偶尔拍拍」升级为「随时可拍」。这是2026年手机影像最值得关注的技术方向。</p>
       </div>
-      <div class="r-take">
-        <div class="r-take-n">02</div>
-        <div class="r-take-b">
-          <h3>0.98mm四等边是视觉杀手锏</h3>
-          <p>参数不是最强的屏幕，但正面观感是同价位最好的。极窄边框带来的沉浸感，远比分辨率数字更影响日常体验。</p>
-        </div>
+    </div>
+    <div class="takeaway-item">
+      <div class="takeaway-num">02</div>
+      <div class="takeaway-body">
+        <h3>0.98mm四等边是视觉杀手锏</h3>
+        <p>参数不是最强的屏幕，但正面观感是同价位最好的。极窄边框带来的沉浸感，远比分辨率数字更影响日常体验。</p>
       </div>
-      <div class="r-take">
-        <div class="r-take-n">03</div>
-        <div class="r-take-b">
-          <h3>三档定位有互蚕风险</h3>
-          <p>超级版与元气版差距不够大，与Pro版差距又太明显。如果618期间元气版降至1999元，超级版的存在感将进一步被压缩。</p>
-        </div>
+    </div>
+    <div class="takeaway-item">
+      <div class="takeaway-num">03</div>
+      <div class="takeaway-body">
+        <h3>三档定位有互蚕风险</h3>
+        <p>超级版与元气版差距不够大，与Pro版差距又太明显。如果618期间元气版降至1999元，超级版的存在感将进一步被压缩。</p>
       </div>
-      <div class="r-take">
-        <div class="r-take-n">04</div>
-        <div class="r-take-b">
-          <h3>618蹲元气版破2K</h3>
-          <p>预测元气版618可降至¥1999，届时2亿像素+4K Live手机首次破2000元，将是性价比最高的入门选择。</p>
-        </div>
+    </div>
+    <div class="takeaway-item">
+      <div class="takeaway-num">04</div>
+      <div class="takeaway-body">
+        <h3>618蹲元气版破2K</h3>
+        <p>预测元气版618可降至¥1999，届时2亿像素+4K Live手机首次破2000元，将是性价比最高的入门选择。</p>
       </div>
-    
+    </div>
   </div>
+
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
-  <img id="lightboxImg" src="" alt="查看大图">
+  <img id="lightboxImg" src="" alt="">
 </div>
 <script>
-// Lightbox for images
-document.querySelectorAll('.report-body img').forEach(function(img) {
+document.querySelectorAll('.report-page img').forEach(function(img) {
   img.addEventListener('click', function() {
     document.getElementById('lightboxImg').src = this.src;
     document.getElementById('lightbox').classList.add('show');
