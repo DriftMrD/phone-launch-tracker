@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华为 HDC 2026 开发者大会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --bg: #0a0612;
+    --surface: #0f0b18;
+    --card: #141020;
+    --card-hover: #1a1430;
+    --border: rgba(196,22,28,0.08);
+    --border-light: rgba(196,22,28,0.15);
+    --text: #f0eef5;
+    --text-secondary: #a8a0b8;
+    --text-muted: #6a5f7e;
+    --white: #ffffff;
+
+    /* Huawei brand tokens */
+    --hw-red: #c4161c;
+    --hw-red-glow: rgba(196,22,28,0.3);
+    --hw-purple: #8b5cf6;
+    --hw-gold: #d4a853;
+    --hw-cyan: #22d3ee;
+
+    /* Gradients */
+    --grad-hero: linear-gradient(180deg, #0a0612 0%, #12081e 40%, #1a0c2a 70%, #0a0612 100%);
+    --grad-accent: linear-gradient(135deg, var(--hw-red) 0%, var(--hw-purple) 50%, var(--hw-gold) 100%);
+    --grad-red-purple: linear-gradient(135deg, var(--hw-red) 0%, var(--hw-purple) 100%);
+    --grad-dark-red: linear-gradient(135deg, #2a0a0c 0%, #1a0828 100%);
+
+    --font-sans: 'HarmonyOS Sans', 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;
+    --font-serif: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'Cascadia Code', 'SF Mono', Consolas, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+    position: relative;
+  }
+
+  /* ==================== HERO — Huawei Cosmic Night ==================== */
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 40px 60px;
+    margin: 0 -40px;
+    overflow: hidden;
+    background: var(--grad-hero);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 30%, rgba(196,22,28,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 20% 60%, rgba(139,92,246,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 80% 50%, rgba(212,168,83,0.05) 0%, transparent 50%);
+    z-index: 0;
+  }
+
+  /* Star particles */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1.5px 1.5px at 50% 15%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1.5px 1.5px at 15% 80%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 60% 85%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 90% 25%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 45% 45%, rgba(196,22,28,0.4), transparent),
+      radial-gradient(2px 2px at 55% 55%, rgba(139,92,246,0.3), transparent);
+    z-index: 0;
+    animation: twinkle 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+
+  .hero > * { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hw-red);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 .grad {
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 40px;
+  }
+
+  .hero-chips {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--border-light);
+    background: rgba(196,22,28,0.06);
+    color: var(--text-secondary);
+    transition: all 0.25s;
+  }
+
+  .hero-chip:hover {
+    border-color: var(--hw-red);
+    color: var(--white);
+    background: rgba(196,22,28,0.12);
+  }
+
+  .hero-chip .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0.35;
+    animation: heroFloat 3s ease-in-out infinite;
+  }
+
+  .hero-scroll svg {
+    width: 20px; height: 20px;
+    stroke: var(--text-muted);
+    stroke-width: 1.5;
+  }
+
+  @keyframes heroFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+
+  /* ==================== BENTO Grid ==================== */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin: 0 0 80px;
+  }
+
+  .bento-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    transition: all 0.3s cubic-bezier(0.25, 0, 0, 1);
+  }
+
+  .bento-card:hover {
+    background: var(--card-hover);
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+  }
+
+  .bento-card.col-2 { grid-column: span 2; }
+  .bento-card.col-3 { grid-column: span 3; }
+  .bento-card.col-6 { grid-column: span 6; }
+
+  .bento-card.hero-card {
+    background:
+      radial-gradient(ellipse 60% 40% at 70% 20%, rgba(196,22,28,0.08), transparent 55%),
+      radial-gradient(ellipse 50% 35% at 30% 80%, rgba(139,92,246,0.06), transparent 50%),
+      var(--card);
+    border-color: var(--border-light);
+  }
+
+  .bento-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .bento-num {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .bento-num.large { font-size: 52px; }
+
+  .bento-val {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  .bento-headline {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .bento-headline .grad {
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bento-sub {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* ==================== CHAPTERS ==================== */
+  .chapter {
+    margin-bottom: 72px;
+  }
+
+  .chapter-idx {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--hw-red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .chapter-cat {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: rgba(139,92,246,0.1);
+    color: var(--hw-purple);
+    border: 1px solid rgba(139,92,246,0.15);
+    margin-bottom: 12px;
+  }
+
+  .chapter h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .chapter-lead {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 700px;
+    margin-bottom: 36px;
+  }
+
+  /* ==================== FEATURE ITEMS ==================== */
+  .feat {
+    margin-bottom: 40px;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: all 0.3s;
+  }
+
+  .feat:hover {
+    border-color: var(--border-light);
+    background: var(--card);
+  }
+
+  .feat-idx {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--hw-red);
+    margin-bottom: 6px;
+  }
+
+  .feat-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: 10.5px;
+    font-weight: 700;
+    background: rgba(196,22,28,0.08);
+    color: var(--hw-red);
+    border: 1px solid rgba(196,22,28,0.12);
+    margin-bottom: 10px;
+  }
+
+  .feat h3 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .feat p {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  /* ==================== FIGURES ==================== */
+  .r-fig {
+    margin: 36px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .r-fig img {
+    width: 100%;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.4s;
+  }
+
+  .r-fig img:hover { transform: scale(1.02); }
+
+  .r-fig figcaption {
+    padding: 14px 20px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    border-top: 1px solid var(--border);
+  }
+
+  .r-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 36px 0;
+  }
+
+  .r-cols .r-fig { margin: 0; }
+
+  /* ==================== NOTE BOXES ==================== */
+  .note-c {
+    padding: 24px 28px;
+    border-radius: 14px;
+    background: rgba(139,92,246,0.06);
+    border: 1px solid rgba(139,92,246,0.12);
+    margin: 36px 0;
+  }
+
+  .note-c .note-head {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--hw-purple);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .note-c p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .note-a {
+    padding: 24px 28px;
+    border-radius: 14px;
+    background: rgba(196,22,28,0.06);
+    border: 1px solid rgba(196,22,28,0.12);
+    margin: 36px 0;
+  }
+
+  .note-a .note-head {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--hw-red);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .note-a p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ==================== DATA TABLE ==================== */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13.5px;
+  }
+
+  .data-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 700;
+    color: var(--hw-red);
+    border-bottom: 2px solid var(--border-light);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  .data-table tr:hover td {
+    background: rgba(196,22,28,0.03);
+    color: var(--text);
+  }
+
+  .data-table td:first-child {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ==================== KEY TAKEAWAYS ==================== */
+  .takeaways {
+    padding: 36px 32px;
+    border-radius: 20px;
+    background:
+      radial-gradient(ellipse 60% 40% at 80% 20%, rgba(196,22,28,0.08), transparent 55%),
+      radial-gradient(ellipse 50% 35% at 20% 80%, rgba(139,92,246,0.06), transparent 50%),
+      var(--card);
+    border: 1px solid var(--border-light);
+    margin: 72px 0;
+  }
+
+  .takeaways h3 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .takeaways ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .takeaways li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .takeaways li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--grad-accent);
+  }
+
+  /* ==================== LIGHTBOX ==================== */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(10,6,18,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    backdrop-filter: blur(16px);
+  }
+
+  .lightbox.show { display: flex; animation: lb-fade .25s ease; }
+  @keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
+
+  .lightbox img {
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 16px 64px rgba(0,0,0,0.6);
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 720px) {
+    .report-page { padding: 0 18px 80px; }
+    .hero { padding: 60px 18px 48px; margin: 0 -18px; min-height: 80vh; }
+    .hero h1 { font-size: clamp(32px, 8vw, 48px); }
+    .hero-sub { font-size: 15px; }
+    .bento { grid-template-columns: repeat(2, 1fr); }
+    .bento-card.col-3 { grid-column: span 2; }
+    .bento-card.col-6 { grid-column: span 2; }
+    .bento-num { font-size: 28px; }
+    .bento-num.large { font-size: 36px; }
+    .r-cols { grid-template-columns: 1fr; }
+    .chapter h2 { font-size: 24px; }
+    .feat { padding: 20px; }
+    .feat h3 { font-size: 17px; }
+    .takeaways { padding: 24px 20px; }
+    .data-table { font-size: 12px; }
+    .data-table th, .data-table td { padding: 10px 10px; }
+  }
+
+  @media (max-width: 420px) {
+    .bento { grid-template-columns: 1fr; }
+    .bento-card.col-2,
+    .bento-card.col-3,
+    .bento-card.col-6 { grid-column: span 1; }
+    .hero-chips { gap: 8px; }
+    .hero-chip { padding: 6px 14px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="report-page">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-eyebrow">2026年6月12日–14日 · 东莞松山湖</div>
+    <h1>华为 <span class="grad">HDC 2026</span><br>开发者大会</h1>
+    <p class="hero-sub">鸿蒙生态全面爆发，HarmonyOS 7 正式迈向 Agent 时代。6600万+装机量、1100万+开发者、40万+应用——中国第二大手机操作系统的新起点。</p>
+    <div class="hero-chips">
+      <span class="hero-chip"><span class="dot" style="background:var(--hw-red)"></span>HarmonyOS 7 Beta</span>
+      <span class="hero-chip"><span class="dot" style="background:var(--hw-purple)"></span>鸿蒙智能体 2.0</span>
+      <span class="hero-chip"><span class="dot" style="background:var(--hw-gold)"></span>6600万+装机</span>
+      <span class="hero-chip"><span class="dot" style="background:var(--hw-cyan)"></span>方舟引擎+AI优化</span>
+    </div>
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== BENTO ===== -->
+  <section class="bento">
+    <div class="bento-card hero-card col-6">
+      <div class="bento-label">核心结论</div>
+      <div class="bento-headline">鸿蒙不再是"替代品"，它是<span class="grad">Agent 时代的操作系统</span></div>
+      <p class="bento-sub">HDC 2026 最重要的信号不是某个功能，而是鸿蒙从"设备系统"升级为"智能体调度平台"。HarmonyOS 7 的智能体框架2.0让小艺从语音助手变成真正的 AI Agent，能跨应用执行复杂任务链。这是中国操作系统第一次在架构层面领先 iOS/Android。</p>
+    </div>
+    <div class="bento-card col-3">
+      <div class="bento-label">装机量</div>
+      <div class="bento-num large" style="color:var(--hw-red)">6600<span style="font-size:0.5em">万+</span></div>
+      <div class="bento-val">HarmonyOS 6 设备总量，一年两个月达成</div>
+    </div>
+    <div class="bento-card col-3">
+      <div class="bento-label">开发者</div>
+      <div class="bento-num large" style="color:var(--hw-purple)">1100<span style="font-size:0.5em">万+</span></div>
+      <div class="bento-val">平台注册开发者，全球持续增长</div>
+    </div>
+    <div class="bento-card col-2">
+      <div class="bento-label">应用市场</div>
+      <div class="bento-num">40<span style="font-size:0.5em">万+</span></div>
+      <div class="bento-val">可获取应用与服务</div>
+    </div>
+    <div class="bento-card col-2">
+      <div class="bento-label">日下载</div>
+      <div class="bento-num">2<span style="font-size:0.5em">亿+</span></div>
+      <div class="bento-val">每日应用下载量</div>
+    </div>
+    <div class="bento-card col-2">
+      <div class="bento-label">API调用</div>
+      <div class="bento-num">3000<span style="font-size:0.5em">亿/天</span></div>
+      <div class="bento-val">日均 API 调用量</div>
+    </div>
+  </section>
+
+  <!-- ===== Chapter 1: HarmonyOS 7 ===== -->
+  <section class="chapter">
+    <div class="chapter-idx">Chapter 01</div>
+    <span class="chapter-cat">系统核心</span>
+    <h2>HarmonyOS 7：五大维度全面升级</h2>
+    <p class="chapter-lead">HarmonyOS 7 Developer Beta 正式亮相，围绕沉浸感、智能化、流畅性、安全性与便捷性五大维度进行系统性升级。这不是常规版本迭代，而是鸿蒙第三次重大架构进阶。</p>
+
+    <div class="feat">
+      <div class="feat-idx">01</div>
+      <span class="feat-tag">沉浸体验</span>
+      <h3>3D 壁纸与空间音频，感官维度全面扩展</h3>
+      <p>全新视觉特效引擎带来动态 3D 壁纸，借助 Remy、V2Fun 等工具，普通用户可完成 3D 场景重建和照片生成 3D 模型。空间音频功能落地酷狗音乐、高德地图、美团众包等应用，让声音从"听到"变成"感受到"。这标志着鸿蒙从平面交互正式迈入空间计算时代。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-idx">02</div>
+      <span class="feat-tag">AI 智能</span>
+      <h3>鸿蒙智能体框架 2.0：小艺从助手变成 Agent</h3>
+      <p>这是本次大会最核心的发布。鸿蒙智能体框架 2.0 正式上线，支持复杂指令精准执行。小艺手握 2100+ 系统能力、500+ 精选 Skill、2000+ 鸿蒙智能体，支持跨端传文件、行程规划、生活事务处理。配套编程智能体辅助开发者高效写代码。从"Hey Siri 式"的语音助手，进化为真正的 AI Agent，能理解上下文、执行多步任务、跨应用协同。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-idx">03</div>
+      <span class="feat-tag">性能优化</span>
+      <h3>方舟引擎 + 大模型，系统性能再提升 15%</h3>
+      <p>依托方舟引擎，HarmonyOS 7 首次使用大模型优化性能，系统根据使用习惯智能提速。长期使用不易卡顿，性能再提升 15%。这是业界首次将 AI 大模型应用于操作系统性能调度，而非仅限于应用层。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-idx">04</div>
+      <span class="feat-tag">安全防护</span>
+      <h3>鸿蒙星盾：AI 反诈 + 数字资产继承</h3>
+      <p>鸿蒙星盾安全体系完成升级，具备 AI 变声检测、AI 境外转打检测、风险二维码拦截、网页内容识别等反诈能力。已接入支付宝、抖音、京东、云闪付、交通银行等应用。新增数字资产继承功能——这可能是全球首个系统级数字遗产解决方案。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-idx">05</div>
+      <span class="feat-tag">跨端互联</span>
+      <h3>碰一碰 140+ App + 亲密圈社交</h3>
+      <p>鸿蒙星河互联传输速度大幅提升，碰一碰功能已支持 140+ 款 App 一碰分享内容。新增"亲密圈"功能，方便查看亲友状态与互动，将设备互联延伸到人际关系层面。</p>
+    </div>
+  </section>
+
+  <!-- ===== Chapter 2: Ecosystem ===== -->
+  <section class="chapter">
+    <div class="chapter-idx">Chapter 02</div>
+    <span class="chapter-cat">生态建设</span>
+    <h2>生态爆发：从"可用"到"好用"</h2>
+    <p class="chapter-lead">6600万装机量、40万应用、3000亿日均API调用——鸿蒙生态不再是概念验证，而是正在兑现的商业现实。</p>
+
+    <div class="feat">
+      <div class="feat-idx">06</div>
+      <span class="feat-tag">生态规模</span>
+      <h3>装机量一年破6600万，成为中国第二大手机OS</h3>
+      <p>HarmonyOS 6 终端设备装机量突破 6600 万台，自发布以来仅用一年两个月达成这一里程碑。应用市场可获取应用与服务超 40 万，每日应用下载量 2 亿+次。接入碰一碰/实况窗等特色功能的伙伴超 23000 家。鸿蒙正式超越其他国产系统，成为中国第二大智能手机操作系统。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-idx">07</div>
+      <span class="feat-tag">开发者生态</span>
+      <h3>1100万开发者 + 650+高校 + 488万学习人次</h3>
+      <p>平台注册开发者超 1100 万，合作高校 650+ 所，生态学堂全年学习人次 488 万。共建生态能力 160 余项，被 1600+ 款应用使用。入驻游戏 30000+ 款，入驻游戏厂商 1000+ 家。海外应用与元服务数量突破 1.7 万个。</p>
+    </div>
+  </section>
+
+  <!-- ===== Chapter 3: Partner Innovations ===== -->
+  <section class="chapter">
+    <div class="chapter-idx">Chapter 03</div>
+    <span class="chapter-cat">合作伙伴</span>
+    <h2>从工具到生态：伙伴创新成果</h2>
+    <p class="chapter-lead">鸿蒙不只是华为的操作系统，它正在成为整个中国互联网的"新底座"。以下是本届大会展示的标杆合作案例。</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>合作伙伴</th>
+          <th>创新亮点</th>
+          <th>鸿蒙能力</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>支付宝</td>
+          <td>多层防护反诈体系</td>
+          <td>风控 + 星盾安全</td>
+        </tr>
+        <tr>
+          <td>京东</td>
+          <td>全球首创电商裸眼3D商品展示</td>
+          <td>3DGS 能力</td>
+        </tr>
+        <tr>
+          <td>大众点评</td>
+          <td>行业首个3D实景探店</td>
+          <td>3D 场景重建</td>
+        </tr>
+        <tr>
+          <td>抖音/快手</td>
+          <td>AI优化开发与测试，启动更稳定</td>
+          <td>AI 开发工具</td>
+        </tr>
+        <tr>
+          <td>咪咕视频</td>
+          <td>一部手机完成专业赛事直播</td>
+          <td>空间音频 + 多镜头</td>
+        </tr>
+        <tr>
+          <td>腾讯视频</td>
+          <td>一套代码多设备运行</td>
+          <td>鸿蒙一次开发多端部署</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-c">
+      <div class="note-head">💡 生态趋势</div>
+      <p>鸿蒙伙伴创新呈现明显趋势：从"适配鸿蒙"升级为"利用鸿蒙独有能力创造新体验"。3D展示、空间音频、碰一碰分享、Agent 调度——这些都是 iOS/Android 生态无法复制的差异化能力。</p>
+    </div>
+  </section>
+
+  <!-- ===== Chapter 4: Strategy ===== -->
+  <section class="chapter">
+    <div class="chapter-idx">Chapter 04</div>
+    <span class="chapter-cat">战略方向</span>
+    <h2>Agent 时代：鸿蒙的第三次跃迁</h2>
+    <p class="chapter-lead">余承东明确表态："鸿蒙正在迈向 Agent 时代"。这不是营销话术，而是架构层面的根本转型。</p>
+
+    <div class="feat">
+      <div class="feat-idx">08</div>
+      <span class="feat-tag">架构转型</span>
+      <h3>从"设备OS"到"智能体调度平台"</h3>
+      <p>鸿蒙的演进路径清晰可见：第一次跃迁是从 Android 兼容到"纯血鸿蒙"（独立内核）；第二次跃迁是全场景分布式（1+8+N）；第三次跃迁就是 Agent 架构——操作系统不再只是"运行App的容器"，而是"调度智能体执行任务的平台"。这是对传统操作系统范式的颠覆。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-idx">09</div>
+      <span class="feat-tag">开放原则</span>
+      <h3>"不设限、不争利、不停步"</h3>
+      <p>余承东在大会现场明确表态三条原则："不设限、不争利、不停步"。这意味着鸿蒙不会对伙伴的应用品类设限、不会与伙伴争夺商业利益、不会停止技术迭代。这是华为向开发者社区释放的强信号——鸿蒙要做开放生态，而不是封闭花园。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-idx">10</div>
+      <span class="feat-tag">全球化</span>
+      <h3>英格列斯百货、Madrid Transport 入驻</h3>
+      <p>海外应用与元服务已突破 1.7 万个，英格列斯百货、Madrid Transport 等海外品牌已入驻。鸿蒙的全球化不再只是"中国品牌出海"，而是开始吸引海外本土应用原生入驻。但这距离真正的全球化生态仍有很长的路要走。</p>
+    </div>
+  </section>
+
+  <!-- ===== Analysis ===== -->
+  <div class="note-a">
+    <div class="note-head">⚠️ 理性分析</div>
+    <p>6600万装机量看似惊人，但需注意：绝大多数来自华为自有设备预装，第三方品牌设备接入仍是空白。40万应用中，大量是"元服务"（轻应用），与原生App质量有差距。鸿蒙生态的真正考验在于：能否吸引非华为设备接入、能否让开发者主动选择鸿蒙原生开发而非"先iOS/Android，后适配鸿蒙"。</p>
+  </div>
+
+  <div class="note-c">
+    <div class="note-head">🔮 前瞻展望</div>
+    <p>Agent 架构是鸿蒙最有想象力的方向。如果小艺真正实现了"一句话完成复杂任务链"（如"帮我订明天去上海的机票并预约接机"），那将是超越 Siri/Google Assistant 的质变。但 Agent 的落地需要大量应用深度适配，这至少需要1-2年的生态建设周期。HarmonyOS 7 Developer Beta 已开放下载，公开 Beta 预计7月推送，正式版秋季发布。</p>
+  </div>
+
+  <!-- ===== Key Takeaways ===== -->
+  <section class="takeaways">
+    <h3>Key Takeaways</h3>
+    <ul>
+      <li><strong>HarmonyOS 7 Developer Beta 正式发布</strong>，五大维度升级：沉浸体验、AI智能、系统流畅、安全防护、跨端互联</li>
+      <li><strong>鸿蒙智能体框架 2.0</strong> 是最大亮点，小艺从语音助手进化为真正的 AI Agent，支持跨应用复杂任务链执行</li>
+      <li><strong>生态爆发式增长</strong>：6600万+装机量、40万+应用、1100万+开发者、3000亿/日API调用</li>
+      <li><strong>鸿蒙星盾安全升级</strong>：AI反诈 + 数字资产继承，全球首个系统级数字遗产方案</li>
+      <li><strong>Agent 架构是鸿蒙第三次跃迁</strong>，从"设备OS"到"智能体调度平台"——这是操作系统范式的颠覆</li>
+      <li><strong>伙伴创新从"适配"升级为"利用鸿蒙独有能力"</strong>，京东3D展示、大众点评3D探店、咪咕专业直播均为 iOS/Android 无法复制的体验</li>
+      <li><strong>挑战仍在</strong>：第三方设备接入为零、40万应用中大量为轻应用、全球化仍在早期阶段</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+// Lightbox
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+// Click images to zoom
+document.querySelectorAll('.r-fig img, .r-cols img').forEach(img => {
+  img.addEventListener('click', () => openLightbox(img.src));
+});
+</script>
+
+</body>
+</html>
