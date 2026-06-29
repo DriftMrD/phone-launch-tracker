@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>荣耀 X80 Pro Max 发布会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --h-bg: #0d1117;
+    --h-bg-light: #141a22;
+    --h-accent: #1a6fe8;
+    --h-accent2: #0d5ec4;
+    --h-gold: #d4a853;
+    --h-orange: #f5720a;
+    --h-text: #e6edf3;
+    --h-text-dim: #a8b8c8;
+    --h-text-muted: #586878;
+    --h-card-bg: rgba(255, 255, 255, 0.035);
+    --h-card-border: rgba(255, 255, 255, 0.07);
+    --h-grad: linear-gradient(135deg, #1a6fe8 0%, #0d5ec4 40%, #d4a853 100%);
+    --h-grad-soft: linear-gradient(135deg, rgba(26,111,232,0.15) 0%, rgba(13,94,196,0.1) 50%, rgba(212,168,83,0.06) 100%);
+    --h-serif: Georgia, 'Noto Serif SC', 'PingFang SC', serif;
+    --h-sans: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--h-sans);
+    background: var(--h-bg);
+    color: var(--h-text);
+    line-height: 1.78;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ====== HERO ====== */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px 110px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(700px 500px at 30% 20%, rgba(26, 111, 232, 0.22), transparent 55%),
+      radial-gradient(550px 350px at 70% 70%, rgba(212, 168, 83, 0.12), transparent 50%),
+      radial-gradient(400px 250px at 50% 85%, rgba(245, 114, 10, 0.08), transparent 45%),
+      radial-gradient(350px 200px at 60% 10%, rgba(26, 111, 232, 0.1), transparent 40%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 220px;
+    background: linear-gradient(to top, var(--h-bg), transparent);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 880px; }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.35em;
+    color: var(--h-accent); font-weight: 600;
+    text-transform: uppercase; margin-bottom: 20px; opacity: 0.9;
+  }
+  .hero h1 {
+    font-family: var(--h-serif);
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 700; letter-spacing: -0.02em;
+    background: var(--h-grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px; line-height: 1.15;
+  }
+  .hero-sub {
+    font-size: clamp(15px, 2.2vw, 19px);
+    color: var(--h-text-dim); max-width: 640px;
+    margin: 0 auto 36px; line-height: 1.7;
+  }
+  .hero-chips {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-top: 16px;
+  }
+  .chip {
+    font-size: 12px; font-weight: 500;
+    padding: 6px 16px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+    color: var(--h-text-dim); backdrop-filter: blur(8px);
+  }
+  .chip.hi {
+    border-color: var(--h-accent);
+    color: var(--h-accent);
+    background: rgba(26, 111, 232, 0.12);
+  }
+  .chip.gold {
+    border-color: var(--h-gold);
+    color: var(--h-gold);
+    background: rgba(212, 168, 83, 0.1);
+  }
+
+  /* ====== CONTENT WRAP ====== */
+  .content-wrap {
+    max-width: 900px; margin: 0 auto; padding: 0 28px 80px;
+    position: relative; z-index: 1;
+  }
+
+  /* ====== BENTO ====== */
+  .bento {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 18px; margin-bottom: 70px;
+  }
+  .bento-lead {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(26,111,232,0.08), rgba(13,94,196,0.06));
+    border: 1px solid rgba(26, 111, 232, 0.15);
+    border-radius: 18px; padding: 30px 32px;
+  }
+  .bento-lead .lead-label {
+    font-size: 11px; letter-spacing: 0.25em;
+    color: var(--h-accent); font-weight: 600;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .bento-lead .lead-text {
+    font-size: 17px; color: var(--h-text); line-height: 1.8;
+  }
+  .bento-item {
+    background: var(--h-card-bg);
+    border: 1px solid var(--h-card-border);
+    border-radius: 16px; padding: 24px 26px;
+  }
+  .bento-item .bi-num {
+    font-family: var(--h-serif);
+    font-size: 36px; font-weight: 700;
+    background: var(--h-grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bento-item .bi-label {
+    font-size: 12px; color: var(--h-text-muted);
+    margin-top: 4px; letter-spacing: 0.05em;
+  }
+  .bento-item .bi-desc {
+    font-size: 13px; color: var(--h-text-dim); margin-top: 8px;
+  }
+
+  /* ====== CHAPTER ====== */
+  .chapter { margin-bottom: 60px; }
+  .ch-num {
+    font-size: 11px; letter-spacing: 0.28em;
+    color: var(--h-accent); font-weight: 600;
+    margin-bottom: 6px; text-transform: uppercase;
+  }
+  .ch-tag {
+    display: inline-block; font-size: 10px;
+    letter-spacing: 0.2em; color: var(--h-text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 3px 12px; border-radius: 12px;
+    margin-bottom: 14px; text-transform: uppercase;
+  }
+  .ch h2 {
+    font-family: var(--h-serif);
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700; letter-spacing: -0.01em;
+    color: var(--h-text); margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .ch-intro {
+    font-size: 15px; color: var(--h-text-dim);
+    margin-bottom: 28px; line-height: 1.8;
+    max-width: 700px;
+  }
+
+  /* ====== FEAT ====== */
+  .feat {
+    display: grid; grid-template-columns: 40px 1fr;
+    gap: 18px; align-items: start;
+    padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .feat:last-child { border-bottom: none; }
+  .feat-num {
+    font-family: var(--h-serif);
+    font-size: 28px; font-weight: 700;
+    color: var(--h-accent); opacity: 0.5;
+    text-align: center; line-height: 1;
+  }
+  .feat-tag {
+    display: inline-block; font-size: 10px;
+    letter-spacing: 0.15em; color: var(--h-text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 2px 10px; border-radius: 10px;
+    margin-bottom: 8px; text-transform: uppercase;
+  }
+  .feat h3 {
+    font-family: var(--h-serif);
+    font-size: 20px; font-weight: 700;
+    color: var(--h-text); margin-bottom: 6px;
+  }
+  .feat p {
+    font-size: 14px; color: var(--h-text-dim); line-height: 1.7;
+  }
+
+  /* ====== FIGURE ====== */
+  .r-fig { margin: 36px 0; }
+  .r-fig img {
+    width: 100%; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: block; cursor: zoom-in;
+    transition: transform 0.3s ease;
+  }
+  .r-fig img:hover { transform: scale(1.01); }
+  .figcaption {
+    font-size: 12px; color: var(--h-text-muted);
+    margin-top: 10px; text-align: center;
+    font-style: italic;
+  }
+
+  .r-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 36px 0; }
+  .r-cols img {
+    width: 100%; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: zoom-in; display: block;
+    transition: transform 0.3s ease;
+  }
+  .r-cols img:hover { transform: scale(1.02); }
+
+  /* ====== NOTE ====== */
+  .note-c, .note-a {
+    border-radius: 14px; padding: 24px 28px;
+    margin: 32px 0; font-size: 14px; line-height: 1.75;
+  }
+  .note-c {
+    background: rgba(26, 111, 232, 0.06);
+    border: 1px solid rgba(26, 111, 232, 0.18);
+    color: var(--h-text-dim);
+  }
+  .note-c strong { color: var(--h-accent); }
+  .note-a {
+    background: rgba(212, 168, 83, 0.06);
+    border: 1px solid rgba(212, 168, 83, 0.18);
+    color: var(--h-text-dim);
+  }
+  .note-a strong { color: var(--h-gold); }
+
+  /* ====== TAKEAWAYS ====== */
+  .takeaways {
+    background: linear-gradient(135deg, rgba(26,111,232,0.06), rgba(13,94,196,0.04));
+    border: 1px solid rgba(26, 111, 232, 0.12);
+    border-radius: 18px; padding: 36px 32px;
+    margin: 50px 0 30px;
+  }
+  .takeaways h2 {
+    font-family: var(--h-serif);
+    font-size: 24px; margin-bottom: 18px;
+    color: var(--h-text);
+  }
+  .takeaways ul {
+    list-style: none; padding: 0;
+  }
+  .takeaways li {
+    padding: 10px 0; color: var(--h-text-dim);
+    font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .takeaways li:last-child { border-bottom: none; }
+  .takeaways li::before {
+    content: '▸ '; color: var(--h-accent);
+    font-weight: 700;
+  }
+
+  /* ====== LIGHTBOX ====== */
+  .lb-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.94); display: flex;
+    align-items: center; justify-content: center;
+    cursor: zoom-out; opacity: 0; pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .lb-overlay.active { opacity: 1; pointer-events: auto; }
+  .lb-overlay img {
+    max-width: 92vw; max-height: 90vh;
+    border-radius: 8px; cursor: default;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .hero { min-height: 70vh; padding: 40px 16px 80px; }
+    .hero h1 { font-size: 32px; }
+    .hero-sub { font-size: 14px; }
+    .bento { grid-template-columns: 1fr; gap: 12px; }
+    .r-cols { grid-template-columns: 1fr; gap: 12px; }
+    .content-wrap { padding: 0 16px 50px; }
+    .feat { grid-template-columns: 32px 1fr; gap: 12px; }
+    .feat-num { font-size: 22px; }
+    .feat h3 { font-size: 17px; }
+    .bento-lead { padding: 20px; }
+    .takeaways { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026.06.22 · "续航到顶，耐用到底"</div>
+    <h1>荣耀 X80 Pro Max</h1>
+    <p class="hero-sub">
+      全新一代"耐用神机"，11000mAh第四代青海湖电池 · 行业最强抗摔 · IP69K满级防水 · 10000nits高亮护眼屏 · 国补1699.15元起
+    </p>
+    <div class="hero-chips">
+      <span class="chip hi">11000mAh青海湖电池</span>
+      <span class="chip gold">吉尼斯续航纪录</span>
+      <span class="chip">IP68/69/69K防水</span>
+      <span class="chip">10000nits护眼屏</span>
+      <span class="chip">6年电池健康</span>
+      <span class="chip gold">两年免费换屏</span>
+    </div>
+  </div>
+</section>
+
+<div class="content-wrap">
+
+<!-- ====== BENTO ====== -->
+<div class="bento">
+  <div class="bento-lead">
+    <div class="lead-label">核心结论</div>
+    <div class="lead-text">
+      荣耀X80 Pro Max重新定义了"耐用神机"的上限。11000mAh电池刷新行业纪录，IP69K防水+3米抗摔构建全方位防护，10000nits高亮护眼屏领先同级。1699.15元的国补起售价配合两年免费换屏服务，让"耐用"从口号变成承诺。这是千元机市场前所未有的诚意之作。
+    </div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">11000mAh</div>
+    <div class="bi-label">行业最大电池</div>
+    <div class="bi-desc">42天超长待机 · 90W快充</div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">10000nits</div>
+    <div class="bi-label">峰值亮度</div>
+    <div class="bi-desc">1.5K绿洲护眼屏 · 3840Hz PWM</div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">IP69K</div>
+    <div class="bi-label">最高防水等级</div>
+    <div class="bi-desc">10米防水 · 85°C高温防水</div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">1699元</div>
+    <div class="bi-label">国补起售价</div>
+    <div class="bi-desc">8+128GB · 两年免费换屏</div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 1 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 01</div>
+  <span class="ch-tag">续航突破</span>
+  <h2>11000mAh · 改写手机续航规则</h2>
+  <p class="ch-intro">
+    荣耀X80 Pro Max搭载行业最大的11000mAh第四代青海湖电池，以行业领先的硅含量与能量密度，刷新了手机电池容量的行业纪录。这不仅是数字的突破，更是手机使用习惯的彻底解放。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">电池技术</span>
+      <h3>第四代青海湖电池 · 硅碳负极突破</h3>
+      <p>行业最高硅含量和能量密度的硅碳负极电池技术，实现11000mAh超大容量。电池健康寿命长达6年，配合90W有线快充和27W有线反向充电，既能保障自身长效续航，也可为其他设备应急补能。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">续航实测</span>
+      <h3>吉尼斯世界纪录 · 26小时直播续航</h3>
+      <p>在新疆吐鲁番火焰山至博斯腾湖的吉尼斯续航挑战中，荣耀X80 Pro Max以26小时08分34秒的单次直播续航时长刷新吉尼斯世界纪录。满电状态下可连续通话73.7小时、视频播放33.5小时、导航21.3小时、游戏23.9小时。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 2 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 02</div>
+  <span class="ch-tag">耐用防护</span>
+  <h2>满级抗摔防水 · 两年免费换屏</h2>
+  <p class="ch-intro">
+    X80 Pro Max承袭X系列品质基因，在抗摔和防水两大维度实现行业顶级防护。更推出行业首个两年"免费换屏"服务，让"耐用"从口号变成实打实的承诺。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">抗摔</span>
+      <h3>F1赛车Halo防撞梁 · 3米高空跌落</h3>
+      <p>参考F1赛车Halo系统打造防撞梁设计，辅以航天级高能抗剪结构胶，实现1.2米复杂路面任意角度摔打和3米光滑大理石高空跌落。获得行业唯一SGS金标五星严苛场景抗跌耐摔认证。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">防水</span>
+      <h3>潜水艇防水架构 · IP69K满级防水</h3>
+      <p>多层分舱防水+主动排水设计+整机精密密封，实现IP68&IP69&IP69K防水大满贯。支持行业最深10米防水、最强85°C高温防水，10万次入水无忧。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">03</div>
+    <div>
+      <span class="feat-tag gold">服务</span>
+      <h3>行业首创两年免费换屏</h3>
+      <p>两年内意外跌落导致屏幕损坏，可享受两次免费屏幕修复，免收物料费及服务费。首销还赠送价值1088元用机无忧礼包（含两年电量宝、一年后盖宝、一年后摄宝、一年进水宝）。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 3 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 03</div>
+  <span class="ch-tag">屏幕 & 护眼</span>
+  <h2>10000nits高亮护眼屏</h2>
+  <p class="ch-intro">
+    荣耀长期深耕屏幕护眼技术，X80 Pro Max首发了行业最高的10000nits局部峰值亮度，同时搭载十大护眼技术，实现视觉享受与眼部健康的完美平衡。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">屏幕</span>
+      <h3>6.8英寸1.5K绿洲护眼屏</h3>
+      <p>全新氘代高能效发光材料，峰值亮度达10000nits，较X70提升67%。像素寿命提升10%，3840Hz高频PWM调光、硬件级低蓝光，户外强光下清晰可视。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">护眼</span>
+      <h3>十大护眼技术 · 全天候眼部舒适</h3>
+      <p>AI助眠显示、AI动态离焦护眼、类自然光护眼等十大护眼技术，从硬件到软件全链路保护视力，真正做到极致视觉与全天候眼部舒适的完美兼顾。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 4 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 04</div>
+  <span class="ch-tag">体验 & 生态</span>
+  <h2>六年流畅机皇 · X系列最强通信</h2>
+  <p class="ch-intro">
+    荣耀蜂鸟架构确保六年流畅不卡顿，第二代鸿燕通信带来X系列史上最强通信表现，MagicOS 10系统加持的AI功能让日常使用更省心顺手。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">系统</span>
+      <h3>荣耀蜂鸟架构 · 六年流畅保障</h3>
+      <p>短视频畅播引擎实现即时流畅，智能清理储存空间碎片优化长期体验。MagicOS 10的AI随心握功能在来电时自动将通话按钮移至屏幕侧边，有效降低单手操作时意外摔机风险。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">通信</span>
+      <h3>第二代鸿燕通信 · 弱网不掉线</h3>
+      <p>大幅强化电梯等弱网信号连接稳定性。双频GPS+三频北斗多源融合定位精准可靠。全场景NFC、红外遥控、400%立体双扬声器等实用功能一应俱全。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 5 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 05</div>
+  <span class="ch-tag">价格 & 开售</span>
+  <h2>1699.15元起 · 6月26日开售</h2>
+  <p class="ch-intro">
+    荣耀X80 Pro Max提供四款配色和四个存储版本，定价极具竞争力。6月26日全面开售，首销权益丰厚。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">配色</span>
+      <h3>四款硬核美学配色</h3>
+      <p>元气橙、月影白、玄甲黑、闪电红，以简约高级的硬核美学为核心，机身线条流畅利落，满足多样化审美需求。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">价格</span>
+      <h3>国补后1699.15元起</h3>
+      <p>8+128GB: 1699.15元 | 8+256GB: 1869.15元 | 8+512GB: 2124.15元 | 12+512GB: 2379.15元（均为国补优惠价）。首销赠价值1088元用机无忧礼包。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== NOTES ====== -->
+<div class="note-c">
+  <strong>产品点评：</strong>荣耀X80 Pro Max是一款"精准打击"的产品——它不追求旗舰性能或顶级影像，而是将所有资源集中在"耐用"这个核心价值上。11000mAh电池解决续航焦虑，IP69K防水+3米抗摔解决耐用焦虑，两年免费换屏解决售后焦虑。1699元的起售价让这些"奢侈"的耐用特性变得触手可及，这是千元机市场的降维打击。
+</div>
+
+<div class="note-a">
+  <strong>市场展望：</strong>X系列已收获全球1.3亿用户，X80 Pro Max有望延续这一成功。在手机同质化严重的当下，"极致耐用"是一个被低估的差异化方向。尤其对于户外工作者、老年用户和注重实用性的消费者，这款产品的吸引力远超同价位竞品。荣耀Earbuds 5e的同步发布（52dB降噪、299元首销价）进一步丰富了生态布局。
+</div>
+
+<!-- ====== TAKEAWAYS ====== -->
+<div class="takeaways">
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>11000mAh第四代青海湖电池，行业最大，刷新吉尼斯续航纪录（26小时直播）</li>
+    <li>IP68/69/69K防水大满贯，10米防水+85°C高温防水，10万次入水无忧</li>
+    <li>F1赛车Halo防撞梁设计+航天级结构胶，3米高空跌落无忧</li>
+    <li>10000nits高亮护眼屏+十大护眼技术，3840Hz PWM调光</li>
+    <li>行业首创两年免费换屏服务，首销赠1088元用机无忧礼包</li>
+    <li>国补1699.15元起，6月26日全面开售，千元机市场的降维打击</li>
+  </ul>
+</div>
+
+</div>
+
+<!-- ====== LIGHTBOX ====== -->
+<div class="lb-overlay" id="lightbox" onclick="closeLB()">
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+(function(){
+  var imgs = document.querySelectorAll('.r-fig img, .r-cols img');
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  imgs.forEach(function(img){
+    img.addEventListener('click', function(e){
+      e.stopPropagation();
+      lbImg.src = img.src;
+      lb.classList.add('active');
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') lb.classList.remove('active');
+  });
+})();
+function closeLB(){ document.getElementById('lightbox').classList.remove('active'); }
+</script>
+
+</body>
+</html>

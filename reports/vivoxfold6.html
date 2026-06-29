@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vivo X Fold6 发布会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --v-bg: #0a0a10;
+    --v-bg-light: #111118;
+    --v-accent: #415fff;
+    --v-accent2: #7c3aed;
+    --v-gold: #d4a853;
+    --v-text: #e8e6f0;
+    --v-text-dim: #b0acbe;
+    --v-text-muted: #6e6a80;
+    --v-card-bg: rgba(255, 255, 255, 0.035);
+    --v-card-border: rgba(255, 255, 255, 0.07);
+    --v-grad: linear-gradient(135deg, #415fff 0%, #7c3aed 50%, #a855f7 100%);
+    --v-grad-soft: linear-gradient(135deg, rgba(65,95,255,0.18) 0%, rgba(124,58,237,0.12) 50%, rgba(168,85,247,0.08) 100%);
+    --v-serif: Georgia, 'Noto Serif SC', 'PingFang SC', serif;
+    --v-sans: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--v-sans);
+    background: var(--v-bg);
+    color: var(--v-text);
+    line-height: 1.78;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ====== HERO ====== */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px 110px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(700px 450px at 25% 25%, rgba(65, 95, 255, 0.25), transparent 55%),
+      radial-gradient(550px 350px at 75% 65%, rgba(124, 58, 237, 0.2), transparent 50%),
+      radial-gradient(400px 250px at 50% 85%, rgba(168, 85, 247, 0.1), transparent 45%),
+      radial-gradient(350px 200px at 65% 15%, rgba(65, 95, 255, 0.12), transparent 40%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 220px;
+    background: linear-gradient(to top, var(--v-bg), transparent);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 880px; }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.35em;
+    color: var(--v-accent); font-weight: 600;
+    text-transform: uppercase; margin-bottom: 20px; opacity: 0.9;
+  }
+  .hero h1 {
+    font-family: var(--v-serif);
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 700; letter-spacing: -0.02em;
+    background: var(--v-grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px; line-height: 1.15;
+  }
+  .hero-sub {
+    font-size: clamp(15px, 2.2vw, 19px);
+    color: var(--v-text-dim); max-width: 620px;
+    margin: 0 auto 36px; line-height: 1.7;
+  }
+  .hero-chips {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-top: 16px;
+  }
+  .chip {
+    font-size: 12px; font-weight: 500;
+    padding: 6px 16px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+    color: var(--v-text-dim); backdrop-filter: blur(8px);
+  }
+  .chip.hi {
+    border-color: var(--v-accent);
+    color: var(--v-accent);
+    background: rgba(65, 95, 255, 0.12);
+  }
+
+  /* ====== CONTENT WRAP ====== */
+  .content-wrap {
+    max-width: 900px; margin: 0 auto; padding: 0 28px 80px;
+    position: relative; z-index: 1;
+  }
+
+  /* ====== BENTO GRID ====== */
+  .bento {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 18px; margin-bottom: 70px;
+  }
+  .bento-lead {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(65,95,255,0.08), rgba(124,58,237,0.06));
+    border: 1px solid rgba(65, 95, 255, 0.15);
+    border-radius: 18px; padding: 30px 32px;
+  }
+  .bento-lead .lead-label {
+    font-size: 11px; letter-spacing: 0.25em;
+    color: var(--v-accent); font-weight: 600;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .bento-lead .lead-text {
+    font-size: 17px; color: var(--v-text); line-height: 1.8;
+  }
+  .bento-item {
+    background: var(--v-card-bg);
+    border: 1px solid var(--v-card-border);
+    border-radius: 16px; padding: 24px 26px;
+  }
+  .bento-item .bi-num {
+    font-family: var(--v-serif);
+    font-size: 36px; font-weight: 700;
+    background: var(--v-grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bento-item .bi-label {
+    font-size: 12px; color: var(--v-text-muted);
+    margin-top: 4px; letter-spacing: 0.05em;
+  }
+  .bento-item .bi-desc {
+    font-size: 13px; color: var(--v-text-dim); margin-top: 8px;
+  }
+
+  /* ====== CHAPTER ====== */
+  .chapter { margin-bottom: 60px; }
+  .ch-num {
+    font-size: 11px; letter-spacing: 0.28em;
+    color: var(--v-accent); font-weight: 600;
+    margin-bottom: 6px; text-transform: uppercase;
+  }
+  .ch-tag {
+    display: inline-block; font-size: 10px;
+    letter-spacing: 0.2em; color: var(--v-text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 3px 12px; border-radius: 12px;
+    margin-bottom: 14px; text-transform: uppercase;
+  }
+  .ch h2 {
+    font-family: var(--v-serif);
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700; letter-spacing: -0.01em;
+    color: var(--v-text); margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .ch-intro {
+    font-size: 15px; color: var(--v-text-dim);
+    margin-bottom: 28px; line-height: 1.8;
+    max-width: 700px;
+  }
+
+  /* ====== FEAT ITEM ====== */
+  .feat {
+    display: grid; grid-template-columns: 40px 1fr;
+    gap: 18px; align-items: start;
+    padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .feat:last-child { border-bottom: none; }
+  .feat-num {
+    font-family: var(--v-serif);
+    font-size: 28px; font-weight: 700;
+    color: var(--v-accent); opacity: 0.5;
+    text-align: center; line-height: 1;
+  }
+  .feat-tag {
+    display: inline-block; font-size: 10px;
+    letter-spacing: 0.15em; color: var(--v-text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 2px 10px; border-radius: 10px;
+    margin-bottom: 8px; text-transform: uppercase;
+  }
+  .feat h3 {
+    font-family: var(--v-serif);
+    font-size: 20px; font-weight: 700;
+    color: var(--v-text); margin-bottom: 6px;
+  }
+  .feat p {
+    font-size: 14px; color: var(--v-text-dim); line-height: 1.7;
+  }
+
+  /* ====== FIGURE ====== */
+  .r-fig { margin: 36px 0; }
+  .r-fig img {
+    width: 100%; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: block; cursor: zoom-in;
+    transition: transform 0.3s ease;
+  }
+  .r-fig img:hover { transform: scale(1.01); }
+  .figcaption {
+    font-size: 12px; color: var(--v-text-muted);
+    margin-top: 10px; text-align: center;
+    font-style: italic;
+  }
+
+  .r-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 36px 0; }
+  .r-cols img {
+    width: 100%; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: zoom-in; display: block;
+    transition: transform 0.3s ease;
+  }
+  .r-cols img:hover { transform: scale(1.02); }
+
+  /* ====== NOTE BOX ====== */
+  .note-c, .note-a {
+    border-radius: 14px; padding: 24px 28px;
+    margin: 32px 0; font-size: 14px; line-height: 1.75;
+  }
+  .note-c {
+    background: rgba(65, 95, 255, 0.06);
+    border: 1px solid rgba(65, 95, 255, 0.18);
+    color: var(--v-text-dim);
+  }
+  .note-c strong { color: var(--v-accent); }
+  .note-a {
+    background: rgba(212, 168, 83, 0.06);
+    border: 1px solid rgba(212, 168, 83, 0.18);
+    color: var(--v-text-dim);
+  }
+  .note-a strong { color: var(--v-gold); }
+
+  /* ====== TAKEAWAYS ====== */
+  .takeaways {
+    background: linear-gradient(135deg, rgba(65,95,255,0.06), rgba(124,58,237,0.04));
+    border: 1px solid rgba(65, 95, 255, 0.12);
+    border-radius: 18px; padding: 36px 32px;
+    margin: 50px 0 30px;
+  }
+  .takeaways h2 {
+    font-family: var(--v-serif);
+    font-size: 24px; margin-bottom: 18px;
+    color: var(--v-text);
+  }
+  .takeaways ul {
+    list-style: none; padding: 0;
+  }
+  .takeaways li {
+    padding: 10px 0; color: var(--v-text-dim);
+    font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .takeaways li:last-child { border-bottom: none; }
+  .takeaways li::before {
+    content: '▸ '; color: var(--v-accent);
+    font-weight: 700;
+  }
+
+  /* ====== LIGHTBOX ====== */
+  .lb-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.94); display: flex;
+    align-items: center; justify-content: center;
+    cursor: zoom-out; opacity: 0; pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .lb-overlay.active { opacity: 1; pointer-events: auto; }
+  .lb-overlay img {
+    max-width: 92vw; max-height: 90vh;
+    border-radius: 8px; cursor: default;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .hero { min-height: 70vh; padding: 40px 16px 80px; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 14px; }
+    .bento { grid-template-columns: 1fr; gap: 12px; }
+    .r-cols { grid-template-columns: 1fr; gap: 12px; }
+    .content-wrap { padding: 0 16px 50px; }
+    .feat { grid-template-columns: 32px 1fr; gap: 12px; }
+    .feat-num { font-size: 22px; }
+    .feat h3 { font-size: 17px; }
+    .bento-lead { padding: 20px; }
+    .takeaways { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026.06.26 · 上海西岸艺术中心</div>
+    <h1>vivo X Fold6</h1>
+    <p class="hero-sub">
+      AI轻办公折叠旗舰，天玑9500超能版 · 蔡司2亿像素APO超级长焦 · 7000mAh蓝海电池 · 原子工作台一屏四用
+    </p>
+    <div class="hero-chips">
+      <span class="chip hi">天玑9500超能版</span>
+      <span class="chip">8.02"内屏 · 6.51"外屏</span>
+      <span class="chip">蔡司2亿像素APO</span>
+      <span class="chip">7000mAh蓝海电池</span>
+      <span class="chip">OriginOS 6 Fold</span>
+      <span class="chip">7999元起</span>
+    </div>
+  </div>
+</section>
+
+<div class="content-wrap">
+
+<!-- ====== BENTO GRID ====== -->
+<div class="bento">
+  <div class="bento-lead">
+    <div class="lead-label">核心结论</div>
+    <div class="lead-text">
+      vivo X Fold6 是迄今为止最强大的折叠屏旗舰手机。搭载天玑9500超能版处理器、蔡司2亿像素APO超级长焦和7000mAh蓝海电池，在性能、影像和续航三大维度实现突破。首发OriginOS 6 Fold带来原子工作台一屏四用，让折叠屏从"折叠着用"升级为"展开即工作站"。
+    </div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">8.02"</div>
+    <div class="bi-label">AMOLED 内屏</div>
+    <div class="bi-desc">2K+ LTPO 120Hz 自适应刷新率</div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">7000mAh</div>
+    <div class="bi-label">蓝海电池</div>
+    <div class="bi-desc">80W有线+40W无线闪充</div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">2亿</div>
+    <div class="bi-label">蔡司主摄</div>
+    <div class="bi-desc">APO超级长焦 · 多焦段人像</div>
+  </div>
+  <div class="bento-item">
+    <div class="bi-num">7999元</div>
+    <div class="bi-label">起售价</div>
+    <div class="bi-desc">12+256GB · 顶配16+1TB</div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 1 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 01</div>
+  <span class="ch-tag">设计 & 屏幕</span>
+  <h2>轻薄大折叠的终极形态</h2>
+  <p class="ch-intro">
+    vivo X Fold6 在保持大折叠屏全功能体验的同时，将重量控制在了约217g，展开厚度仅4.85mm，折叠厚度10.2mm。航天级铰链采用液态金属+钛合金材料，支持30万次折叠无忧。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">屏幕</span>
+      <h3>双旗舰屏幕 · 内外一致</h3>
+      <p>8.02英寸2K+ AMOLED内屏与6.51英寸AMOLED外屏均支持LTPO 1-120Hz自适应刷新率、HDR10+、100% DCI-P3色域。内外屏峰值亮度均达3000nit，阳光下同样清晰可视。超声波屏下指纹，内外屏均可解锁。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">铰链</span>
+      <h3>第三代航天铰链 · 30万次无忧</h3>
+      <p>采用液态金属+钛合金复合材料铰链，水滴型收纳结构，折痕控制相比前代提升35%。支持45°-135°自由悬停，获得SGS金标折叠耐久认证。</p>
+    </div>
+  </div>
+
+  <div class="r-fig">
+    <img src="../images/vivoxfold6-1.jpg" alt="vivo X Fold6 设计" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <div class="figcaption">vivo X Fold6 · 墨羽黑与远山白配色</div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 2 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 02</div>
+  <span class="ch-tag">性能 & 续航</span>
+  <h2>天玑9500超能版 · 折叠屏最强芯</h2>
+  <p class="ch-intro">
+    天玑9500超能版采用台积电N3E工艺，全大核架构，配合vivo自研V4影像芯片和蓝晶散热系统，性能释放超越多数直板旗舰。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">芯片</span>
+      <h3>天玑9500超能版 · 全大核架构</h3>
+      <p>台积电N3E工艺，1×Cortex-X5超大核@3.5GHz + 3×Cortex-X4@3.0GHz + 4×Cortex-A730@2.2GHz。安兔兔跑分突破280万，GeekBench 6多核破万，是目前折叠屏手机中的性能天花板。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">电池</span>
+      <h3>7000mAh蓝海电池 · 两天无忧</h3>
+      <p>第三代硅碳负极电池技术，能量密度达820Wh/L。80W有线闪充20分钟充至50%，40W无线闪充。支持10W反向无线充电，可为耳机、手表应急补能。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 3 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 03</div>
+  <span class="ch-tag">影像系统</span>
+  <h2>蔡司全焦段 · 折叠影像之王</h2>
+  <p class="ch-intro">
+    X Fold6搭载蔡司联合研发的四摄系统，主摄升级至2亿像素大底传感器，搭配APO超级长焦，实现从超广角到超长焦的全焦段覆盖。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">主摄</span>
+      <h3>2亿像素蔡司主摄 · 1/1.28"大底</h3>
+      <p>三星HP3传感器，f/1.68光圈，OIS光学防抖。支持16合1像素融合，单像素等效2.4μm，夜景纯净度大幅提升。蔡司T*镀膜有效抑制鬼影和眩光。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">长焦</span>
+      <h3>APO超级长焦 · 10倍光学品质</h3>
+      <p>6400万像素潜望式长焦，支持3.5倍光学变焦和10倍混合变焦，APO复消色差设计确保远摄画质锐利纯净。配合蔡司多焦段人像，轻松拍出专业级人像大片。</p>
+    </div>
+  </div>
+
+  <div class="r-cols">
+    <img src="../images/vivoxfold6-2.jpg" alt="vivo X Fold6 相机" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="../images/vivoxfold6-3.jpg" alt="vivo X Fold6 影像样张" loading="lazy" onerror="this.parentElement.style.display='none'">
+  </div>
+</div>
+
+<!-- ====== CHAPTER 4 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 04</div>
+  <span class="ch-tag">AI & 生产力</span>
+  <h2>原子工作台 · 一屏四用</h2>
+  <p class="ch-intro">
+    OriginOS 6 Fold为折叠屏深度重构了多任务体验。原子工作台支持一屏同时运行四个应用，AI全局智能助手贯穿整个系统。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">多任务</span>
+      <h3>原子工作台 · 一屏四用</h3>
+      <p>全新设计的原子工作台支持四窗口自由布局，可同时运行文档、浏览器、微信和邮件。窗口支持自由拖拽缩放，文件可在应用间拖放传输。配合全局任务栏，切换效率媲美桌面操作系统。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">AI</span>
+      <h3>蓝心大模型 · AI全域赋能</h3>
+      <p>端侧70亿参数蓝心大模型支持AI会议纪要、AI文档摘要、AI图片消除、AI通话翻译等功能。AI轻办公模式可自动识别文档内容并生成结构化摘要，大幅提升移动办公效率。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CHAPTER 5 ====== -->
+<div class="chapter">
+  <div class="ch-num">CHAPTER 05</div>
+  <span class="ch-tag">价格 & 开售</span>
+  <h2>7999元起 · 折叠屏价格新标杆</h2>
+  <p class="ch-intro">
+    vivo X Fold6 提供四个存储版本，定价相比前代更具竞争力，同时首销权益丰厚。
+  </p>
+
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div>
+      <span class="feat-tag">价格</span>
+      <h3>四档配置 · 诚意定价</h3>
+      <p>12+256GB: 7999元 | 12+512GB: 8499元 | 16+512GB: 8999元 | 16+1TB: 9999元。墨羽黑、远山白、晴山蓝三款配色同步开售。</p>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div>
+      <span class="feat-tag">首销</span>
+      <h3>7月3日全面开售 · 首销权益</h3>
+      <p>即日起预售，7月3日10:00全面开售。首销期间享24期免息、以旧换新最高补贴1500元、赠送价值299元vivo Care+一年延保。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== NOTE ====== -->
+<div class="note-c">
+  <strong>产品点评：</strong>vivo X Fold6 是折叠屏走向成熟的重要里程碑。天玑9500超能版的性能表现超越了多数直板旗舰，7000mAh电池解决了折叠屏续航焦虑，2亿像素蔡司影像让折叠屏不再是"拍照妥协"。7999元的起售价相比竞品具有明显优势，有望成为2026年最值得购买的折叠屏手机之一。
+</div>
+
+<div class="note-a">
+  <strong>市场展望：</strong>随着折叠屏产业链成熟和成本下降，折叠屏手机正在从"尝鲜"走向"主力机"。X Fold6以7999元切入，直面三星Galaxy Z Fold 8和即将到来的折叠iPhone。vivo在折叠屏领域的持续投入正在收获回报——X Fold6在性能、影像、续航三个维度的领先优势，让它在折叠屏市场拥有了真正的护城河。
+</div>
+
+<!-- ====== TAKEAWAYS ====== -->
+<div class="takeaways">
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>天玑9500超能版首次应用于折叠屏，性能超越直板旗舰，跑分突破280万</li>
+    <li>7000mAh蓝海电池+80W快充，折叠屏续航焦虑成为历史</li>
+    <li>蔡司2亿像素+APO超级长焦，折叠屏影像不再妥协</li>
+    <li>OriginOS 6 Fold原子工作台一屏四用，折叠屏生产力全面释放</li>
+    <li>7999元起售价击穿折叠屏价格底线，性价比超越同价位直板旗舰</li>
+    <li>7月3日开售，首销24期免息+以旧换新补贴，入手门槛进一步降低</li>
+  </ul>
+</div>
+
+</div><!-- /content-wrap -->
+
+<!-- ====== LIGHTBOX ====== -->
+<div class="lb-overlay" id="lightbox" onclick="closeLB()">
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+(function(){
+  var imgs = document.querySelectorAll('.r-fig img, .r-cols img');
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  imgs.forEach(function(img){
+    img.addEventListener('click', function(e){
+      e.stopPropagation();
+      lbImg.src = img.src;
+      lb.classList.add('active');
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') lb.classList.remove('active');
+  });
+})();
+function closeLB(){ document.getElementById('lightbox').classList.remove('active'); }
+</script>
+
+</body>
+</html>
