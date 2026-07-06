@@ -285,18 +285,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 17px;
-    font-weight: 800;
-    color: #fff;
-    flex-shrink: 0;
-    position: relative;
     overflow: hidden;
+    background: transparent;
+    flex-shrink: 0;
   }
-  .brand-icon::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,.15), transparent 60%);
+  .brand-icon img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 14px;
   }
 
   /* Card Body */
@@ -425,6 +419,36 @@
   }
   .update-hint strong { color: var(--text-secondary); }
 
+  /* ===== Section Switch ===== */
+  .section-switch {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px 0;
+  }
+  .section-switch a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.02);
+    transition: all .2s ease;
+  }
+  .section-switch a:hover { color: var(--text); border-color: var(--border-hover); background: rgba(255,255,255,.05); }
+  .section-switch a.active {
+    background: var(--text);
+    color: var(--bg-deep);
+    border-color: var(--text);
+  }
+
   .hidden { display: none !important; }
 
   /* ===== Lightbox (for images on this page) ===== */
@@ -464,7 +488,6 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      font-size: 14px;
     }
     .card-body h3 { font-size: 15.5px; }
     .card-meta span { font-size: 11.5px; }
@@ -484,328 +507,168 @@
 </head>
 <body>
 
-<!-- ===== Hero ===== -->
-<section class="hero">
-  <div class="hero-badge"><span class="dot"></span>2026 追踪中</div>
-  <h1><em>手机发布会</em>追踪器</h1>
-  <p class="hero-desc">华为 · 荣耀 · vivo · OPPO · 小米 · 苹果 · 三星<br>全景追踪，深度报告</p>
-  <div class="hero-meta">
-    <span><strong>17</strong> 场发布会</span>
-    <span><strong>7</strong> 大品牌</span>
-    <span><strong>2–9月</strong> 全年追踪</span>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="num">12</div>
-      <div class="label">已发布 / 已举行</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">3</div>
-      <div class="label">即将发布</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">2</div>
-      <div class="label">稍晚发布</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">12</div>
-      <div class="label">份深度报告</div>
-    </div>
-  </div>
-</section>
+<!-- ===== Section Switch ===== -->
+<nav class="section-switch">
+  <a href="index.html" class="active">📱 发布会追踪</a>
+  <a href="system-updates.html">🔄 系统更新日志</a>
+</nav>
 
-<div class="main-wrap">
 
-  <!-- Filter Bar -->
-  <nav class="filter-bar">
-    <button class="filter-btn active" data-filter="all">全部</button>
-    <button class="filter-btn" data-filter="released">已发布</button>
-    <button class="filter-btn" data-filter="upcoming">即将发布</button>
-    <button class="filter-btn" data-filter="later">稍晚发布</button>
-  </nav>
-
-  <!-- ===== 5月下旬 ===== -->
+  <!-- ===== 9月 ===== -->
   <div class="section-header">
-    <span class="section-title">5 月 · 密集发布期</span>
+    <span class="section-title">9 月</span>
     <div class="section-line"></div>
   </div>
 
-  <!-- iQOO 15T -->
-  <div class="card" data-brand="vivo" data-status="released" style="--brand-accent: var(--vivo)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--vivo), #7c3aed)">iQ</div>
+  <div class="card" data-brand="xiaomi" data-status="later" style="--brand-accent: var(--xiaomi)">
+    <div class="brand-icon"><img src="images/logos/xiaomi.png" alt="小米"></div>
     <div class="card-body">
-      <h3>iQOO 15T</h3>
+      <h3>小米18系列 · 全球首发骁龙8 Elite Gen6</h3>
       <div class="card-meta">
-        <span>📅 5月20日</span>
-        <span>⚡ 天玑9500 Monster版</span>
-        <span>🔋 8000mAh</span>
+        <span>📅 9月24日(预计) · 高通骁龙峰会次日</span>
+        <span>⚡ 骁龙8 Elite Gen6 · 台积电N2P 2nm工艺</span>
+        <span>📷 双2亿像素主摄 + 3倍长焦</span>
+        <span>📱 小屏旗舰定位 · 18 Ultra 12月发布</span>
+        <span>🖥️ AI智窗背屏 · 深度融合小米AI大模型</span>
+        <span>🏆 全球独家首发2nm旗舰芯片</span>
       </div>
       <div class="tags">
-        <span class="tag tag-released">已发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://www.vivo.com.cn/vivo/iqoo15t/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          官网
-        </a>
-        <a class="link-btn" href="https://www.iqoo.com/cn" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          iQOO商城
-        </a>
-        <a class="link-btn" href="https://www.bilibili.com/video/BV1usLm6xEnG/" target="_blank">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          回放
-        </a>
-        <a class="report-btn" target="_blank" href="reports/iqoo15t.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 小米17 Max -->
-  <div class="card" data-brand="xiaomi" data-status="released" style="--brand-accent: var(--xiaomi)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--xiaomi), #cc5500)">Mi</div>
-    <div class="card-body">
-      <h3>小米17 Max</h3>
-      <div class="card-meta">
-        <span>📅 5月21日</span>
-        <span>📷 徕卡2亿像素主摄</span>
-        <span>🔋 8000mAh</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-released">已发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://www.mi.com/prod/xiaomi-17-max" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          小米官网
-        </a>
-        <a class="link-btn" href="https://live.bilibili.com/545342" target="_blank">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          B站直播
-        </a>
-        <a class="report-btn" target="_blank" href="reports/mi17max.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 荣耀600系列 -->
-  <div class="card" data-brand="honor" data-status="released" style="--brand-accent: var(--honor)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--honor), #0d5ec4)">荣</div>
-    <div class="card-body">
-      <h3>荣耀600系列</h3>
-      <div class="card-meta">
-        <span>📅 5月25日 19:00 · 厦门</span>
-        <span>📷 2亿像素4K闪光微单</span>
-        <span>🔋 8600mAh</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-released">已发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://www.honor.com/cn/activity/honor-600-series-launch/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          发布会官网
-        </a>
-        <a class="link-btn" href="https://www.honor.com/cn/phones/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          荣耀商城
-        </a>
-        <a class="link-btn" href="https://www.bilibili.com/video/BV1nXGW6MEUa/" target="_blank">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          回放
-        </a>
-        <a class="report-btn" target="_blank" href="reports/honor600.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- OPPO Reno16系列 -->
-  <div class="card" data-brand="oppo" data-status="released" style="--brand-accent: var(--oppo)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--oppo), #16954a)">OP</div>
-    <div class="card-body">
-      <h3>OPPO Reno16系列</h3>
-      <div class="card-meta">
-        <span>📅 5月25日 18:00 · "Reno Land奇幻夜"</span>
-        <span>📷 实况影像+3D悬浮星球</span>
-        <span>🎨 半夏青新色 7月3日上市</span>
-        <span>💰 国补后2999起</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-released">已发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://www.oppo.com/cn/smartphones/series/reno/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          OPPO官网
-        </a>
-        <a class="link-btn" href="https://shop.oppo.com/cn/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          OPPO商城
-        </a>
-        <a class="report-btn" target="_blank" href="reports/opporeno16.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- vivo S60 -->
-  <div class="card" data-brand="vivo" data-status="released" style="--brand-accent: var(--vivo)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--vivo), #7c3aed)">v</div>
-    <div class="card-body">
-      <h3>vivo S60系列</h3>
-      <div class="card-meta">
-        <span>📅 5月29日 · 三亚</span>
-        <span>⚡ 骁龙8s Gen3</span>
-        <span>🔋 7200mAh蓝海电池</span>
-        <span>👆 3D超声波指纹2.0</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-released">已发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://www.vivo.com.cn/vivo/s60/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          vivo官网
-        </a>
-        <a class="link-btn" href="https://shop.vivo.com.cn/product/10012053" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          vivo商城
-        </a>
-        <a class="report-btn" target="_blank" href="reports/vivs60.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- ===== 6月 ===== -->
-  <div class="section-header">
-    <span class="section-title">6 月 · 持续发布</span>
-    <div class="section-line"></div>
-  </div>
-
-  <!-- 华为 nova 16 -->
-  <div class="card" data-brand="huawei" data-status="released" style="--brand-accent: var(--huawei)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--huawei), #9a0d1c)">HW</div>
-    <div class="card-body">
-      <h3>华为 nova 16系列 · 十周年</h3>
-      <div class="card-meta">
-        <span>📅 6月1日 14:30 · 成都</span>
-        <span>🎉 四款齐发</span>
-        <span>⚡ 麒麟9010S</span>
-        <span>📷 2亿红枫影像</span>
-        <span>🔋 7000mAh + 100W</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-released">已发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://consumer.huawei.com/cn/phones/nova16-pro/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          华为官网
-        </a>
-        <a class="link-btn" href="https://www.vmall.com/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          华为商城
-        </a>
-        <a class="link-btn" href="https://www.bilibili.com/video/BV1jBGezuEQC/" target="_blank">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          回放
-        </a>
-        <a class="report-btn" target="_blank" href="reports/huaweinova16.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 小米17T -->
-  <div class="card" data-brand="xiaomi" data-status="released" style="--brand-accent: var(--xiaomi)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--xiaomi), #cc5500)">Mi</div>
-    <div class="card-body">
-      <h3>小米17T系列 · T系列首次回国</h3>
-      <div class="card-meta">
-        <span>📅 6月8日 14:00</span>
-        <span>⚡ 天玑9500 / 8500U</span>
-        <span>📷 徕卡5倍潜望长焦</span>
-        <span>🔋 7000mAh + 100W</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-released">已发布</span>
+        <span class="tag tag-later">稍晚发布</span>
       </div>
       <div class="links">
         <a class="link-btn" href="https://www.mi.com/" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           小米官网
         </a>
-        <a class="link-btn" href="https://www.mi.com/shop/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          小米商城
-        </a>
-        <a class="link-btn" href="https://live.bilibili.com/545342" target="_blank">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          B站直播
-        </a>
-        <a class="report-btn" target="_blank" href="reports/mi17t.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
-        </a>
       </div>
     </div>
   </div>
 
-  <!-- WWDC 2026 -->
-  <div class="card" data-brand="apple" data-status="released" style="--brand-accent: #888">
-    <div class="brand-icon" style="background: linear-gradient(135deg, #333, #111)">A</div>
+  <div class="card" data-brand="apple" data-status="later" style="--brand-accent: #888">
+    <div class="brand-icon"><img src="images/logos/apple.png" alt="苹果"></div>
     <div class="card-body">
-      <h3>Apple WWDC 2026</h3>
+      <h3>iPhone 18 Pro系列 + iPhone Ultra折叠屏</h3>
       <div class="card-meta">
-        <span>📅 6月9日–13日</span>
-        <span>💻 iOS 27 · Siri AI · Apple Intelligence</span>
-        <span>⚠️ 库克最后一届WWDC</span>
+        <span>📅 9月(预计) · 折叠屏同台亮相</span>
+        <span>⚡ A20 Pro 2nm</span>
+        <span>📡 自研C2基带</span>
+        <span>📷 可变光圈镜头 + 三层堆叠传感器</span>
+        <span>📱 iPhone Ultra折叠：7.8英寸/5.5英寸 · 4:3比例</span>
+        <span>⚠️ 郭明錤：折叠屏9月发布但2027年才能买到</span>
+        <span>💰 折叠版预计1800-2500美元</span>
+        <span>📦 标准版iPhone 18/Air 2推迟至2027春</span>
       </div>
       <div class="tags">
-        <span class="tag tag-released">已举行</span>
+        <span class="tag tag-later">稍晚发布</span>
       </div>
       <div class="links">
-        <a class="link-btn" href="https://developer.apple.com/wwdc26/" target="_blank">
+        <a class="link-btn" href="https://www.apple.com.cn/iphone/" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          WWDC官网
-        </a>
-        <a class="link-btn" href="https://www.apple.com.cn/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          Apple中国
-        </a>
-        <a class="link-btn" href="https://www.apple.com/apple-events/" target="_blank">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          主题演讲回放
-        </a>
-        <a class="report-btn" target="_blank" href="reports/wwdc2026.html">
-          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          报告
+          iPhone官网
         </a>
       </div>
     </div>
   </div>
 
-  <!-- vivo X Fold 6 -->
+
+  <!-- ===== 8月 ===== -->
+  <div class="section-header">
+    <span class="section-title">8 月</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card" data-brand="xiaomi" data-status="upcoming" style="--brand-accent: var(--redmi)">
+    <div class="brand-icon"><img src="images/logos/redmi.png" alt="Redmi"></div>
+    <div class="card-body">
+      <h3>Redmi K100系列 · K系史上最强 · 提档8月</h3>
+      <div class="card-meta">
+        <span>📅 8月(提前发布 · 早于小米18)</span>
+        <span>⚡ 天玑9600旗舰芯片</span>
+        <span>📷 2亿像素大底主摄 · 潜望长焦</span>
+        <span>🔋 9000mAh超大电池(已确认)</span>
+        <span>📱 6.59/6.9英寸 · 185Hz超高刷2K直屏</span>
+        <span>🏭 旗舰工艺全面升级</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-upcoming">即将发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.mi.com/redmi" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Redmi官网
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 7月 ===== -->
+  <div class="section-header">
+    <span class="section-title">7 月</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card" data-brand="samsung" data-status="upcoming" style="--brand-accent: var(--samsung)">
+    <div class="brand-icon"><img src="images/logos/samsung.png" alt="三星"></div>
+    <div class="card-body">
+      <h3>三星 Galaxy Z Fold 8 系列 + Z Flip 8</h3>
+      <div class="card-meta">
+        <span>📅 7月22日 · 伦敦夏季发布会（已开启盲约）</span>
+        <span>📱 三款齐发：Fold 8 · Fold 8 Ultra（阔折叠4:3）· Z Flip 8</span>
+        <span>⚡ 骁龙8 Elite Gen 5 for Galaxy</span>
+        <span>📷 5000万像素三摄 · Fold 8 Ultra新增芳纶纤维壳</span>
+        <span>🔋 4800mAh + 45W</span>
+        <span>🎨 Z Flip 8多彩配色 · 磁吸无线充电配件</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-upcoming">即将发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.samsung.com.cn/smartphones/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          三星手机官网
+        </a>
+        <a class="link-btn" href="https://www.chinaz.com/2026/0705/1762965.shtml" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          盲约详情
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="honor" data-status="upcoming" style="--brand-accent: var(--honor)">
+    <div class="brand-icon"><img src="images/logos/honor.png" alt="荣耀"></div>
+    <div class="card-body">
+      <h3>荣耀 Magic V Flip3 · 性能向竖折旗舰</h3>
+      <div class="card-meta">
+        <span>📅 7月 · 线上发布</span>
+        <span>⚡ 骁龙8 Gen5</span>
+        <span>📷 2亿像素主摄</span>
+        <span>📱 优化铰链结构 · 更轻薄</span>
+        <span>🔋 电池容量大幅提升</span>
+        <span>💰 预计5699元起</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-upcoming">即将发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.honor.com/cn/phones/honor-magic-v-flip/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          荣耀Magic V Flip
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 6月 ===== -->
+  <div class="section-header">
+    <span class="section-title">6 月</span>
+    <div class="section-line"></div>
+  </div>
+
   <div class="card" data-brand="vivo" data-status="released" style="--brand-accent: var(--vivo)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--vivo), #7c3aed)">v</div>
+    <div class="brand-icon"><img src="images/logos/vivo.png" alt="vivo"></div>
     <div class="card-body">
       <h3>vivo X Fold6 · AI轻办公折叠旗舰</h3>
       <div class="card-meta">
@@ -841,9 +704,8 @@
     </div>
   </div>
 
-  <!-- 荣耀 X80 Pro Max -->
   <div class="card" data-brand="honor" data-status="released" style="--brand-accent: var(--honor)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--honor), #0d5ec4)">荣</div>
+    <div class="brand-icon"><img src="images/logos/honor.png" alt="荣耀"></div>
     <div class="card-body">
       <h3>荣耀 X80 Pro Max · 续航到顶耐用到底</h3>
       <div class="card-meta">
@@ -873,9 +735,8 @@
     </div>
   </div>
 
-  <!-- 华为 HDC 2026 -->
   <div class="card" data-brand="huawei" data-status="released" style="--brand-accent: var(--huawei)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--huawei), #9a0d1c)">HW</div>
+    <div class="brand-icon"><img src="images/logos/huawei.png" alt="华为"></div>
     <div class="card-body">
       <h3>华为 HDC 2026 开发者大会</h3>
       <div class="card-meta">
@@ -908,139 +769,279 @@
     </div>
   </div>
 
-  <hr class="divider">
-
-  <!-- ===== 7月 ===== -->
-  <div class="section-header">
-    <span class="section-title">7 月 · 折叠屏大年</span>
-    <div class="section-line"></div>
-  </div>
-
-  <!-- 三星 Galaxy Z Fold 8 系列 -->
-  <div class="card" data-brand="samsung" data-status="upcoming" style="--brand-accent: var(--samsung)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--samsung), #0d47a1)">S</div>
+  <div class="card" data-brand="apple" data-status="released" style="--brand-accent: #888">
+    <div class="brand-icon"><img src="images/logos/apple.png" alt="苹果"></div>
     <div class="card-body">
-      <h3>三星 Galaxy Z Fold 8 系列 + Z Flip 8</h3>
+      <h3>Apple WWDC 2026</h3>
       <div class="card-meta">
-        <span>📅 7月22日 · 伦敦夏季发布会（已开启盲约）</span>
-        <span>📱 三款齐发：Fold 8 · Fold 8 Ultra（阔折叠4:3）· Z Flip 8</span>
-        <span>⚡ 骁龙8 Elite Gen 5 for Galaxy</span>
-        <span>📷 5000万像素三摄 · Fold 8 Ultra新增芳纶纤维壳</span>
-        <span>🔋 4800mAh + 45W</span>
-        <span>🎨 Z Flip 8多彩配色 · 磁吸无线充电配件</span>
+        <span>📅 6月9日–13日</span>
+        <span>💻 iOS 27 · Siri AI · Apple Intelligence</span>
+        <span>⚠️ 库克最后一届WWDC</span>
       </div>
       <div class="tags">
-        <span class="tag tag-upcoming">即将发布</span>
+        <span class="tag tag-released">已举行</span>
       </div>
       <div class="links">
-        <a class="link-btn" href="https://www.samsung.com.cn/smartphones/" target="_blank">
+        <a class="link-btn" href="https://developer.apple.com/wwdc26/" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          三星手机官网
+          WWDC官网
         </a>
-        <a class="link-btn" href="https://www.chinaz.com/2026/0705/1762965.shtml" target="_blank">
+        <a class="link-btn" href="https://www.apple.com.cn/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Apple中国
+        </a>
+        <a class="link-btn" href="https://www.apple.com/apple-events/" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          主题演讲回放
+        </a>
+        <a class="report-btn" target="_blank" href="reports/wwdc2026.html">
           <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          盲约详情
+          报告
         </a>
       </div>
     </div>
   </div>
 
-  <!-- 荣耀 Magic V Flip3 -->
-  <div class="card" data-brand="honor" data-status="upcoming" style="--brand-accent: var(--honor)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--honor), #0d5ec4)">荣</div>
+  <div class="card" data-brand="xiaomi" data-status="released" style="--brand-accent: var(--xiaomi)">
+    <div class="brand-icon"><img src="images/logos/xiaomi.png" alt="小米"></div>
     <div class="card-body">
-      <h3>荣耀 Magic V Flip3 · 性能向竖折旗舰</h3>
+      <h3>小米17T系列 · T系列首次回国</h3>
       <div class="card-meta">
-        <span>📅 7月 · 线上发布</span>
-        <span>⚡ 骁龙8 Gen5</span>
-        <span>📷 2亿像素主摄</span>
-        <span>📱 优化铰链结构 · 更轻薄</span>
-        <span>🔋 电池容量大幅提升</span>
-        <span>💰 预计5699元起</span>
+        <span>📅 6月8日 14:00</span>
+        <span>⚡ 天玑9500 / 8500U</span>
+        <span>📷 徕卡5倍潜望长焦</span>
+        <span>🔋 7000mAh + 100W</span>
       </div>
       <div class="tags">
-        <span class="tag tag-upcoming">即将发布</span>
+        <span class="tag tag-released">已发布</span>
       </div>
       <div class="links">
-        <a class="link-btn" href="https://www.honor.com/cn/phones/honor-magic-v-flip/" target="_blank">
+        <a class="link-btn" href="https://www.mi.com/" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          荣耀Magic V Flip
+          小米官网
+        </a>
+        <a class="link-btn" href="https://www.mi.com/shop/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          小米商城
+        </a>
+        <a class="link-btn" href="https://live.bilibili.com/545342" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          B站直播
+        </a>
+        <a class="report-btn" target="_blank" href="reports/mi17t.html">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
-  <hr class="divider">
+  <div class="card" data-brand="huawei" data-status="released" style="--brand-accent: var(--huawei)">
+    <div class="brand-icon"><img src="images/logos/huawei.png" alt="华为"></div>
+    <div class="card-body">
+      <h3>华为 nova 16系列 · 十周年</h3>
+      <div class="card-meta">
+        <span>📅 6月1日 14:30 · 成都</span>
+        <span>🎉 四款齐发</span>
+        <span>⚡ 麒麟9010S</span>
+        <span>📷 2亿红枫影像</span>
+        <span>🔋 7000mAh + 100W</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://consumer.huawei.com/cn/phones/nova16-pro/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          华为官网
+        </a>
+        <a class="link-btn" href="https://www.vmall.com/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          华为商城
+        </a>
+        <a class="link-btn" href="https://www.bilibili.com/video/BV1jBGezuEQC/" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          回放
+        </a>
+        <a class="report-btn" target="_blank" href="reports/huaweinova16.html">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <!-- ===== 8月·性能旗舰提前 ===== -->
+
+  <!-- ===== 5月 ===== -->
   <div class="section-header">
-    <span class="section-title">8 月 · 性能旗舰提前</span>
+    <span class="section-title">5 月</span>
     <div class="section-line"></div>
   </div>
 
-  <!-- Redmi K100 -->
-  <div class="card" data-brand="xiaomi" data-status="upcoming" style="--brand-accent: var(--redmi)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--redmi), #cc3300)">红</div>
+  <div class="card" data-brand="vivo" data-status="released" style="--brand-accent: var(--vivo)">
+    <div class="brand-icon"><img src="images/logos/vivo.png" alt="vivo"></div>
     <div class="card-body">
-      <h3>Redmi K100系列 · K系史上最强 · 提档8月</h3>
+      <h3>vivo S60系列</h3>
       <div class="card-meta">
-        <span>📅 8月(提前发布 · 早于小米18)</span>
-        <span>⚡ 天玑9600旗舰芯片</span>
-        <span>📷 2亿像素大底主摄 · 潜望长焦</span>
-        <span>🔋 9000mAh超大电池(已确认)</span>
-        <span>📱 6.59/6.9英寸 · 185Hz超高刷2K直屏</span>
-        <span>🏭 旗舰工艺全面升级</span>
+        <span>📅 5月29日 · 三亚</span>
+        <span>⚡ 骁龙8s Gen3</span>
+        <span>🔋 7200mAh蓝海电池</span>
+        <span>👆 3D超声波指纹2.0</span>
       </div>
       <div class="tags">
-        <span class="tag tag-upcoming">即将发布</span>
+        <span class="tag tag-released">已发布</span>
       </div>
       <div class="links">
-        <a class="link-btn" href="https://www.mi.com/redmi" target="_blank">
+        <a class="link-btn" href="https://www.vivo.com.cn/vivo/s60/" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          Redmi官网
+          vivo官网
+        </a>
+        <a class="link-btn" href="https://shop.vivo.com.cn/product/10012053" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          vivo商城
+        </a>
+        <a class="report-btn" target="_blank" href="reports/vivs60.html">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
         </a>
       </div>
     </div>
   </div>
 
-  <hr class="divider">
+  <div class="card" data-brand="honor" data-status="released" style="--brand-accent: var(--honor)">
+    <div class="brand-icon"><img src="images/logos/honor.png" alt="荣耀"></div>
+    <div class="card-body">
+      <h3>荣耀600系列</h3>
+      <div class="card-meta">
+        <span>📅 5月25日 19:00 · 厦门</span>
+        <span>📷 2亿像素4K闪光微单</span>
+        <span>🔋 8600mAh</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.honor.com/cn/activity/honor-600-series-launch/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          发布会官网
+        </a>
+        <a class="link-btn" href="https://www.honor.com/cn/phones/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          荣耀商城
+        </a>
+        <a class="link-btn" href="https://www.bilibili.com/video/BV1nXGW6MEUa/" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          回放
+        </a>
+        <a class="report-btn" target="_blank" href="reports/honor600.html">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <!-- ===== 9月及以后 ===== -->
+  <div class="card" data-brand="oppo" data-status="released" style="--brand-accent: var(--oppo)">
+    <div class="brand-icon"><img src="images/logos/oppo.png" alt="OPPO"></div>
+    <div class="card-body">
+      <h3>OPPO Reno16系列</h3>
+      <div class="card-meta">
+        <span>📅 5月25日 18:00 · "Reno Land奇幻夜"</span>
+        <span>📷 实况影像+3D悬浮星球</span>
+        <span>🎨 半夏青新色 7月3日上市</span>
+        <span>💰 国补后2999起</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.oppo.com/cn/smartphones/series/reno/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          OPPO官网
+        </a>
+        <a class="link-btn" href="https://shop.oppo.com/cn/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          OPPO商城
+        </a>
+        <a class="report-btn" target="_blank" href="reports/opporeno16.html">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="xiaomi" data-status="released" style="--brand-accent: var(--xiaomi)">
+    <div class="brand-icon"><img src="images/logos/xiaomi.png" alt="小米"></div>
+    <div class="card-body">
+      <h3>小米17 Max</h3>
+      <div class="card-meta">
+        <span>📅 5月21日</span>
+        <span>📷 徕卡2亿像素主摄</span>
+        <span>🔋 8000mAh</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.mi.com/prod/xiaomi-17-max" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          小米官网
+        </a>
+        <a class="link-btn" href="https://live.bilibili.com/545342" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          B站直播
+        </a>
+        <a class="report-btn" target="_blank" href="reports/mi17max.html">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-brand="vivo" data-status="released" style="--brand-accent: var(--vivo)">
+    <div class="brand-icon"><img src="images/logos/vivo.png" alt="iQOO"></div>
+    <div class="card-body">
+      <h3>iQOO 15T</h3>
+      <div class="card-meta">
+        <span>📅 5月20日</span>
+        <span>⚡ 天玑9500 Monster版</span>
+        <span>🔋 8000mAh</span>
+      </div>
+      <div class="tags">
+        <span class="tag tag-released">已发布</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://www.vivo.com.cn/vivo/iqoo15t/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          官网
+        </a>
+        <a class="link-btn" href="https://www.iqoo.com/cn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          iQOO商城
+        </a>
+        <a class="link-btn" href="https://www.bilibili.com/video/BV1usLm6xEnG/" target="_blank">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          回放
+        </a>
+        <a class="report-btn" target="_blank" href="reports/iqoo15t.html">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          报告
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 2月 ===== -->
   <div class="section-header">
-    <span class="section-title">9 月及以后</span>
+    <span class="section-title">2 月</span>
     <div class="section-line"></div>
   </div>
 
-  <!-- iPhone 18 Pro -->
-  <div class="card" data-brand="apple" data-status="later" style="--brand-accent: #888">
-    <div class="brand-icon" style="background: linear-gradient(135deg, #444, #222)">A</div>
-    <div class="card-body">
-      <h3>iPhone 18 Pro系列 + iPhone Ultra折叠屏</h3>
-      <div class="card-meta">
-        <span>📅 9月(预计) · 折叠屏同台亮相</span>
-        <span>⚡ A20 Pro 2nm</span>
-        <span>📡 自研C2基带</span>
-        <span>📷 可变光圈镜头 + 三层堆叠传感器</span>
-        <span>📱 iPhone Ultra折叠：7.8英寸/5.5英寸 · 4:3比例</span>
-        <span>⚠️ 郭明錤：折叠屏9月发布但2027年才能买到</span>
-        <span>💰 折叠版预计1800-2500美元</span>
-        <span>📦 标准版iPhone 18/Air 2推迟至2027春</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-later">稍晚发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://www.apple.com.cn/iphone/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          iPhone官网
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 三星 S26 -->
   <div class="card" data-brand="samsung" data-status="released" style="--brand-accent: var(--samsung)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--samsung), #0d47a1)">S</div>
+    <div class="brand-icon"><img src="images/logos/samsung.png" alt="三星"></div>
     <div class="card-body">
       <h3>三星 Galaxy S26系列</h3>
       <div class="card-meta">
@@ -1063,31 +1064,6 @@
         <a class="report-btn" target="_blank" href="reports/samsungs26.html">
           <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           报告
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 小米18系列 -->
-  <div class="card" data-brand="xiaomi" data-status="later" style="--brand-accent: var(--xiaomi)">
-    <div class="brand-icon" style="background: linear-gradient(135deg, var(--xiaomi), #cc5500)">Mi</div>
-    <div class="card-body">
-      <h3>小米18系列 · 全球首发骁龙8 Elite Gen6</h3>
-      <div class="card-meta">
-        <span>📅 9月24日(预计) · 高通骁龙峰会次日</span>
-        <span>⚡ 骁龙8 Elite Gen6 · 台积电N2P 2nm工艺</span>
-        <span>📷 双2亿像素主摄 + 3倍长焦</span>
-        <span>📱 小屏旗舰定位 · 18 Ultra 12月发布</span>
-        <span>🖥️ AI智窗背屏 · 深度融合小米AI大模型</span>
-        <span>🏆 全球独家首发2nm旗舰芯片</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-later">稍晚发布</span>
-      </div>
-      <div class="links">
-        <a class="link-btn" href="https://www.mi.com/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          小米官网
         </a>
       </div>
     </div>
