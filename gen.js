@@ -54,7 +54,8 @@ const entries = [
     ],
     monthly: [
       { ver:'v21.5.72.18', date:'2025-05', note:'内部优化，无显著新功能' },
-      { ver:'v21.5.86.26', date:'2026-06', note:'🛠️ 修复设备端摘要崩溃 Bug' }
+      { ver:'v21.5.86.26', date:'2026-06', note:'🛠️ 修复设备端摘要崩溃 Bug' },
+      { ver:'v21.5.86.26 确认', date:'2026-07', note:'✅ Samsung 官方支持页确认修复；One UI 8.5 第二轮灰度推送覆盖 A34 5G 等更多机型' }
     ],
     links: [
       { label:'Tom’s Guide 对比', url:'https://www.tomsguide.com/phones/i-tested-the-ai-transcription-tools-for-iphone-vs-samsung-galaxy-vs-google-pixel-heres-the-winner' },
@@ -115,10 +116,13 @@ const entries = [
       'WiFi 7→6 降级：旗舰机反复回退'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'One UI 8.5 R2', date:'2026-07', note:'📱 第二轮灰度推送覆盖全系主流在售机型（A34 5G 7月获更新）；S22及更早机型终止8.x适配' }
+    ],
     links: [
       { label:'Bug 报告全文', url:'https://techcabal.com/2026/05/15/samsung-one-ui-8-5-problems-and-fixes/' },
-      { label:'Community 讨论', url:'https://r2.community.samsung.com/t5/Tech-Talk/What-s-Wrong-with-One-UI-7/td-p/18948287' }
+      { label:'Community 讨论', url:'https://r2.community.samsung.com/t5/Tech-Talk/What-s-Wrong-with-One-UI-7/td-p/18948287' },
+      { label:'Samsung 官方更新时间表', url:'https://www.samsung.com/hk/support/newsalert/129597/' }
     ]
   },
   {
@@ -367,27 +371,40 @@ const entries = [
   },
   {
     id: 'honor-yoyo', status: 'released', brand: 'honor',
-    title: 'YOYO AI · 本地化追踪 / AI 创作 / 防窥',
-    appType: '系统级 · 本地化', aiNote: 'YOYO / AI Creation',
-    date: 'MagicOS 10 June 2026 Update',
+    title: 'YOYO AI · MagicOS 11 内测 / Agentic OS / 主动智能体',
+    appType: '系统级 · 主动 AI 智能体', aiNote: 'YOYO / Agentic OS / AI Creation',
+    date: 'MagicOS 10 June 2026 → MagicOS 11 内测 2026-07-01',
     verdict: 'mixed', label: '争议/待验证',
-    gist: '+Walmart 追踪等本地化亮眼，但缺少深度评测',
-    tags: [{t:'系统级',c:'tag-app'},{t:'YOYO',c:'tag-ai'},{t:'AI Creation',c:'tag-ai'},{t:'月更 2026-06',c:'tag-month'}],
+    gist: 'MagicOS 11 内测启动（Magic8 首批）；Agentic OS 框架定义"服务找人"；YOYO 从被动应答升级为主动智能体',
+    tags: [{t:'系统级',c:'tag-app'},{t:'YOYO',c:'tag-ai'},{t:'Agentic OS',c:'tag-ai'},{t:'MagicOS 11 内测',c:'tag-month'},{t:'AI Creation',c:'tag-ai'}],
     pros: [
       '海外本地化亮眼：YOYO + Walmart 物流追踪',
       'AI 创作模板多：漫画/Plog/像素风/微缩模型',
       'AI 防窥：识别旁人窥屏自动遮罩',
-      '隐私保护：可疑 App 读通讯录只给空白数据'
+      '隐私保护：可疑 App 读通讯录只给空白数据',
+      '【MagicOS 11】YOYO 主动智能体：连贯多步操作（"下班发消息+导航+歌单"一次完成）',
+      '【MagicOS 11】端侧 AI 全升级：录音→会议纪要、相册语义检索、长文档摘要，数据不上云',
+      '【MagicOS 11】AI 通话反诈：精准识别诈骗话术/变声来电',
+      '【Agentic OS】MWC 上海首秀：意图驱动、自然交互、主动智能、天生跨端四大特征'
     ],
     cons: [
       '深度评测缺：海外社区讨论集中在官方论坛',
-      '功能验证有限：创作/防窥缺真实用户实测'
+      '功能验证有限：创作/防窥缺真实用户实测',
+      'MagicOS 11 仅 Magic8 系列首批内测：Magic7/6/数字系列需等10月第二批',
+      '12GB 以下内存机型阉割跨软件 AI 功能：仅保留基础识图/语音控制',
+      'Agentic OS 框架7月发布，实际落地体验待验证'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'MagicOS 10 Jun Update', date:'2026-06', note:'+Walmart 追踪、AI 创作模板、AI 防窥' },
+      { ver:'MagicOS 11 内测', date:'2026-07-01', note:'Magic8 系列首批推送；YOYO 主动智能体、端侧 AI 全升级、AI 通话反诈' },
+      { ver:'Agentic OS 框架', date:'2026-06-24', note:'MWC 上海首发定义：意图驱动/自然交互/主动智能/天生跨端' }
+    ],
     links: [
       { label:'June 2026 全文', url:'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' },
       { label:'YOYO 升级详情', url:'https://www.huaweicentral.com/honor-upgrades-yoyo-ai-assistant-features-for-magicos-10-devices/' },
+      { label:'Agentic OS 定义 (深圳新闻网)', url:'https://www.sznews.com/news/content/2026-06/25/content_32102192.htm' },
+      { label:'MagicOS 11 内测详解', url:'https://www.toutiao.com/article/7657387678073127458/' },
       { label:'Honor MagicOS', url:'https://www.honor.com/global/magic-os/' }
     ]
   },
@@ -417,30 +434,41 @@ const entries = [
   // ====== 即将发布 (UPCOMING) ======
   {
     id: 'samsung-oneui9-beta', brand: 'samsung', status: 'upcoming',
-    title: 'One UI 9 Beta · Notes 胶带笔 / Contacts 创意工作室 / 无障碍升级',
-    appType: '系统级 Beta · Android 17 基底', aiNote: 'Creative Tools / AI 安全',
-    date: 'Beta 已推送 (2026-05-12) → 稳定版 年内',
-    verdict: 'mixed', label: '待验证',
-    gist: '基于 Android 17，Notes/Contacts/Quick Panel/无障碍均有实质更新，安全策略自动拦截高危 App',
-    tags: [{t:'Beta 测试中',c:'tag-upcoming'},{t:'Samsung Notes',c:'tag-app'},{t:'Contacts',c:'tag-app'},{t:'无障碍',c:'tag-app'},{t:'安全增强',c:'tag-ai'}],
+    title: 'One UI 9 Beta · Notes 胶带笔 / Contacts 创意工作室 / 无障碍升级 / Gemini Intelligence',
+    appType: '系统级 Beta · Android 17 基底', aiNote: 'Creative Tools / Gemini Intelligence / AI 安全',
+    date: 'Beta 1 (2026-05-12) → Beta 3 (2026-06) → 稳定版 7月22日预载 Z Fold 8',
+    verdict: 'mixed', label: '期待值高',
+    gist: '基于 Android 17，Notes/Contacts/Quick Panel/无障碍均有实质更新；稳定版将预载 Z Fold 8；S25 获 AI 通知功能补齐',
+    tags: [{t:'Beta 3',c:'tag-upcoming'},{t:'Samsung Notes',c:'tag-app'},{t:'Contacts',c:'tag-app'},{t:'无障碍',c:'tag-app'},{t:'安全增强',c:'tag-ai'},{t:'Gemini Intelligence',c:'tag-ai'}],
     pros: [
       'Notes 胶带装饰 + 新笔触风格：创意工具大幅增强',
       'Contacts 直通 Creative Studio：无需切 App 制作个性化名片',
       'Quick Panel 重构：亮度/声音/媒体独立调节，尺寸可自定义',
       '无障碍大升级：Mouse Key 速度可调、TalkBack 合并包、Text Spotlight 浮窗放大',
-      '安全自动拦截：检测到高危 App 自动警告+阻止安装'
+      '安全自动拦截：检测到高危 App 自动警告+阻止安装',
+      '【Beta 3】网络速度指示器终于加入状态栏（中国版早有）',
+      'S25 获 AI 通知功能补齐：Prioritise（AI优先排序）+ Summarise（长聊天摘要），S25 几乎拥有 S26 全部 Galaxy AI',
+      '稳定版预载 Z Fold 8/Flip 8（7月22日首发）→ S26/S25 系列 7月底-8月推送',
+      'Gemini Intelligence 代理式 AI 即将上线：Google I/O 演示的自主行动能力'
     ],
     cons: [
-      '仅 S26 系列首批：其他机型需等正式版',
-      'Beta 阶段 Bug 未知：尚无海外社区深度反馈',
-      '区域限制：仅德/印/韩/波/英/美等部分市场开放'
+      '仅 S26 系列首批 Beta：其他机型需等正式版',
+      'S22 系列/S21 FE/Z Fold 4 确认排除 One UI 9 升级名单',
+      '区域限制：仅德/印/韩/波/英/美等部分市场开放 Beta',
+      'Gemini Intelligence 可能仅限最新三星/Google 设备'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'Beta 1', date:'2026-05-12', note:'S26 系列首发 Beta；Notes/Contacts/Quick Panel/无障碍/安全全面更新' },
+      { ver:'Beta 2', date:'2026-05-26', note:'扩大至印度/波兰等地区' },
+      { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' }
+    ],
     links: [
       { label:'Samsung 官方公告', url:'https://www.samsungmobilepress.com/articles/one-ui-9-beta-launch-galaxy-s26-series' },
       { label:'AndroidSage 详解', url:'https://www.androidsage.com/2026/05/12/samsung-one-ui-9-beta-program/' },
-      { label:'Samsung Newsroom', url:'https://news.samsung.com/us/samsung-launches-one-ui-9-beta-galaxy-s26-series-users/' }
+      { label:'Samsung Newsroom', url:'https://news.samsung.com/us/samsung-launches-one-ui-9-beta-galaxy-s26-series-users/' },
+      { label:'Forbes: S25 AI 功能补齐', url:'https://www.forbes.com/sites/jaymcgregor/2026/06/13/samsung-one-ui-9-release-date-galaxy-s25-a17' },
+      { label:'SammyFans Beta 1 深度', url:'https://www.sammyfans.com/2026/05/16/samsung-one-ui-9-beta/' }
     ]
   },
   {
@@ -457,16 +485,25 @@ const entries = [
       'Safari AI 标签整理：按话题自动分组 + Notify Me 追踪网页更新',
       'Mail/Calendar 自然语言：截图建日程（iOS 26 功能强化）、邮件建议操作第三方 App',
       'Image Playground 照片级写实：改写现有照片风格、圈选修改局部、生成 Messages 背景/锁屏壁纸',
-      'Photos Clean Up 升级：复杂场景填充更自然、Extend 扩展图、Spatial Reframing 空间重构'
+      'Photos Clean Up 升级：复杂场景填充更自然、Extend 扩展图、Spatial Reframing 空间重构',
+      '【Beta 3 新增】Siri 语音自定义：语速+表达力独立调节各5级，同步 Maps/Safari',
+      '【Beta 3 新增】Safari 分页自动建主题 + Notify Me 页面变更追踪 + 自定义扩展创建',
+      '【Beta 3 新增】Wallet 扫 QR 码生成数字通行证（会员卡/活动票/积分卡）',
+      '【Beta 3 新增】Find My 临时冻结/隐藏位置共享，不通知对方',
+      '【Beta 3 新增】备忘录自然语言建提醒（"今晚6点接爸爸"自动提取日期时间）',
+      '【Beta 3 新增】信息长按回复特定 Android 消息（绿泡泡）'
     ],
     cons: [
       'Siri AI EU 不上线：因监管原因欧洲首发无此功能',
       '需 iPhone 17 Pro+：完整 AI 能力仅新芯片可用',
+      'Siri 语音自定义仅 iPhone 17 Pro/Air 可用：旧机型不支持',
       'Image Playground 有每日用量限制',
-      '正式版需等 ~3 个月（当前仅 Developer Beta）'
+      '正式版需等 ~3 个月（当前仅 Developer Beta 3）'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'Beta 3 (24A5380h)', date:'2026-07-07', note:'Siri语音自定义激活、Safari分页自动分组、Wallet QR通行证、Find My位置隐藏、备忘录自然语言、信息回复Android消息；公测版预计7月中旬发布' }
+    ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
       { label:'Apple iOS 27 官方', url:'https://www.apple.com/os/ios/' },
@@ -504,9 +541,9 @@ const entries = [
 
 /* sort dates (YYYY-MM / YYYY-MM-DD) for reverse-chronological ordering */
 const DATE_MAP = {
-  'samsung-voice-recorder': '2026-06',
+  'samsung-voice-recorder': '2026-07',
   'samsung-my-files': '2026-05',
-  'samsung-oneui-bugs': '2026-05-06',
+  'samsung-oneui-bugs': '2026-07',
   'samsung-galaxy-themes': '2025-10',
   'apple-writing-tools': '2026-02',
   'apple-mail-ai': '2026-02',
@@ -516,7 +553,7 @@ const DATE_MAP = {
   'google-play-system': '2026-06',
   'xiaomi-hyperos3': '2025-09-24',
   'oppo-coloros16': '2026-04',
-  'honor-yoyo': '2026-06',
+  'honor-yoyo': '2026-07',
   'vivo-originos': '2025-10-15',
   'samsung-oneui9-beta': '2026-07',
   'apple-ios27': '2026-07',
