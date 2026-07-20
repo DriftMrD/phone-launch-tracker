@@ -398,7 +398,8 @@ const entries = [
     monthly: [
       { ver:'MagicOS 10 Jun Update', date:'2026-06', note:'+Walmart 追踪、AI 创作模板、AI 防窥' },
       { ver:'MagicOS 11 内测', date:'2026-07-01', note:'Magic8 系列首批推送；YOYO 主动智能体、端侧 AI 全升级、AI 通话反诈' },
-      { ver:'Agentic OS 框架', date:'2026-06-24', note:'MWC 上海首发定义：意图驱动/自然交互/主动智能/天生跨端' }
+      { ver:'Agentic OS 框架', date:'2026-06-24', note:'MWC 上海首发定义：意图驱动/自然交互/主动智能/天生跨端' },
+      { ver:'MagicOS 10 Jul (10.0.0.170)', date:'2026-07-16', note:'第二批10款机型推送；丝滑动效（并行响应+一镜到底）、灵动胶囊（滑动交互+YOYO帮记）、3D照片锁屏、一语微信发消息/打视频、漫画生成、Live盲盒、120Hz高刷投屏、远程协助' }
     ],
     links: [
       { label:'June 2026 全文', url:'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' },
@@ -461,7 +462,8 @@ const entries = [
     monthly: [
       { ver:'Beta 1', date:'2026-05-12', note:'S26 系列首发 Beta；Notes/Contacts/Quick Panel/无障碍/安全全面更新' },
       { ver:'Beta 2', date:'2026-05-26', note:'扩大至印度/波兰等地区' },
-      { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' }
+      { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' },
+      { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' }
     ],
     links: [
       { label:'Samsung 官方公告', url:'https://www.samsungmobilepress.com/articles/one-ui-9-beta-launch-galaxy-s26-series' },
@@ -502,7 +504,7 @@ const entries = [
     ],
     quotes: [],
     monthly: [
-      { ver:'Beta 3 (24A5380h)', date:'2026-07-07', note:'Siri语音自定义激活、Safari分页自动分组、Wallet QR通行证、Find My位置隐藏、备忘录自然语言、信息回复Android消息；公测版预计7月中旬发布' }
+      { ver:'Beta 3 (24A5380h)', date:'2026-07-07', note:'Siri语音自定义激活（语速+表达力各5级，仅iPhone 17 Pro/Air）、Safari分页自动分组+Notify Me、Wallet QR通行证、Find My位置隐藏、备忘录自然语言建提醒、信息回复Android消息、RAW 9引擎、照片评分、控制中心蜂窝状态显示、壁纸动画、AirPods自适应滑块；公测版预计7月中旬发布' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
@@ -536,6 +538,40 @@ const entries = [
       { label:'Android 17 Beta Devices', url:'https://developer.android.com/about/versions/17/devices' },
       { label:'9to5Google 追踪', url:'https://9to5google.com/guides/android-17/' }
     ]
+  },
+  // ====== 新增系统App追踪 (2026-07) ======
+  {
+    id: 'xiaomi-gallery', status: 'released', brand: 'xiaomi',
+    title: '小米相册 · 5.0.7.0 浏览性能与AI修图重构',
+    appType: '相册 · 浏览/编辑/AI修图', aiNote: 'AI扩图 / 魔法消除 / 魔法换天 / 人像优化',
+    date: '2026-07-01 灰度推送',
+    verdict: 'good', label: '好评主导',
+    gist: '底层加载逻辑重构，AI工具统一入口，批量编辑+双保存模式，千元机也受益；灰度分批推送中',
+    tags: [{t:'相册',c:'tag-app'},{t:'AI修图',c:'tag-ai'},{t:'浏览性能',c:'tag-app'},{t:'月更追踪',c:'tag-month'}],
+    pros: [
+      '浏览性能大幅升级：缩略图缓存机制优化，高分辨率图片秒预览，后台资源占用降低',
+      'AI修图统一入口：AI扩图/魔法消除/魔法换天/人像优化集中收纳在独立AI功能栏',
+      '批量编辑效率提升：单张调好参数可复制粘贴到多张照片，旅行/探店批量调色大幅提速',
+      '双保存模式：覆盖原图保留原始数据，可一键恢复；另存副本不影响原图',
+      '浅色模式：编辑页面支持深色/浅色/跟随系统三种模式，户外强光修图更友好',
+      '老机型适配：千元入门机也能获得流畅度提升，非旗舰专属',
+      '标记功能整合：文字/签名/马赛克/贴纸/涂鸦一站式操作，工作截图标注更便捷'
+    ],
+    cons: [
+      '灰度推送分批发放：部分用户需等待数日才能收到更新',
+      '高端AI人像仍有硬件限制：入门机型无法使用部分AI人像功能',
+      '批量编辑数量上限：一次性可选图片数量有限，几百张批量处理效率一般',
+      '海外深度评测缺：主要功能级反馈来自国内用户，Reddit/XDA 讨论稀缺（信息缺口）'
+    ],
+    quotes: [],
+    monthly: [
+      { ver:'v5.0.7.0-0618-R', date:'2026-07-01', note:'底层加载重构、AI工具统一入口、批量编辑、浅色模式、动态照片编辑保留动态效果、大量Bug修复' }
+    ],
+    links: [
+      { label:'HyperOS Gallery APK', url:'https://memeosupdates.com/apps/com.miui.gallery/5000700' },
+      { label:'HyperOS App Updates', url:'https://hyperosupdates.com/latest-apps' },
+      { label:'NokiaMob HyperOS 3', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' }
+    ]
   }
 ];
 
@@ -552,6 +588,7 @@ const DATE_MAP = {
   'google-recorder': '2025-07',
   'google-play-system': '2026-06',
   'xiaomi-hyperos3': '2025-09-24',
+  'xiaomi-gallery': '2026-07',
   'oppo-coloros16': '2026-04',
   'honor-yoyo': '2026-07',
   'vivo-originos': '2025-10-15',
