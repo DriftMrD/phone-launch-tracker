@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三星 Galaxy Z Fold 8 系列 · Galaxy Unpacked 2026 深度报告</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@600;700;900&display=swap');
+
+:root {
+  --bg: #080c14;
+  --bg2: #0c1320;
+  --surface: #101a2e;
+  --surface2: #162238;
+  --border: rgba(20,40,80,.4);
+  --border-hover: rgba(30,60,120,.6);
+  --samsung-blue: #1428a0;
+  --samsung-blue-light: #2196f3;
+  --samsung-blue-glow: rgba(33,150,243,.15);
+  --silver: #c0c8d8;
+  --silver-light: #e8edf5;
+  --text: #e0e8f0;
+  --text-secondary: #8a9bb5;
+  --text-muted: #4a5a75;
+  --gold: #d4a853;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(33,150,243,.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(20,40,160,.12), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 15% 70%, rgba(212,168,83,.06), transparent 50%),
+    var(--bg);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(33,150,243,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33,150,243,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 100px;
+  border: 1px solid rgba(33,150,243,.3);
+  background: rgba(33,150,243,.08);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--samsung-blue-light);
+  margin-bottom: 28px;
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--samsung-blue-light);
+  box-shadow: 0 0 8px var(--samsung-blue-light);
+}
+
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(36px, 7vw, 68px);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  color: var(--silver-light);
+  margin-bottom: 18px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--samsung-blue-light) 0%, var(--samsung-blue) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.hero-chip {
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--silver);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.hero-chip strong { color: var(--samsung-blue-light); }
+
+/* ===== Content ===== */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+/* Bento Grid */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 56px;
+}
+.bento-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s;
+}
+.bento-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.bento-card.full { grid-column: 1 / -1; }
+.bento-card .icon { font-size: 28px; margin-bottom: 12px; }
+.bento-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.bento-card .value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--silver-light);
+  letter-spacing: -.02em;
+  margin-bottom: 6px;
+}
+.bento-card .value em {
+  font-style: normal;
+  color: var(--samsung-blue-light);
+}
+.bento-card .desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Chapter */
+.chapter {
+  margin-bottom: 56px;
+}
+.chapter-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: var(--samsung-blue-light);
+  margin-bottom: 8px;
+}
+.chapter-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: rgba(33,150,243,.1);
+  color: var(--samsung-blue-light);
+  border: 1px solid rgba(33,150,243,.2);
+  margin-bottom: 12px;
+}
+.chapter h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700;
+  color: var(--silver-light);
+  letter-spacing: -.01em;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.chapter-intro {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.75;
+}
+
+/* Feature Items */
+.feat {
+  margin-bottom: 28px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.feat:last-child { border-bottom: none; }
+.feat-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.feat-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: rgba(33,150,243,.08);
+  color: var(--samsung-blue-light);
+  margin-bottom: 8px;
+}
+.feat h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--silver-light);
+  margin-bottom: 8px;
+}
+.feat p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Image Gallery */
+.r-fig {
+  margin: 32px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.r-fig img {
+  width: 100%;
+  display: block;
+  cursor: zoom-in;
+  transition: filter .3s;
+}
+.r-fig img:hover { filter: brightness(1.1); }
+.r-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 32px 0;
+}
+.r-cols .r-fig { margin: 0; }
+figcaption {
+  padding: 12px 16px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
+}
+
+/* Note boxes */
+.note-c, .note-a {
+  margin: 28px 0;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border-left: 3px solid;
+}
+.note-c {
+  background: rgba(33,150,243,.06);
+  border-color: var(--samsung-blue-light);
+}
+.note-a {
+  background: rgba(212,168,83,.05);
+  border-color: var(--gold);
+}
+.note-c .note-label, .note-a .note-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.note-c .note-label { color: var(--samsung-blue-light); }
+.note-a .note-label { color: var(--gold); }
+.note-c p, .note-a p {
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* Key Takeaways */
+.takeaways {
+  margin: 48px 0;
+  padding: 36px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+  border: 1px solid var(--border);
+}
+.takeaways h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.takeaways ul {
+  list-style: none;
+}
+.takeaways li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-left: 28px;
+  position: relative;
+}
+.takeaways li:last-child { border-bottom: none; }
+.takeaways li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--samsung-blue-light);
+  font-size: 12px;
+  top: 14px;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  backdrop-filter: blur(12px);
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .hero { min-height: 70vh; padding: 60px 16px 40px; }
+  .hero h1 { font-size: 32px; }
+  .hero-sub { font-size: 14px; }
+  .content { padding: 40px 16px 60px; }
+  .bento { grid-template-columns: 1fr; }
+  .r-cols { grid-template-columns: 1fr; }
+  .chapter h2 { font-size: 22px; }
+  .takeaways { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      2026年7月22日 · 伦敦 Galaxy Unpacked
+    </div>
+    <h1>A New Shape<br><em>Unfolds</em></h1>
+    <p class="hero-sub">
+      三星第八代折叠屏全系列亮相 —— Galaxy Z Fold 8 以 4:3 阔折叠形态重塑体验，Z Fold 8 Ultra 以 4.1mm 史上最薄树立生产力旗舰标杆，Z Flip 8 以 180g 轻量设计定义口袋便携新极限。One UI 9 稳定版首发，Gemini Intelligence 代理式 AI 正式落地。
+    </p>
+    <div class="hero-chips">
+      <span class="hero-chip"><strong>3</strong> 款折叠齐发</span>
+      <span class="hero-chip"><strong>201g</strong> 最轻Fold</span>
+      <span class="hero-chip"><strong>4.1mm</strong> 最薄展开</span>
+      <span class="hero-chip"><strong>One UI 9</strong> 稳定版首发</span>
+      <span class="hero-chip"><strong>7年</strong> 安全更新</span>
+      <span class="hero-chip"><strong>¥8999</strong> 起</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Content ===== -->
+<div class="content">
+
+  <!-- Bento Summary -->
+  <div class="bento">
+    <div class="bento-card full">
+      <div class="icon">🎯</div>
+      <div class="label">核心结论</div>
+      <div class="value">三星用三种折叠形态完成对折叠屏<em>三大典型场景</em>的精准覆盖</div>
+      <div class="desc">Z Fold 8 = 媒体消费 + 日常便携（4:3阔折叠） · Z Fold 8 Ultra = 生产力旗舰（8英寸书式） · Z Flip 8 = 口袋便携 + AI小折。三星首次将 Ultra 品牌引入折叠序列，并通过 Galaxy AI 代理式能力让折叠屏成为 AI 最佳载体。Android Authority 试用后评价："Samsung proved me wrong."</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">📱</div>
+      <div class="label">Z Fold 8</div>
+      <div class="value"><em>201g</em> · 4:3 阔折叠</div>
+      <div class="desc">三星史上最轻横向折叠手机。5.5英寸16:10外屏 + 7.6英寸4:3内屏。钛合金双层缓震 + Flex Titanium铰链。4800mAh硅碳负极电池（三星首款）。双50MP相机（无长焦）。¥12,999起。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">💎</div>
+      <div class="label">Z Fold 8 Ultra</div>
+      <div class="value"><em>4.1mm</em> · 8英寸书式</div>
+      <div class="desc">史上最薄Galaxy Z Fold。215g。8英寸2504×2256内屏 + 6.5英寸外屏。200MP主摄+50MP超广角+10MP 3x长焦。5000mAh。Flex Titanium技术减小折痕。¥14,999起。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">🤖</div>
+      <div class="label">Galaxy AI · One UI 9</div>
+      <div class="value"><em>Gemini Intelligence</em> 代理式AI</div>
+      <div class="desc">首个代理式AI手机功能。可链式执行多步任务（查票→比价→订票），支持40+App。Gemini Notebook原生集成。Now Nudge主动建议。My FanCam AI追焦。Photo Assist文字修图。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">⌚</div>
+      <div class="label">同场发布</div>
+      <div class="value">Watch 9 + Ultra 2</div>
+      <div class="desc">Galaxy Watch 9 系列 ¥2,499起 · Galaxy Watch Ultra 2 ¥5,299起。Galaxy Card信用卡对标Apple Card。Galaxy Ring 2确认研发中。Galaxy AI覆盖超8亿台设备。</div>
+    </div>
+  </div>
+
+  <!-- Chapter 1: Z Fold 8 -->
+  <div class="chapter">
+    <div class="chapter-num">01</div>
+    <span class="chapter-tag">阔折叠新形态</span>
+    <h2>Z Fold 8：打破7代传统的全新形态</h2>
+    <p class="chapter-intro">
+      三星彻底抛弃延续7代的窄长书本式折叠形态，转而采用更短更宽的机身比例，展开后内屏比例接近 4:3——这与苹果计划秋季推出的折叠屏iPhone高度趋同。201克的重量让它成为有史以来最轻的横向折叠手机，Android Authority 试用后直言"我原以为是个噱头，但三星证明我错了"。
+    </p>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">形态设计</span>
+      <h3>4:3 阔折叠：从生产力工具到媒体消费利器</h3>
+      <p>此前折叠屏的窄长比例导致视频黑边严重、阅读需要旋转。Z Fold 8 的 4:3 内屏展开后如同 iPad Pro 般比例，Kindle 双栏阅读、Netflix 几乎无黑边、办公分屏左右窗口均衡。外屏 16:10 比例适配短视频和社交媒体，Instagram、YouTube、X 等主流应用自适应良好。Android Authority 评价："This is by far my favorite of the three folding phones."</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">铰链与折痕</span>
+      <h3>Flex Titanium + 双层钛缓震层</h3>
+      <p>全新 Flex Titanium 钛合金铰链搭配双层钛缓震层结构，让折痕区域受力更平衡。日常正对屏幕观影、阅读文字时完全看不到中间折痕，仅强光垂直照射时才能看到一条极浅细线。开合阻尼均匀顺滑，50万次折叠耐久测试通过，官方称日常每天开合百次可稳定使用十余年。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">影像取舍</span>
+      <h3>双 50MP 但无长焦：为轻薄做的取舍</h3>
+      <p>Z Fold 8 搭载 50MP 广角 + 50MP 超广角双摄，但砍掉了长焦镜头。这是为 201g 轻量化做出的明确取舍。AI 软件弥补硬件缺口：My FanCam 可选择视频中人物自动追焦重构画面，Dual Recording 双视角同时拍摄。但 Smartprix 指出："任何从 Ultra 的三摄200MP过来的人都会感到差距。"</p>
+    </div>
+
+    <div class="note-c">
+      <div class="note-label">✨ 亮点</div>
+      <p>Z Fold 8 是三星首款使用硅碳负极电池技术的智能手机——这是三星多年来一直拒绝跟进、而中国竞品早已普及的技术。4800mAh 配合 45W 快充，终于摆脱了 25W 的折叠屏充电天花板。</p>
+    </div>
+  </div>
+
+  <!-- Chapter 2: Z Fold 8 Ultra -->
+  <div class="chapter">
+    <div class="chapter-num">02</div>
+    <span class="chapter-tag">生产力旗舰</span>
+    <h2>Z Fold 8 Ultra：Ultra 品牌首次登陆折叠屏</h2>
+    <p class="chapter-intro">
+      "Ultra"在 Galaxy 产品线中代表最高性能和体验。Z Fold 8 Ultra 首次将这一品牌引入折叠序列，延续上一代 Z Fold 7 的经典书式折叠形态，但在影像、续航和AI体验上全面升级。展开厚度仅 4.1 毫米、重 215 克，是史上最薄的 Galaxy Z Fold。
+    </p>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">影像旗舰</span>
+      <h3>200MP + 三摄系统：折叠屏影像新高度</h3>
+      <p>后置 200MP 主摄（OIS）+ 50MP 超广角 + 10MP 3倍光学长焦。8英寸内屏让取景器更宽敞，后期编辑空间更大。Photo Assist 功能可用自然语言描述修改需求，AI 自动处理图片。Gemini 可分析照片内容（如埃菲尔铁塔）并自主完成附近酒店预订。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">AI 多任务</span>
+      <h3>Gemini Intelligence：代理式 AI 在大屏上的最佳载体</h3>
+      <p>8英寸大屏让 Gemini Intelligence 的代理式 AI 能力充分发挥：Now Nudge 可在聊天中主动建议添加日历日程并打开 Calendar 多窗口；Gemini Notebook 可上传 PDF 会议纪要或录音，生成摘要、AI 视频、演示文稿、播客和测验。Split View 三窗口分屏让多任务效率达到新高度。</p>
+    </div>
+
+    <div class="note-a">
+      <div class="note-label">⚠️ 门槛</div>
+      <p>Gemini Intelligence 需要旗舰级芯片 + 至少 12GB RAM + Gemini Nano v3 支持。因此首发仅 Z Fold 8 / Z Fold 8 Ultra 可用，S26 系列预计8月获推送。Gemini Intelligence 支持超过 40 个应用和服务的链式任务执行。</p>
+    </div>
+  </div>
+
+  <!-- Chapter 3: Z Flip 8 -->
+  <div class="chapter">
+    <div class="chapter-num">03</div>
+    <span class="chapter-tag">口袋便携</span>
+    <h2>Z Flip 8：AI 小折 · 不用展开也能用</h2>
+    <p class="chapter-intro">
+      Z Flip 8 展开仅 6.1mm 厚、重 180 克，延续翻盖折叠设计。最大升级在于 FlexWindow 外屏——从通知和小组件的集散地进化为真正的功能门户，无需展开即可浏览照片、聊天回复、完成任务。
+    </p>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">外屏进化</span>
+      <h3>FlexWindow：从副屏到功能门户</h3>
+      <p>Now Brief 从 FlexWindow 即可查看当天天气、日程和重要通知；汇率、股票等日常信息以个性化卡片呈现。Gallery 浏览照片、消息 App 聊天、快捷完成任务均可在外屏完成。App 功能扩展至外屏，FlexWindow 已成为 Galaxy 更多功能的门户。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">影像创作</span>
+      <h3>Camcorder Grip + Dual Recording：竖折成为创作工具</h3>
+      <p>Camcorder Grip（Z Flip 独占）实现稳定单手录制；Super Steady 水平锁定让移动拍摄更平稳；Dual Recording 同时拍摄创作者和被摄对象，创作者视角在屏幕上方、被摄视角在下方，外屏实时预览。让竖折从时尚单品变成真正的创作工具。</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4: One UI 9 -->
+  <div class="chapter">
+    <div class="chapter-num">04</div>
+    <span class="chapter-tag">系统与AI</span>
+    <h2>One UI 9 稳定版：从 Beta 到正式发布</h2>
+    <p class="chapter-intro">
+      One UI 9 基于 Android 17，在 Galaxy Unpacked 2026 上正式发布稳定版。历经 4 轮 Beta 测试（Beta 1 于5月12日启动），稳定版首发预载于 Z Fold 8 系列。这是三星系统迭代最大的一次更新——从视觉到功能到安全全面升级。
+    </p>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">代理式AI</span>
+      <h3>Gemini Intelligence：不只回答，还能帮你做事</h3>
+      <p>不同于传统AI助手一次执行一个任务，Gemini Intelligence 可从单条指令链式执行多个步骤。例如"帮我查电影票、比较场次并完成预订"，AI 会自主跨 40+ 应用完成整个流程。还能读取屏幕内容，基于当前上下文给出操作建议。这是手机上第一个真正意义上的代理式AI功能。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">系统应用</span>
+      <h3>Notes 胶带笔 + Contacts 创意工作室 + Quick Panel 重构</h3>
+      <p>Samsung Notes 新增 Tape 胶带装饰功能，可在分享截图前遮蔽敏感信息。Contacts 可直接调用 Creative Studio 制作个性化AI名片。Quick Settings 面板全面可定制——自由排列控件、调整亮度和音量滑块尺寸、分离声音模式开关。锁屏媒体播放器升级为圆形按钮+实时波形动画+动态色温适配。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">安全与隐私</span>
+      <h3>蓝色状态栏 + AI 助手活动仪表盘 + 异物检测</h3>
+      <p>新增蓝色状态栏指示器，当位置/相机/麦克风活跃时全透明提示。AI Assistant Activity 仪表盘集中查看所有AI自动化操作。Privacy Alerts 主动通知潜在隐私风险。折叠屏专属 Foreign Material Detection 检测铰链区域灰尘碎屑。Theft Detection 增强防盗。Warranty & Care Hub 统一保修/诊断/维修入口。</p>
+    </div>
+
+    <div class="note-c">
+      <div class="note-label">📅 推送时间线</div>
+      <p>Z Fold 8 / Z Fold 8 Ultra / Z Flip 8 → 出厂预载 → 8月7日开售同步生效。S26 系列 → 预计8月获推送。S25 系列 → 预计8月底-9月。S22 系列/S21 FE/Z Fold 4 确认排除 One UI 9 升级名单。</p>
+    </div>
+  </div>
+
+  <!-- Chapter 5: Pricing & Market -->
+  <div class="chapter">
+    <div class="chapter-num">05</div>
+    <span class="chapter-tag">定价与市场</span>
+    <h2>三档折叠覆盖三大场景 · 抢跑苹果折叠屏</h2>
+    <p class="chapter-intro">
+      三款新机国行预售价分别为 ¥14,999（Ultra）、¥12,999（Fold 8）、¥8,999（Flip 8）起。海外市场 Z Fold 8 Ultra $2,099.99、Z Fold 8 $1,899.99、Z Flip 8 $1,199.99——相比上一代全线上涨约 $100。预售7月22日起至8月12日，8月7日全球正式开售。
+    </p>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">生态布局</span>
+      <h3>Galaxy Card + Quick Share 兼容 AirDrop + Google AI Pro 6个月</h3>
+      <p>三星发布 Galaxy Card 信用卡对标 Apple Card。Quick Share 新增与 AirDrop 双向兼容，iOS 用户可通过扫码无线迁移数据。新机附赠 6 个月 Google AI Pro 试用（含 5TB 云存储，价值 $19.99/月）。Samsung Care+ 提供全面保障，月付可省25%。</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">战略意图</span>
+      <h3>抢在苹果折叠屏之前：提前卡位高端市场</h3>
+      <p>三星首次将夏季 Unpacked 落地伦敦而非首尔/旧金山，选择在苹果欧洲核心高端市场提前两个月发布全新阔折叠产品。Z Fold 8 的 4:3 形态与苹果计划秋季推出的折叠屏iPhone高度趋同，意在抢在苹果折叠屏上市前抢占用户心智、完成市场铺垫与口碑积累。</p>
+    </div>
+
+    <div class="note-a">
+      <div class="note-label">🤔 值得注意</div>
+      <p>Z Fold 8 砍掉长焦镜头是为轻量化的明确取舍。Smartprix 指出从 Ultra 的三摄200MP过来的人会感到差距。但 Android Authority 投票显示 86% 认为Z Fold 8 "Hot"。定价方面，Pro Max 顶配 ¥17,799（16GB+1TB）已接近万元折叠门槛，但三星7年更新承诺提供了长期价值保障。</p>
+    </div>
+  </div>
+
+  <!-- Key Takeaways -->
+  <div class="takeaways">
+    <h3>📌 Key Takeaways</h3>
+    <ul>
+      <li><strong>三星首次三款折叠齐发</strong>：Z Fold 8（阔折叠）、Z Fold 8 Ultra（书式旗舰）、Z Flip 8（口袋便携）精准覆盖折叠屏三大场景。</li>
+      <li><strong>Z Fold 8 形态突破</strong>：4:3 内屏 + 201g 最轻Fold + 首款硅碳负极电池，从生产力工具转变为媒体消费利器。Android Authority 试用后给出 86% 好评。</li>
+      <li><strong>Ultra 首次登陆折叠</strong>：4.1mm 史上最薄 + 200MP三摄 + 8英寸大屏 + Gemini Intelligence 代理式AI，树立生产力旗舰新标杆。</li>
+      <li><strong>One UI 9 稳定版首发</strong>：Gemini Intelligence（40+App链式任务）、Gemini Notebook、Now Nudge、Photo Assist、My FanCam等AI功能正式落地。S26系列8月获推送。</li>
+      <li><strong>定价与竞争</strong>：¥8,999–¥19,799覆盖三档。三星抢在苹果折叠屏iPhone前两个月发布，4:3形态与苹果趋同，意在提前卡位。</li>
+      <li><strong>生态协同</strong>：Watch 9/Ultra 2 + Galaxy Card + Quick Share兼容AirDrop + Google AI Pro 6个月试用。Galaxy AI已覆盖超8亿台设备。</li>
+    </ul>
+  </div>
+
+  <p style="text-align:center; font-size:13px; color: var(--text-muted); padding: 24px; border-top: 1px solid var(--border);">
+    来源：Samsung Newsroom · Android Authority · Smartprix · Beebom Gadgets · Samsung US/France/Philippines<br>
+    报告生成日期：2026-07-27 · 具体信息以官方为准
+  </p>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+document.querySelectorAll('.r-fig img').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* Generator: list page (system-updates.html) + 14 detail pages (updates/<id>.html)
+/* Generator: list page (system-updates.html) + 15 detail pages (updates/<id>.html)
    Shared CSS: assets/style.css
    Run: node gen.js
 */
@@ -371,27 +371,36 @@ const entries = [
   },
   {
     id: 'honor-yoyo', status: 'released', brand: 'honor',
-    title: 'YOYO AI · MagicOS 11 内测 / Agentic OS / 主动智能体',
-    appType: '系统级 · 主动 AI 智能体', aiNote: 'YOYO / Agentic OS / AI Creation',
-    date: 'MagicOS 10 June 2026 → MagicOS 11 内测 2026-07-01',
-    verdict: 'mixed', label: '争议/待验证',
-    gist: 'MagicOS 11 内测启动（Magic8 首批）；Agentic OS 框架定义"服务找人"；YOYO 从被动应答升级为主动智能体',
-    tags: [{t:'系统级',c:'tag-app'},{t:'YOYO',c:'tag-ai'},{t:'Agentic OS',c:'tag-ai'},{t:'MagicOS 11 内测',c:'tag-month'},{t:'AI Creation',c:'tag-ai'}],
+    title: 'YOYO AI · MagicOS 11 内测 / Agentic OS / YOYO Next 主动智能体 / 液态玻璃UI',
+    appType: '系统级 · 主动 AI 智能体', aiNote: 'YOYO Next / Agentic OS / MCP架构 / GUI Agent',
+    date: 'MagicOS 10 June 2026 → MagicOS 11 内测 2026-07-01 → Agentic OS框架7月发布',
+    verdict: 'good', label: '好评主导',
+    gist: 'MagicOS 11 首发 YOYO Next 架构（MCP+GUI Agent+Cloud-Slim混合推理），3000+场景自主执行；安卓首创液态玻璃UI；接入DeepSeek-V4；YOYO Claw能效技术省50%词元消耗',
+    tags: [{t:'系统级',c:'tag-app'},{t:'YOYO Next',c:'tag-ai'},{t:'Agentic OS',c:'tag-ai'},{t:'MCP架构',c:'tag-ai'},{t:'MagicOS 11 内测',c:'tag-month'},{t:'液态玻璃UI',c:'tag-ai'},{t:'DeepSeek-V4',c:'tag-ai'}],
     pros: [
       '海外本地化亮眼：YOYO + Walmart 物流追踪',
       'AI 创作模板多：漫画/Plog/像素风/微缩模型',
       'AI 防窥：识别旁人窥屏自动遮罩',
       '隐私保护：可疑 App 读通讯录只给空白数据',
+      '【MagicOS 11】YOYO Next 架构：系统级 MCP 架构获得底层权限，可直接接管系统+第三方App操作',
+      '【MagicOS 11】GUI Agent 纯视觉方案：像人类一样"看懂"屏幕按钮/输入框/菜单，模拟点击滑动，无需App适配API',
+      '【MagicOS 11】跨应用自动化：实测14步出差安排（日历核对→12306订票→美团订酒店→同步日程）全程无需手动',
+      '【MagicOS 11】自进化记忆：90天可执行场景从200+扩展到3000+，记住偏好咖啡店/常用联系人/工作节奏',
+      '【MagicOS 11】Cloud-Slim 混合推理：简单指令本地端侧处理（隐私+速度），复杂任务云端大模型拆解',
+      '【MagicOS 11】接入 DeepSeek-V4 第三方大模型：更强推理性能和更长上下文',
+      '【MagicOS 11】YOYO Claw 能效技术：综合词元消耗省50%，后台待机几乎不耗电',
+      '【MagicOS 11】液态玻璃UI：安卓首创动态液态玻璃方案，锁屏到桌面到图标均呈真实玻璃质感',
       '【MagicOS 11】YOYO 主动智能体：连贯多步操作（"下班发消息+导航+歌单"一次完成）',
       '【MagicOS 11】端侧 AI 全升级：录音→会议纪要、相册语义检索、长文档摘要，数据不上云',
       '【MagicOS 11】AI 通话反诈：精准识别诈骗话术/变声来电',
       '【Agentic OS】MWC 上海首秀：意图驱动、自然交互、主动智能、天生跨端四大特征'
     ],
     cons: [
-      '深度评测缺：海外社区讨论集中在官方论坛',
-      '功能验证有限：创作/防窥缺真实用户实测',
+      '深度评测缺：海外社区讨论集中在官方论坛/国内媒体',
       'MagicOS 11 仅 Magic8 系列首批内测：Magic7/6/数字系列需等10月第二批',
       '12GB 以下内存机型阉割跨软件 AI 功能：仅保留基础识图/语音控制',
+      'GUI Agent 纯视觉方案的实际准确率和稳定性待长期实测验证',
+      'Cloud-Slim 混合推理模式在弱网环境下的体验有待验证',
       'Agentic OS 框架7月发布，实际落地体验待验证'
     ],
     quotes: [],
@@ -399,13 +408,17 @@ const entries = [
       { ver:'MagicOS 10 Jun Update', date:'2026-06', note:'+Walmart 追踪、AI 创作模板、AI 防窥' },
       { ver:'MagicOS 11 内测', date:'2026-07-01', note:'Magic8 系列首批推送；YOYO 主动智能体、端侧 AI 全升级、AI 通话反诈' },
       { ver:'Agentic OS 框架', date:'2026-06-24', note:'MWC 上海首发定义：意图驱动/自然交互/主动智能/天生跨端' },
-      { ver:'MagicOS 10 Jul (10.0.0.170)', date:'2026-07-16', note:'第二批10款机型推送；丝滑动效（并行响应+一镜到底）、灵动胶囊（滑动交互+YOYO帮记）、3D照片锁屏、一语微信发消息/打视频、漫画生成、Live盲盒、120Hz高刷投屏、远程协助' }
+      { ver:'MagicOS 10 Jul (10.0.0.170)', date:'2026-07-16', note:'第二批10款机型推送；丝滑动效（并行响应+一镜到底）、灵动胶囊（滑动交互+YOYO帮记）、3D照片锁屏、一语微信发消息/打视频、漫画生成、Live盲盒、120Hz高刷投屏、远程协助' },
+      { ver:'MagicOS 11 / YOYO Next', date:'2026-07-22', note:'🎉 MagicOS 11 内测持续推送；YOYO Next架构详解：MCP系统级架构+GUI Agent纯视觉方案+Cloud-Slim混合推理+DeepSeek-V4接入；3000+场景自主执行（90天从200+扩展）；YOYO Claw省50%词元；安卓首创液态玻璃UI；跨应用14步自动化实测；自进化长期全局记忆；Agentic OS完整技术框架7月发布' }
     ],
     links: [
       { label:'June 2026 全文', url:'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' },
       { label:'YOYO 升级详情', url:'https://www.huaweicentral.com/honor-upgrades-yoyo-ai-assistant-features-for-magicos-10-devices/' },
       { label:'Agentic OS 定义 (深圳新闻网)', url:'https://www.sznews.com/news/content/2026-06/25/content_32102192.htm' },
       { label:'MagicOS 11 内测详解', url:'https://www.toutiao.com/article/7657387678073127458/' },
+      { label:'YOYO Next 深度测评', url:'https://www.toutiao.com/article/7663362861230375474/' },
+      { label:'YOYO 智能体全方位评测', url:'https://k.sina.com.cn/article_7879848900_1d5acf3c40680394io.html' },
+      { label:'MagicOS 11 YOYO AI 爆料', url:'https://www.toutiao.com/article/7663149226608378394' },
       { label:'Honor MagicOS', url:'https://www.honor.com/global/magic-os/' }
     ]
   },
@@ -434,50 +447,66 @@ const entries = [
   },
   // ====== 即将发布 (UPCOMING) ======
   {
-    id: 'samsung-oneui9-beta', brand: 'samsung', status: 'upcoming',
-    title: 'One UI 9 Beta · Notes 胶带笔 / Contacts 创意工作室 / 无障碍升级 / Gemini Intelligence',
-    appType: '系统级 Beta · Android 17 基底', aiNote: 'Creative Tools / Gemini Intelligence / AI 安全',
-    date: 'Beta 1 (2026-05-12) → Beta 3 (2026-06) → 稳定版 7月22日预载 Z Fold 8',
-    verdict: 'mixed', label: '期待值高',
-    gist: '基于 Android 17，Notes/Contacts/Quick Panel/无障碍均有实质更新；稳定版将预载 Z Fold 8；S25 获 AI 通知功能补齐',
-    tags: [{t:'Beta 3',c:'tag-upcoming'},{t:'Samsung Notes',c:'tag-app'},{t:'Contacts',c:'tag-app'},{t:'无障碍',c:'tag-app'},{t:'安全增强',c:'tag-ai'},{t:'Gemini Intelligence',c:'tag-ai'}],
+    id: 'samsung-oneui9-beta', brand: 'samsung', status: 'released',
+    title: 'One UI 9 稳定版 · Gemini Intelligence 代理式AI / Notes 胶带笔 / Now Nudge / Warranty Hub',
+    appType: '系统级 Major Update · Android 17 基底', aiNote: 'Gemini Intelligence / Now Nudge / Photo Assist / AI 安全',
+    date: 'Beta 1 (2026-05-12) → Beta 4 (2026-07-14) → 稳定版 7月22日预载 Z Fold 8 系列',
+    verdict: 'good', label: '好评主导',
+    gist: '基于 Android 17，Gemini Intelligence 代理式AI正式落地（40+App链式任务）；Notes/Contacts/Quick Panel/无障碍全面升级；7月22日稳定版首发预载 Z Fold 8 系列',
+    tags: [{t:'稳定版已发布',c:'tag-month'},{t:'Samsung Notes',c:'tag-app'},{t:'Contacts',c:'tag-app'},{t:'无障碍',c:'tag-app'},{t:'Gemini Intelligence',c:'tag-ai'},{t:'Now Nudge',c:'tag-ai'},{t:'安全增强',c:'tag-ai'}],
     pros: [
-      'Notes 胶带装饰 + 新笔触风格：创意工具大幅增强',
-      'Contacts 直通 Creative Studio：无需切 App 制作个性化名片',
-      'Quick Panel 重构：亮度/声音/媒体独立调节，尺寸可自定义',
-      '无障碍大升级：Mouse Key 速度可调、TalkBack 合并包、Text Spotlight 浮窗放大',
+      'Notes 胶带装饰 + 新笔触风格：可在分享截图前遮蔽敏感信息',
+      'Contacts 直通 Creative Studio：无需切 App 制作个性化AI名片',
+      'Quick Panel 重构：亮度/声音/媒体独立调节，尺寸可自定义，分离声音模式开关',
+      '锁屏媒体播放器升级：圆形按钮+实时波形动画+动态色温适配专辑封面',
+      '无障碍大升级：Text Spotlight 浮窗放大、Select to Speak 增强、Mouse Key 速度可调',
       '安全自动拦截：检测到高危 App 自动警告+阻止安装',
-      '【Beta 3】网络速度指示器终于加入状态栏（中国版早有）',
-      'S25 获 AI 通知功能补齐：Prioritise（AI优先排序）+ Summarise（长聊天摘要），S25 几乎拥有 S26 全部 Galaxy AI',
-      '稳定版预载 Z Fold 8/Flip 8（7月22日首发）→ S26/S25 系列 7月底-8月推送',
-      'Gemini Intelligence 代理式 AI 即将上线：Google I/O 演示的自主行动能力'
+      'Gemini Intelligence 代理式AI：从单条指令链式执行多步任务（查票→比价→订票），支持40+App',
+      'Gemini Notebook 原生集成：上传PDF/录音/截图生成摘要、AI视频、演示文稿、播客、测验',
+      'Now Nudge 主动建议：聊天中建议添加日历日程并打开多窗口Calendar',
+      'My FanCam AI追焦：Gallery中选择视频中人物自动追焦重构画面',
+      'Photo Assist 文字修图：自然语言描述修改需求，AI自动处理图片',
+      'Game Booster 内嵌叠加层：不退出游戏即可调整分辨率和性能模式',
+      'Samsung DeX 虚拟桌面快速切换',
+      'Quick Share 新增 NFC Tap to Share + 与 AirDrop 双向兼容',
+      'AI Assistant Activity 仪表盘：集中查看所有AI自动化操作',
+      '蓝色状态栏指示器：位置/相机/麦克风活跃时透明提示',
+      'Foreign Material Detection（折叠屏专属）：检测铰链区域灰尘碎屑',
+      'Warranty & Care Hub：统一保修/诊断/维修入口',
+      'S25 获 AI 通知功能补齐：Prioritise（AI优先排序）+ Summarise（长聊天摘要）',
+      '稳定版预载 Z Fold 8/Flip 8（7月22日首发）→ S26 系列8月推送'
     ],
     cons: [
-      '仅 S26 系列首批 Beta：其他机型需等正式版',
+      'Gemini Intelligence 需旗舰芯片+12GB RAM+Gemini Nano v3：仅 Z Fold 8/Ultra 首发',
       'S22 系列/S21 FE/Z Fold 4 确认排除 One UI 9 升级名单',
-      '区域限制：仅德/印/韩/波/英/美等部分市场开放 Beta',
-      'Gemini Intelligence 可能仅限最新三星/Google 设备'
+      '区域限制：Gemini Intelligence 等AI功能可能仅限部分市场',
+      'Beta 阶段到稳定版仍有一些小Bug待修复（通知按钮缩放等）'
     ],
-    quotes: [],
+    quotes: [
+      { kind:'good', top:'证明了我错了', text:'"I thought the Galaxy Z Fold 8 was a gimmick. After using it, Samsung proved me wrong."', src:'https://www.androidauthority.com/samsung-galaxy-z-fold-8-hands-on-3689281', name:'Android Authority' },
+      { kind:'good', top:'最喜欢的折叠', text:'"Of the three folding phones Samsung is releasing this year, this is by far my favorite."', src:'https://www.androidauthority.com/samsung-galaxy-z-fold-8-hands-on-3689281', name:'Android Authority' }
+    ],
     monthly: [
       { ver:'Beta 1', date:'2026-05-12', note:'S26 系列首发 Beta；Notes/Contacts/Quick Panel/无障碍/安全全面更新' },
       { ver:'Beta 2', date:'2026-05-26', note:'扩大至印度/波兰等地区' },
       { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' },
-      { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' }
+      { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' },
+      { ver:'稳定版 (One UI 9.0)', date:'2026-07-22', note:'🎉 Galaxy Unpacked 2026伦敦正式发布！预载 Z Fold 8/Ultra/Flip 8 首发；Gemini Intelligence/Gemini Notebook/Now Nudge/My FanCam/Photo Assist 正式上线；Quick Share兼容AirDrop；Warranty&Care Hub；Foreign Material Detection；AI Assistant Activity仪表盘；蓝色状态栏隐私指示器' }
     ],
     links: [
-      { label:'Samsung 官方公告', url:'https://www.samsungmobilepress.com/articles/one-ui-9-beta-launch-galaxy-s26-series' },
-      { label:'AndroidSage 详解', url:'https://www.androidsage.com/2026/05/12/samsung-one-ui-9-beta-program/' },
-      { label:'Samsung Newsroom', url:'https://news.samsung.com/us/samsung-launches-one-ui-9-beta-galaxy-s26-series-users/' },
-      { label:'Forbes: S25 AI 功能补齐', url:'https://www.forbes.com/sites/jaymcgregor/2026/06/13/samsung-one-ui-9-release-date-galaxy-s25-a17' },
-      { label:'SammyFans Beta 1 深度', url:'https://www.sammyfans.com/2026/05/16/samsung-one-ui-9-beta/' }
+      { label:'Samsung 官方 One UI 9', url:'https://www.samsung.com/us/apps/one-ui' },
+      { label:'Beebom: 稳定版发布', url:'https://gadgets.beebom.com/news/samsung-officially-releases-stable-one-ui-9-update-with-galaxy-z-fold-8-series' },
+      { label:'Beebom: 功能全解', url:'https://gadgets.beebom.com/guides/best-one-ui-9-features' },
+      { label:'Samsung Newsroom', url:'https://news.samsung.com/za/galaxy-unpacked-july-2026-a-first-look-at-galaxy-z-fold8-ultra-galaxy-z-fold8-galaxy-z-flip8' },
+      { label:'Android Authority 试用', url:'https://www.androidauthority.com/samsung-galaxy-z-fold-8-hands-on-3689281' },
+      { label:'Samsung 官方公告', url:'https://www.samsungmobilepress.com/articles/one-ui-9-beta-launch-galaxy-s26-series' }
     ]
   },
   {
     id: 'apple-ios27', brand: 'apple', status: 'upcoming',
-    title: 'iOS 27 · Siri AI 独立 App / Safari AI / Camera Siri 模式 / Image Playground 升级',
+    title: 'iOS 27 · Siri AI 独立 App / Safari AI / Camera Siri 模式 / Gemini-killer Image Playground',
     appType: '系统级 Major Update', aiNote: 'Siri AI / Apple Intelligence 2.0',
-    date: 'WWDC 宣布 (2026-06-08) → Public Beta 7 月 → 正式版 2026-09',
+    date: 'WWDC 宣布 (2026-06-08) → Beta 3 (7/7) → Beta 4 (7/21) → 正式版 2026-09',
     verdict: 'good', label: '期待值高',
     gist: 'Siri AI 彻底重做（独立 App+屏幕感知），Safari/Mail/Calendar/Image Playground 全面 AI 增强',
     tags: [{t:'WWDC 宣布',c:'tag-upcoming'},{t:'Siri AI',c:'tag-ai'},{t:'Safari AI',c:'tag-ai'},{t:'Image Playground',c:'tag-ai'}],
@@ -493,7 +522,17 @@ const entries = [
       '【Beta 3 新增】Wallet 扫 QR 码生成数字通行证（会员卡/活动票/积分卡）',
       '【Beta 3 新增】Find My 临时冻结/隐藏位置共享，不通知对方',
       '【Beta 3 新增】备忘录自然语言建提醒（"今晚6点接爸爸"自动提取日期时间）',
-      '【Beta 3 新增】信息长按回复特定 Android 消息（绿泡泡）'
+      '【Beta 3 新增】信息长按回复特定 Android 消息（绿泡泡）',
+      '【Beta 4 新增】AirPods 自适应模式强度滑块：控制中心可手动调节通透/降噪平衡档位',
+      '【Beta 4 新增】Wi-Fi 每网络独立连接助理：可针对不同Wi-Fi分别设置智能切换蜂窝',
+      '【Beta 4 新增】照片缩放填充(Zoom Photos to Fill)：自动放大接近屏幕比例的照片消除黑边',
+      '【Beta 4 新增】相机 ProRes Log 2 格式：保留更多画面信息，后期调色宽容度显著提升（仅Pro系列）',
+      '【Beta 4 新增】Apple TV 自动追剧下载：Continue Watching自动预下载后续2集，看完自动删除',
+      '【Beta 4 新增】Siri 启动欢迎界面 + 预览长度可调（最多5行或关闭）',
+      '【Beta 4 新增】高级本地听写(Advanced Dictation)：设备端运算不上云，识别准确率提升，支持长文本',
+      '【Beta 4 新增】Always Show Request：Siri回答同时以文字形式显示在屏幕（辅助功能）',
+      '【Beta 4 修复】通知中心完整汉化修复（Beta 3大面积英文问题解决）；锁屏底部控件恢复白色图标；音量条液态玻璃质感升级',
+      '【Beta 4 发现】代码中出现双电池iPhone引用("The batteries in this iPhone are performing as expected")——暗示折叠屏iPhone Ultra双电池设计'
     ],
     cons: [
       'Siri AI EU 不上线：因监管原因欧洲首发无此功能',
@@ -504,7 +543,8 @@ const entries = [
     ],
     quotes: [],
     monthly: [
-      { ver:'Beta 3 (24A5380h)', date:'2026-07-07', note:'Siri语音自定义激活（语速+表达力各5级，仅iPhone 17 Pro/Air）、Safari分页自动分组+Notify Me、Wallet QR通行证、Find My位置隐藏、备忘录自然语言建提醒、信息回复Android消息、RAW 9引擎、照片评分、控制中心蜂窝状态显示、壁纸动画、AirPods自适应滑块；公测版预计7月中旬发布' }
+      { ver:'Beta 3 (24A5380h)', date:'2026-07-07', note:'Siri语音自定义激活（语速+表达力各5级，仅iPhone 17 Pro/Air）、Safari分页自动分组+Notify Me、Wallet QR通行证、Find My位置隐藏、备忘录自然语言建提醒、信息回复Android消息、RAW 9引擎、照片评分、控制中心蜂窝状态显示、壁纸动画、AirPods自适应滑块；公测版预计7月中旬发布' },
+      { ver:'Beta 4 (24A5390f)', date:'2026-07-21', note:'AirPods自适应强度滑块、Wi-Fi每网络独立连接助理、照片缩放填充、ProRes Log 2格式、Apple TV自动追剧下载、Siri启动欢迎界面+预览长度可调、高级本地听写、Always Show Request辅助功能；通知中心完整汉化修复、锁屏控件恢复白色、音量条液态玻璃升级、移除Beta3通知中心壁纸景深特效并修复Bug；代码发现双电池iPhone引用（折叠屏暗示）；公测版同步推送' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
