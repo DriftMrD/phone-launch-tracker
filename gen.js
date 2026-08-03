@@ -261,6 +261,35 @@ const entries = [
     ]
   },
   {
+    id: 'apple-ios266', status: 'released', brand: 'apple',
+    title: 'iOS 26.6 · 正式版安全修复 / 为 iOS 27 铺路',
+    appType: '系统级维护更新', aiNote: '',
+    date: '2026-07-28 正式版推送',
+    verdict: 'mixed', label: '维护更新',
+    gist: '错误修复、安全补丁、Spotlight 索引优化，为 iOS 27 做准备',
+    tags: [{t:'系统级',c:'tag-app'},{t:'安全补丁',c:'tag-month'},{t:'Spotlight',c:'tag-app'}],
+    pros: [
+      '正式版已推送：iOS/iPadOS/macOS/watchOS/tvOS/visionOS 26.6 同步发布',
+      '安全修复：包含未公开漏洞补丁',
+      'Spotlight 索引优化：为 iOS 27 增强搜索与 Siri AI 体验做准备',
+      '新增“已屏蔽联系人数量上限”提示（Beta 阶段发现）'
+    ],
+    cons: [
+      '无面向用户的大功能更新',
+      '部分 Beta 中发现的反抢夺安全功能未在正式版启用',
+      '主要为过渡版本，体验感知不强'
+    ],
+    quotes: [],
+    monthly: [
+      { ver:'iOS 26.6 (23G71)', date:'2026-07-28', note:'正式版全量推送；错误修复、安全性更新、Spotlight索引优化，为iOS 27铺路' }
+    ],
+    links: [
+      { label:'iClarified 发布说明', url:'https://www.iclarified.com/101598/apple-officially-releases-ios-266-and-ipados-266-download' },
+      { label:'Heise 报道', url:'https://www.heise.de/en/news/iOS-26-6-macOS-26-6-and-more-apple-releases-new-operating-systems-11379591.html' },
+      { label:'Mashable 解读', url:'https://in.mashable.com/tech/112299/what-is-ios-266-apple-releases-new-iphone-update-with-security-patches-for-iphone-11-and-later-model' }
+    ]
+  },
+  {
     id: 'google-recorder', status: 'released', brand: 'google',
     title: 'Recorder + Gemini · AI 转录/摘要综合冠军',
     appType: '录音机 · 转录/摘要', aiNote: 'AI 转录 / AI 摘要',
@@ -321,22 +350,28 @@ const entries = [
     id: 'xiaomi-hyperos3', status: 'released', brand: 'xiaomi',
     title: 'HyperOS 3 Global · AI 搜索 / AI 笔记 / Hyper Island',
     appType: '系统级 · AI 搜索/笔记', aiNote: 'AI Search / AI Note',
-    date: '2025-09-24 全球发布',
+    date: '2025-09-24 全球发布 → 2026-08-01 月度更新 / HyperOS 4 计划 8 月',
     verdict: 'mixed', label: '争议/待验证',
-    gist: '5 大 AI 功能，但海外深度反馈远少于三星/苹果',
-    tags: [{t:'系统级',c:'tag-app'},{t:'AI Search',c:'tag-ai'},{t:'AI Note',c:'tag-ai'},{t:'Hyper Island',c:'tag-ai'}],
+    gist: '5 大 AI 功能，但海外深度反馈远少于三星/苹果；8月月度更新带来超级岛取餐码等实用功能',
+    tags: [{t:'系统级',c:'tag-app'},{t:'AI Search',c:'tag-ai'},{t:'AI Note',c:'tag-ai'},{t:'Hyper Island',c:'tag-ai'},{t:'月更追踪',c:'tag-month'}],
     pros: [
       '5 大 AI 功能齐全：搜索/笔记/描述/翻译/降噪',
       '跨设备互联：手机-平板-车机协同',
-      '性能提升 30%：官方宣称流畅度优化'
+      '性能提升 30%：官方宣称流畅度优化',
+      '【8月更新】超级岛支持麦当劳取餐码：外卖/取餐场景灵动岛一键展示取餐码',
+      '【8月更新】屏幕共享隐私模式：共享时可隐藏敏感通知与来电弹窗',
+      '【8月更新】录音机修复：长录音转写稳定性提升，断点续录更可靠'
     ],
     cons: [
       '海外深度反馈少：不如三星/苹果社区活跃',
       '推送分 3 阶段：全球版 Oct 2025→Mar 2026，早期东南亚为主',
-      'AI Search 缺吐槽样本：官方主打但少功能级评测'
+      'AI Search 缺吐槽样本：官方主打但少功能级评测',
+      'HyperOS 4 时间未官宣：仅内部消息指向 8 月内测，具体功能未知'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'HyperOS 3 八月更新', date:'2026-08-01', note:'超级岛支持麦当劳取餐码、备忘录优化、家人守护、屏幕共享隐私模式、录音机修复；HyperOS 4 预计8月内测' }
+    ],
     links: [
       { label:'NokiaMob 清单', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' },
       { label:'官方 HyperOS 3', url:'https://www.mi.com/global/hyperos/' }
@@ -491,7 +526,8 @@ const entries = [
       { ver:'Beta 2', date:'2026-05-26', note:'扩大至印度/波兰等地区' },
       { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' },
       { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' },
-      { ver:'稳定版 (One UI 9.0)', date:'2026-07-22', note:'🎉 Galaxy Unpacked 2026伦敦正式发布！预载 Z Fold 8/Ultra/Flip 8 首发；Gemini Intelligence/Gemini Notebook/Now Nudge/My FanCam/Photo Assist 正式上线；Quick Share兼容AirDrop；Warranty&Care Hub；Foreign Material Detection；AI Assistant Activity仪表盘；蓝色状态栏隐私指示器' }
+      { ver:'稳定版 (One UI 9.0)', date:'2026-07-22', note:'🎉 Galaxy Unpacked 2026伦敦正式发布！预载 Z Fold 8/Ultra/Flip 8 首发；Gemini Intelligence/Gemini Notebook/Now Nudge/My FanCam/Photo Assist 正式上线；Quick Share兼容AirDrop；Warranty&Care Hub；Foreign Material Detection；AI Assistant Activity仪表盘；蓝色状态栏隐私指示器' },
+      { ver:'稳定版 S26/S25 推送', date:'2026-08', note:'S26系列稳定版8月底-9月灰度推送；S25系列8月起Beta后转稳定版；Good Lock模块适配；My FanCam/Photo Assist/Now Nudge下放S25' }
     ],
     links: [
       { label:'Samsung 官方 One UI 9', url:'https://www.samsung.com/us/apps/one-ui' },
@@ -506,7 +542,7 @@ const entries = [
     id: 'apple-ios27', brand: 'apple', status: 'upcoming',
     title: 'iOS 27 · Siri AI 独立 App / Safari AI / Camera Siri 模式 / Gemini-killer Image Playground',
     appType: '系统级 Major Update', aiNote: 'Siri AI / Apple Intelligence 2.0',
-    date: 'WWDC 宣布 (2026-06-08) → Beta 3 (7/7) → Beta 4 (7/21) → 正式版 2026-09',
+    date: 'WWDC 宣布 (2026-06-08) → Beta 4 (7/21) → Beta 5 (8/3) → 正式版 2026-09',
     verdict: 'good', label: '期待值高',
     gist: 'Siri AI 彻底重做（独立 App+屏幕感知），Safari/Mail/Calendar/Image Playground 全面 AI 增强',
     tags: [{t:'WWDC 宣布',c:'tag-upcoming'},{t:'Siri AI',c:'tag-ai'},{t:'Safari AI',c:'tag-ai'},{t:'Image Playground',c:'tag-ai'}],
@@ -544,7 +580,8 @@ const entries = [
     quotes: [],
     monthly: [
       { ver:'Beta 3 (24A5380h)', date:'2026-07-07', note:'Siri语音自定义激活（语速+表达力各5级，仅iPhone 17 Pro/Air）、Safari分页自动分组+Notify Me、Wallet QR通行证、Find My位置隐藏、备忘录自然语言建提醒、信息回复Android消息、RAW 9引擎、照片评分、控制中心蜂窝状态显示、壁纸动画、AirPods自适应滑块；公测版预计7月中旬发布' },
-      { ver:'Beta 4 (24A5390f)', date:'2026-07-21', note:'AirPods自适应强度滑块、Wi-Fi每网络独立连接助理、照片缩放填充、ProRes Log 2格式、Apple TV自动追剧下载、Siri启动欢迎界面+预览长度可调、高级本地听写、Always Show Request辅助功能；通知中心完整汉化修复、锁屏控件恢复白色、音量条液态玻璃升级、移除Beta3通知中心壁纸景深特效并修复Bug；代码发现双电池iPhone引用（折叠屏暗示）；公测版同步推送' }
+      { ver:'Beta 4 (24A5390f)', date:'2026-07-21', note:'AirPods自适应强度滑块、Wi-Fi每网络独立连接助理、照片缩放填充、ProRes Log 2格式、Apple TV自动追剧下载、Siri启动欢迎界面+预览长度可调、高级本地听写、Always Show Request辅助功能；通知中心完整汉化修复、锁屏控件恢复白色、音量条液态玻璃升级、移除Beta3通知中心壁纸景深特效并修复Bug；代码发现双电池iPhone引用（折叠屏暗示）；公测版同步推送' },
+      { ver:'Beta 5 (24A5400x)', date:'2026-08-03', note:'相机界面支持自定义快捷开关/Widget（曝光、对焦、滤镜、风格、定时器等可自由排列）、音量HUD与控制中心进一步液态玻璃化、主屏幕支持撤销/重做、Health新增AI血糖追踪与摄像头健身监测、Siri接入ChatGPT/Gemini双模型、性能与电池效率优化；后续进入每周一更节奏，公测版Beta 3预计8月5日推送' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
@@ -556,9 +593,9 @@ const entries = [
     id: 'google-android17', brand: 'google', status: 'upcoming',
     title: 'Android 17 · 底层性能调度 / 搜索即时索引 / Pixel Feature Drop',
     appType: '系统级 Major Update (Beta 4 收尾)', aiNote: '',
-    date: 'Beta 已推至 4.1 (2026-06) → 稳定版 2026 夏末',
+    date: 'Beta 8 (2026-08-02) → 稳定版 2026-09 Pixel Feature Drop',
     verdict: 'mixed', label: '待验证',
-    gist: 'Android 17 进入最后 Beta，CPU 调度优化老机型、搜索即时索引、Wi-Fi→蜂窝切换平滑化',
+    gist: 'Android 17 QPR1 Beta 8 收尾，修复音频/指纹/NFC/平板底座问题；稳定版预计9月以 Pixel Feature Drop 形式推送',
     tags: [{t:'Beta 收尾',c:'tag-upcoming'},{t:'性能优化',c:'tag-app'},{t:'搜索重构',c:'tag-app'}],
     pros: [
       'CPU 调度器升级：旧机型任务管理效率提升',
@@ -572,7 +609,9 @@ const entries = [
       '非 Pixel 设备落地取决于 OEM 适配'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'QPR1 Beta 8 (CP31.260623.010)', date:'2026-08-02', note:'修复音频底噪、屏下指纹响应、NFC支付偶发失败、Pixel Tablet 磁吸底座识别问题；稳定版预计9月以 Pixel Feature Drop 形式推送' }
+    ],
     links: [
       { label:'Android 17 Release Notes', url:'https://developer.android.com/about/versions/17/release-notes' },
       { label:'Android 17 Beta Devices', url:'https://developer.android.com/about/versions/17/devices' },
@@ -625,9 +664,10 @@ const DATE_MAP = {
   'apple-mail-ai': '2026-02',
   'apple-math-notes': '2025-09',
   'apple-calendar': '2026-03',
+  'apple-ios266': '2026-07-28',
   'google-recorder': '2025-07',
   'google-play-system': '2026-06',
-  'xiaomi-hyperos3': '2025-09-24',
+  'xiaomi-hyperos3': '2026-08',
   'xiaomi-gallery': '2026-07',
   'oppo-coloros16': '2026-04',
   'honor-yoyo': '2026-07',
