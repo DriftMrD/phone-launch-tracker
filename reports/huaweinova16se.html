@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huawei nova 16 SE · 产品发布报告</title>
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  background: #0a0612;
+  color: #e8e4f0;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.22,.61,.36,1), transform 0.7s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 35%, #1a0f2e 0%, #0c0518 50%, #0a0612 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(196,22,28,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(107,33,168,0.10) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(196,22,28,0.05) 0%, transparent 60%);
+}
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(196,22,28,0.06);
+  animation: floatUp 8s infinite ease-in-out;
+}
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0; }
+  100% { transform: translateY(-120vh) scale(0.3); opacity: 0; }
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 24px;
+  max-width: 800px;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(196,22,28,0.85);
+  background: rgba(196,22,28,0.08);
+  padding: 6px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(196,22,28,0.15);
+  margin-bottom: 32px;
+}
+.hero-title {
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  font-size: clamp(40px, 7vw, 76px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #e8c8e0 30%, #c4161c 65%, #8b1a3f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+}
+.hero-subtitle {
+  font-size: clamp(15px, 2.2vw, 18px);
+  color: rgba(232,228,240,0.65);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.hero-chip {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 7px 16px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(232,228,240,0.75);
+}
+.hero-chip.highlight {
+  background: rgba(196,22,28,0.12);
+  border-color: rgba(196,22,28,0.25);
+  color: #e86a6f;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+/* ===== BENTO GRID ===== */
+.bento-section { padding: 80px 0 60px; }
+.bento-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c4161c;
+  margin-bottom: 12px;
+}
+.bento-section h2 {
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  font-size: clamp(26px, 4.5vw, 36px);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 40px;
+  line-height: 1.25;
+}
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+.bento-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 28px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.bento-card:hover {
+  border-color: rgba(196,22,28,0.2);
+  background: rgba(196,22,28,0.03);
+}
+.bento-card.lead {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(196,22,28,0.08), rgba(107,33,168,0.06));
+  border-color: rgba(196,22,28,0.15);
+}
+.bento-card-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+.bento-card h3 {
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.bento-card p {
+  font-size: 13.5px;
+  color: rgba(232,228,240,0.6);
+  line-height: 1.6;
+}
+.bento-value {
+  font-size: 32px;
+  font-weight: 900;
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  color: #c4161c;
+  margin-bottom: 4px;
+}
+.bento-value small {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(232,228,240,0.5);
+}
+
+/* ===== CHAPTER ===== */
+.chapter {
+  padding: 50px 0 30px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.chapter-num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #6b21a8;
+  margin-bottom: 6px;
+}
+.chapter-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(107,33,168,0.12);
+  color: #a855f7;
+  margin-bottom: 16px;
+}
+.chapter h2 {
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  font-size: clamp(24px, 3.8vw, 32px);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.chapter p.lead-in {
+  font-size: 14.5px;
+  color: rgba(232,228,240,0.55);
+  max-width: 650px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* ===== FEATURE LIST ===== */
+.feat-list { display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px; }
+.feat-item {
+  display: flex;
+  gap: 18px;
+  padding: 22px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 14px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.feat-item:hover {
+  border-color: rgba(107,33,168,0.2);
+  background: rgba(107,33,168,0.03);
+}
+.feat-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #c4161c, #6b21a8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+}
+.feat-body { flex: 1; min-width: 0; }
+.feat-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(196,22,28,0.1);
+  color: #e86a6f;
+  margin-bottom: 8px;
+}
+.feat-body h4 {
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.feat-body p {
+  font-size: 13px;
+  color: rgba(232,228,240,0.55);
+  line-height: 1.65;
+}
+.feat-body .spec-line {
+  font-size: 11.5px;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  color: rgba(196,22,28,0.75);
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* ===== NOTE / ANALYSIS BOX ===== */
+.note-c {
+  background: linear-gradient(135deg, rgba(196,22,28,0.06), rgba(107,33,168,0.04));
+  border-left: 3px solid #c4161c;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+.note-c .note-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c4161c;
+  margin-bottom: 10px;
+}
+.note-c p {
+  font-size: 13.5px;
+  color: rgba(232,228,240,0.7);
+  line-height: 1.7;
+}
+.note-a {
+  background: linear-gradient(135deg, rgba(107,33,168,0.06), rgba(59,130,246,0.04));
+  border-left: 3px solid #6b21a8;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+.note-a .note-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a855f7;
+  margin-bottom: 10px;
+}
+.note-a p {
+  font-size: 13.5px;
+  color: rgba(232,228,240,0.7);
+  line-height: 1.7;
+}
+
+/* ===== PRICE TABLE ===== */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 28px 0;
+}
+.price-card {
+  text-align: center;
+  padding: 22px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.price-card:hover {
+  border-color: rgba(196,22,28,0.2);
+  background: rgba(196,22,28,0.03);
+}
+.price-card .variant {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(232,228,240,0.45);
+  margin-bottom: 8px;
+}
+.price-card .price {
+  font-size: 26px;
+  font-weight: 900;
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  color: #c4161c;
+}
+.price-card .price small {
+  font-size: 12px;
+  color: rgba(232,228,240,0.4);
+}
+.price-card .subsidy {
+  font-size: 11px;
+  color: #a855f7;
+  margin-top: 6px;
+}
+
+/* ===== TAKEAWAYS ===== */
+.takeaways {
+  margin: 60px 0 40px;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(196,22,28,0.06), rgba(107,33,168,0.06));
+  border: 1px solid rgba(196,22,28,0.12);
+  border-radius: 20px;
+}
+.takeaways h2 {
+  font-family: "PingFang SC", "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.takeaways ol {
+  list-style: none;
+  counter-reset: takeaway;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.takeaways ol li {
+  counter-increment: takeaway;
+  font-size: 14px;
+  color: rgba(232,228,240,0.7);
+  line-height: 1.6;
+  padding-left: 32px;
+  position: relative;
+}
+.takeaways ol li::before {
+  content: counter(takeaway, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #c4161c;
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+/* ===== FOOTER / SOURCES ===== */
+.sources {
+  padding: 30px 0 60px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.sources h3 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(232,228,240,0.4);
+  margin-bottom: 12px;
+}
+.sources ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sources ul li {
+  font-size: 12px;
+  color: rgba(232,228,240,0.35);
+}
+.sources ul li a {
+  color: rgba(232,228,240,0.45);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: color 0.2s, border-color 0.2s;
+}
+.sources ul li a:hover {
+  color: #c4161c;
+  border-color: rgba(196,22,28,0.4);
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.4;
+  animation: bounce 2s infinite;
+}
+.scroll-indicator span {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: rgba(232,228,240,0.5);
+}
+.scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(232,228,240,0.3), transparent);
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10,6,18,0.96);
+  cursor: zoom-out;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  cursor: default;
+  box-shadow: 0 0 80px rgba(196,22,28,0.12);
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.6);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* ===== COLOR PREVIEW SWATCHES ===== */
+.colors-row {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.color-swatch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 100px;
+  font-size: 12px;
+  color: rgba(232,228,240,0.65);
+}
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.color-dot.starry-black { background: linear-gradient(135deg, #1a1a2e, #0f0f1a); }
+.color-dot.sunrise-orange { background: linear-gradient(135deg, #ff6b35, #e8451a); }
+.color-dot.sky-white { background: linear-gradient(135deg, #e8e8ee, #c8c8d4); }
+.color-dot.sakura-sky { background: linear-gradient(135deg, #d4c5e2, #f0d4e8, #b8c8e8); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero { min-height: 90vh; }
+  .hero-content { padding: 48px 18px; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card.lead { grid-column: 1; }
+  .feat-item { flex-direction: column; gap: 12px; padding: 18px; }
+  .feat-num { width: 28px; height: 28px; font-size: 11px; }
+  .price-grid { grid-template-columns: repeat(2, 1fr); }
+  .chapter { padding: 36px 0 24px; }
+  .main-content { padding: 0 18px 60px; }
+  .takeaways { padding: 24px 20px; }
+  .takeaways ol li { font-size: 13px; padding-left: 26px; }
+}
+@media (max-width: 480px) {
+  .hero-content { padding: 40px 14px; }
+  .hero-eyebrow { font-size: 11px; padding: 5px 14px; }
+  .hero-chips { gap: 6px; }
+  .hero-chip { font-size: 10px; padding: 5px 10px; }
+  .bento-card { padding: 20px; }
+  .bento-value { font-size: 26px; }
+  .price-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .price-card .price { font-size: 22px; }
+  .colors-row { gap: 8px; }
+  .color-swatch { padding: 8px 12px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">2026.08.05 · 尊界时代旗舰MPV及华为全场景新品发布会</div>
+    <h1 class="hero-title">Huawei nova 16 SE</h1>
+    <p class="hero-subtitle">麒麟8020 · 8500mAh巨鲸电池 · 红枫原色影像 · 双向北斗卫星 — 2000元档的全能新标杆</p>
+    <div class="hero-chips">
+      <span class="hero-chip highlight">麒麟8020</span>
+      <span class="hero-chip">HarmonyOS 6.1</span>
+      <span class="hero-chip highlight">8500mAh</span>
+      <span class="hero-chip">6.84" 1.5K OLED</span>
+      <span class="hero-chip highlight">8000nit</span>
+      <span class="hero-chip">66W快充</span>
+      <span class="hero-chip highlight">¥2499起</span>
+      <span class="hero-chip">IP65</span>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>向下滚动</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+  <!-- BENTO DATA SUMMARY -->
+  <section class="bento-section">
+    <div class="bento-label reveal">核心数据摘要</div>
+    <h2 class="reveal">2000元档，<br>重新定义中端旗舰</h2>
+    <div class="bento-grid reveal">
+      <div class="bento-card lead">
+        <h3>核心结论</h3>
+        <p>华为 nova 16 SE 以麒麟8020芯片 + HarmonyOS 6.1 为基座,在2000元价位首次集齐红枫原色影像、8500mAh巨鲸电池、8000nit超亮屏和双向北斗卫星图片消息,是中端市场近年来最具越级竞争力的产品之一。</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-card-icon">&#9889;</div>
+        <div class="bento-value">52<small>%</small></div>
+        <h3>整机性能提升</h3>
+        <p>麒麟8020 + 方舟引擎, GPU提升26%, NPU算力提升128%</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-card-icon">&#128267;</div>
+        <div class="bento-value">8500<small>mAh</small></div>
+        <h3>巨鲸电池</h3>
+        <p>连续通话48h / 在线听歌65h, 66W超级快充</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-card-icon">&#128247;</div>
+        <div class="bento-value">150<small>万像素</small></div>
+        <h3>红枫原色镜头</h3>
+        <p>独立多光谱传感器首次下放至2000元档</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-card-icon">&#127760;</div>
+        <div class="bento-value">双向<small>北斗</small></div>
+        <h3>卫星图片消息</h3>
+        <p>中端价位罕见的卫星通信能力覆盖</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 1: 性能 & 系统 -->
+  <section class="chapter reveal">
+    <div class="chapter-num">01</div>
+    <div class="chapter-tag">性能 & 系统</div>
+    <h2>麒麟8020 + HarmonyOS 6.1<br>软硬协同的性能跃升</h2>
+    <p class="lead-in">nova 16 SE 搭载全新麒麟8020移动平台,配合HarmonyOS 6.1与方舟引擎,在整机性能、图形处理和AI算力三个维度实现了显著突破。</p>
+
+    <div class="feat-list">
+      <div class="feat-item">
+        <div class="feat-num">1</div>
+        <div class="feat-body">
+          <div class="feat-tag">芯片平台</div>
+          <h4>麒麟8020 移动平台</h4>
+          <p>全新架构设计,整机性能较上代提升52%,GPU性能提升26%,NPU AI算力提升128%。无论是日常多任务切换还是高负载游戏场景,都能提供流畅稳定的体验。</p>
+          <div class="spec-line">CPU: 全大核架构 · GPU: 自研 · NPU: 达芬奇架构 2.0 · 制程: 先进工艺</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">2</div>
+        <div class="feat-body">
+          <div class="feat-tag">操作系统</div>
+          <h4>HarmonyOS 6.1 + 方舟引擎</h4>
+          <p>全栈自研操作系统配合方舟图形引擎与方舟调度引擎,实现从系统底层到应用层的全链路优化。超级终端互联、分布式文件管理、跨设备流转等体验更加成熟稳定。</p>
+          <div class="spec-line">方舟图形引擎 · 方舟调度引擎 · 方舟存储引擎 · 超级终端</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">3</div>
+        <div class="feat-body">
+          <div class="feat-tag">AI能力</div>
+          <h4>小艺深度解题 & AI智能体</h4>
+          <p>NPU算力提升128%带来端侧AI能力质的飞跃。小艺支持深度解题、智能问答,AI双向通话降噪显著提升通话质量,星盾防诈系统实时守护通讯安全。</p>
+          <div class="spec-line">小艺深度解题 · AI通话降噪 · 星盾防诈 · 端侧大模型</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 2: 屏幕 -->
+  <section class="chapter reveal">
+    <div class="chapter-num">02</div>
+    <div class="chapter-tag">显示技术</div>
+    <h2>8000nit 超亮屏幕<br>中端机的天花板亮度</h2>
+    <p class="lead-in">nova 16 SE 配备6.84英寸1.5K OLED直屏,以8000nit峰值亮度刷新中端价位屏幕上限,配合120Hz高刷与1440Hz高频PWM调光,护眼与流畅兼备。</p>
+
+    <div class="feat-list">
+      <div class="feat-item">
+        <div class="feat-num">1</div>
+        <div class="feat-body">
+          <div class="feat-tag">面板规格</div>
+          <h4>6.84英寸 1.5K OLED 直屏</h4>
+          <p>高分辨率OLED面板带来细腻的显示效果,直屏设计减少边缘误触,提供更纯净的视觉体验。色彩准确度与可视角度均达到旗舰水准。</p>
+          <div class="spec-line">分辨率: 1.5K · 面板: OLED · 形态: 直屏 · 尺寸: 6.84"</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">2</div>
+        <div class="feat-body">
+          <div class="feat-tag">亮度 & 刷新</div>
+          <h4>8000nit 峰值亮度 + 120Hz 高刷</h4>
+          <p>8000nit峰值亮度确保阳光直射下仍可清晰阅读,120Hz自适应刷新率兼顾流畅与功耗。这一亮度规格在2000元价位极为罕见,已超越多数旗舰机型。</p>
+          <div class="spec-line">峰值: 8000nit · 刷新: 120Hz · 调光: 1440Hz PWM</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">3</div>
+        <div class="feat-body">
+          <div class="feat-tag">护眼</div>
+          <h4>1440Hz 高频PWM调光</h4>
+          <p>高频PWM调光有效降低频闪对眼睛的刺激,长时间使用也不易疲劳。结合AI环境光自适应调节,全天候守护用眼健康。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-c">
+      <div class="note-label">屏幕点评</div>
+      <p>8000nit峰值亮度是nova 16 SE最具话题性的参数之一。此前2000元档屏幕亮度普遍在3000-5000nit区间,而nova 16 SE直接翻倍,与万元折叠屏看齐。这一配置不仅提升户外可读性,更展现了华为在中端机上的技术下放力度。</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 3: 影像 -->
+  <section class="chapter reveal">
+    <div class="chapter-num">03</div>
+    <div class="chapter-tag">影像系统</div>
+    <h2>红枫原色影像<br>旗舰传感器下放中端</h2>
+    <p class="lead-in">nova 16 SE 首次将红枫原色镜头引入2000元档,5000万像素RYYB超感知主摄配合150万独立多光谱传感器,带来超越价位的色彩还原与影像表现。</p>
+
+    <div class="feat-list">
+      <div class="feat-item">
+        <div class="feat-num">1</div>
+        <div class="feat-body">
+          <div class="feat-tag">主摄像头</div>
+          <h4>5000万像素 RYYB 超感知主摄</h4>
+          <p>1/1.56英寸大底传感器配合RYYB滤光阵列,进光量较传统RGGB提升40%。支持OIS光学防抖,暗光环境下依然能够输出纯净明亮的高质量照片。</p>
+          <div class="spec-line">传感器: 1/1.56" · 像素: 50MP · 滤光: RYYB · 防抖: OIS</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">2</div>
+        <div class="feat-body">
+          <div class="feat-tag">色彩系统</div>
+          <h4>红枫原色镜头 — 150万独立多光谱传感器</h4>
+          <p>本次最大亮点之一。独立多光谱传感器可捕捉比传统RGB传感器更丰富的光谱信息,实现像素级色彩还原,肤色、天空、植物的色彩表达极为准确。这一配置此前仅见于华为旗舰机型。</p>
+          <div class="spec-line">传感器: 150万像素 · 类型: 多光谱 · 作用: 独立色彩校准</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">3</div>
+        <div class="feat-body">
+          <div class="feat-tag">前置 & AI</div>
+          <h4>3200万前置 + 达芬奇人像算法</h4>
+          <p>3200万像素前置镜头配合达芬奇人像算法,支持AI沾色(精准保留主体色彩)、AI消除(一键去除背景杂物)、最佳表情(自动选取最佳面部瞬间)等创新功能。</p>
+          <div class="spec-line">前置: 32MP · 算法: 达芬奇人像 · AI: 沾色/消除/最佳表情</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-a">
+      <div class="note-label">影像策略分析</div>
+      <p>红枫原色镜头的下放是nova 16 SE最具诚意的配置之一。150万独立多光谱传感器在中端价位是首次出现,这一配置让nova 16 SE的色彩还原能力与同价位竞品拉开明显差距。从产品定位来看,华为正在用影像能力构建2000元档的护城河 — 这恰恰是该价位用户最敏感的体验维度之一。</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 4: 续航 & 设计 -->
+  <section class="chapter reveal">
+    <div class="chapter-num">04</div>
+    <div class="chapter-tag">续航 · 设计 · 连接</div>
+    <h2>8500mAh 巨鲸电池<br>轻薄机身下的续航怪兽</h2>
+    <p class="lead-in">7.98mm机身塞入8500mAh超大电池,配合66W快充和超级聚能泵电芯技术,实现超长续航与轻薄手感的统一。同时带来IP65防护、Wi-Fi 7、星闪2.0与双向北斗卫星消息。</p>
+
+    <div class="feat-list">
+      <div class="feat-item">
+        <div class="feat-num">1</div>
+        <div class="feat-body">
+          <div class="feat-tag">电池 & 快充</div>
+          <h4>8500mAh 巨鲸电池 · 66W超级快充</h4>
+          <p>超级聚能泵电芯技术将超大容量电池压缩至7.98mm轻薄机身中,能量密度行业领先。实测连续通话48小时、在线听歌65小时,彻底告别续航焦虑。</p>
+          <div class="spec-line">容量: 8500mAh · 快充: 66W · 通话: 48h · 听歌: 65h</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">2</div>
+        <div class="feat-body">
+          <div class="feat-tag">机身设计</div>
+          <h4>玄甲机身 · 198g · 薄至7.98mm</h4>
+          <p>玄甲架构提升机身抗跌落性能,IP65防尘抗水、AI湿手触控等细节设计,让日常使用更加安心省心。四款配色各具特色 — 星空黑的深邃、破晓橙的活力、天际白的纯净、樱雪晴空的梦幻渐变。</p>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-num">3</div>
+        <div class="feat-body">
+          <div class="feat-tag">通信 & 连接</div>
+          <h4>Wi-Fi 7 · 星闪2.0 · 双向北斗卫星图片消息</h4>
+          <p>最新Wi-Fi 7带来更快更稳的网络体验,星闪2.0实现超低延迟近场连接,蓝牙6.0支持更高质量的无线音频。双向北斗卫星图片消息让用户在无地面网络时也能保持联系 — 这一配置在2000元档实属罕见。</p>
+          <div class="spec-line">Wi-Fi 7 · 星闪2.0 · 蓝牙6.0 · 双向北斗卫星 · 双1115扬声器</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color swatches -->
+    <div class="colors-row">
+      <div class="color-swatch"><span class="color-dot starry-black"></span> 星空黑</div>
+      <div class="color-swatch"><span class="color-dot sunrise-orange"></span> 破晓橙</div>
+      <div class="color-swatch"><span class="color-dot sky-white"></span> 天际白</div>
+      <div class="color-swatch"><span class="color-dot sakura-sky"></span> 樱雪晴空</div>
+    </div>
+
+    <div class="note-a">
+      <div class="note-label">差异化设计解读</div>
+      <p>与nova 16标准版的双环设计不同,SE版采用了横向大矩阵镜头模组,视觉上更接近华为旗舰的家族式设计语言。樱雪晴空配色采用3D光影雕刻工艺打造极光纹理,明显面向年轻群体。8500mAh在中端机中极为罕见 — 同价位通常在5000-6000mAh区间,SE的电池容量堪称降维打击。</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 5: 定价 & 开售 -->
+  <section class="chapter reveal">
+    <div class="chapter-num">05</div>
+    <div class="chapter-tag">定价 · 开售</div>
+    <h2>价格与版本<br>国补后2124元起</h2>
+    <p class="lead-in">nova 16 SE 提供三个存储版本,起售价2499元,叠加国补后最低2124.15元,将于8月12日10:08正式开售。</p>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="variant">8GB + 128GB</div>
+        <div class="price">¥2,499</div>
+        <div class="subsidy">国补 ¥2,124.15</div>
+      </div>
+      <div class="price-card">
+        <div class="variant">8GB + 256GB</div>
+        <div class="price">¥2,699</div>
+        <div class="subsidy">国补 ¥2,294.15</div>
+      </div>
+      <div class="price-card">
+        <div class="variant">12GB + 512GB</div>
+        <div class="price">¥3,199</div>
+        <div class="subsidy">国补 ¥2,719.15</div>
+      </div>
+    </div>
+
+    <div class="feat-item">
+      <div class="feat-num">&#128197;</div>
+      <div class="feat-body">
+        <div class="feat-tag">开售信息</div>
+        <h4>8月12日 10:08 正式开售</h4>
+        <p>全渠道同步首发,包括华为商城、京东、天猫、线下授权体验店等。预计首销期间将有限时赠品及以旧换新补贴活动。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY TAKEAWAYS -->
+  <section class="takeaways reveal">
+    <h2>Key Takeaways</h2>
+    <ol>
+      <li><strong>2000元档影像新标杆:</strong> 红枫原色镜头(150万独立多光谱传感器)首次下放,色彩还原能力在同价位具有断层优势。</li>
+      <li><strong>续航碾压同档:</strong> 8500mAh巨鲸电池远超竞品5000-6000mAh的主流水平,连续通话48小时的实测表现极具说服力。</li>
+      <li><strong>屏幕越级:</strong> 8000nit峰值亮度此前仅见于万元折叠旗舰,在中端价位形成明显技术代差。</li>
+      <li><strong>卫星通信差异化:</strong> 双向北斗卫星图片消息让户外/应急场景覆盖成为nova 16 SE的独特卖点。</li>
+      <li><strong>AI防诈有诚意:</strong> AI合成通话识别、AI换脸检测等安全功能在中端价位较为罕见,体现华为在安全能力上的不妥协。</li>
+      <li><strong>与nova 16标准版形成互补:</strong> SE用横向大矩阵设计、超大电池和更激进的价格,精准覆盖年轻实用派用户。</li>
+    </ol>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="sources reveal">
+    <h3>信息来源</h3>
+    <ul>
+      <li>华为终端官方微博 / 华为商城 (consumer.huawei.com)</li>
+      <li>尊界时代旗舰MPV及华为全场景新品发布会 直播回放</li>
+      <li>华为 nova 16 SE 官方产品页</li>
+      <li>工信部入网信息查询</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+// ===== SCROLL REVEAL =====
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+  // Immediate reveal for hero
+  const heroReveal = document.querySelector('.hero-content.reveal');
+  if (heroReveal) heroReveal.classList.add('visible');
+})();
+
+// ===== HERO PARTICLES =====
+(function() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  const count = 40;
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('hero-particle');
+    const size = Math.random() * 4 + 2;
+    const left = Math.random() * 100;
+    const delay = Math.random() * 8;
+    const duration = Math.random() * 6 + 6;
+    particle.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:-20px;animation-delay:${delay}s;animation-duration:${duration}s;`;
+    container.appendChild(particle);
+  }
+})();
+
+// ===== LIGHTBOX =====
+(function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('img[data-lightbox]').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+  });
+})();
+</script>
+
+</body>
+</html>

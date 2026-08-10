@@ -348,33 +348,43 @@ const entries = [
   },
   {
     id: 'xiaomi-hyperos3', status: 'released', brand: 'xiaomi',
-    title: 'HyperOS 3 Global · AI 搜索 / AI 笔记 / Hyper Island',
-    appType: '系统级 · AI 搜索/笔记', aiNote: 'AI Search / AI Note',
-    date: '2025-09-24 全球发布 → 2026-08-01 月度更新 / HyperOS 4 计划 8 月',
+    title: 'HyperOS 3→4 · Rust 重写核心 / 零遗留 / 液态玻璃设计 / AI 浮岛',
+    appType: '系统级 · AI 搜索/笔记', aiNote: 'AI Search / AI Note / Rust 重构',
+    date: '2025-09-24 全球发布 → 2026-08-01 月度更新 → HyperOS 4 官宣8月推送',
     verdict: 'mixed', label: '争议/待验证',
-    gist: '5 大 AI 功能，但海外深度反馈远少于三星/苹果；8月月度更新带来超级岛取餐码等实用功能',
-    tags: [{t:'系统级',c:'tag-app'},{t:'AI Search',c:'tag-ai'},{t:'AI Note',c:'tag-ai'},{t:'Hyper Island',c:'tag-ai'},{t:'月更追踪',c:'tag-month'}],
+    gist: 'HyperOS 4 官方海报发布！核心Rust语言重写实现"零遗留"，流畅度+40%、内存管理+30%；液态玻璃设计+AI浮岛；首批推送小米17系列+Redmi K90',
+    tags: [{t:'系统级',c:'tag-app'},{t:'AI Search',c:'tag-ai'},{t:'AI Note',c:'tag-ai'},{t:'Hyper Island',c:'tag-ai'},{t:'月更追踪',c:'tag-month'},{t:'Rust 重写',c:'tag-ai'},{t:'HyperOS 4',c:'tag-month'}],
     pros: [
       '5 大 AI 功能齐全：搜索/笔记/描述/翻译/降噪',
       '跨设备互联：手机-平板-车机协同',
       '性能提升 30%：官方宣称流畅度优化',
       '【8月更新】超级岛支持麦当劳取餐码：外卖/取餐场景灵动岛一键展示取餐码',
       '【8月更新】屏幕共享隐私模式：共享时可隐藏敏感通知与来电弹窗',
-      '【8月更新】录音机修复：长录音转写稳定性提升，断点续录更可靠'
+      '【8月更新】录音机修复：长录音转写稳定性提升，断点续录更可靠',
+      '【HyperOS 4】Rust 语言重写核心：系统核心服务/窗口管理/进程调度/内存分配全部用Rust重构，从根源消除70%内存安全Bug',
+      '【HyperOS 4】"零遗留"设计：MIUI时代遗留代码一行不留，自研代码占比75%→90%，仅保留基础安卓兼容层',
+      '【HyperOS 4】流畅度提升40%：空闲内存占用降28%、后台保活提升35%、连续365天流畅衰减仅5%',
+      '【HyperOS 4】内存管理提升30%：重构内存调度机制，长期使用不卡顿',
+      '【HyperOS 4】液态玻璃设计语言：玻璃质感界面元素+实时光场渲染+2.5D图标+控制中心/通知面板半透明效果',
+      '【HyperOS 4】AI浮岛+AI配色+前摄主动AI感知：智能场景识别与主动服务',
+      '【HyperOS 4】可自定义大文件夹+堆叠桌面小部件+锁屏通知更简洁布局'
     ],
     cons: [
       '海外深度反馈少：不如三星/苹果社区活跃',
       '推送分 3 阶段：全球版 Oct 2025→Mar 2026，早期东南亚为主',
       'AI Search 缺吐槽样本：官方主打但少功能级评测',
-      'HyperOS 4 时间未官宣：仅内部消息指向 8 月内测，具体功能未知'
+      'HyperOS 4 已官宣8月推送：小米官方7月31日发布宣传海报，"Smooth, Smart, Connected"三大方向，但具体推送日期和首批机型尚未正式确认'
     ],
     quotes: [],
     monthly: [
-      { ver:'HyperOS 3 八月更新', date:'2026-08-01', note:'超级岛支持麦当劳取餐码、备忘录优化、家人守护、屏幕共享隐私模式、录音机修复；HyperOS 4 预计8月内测' }
+      { ver:'HyperOS 3 八月更新', date:'2026-08-01', note:'超级岛支持麦当劳取餐码、备忘录优化、家人守护、屏幕共享隐私模式、录音机修复；HyperOS 4 预计8月内测' },
+      { ver:'🎉 HyperOS 4 官宣', date:'2026-08-01', note:'小米官方7月31日发布HyperOS 4.0宣传海报！8月上旬启动首批稳定版灰度推送。核心底层Rust语言重写（自研代码占比75%→90%），"零遗留"清理MIUI时代冗余代码；空闲内存占用降28%、后台保活提升35%、连续365天流畅衰减仅5%、整体流畅度提升40%、内存管理提升30%；液态玻璃设计语言+2.5D图标+AI浮岛+AI配色+前摄主动AI感知；首批推送小米17系列+Redmi K90，小米18系列出厂预装；分三批推送（旗舰完整版/中端标准版/老机型轻量化版）' }
     ],
     links: [
       { label:'NokiaMob 清单', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' },
-      { label:'官方 HyperOS 3', url:'https://www.mi.com/global/hyperos/' }
+      { label:'官方 HyperOS 3', url:'https://www.mi.com/global/hyperos/' },
+      { label:'HyperOS 4 官宣海报', url:'https://www.toutiao.com/a7668699772672328215' },
+      { label:'Rust 重写核心详解', url:'https://gadgets360.com/mobiles/news/xiaomi-hyperos-4-beta-timeline-leak-features-expected-11872760' }
     ]
   },
   {
@@ -387,30 +397,44 @@ const entries = [
     tags: [{t:'系统级',c:'tag-app'},{t:'AI Flash Note',c:'tag-ai'},{t:'EU 推送延迟',c:'tag-bug'}],
     pros: [
       '系统自定义强：XDA 用户赞"fast and effective"',
-      'AI 闪记实用：一键捕捉屏幕信息成笔记'
+      'AI 闪记实用：一键捕捉屏幕信息成笔记',
+      '【8月更新】桌面角标一键清理：桌面双指张开即可清空全部应用消息角标',
+      '【8月更新】生活卡片新增：2x2/4x2 汇率换算卡片 + 台风路径卡片',
+      '【8月更新】小布记忆跨应用收藏：同步手机浏览器 + UC/夸克/今日头条极速版收藏内容',
+      '【8月更新】团购券防过期提醒：小布建议/流体云显示支付宝临期团购券',
+      '【8月更新】便签个性化：可换字体和皮肤样式',
+      '【8月更新】应用五分身：从双开升级到5个分身，覆盖游戏/小微商户场景',
+      '【8月更新】病毒风险主动防御：风险应用自动设权限为"不允许"+隐私替身替换敏感数据',
+      '【8月更新】无障碍服务管控：拦截无障碍服务和所有文件访问权限的流氓软件',
+      '【8月更新】极光引擎内存调度重构：原生流畅度+12%，高负载场景不易锁帧'
     ],
     cons: [
       'EU 推送延迟数月：印尼 2026-01 首发，EU 到 2026-04 仍等',
       '来电不浮窗：解锁状态下来电被应用遮挡，需下拉看',
-      '电池优化误伤：需手动关两项优化才正常'
+      '电池优化误伤：需手动关两项优化才正常',
+      '【8月更新】关10个设置才流畅：内存拓展/自启动/用户体验计划/负一屏自动刷新等需手动关闭，流畅度+20%',
+      '【8月更新】五分身串号问题：小红书分身存在账号串号（登录一个分身其他分身自动同步），"数据完全隔离"未达预期'
     ],
     quotes: [
       { kind:'bad', top:'还在等更新', text:'"I’m still waiting for update in Europe." — 直到 2026-04 仍无官方 OTA，需借 Oxygen Updater/VPN', src:'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/', name:'XDA Forums' },
       { kind:'good', top:'自定义好用', text:'"I like the actual customization through system setting, it’s fast and effective."', src:'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/', name:'XDA Forums' }
     ],
-    monthly: [],
+    monthly: [
+      { ver:'ColorOS 16.0.10.500', date:'2026-08-05', note:'🎉 1.08GB大版本更新！桌面角标一键清理(双指张开)+生活卡片(汇率/台风)+小布记忆跨应用收藏+团购券防过期+便签个性化+应用五分身+病毒主动防御+无障碍管控+极光引擎内存重构(流畅度+12%)+相机横屏Bug修复；适配Find X9 Pro/一加15T等旗舰' }
+    ],
     links: [
       { label:'XDA 讨论', url:'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' },
-      { label:'OPPO Global', url:'https://community.oppo.com/circle/1155364131311190017' }
+      { label:'OPPO Global', url:'https://community.oppo.com/circle/1155364131311190017' },
+      { label:'ColorOS 官网', url:'https://www.coloros.com/' }
     ]
   },
   {
     id: 'honor-yoyo', status: 'released', brand: 'honor',
-    title: 'YOYO AI · MagicOS 11 内测 / Agentic OS / YOYO Next 主动智能体 / 液态玻璃UI',
-    appType: '系统级 · 主动 AI 智能体', aiNote: 'YOYO Next / Agentic OS / MCP架构 / GUI Agent',
-    date: 'MagicOS 10 June 2026 → MagicOS 11 内测 2026-07-01 → Agentic OS框架7月发布',
+    title: 'YOYO AI · MagicOS 11 内测 / YOYO Next / 长视频解析 / Agentic OS / 液态玻璃UI',
+    appType: '系统级 · 主动 AI 智能体', aiNote: 'YOYO Next / Agentic OS / MCP架构 / GUI Agent / 长视频解析',
+    date: 'MagicOS 10 June 2026 → MagicOS 11 内测 7月 → MagicOS 10 八月版 8月5日推送',
     verdict: 'good', label: '好评主导',
-    gist: 'MagicOS 11 首发 YOYO Next 架构（MCP+GUI Agent+Cloud-Slim混合推理），3000+场景自主执行；安卓首创液态玻璃UI；接入DeepSeek-V4；YOYO Claw能效技术省50%词元消耗',
+    gist: 'MagicOS 10 八月版七大AI升级：YOYO记忆首次支持长视频解析（三指下滑→自动摘要）；笔记AI语义搜索；AI翻译自动识别语种；AI侧边栏固定；覆盖旗舰到千元机全系列',
     tags: [{t:'系统级',c:'tag-app'},{t:'YOYO Next',c:'tag-ai'},{t:'Agentic OS',c:'tag-ai'},{t:'MCP架构',c:'tag-ai'},{t:'MagicOS 11 内测',c:'tag-month'},{t:'液态玻璃UI',c:'tag-ai'},{t:'DeepSeek-V4',c:'tag-ai'}],
     pros: [
       '海外本地化亮眼：YOYO + Walmart 物流追踪',
@@ -428,7 +452,14 @@ const entries = [
       '【MagicOS 11】YOYO 主动智能体：连贯多步操作（"下班发消息+导航+歌单"一次完成）',
       '【MagicOS 11】端侧 AI 全升级：录音→会议纪要、相册语义检索、长文档摘要，数据不上云',
       '【MagicOS 11】AI 通话反诈：精准识别诈骗话术/变声来电',
-      '【Agentic OS】MWC 上海首秀：意图驱动、自然交互、主动智能、天生跨端四大特征'
+      '【Agentic OS】MWC 上海首秀：意图驱动、自然交互、主动智能、天生跨端四大特征',
+      '【MagicOS 10 八月更新】YOYO 记忆长视频解析：三指下滑触发，覆盖抖音/B站/小红书/快手/本地视频，自动生成摘要+分段总结，视频教程变笔记',
+      '【MagicOS 10 八月更新】荣耀笔记 AI 语义搜索：突破关键词匹配，自然语言描述含义即可精准找到相关笔记',
+      '【MagicOS 10 八月更新】AI 翻译自动识别语种：无需手动选择源语言，自动判断原文语言并翻译',
+      '【MagicOS 10 八月更新】AI 侧边栏常用服务固定：高频AI工具置顶常驻，零层级触达',
+      '【MagicOS 10 八月更新】文件管理重构：我的文件与浏览合并为统一视图，结构更精简',
+      '【MagicOS 10 八月更新】远程协助扩展：支持更多设备型号，一键远程帮亲友排查问题',
+      '【MagicOS 10 八月更新】推送覆盖广：从旗舰Magic V6/Magic8到千元机100系列均获同等AI体验，不分机型阉割'
     ],
     cons: [
       '深度评测缺：海外社区讨论集中在官方论坛/国内媒体',
@@ -444,7 +475,8 @@ const entries = [
       { ver:'MagicOS 11 内测', date:'2026-07-01', note:'Magic8 系列首批推送；YOYO 主动智能体、端侧 AI 全升级、AI 通话反诈' },
       { ver:'Agentic OS 框架', date:'2026-06-24', note:'MWC 上海首发定义：意图驱动/自然交互/主动智能/天生跨端' },
       { ver:'MagicOS 10 Jul (10.0.0.170)', date:'2026-07-16', note:'第二批10款机型推送；丝滑动效（并行响应+一镜到底）、灵动胶囊（滑动交互+YOYO帮记）、3D照片锁屏、一语微信发消息/打视频、漫画生成、Live盲盒、120Hz高刷投屏、远程协助' },
-      { ver:'MagicOS 11 / YOYO Next', date:'2026-07-22', note:'🎉 MagicOS 11 内测持续推送；YOYO Next架构详解：MCP系统级架构+GUI Agent纯视觉方案+Cloud-Slim混合推理+DeepSeek-V4接入；3000+场景自主执行（90天从200+扩展）；YOYO Claw省50%词元；安卓首创液态玻璃UI；跨应用14步自动化实测；自进化长期全局记忆；Agentic OS完整技术框架7月发布' }
+      { ver:'MagicOS 11 / YOYO Next', date:'2026-07-22', note:'🎉 MagicOS 11 内测持续推送；YOYO Next架构详解：MCP系统级架构+GUI Agent纯视觉方案+Cloud-Slim混合推理+DeepSeek-V4接入；3000+场景自主执行（90天从200+扩展）；YOYO Claw省50%词元；安卓首创液态玻璃UI；跨应用14步自动化实测；自进化长期全局记忆；Agentic OS完整技术框架7月发布' },
+      { ver:'MagicOS 10 Aug (10.0.170)', date:'2026-08-05', note:'🎉 八月版本七大AI功能升级！YOYO记忆首次支持长视频解析（抖音/B站/小红书/快手/本地视频三指下滑触发→自动生成摘要+分段总结）；荣耀笔记AI语义搜索（自然语言模糊匹配，不再依赖关键词）；AI翻译自动识别语种（无需手动选）；AI侧边栏常用服务固定（高频AI工具置顶零层级触达）；文件管理"我的文件"与"浏览"合并重构；远程协助扩展更多设备；夏日主题（悠悠碧波/沁凉一夏）；三批推送：8/6首批(Magic V6/Magic8/600系列)→8/7二批(Magic V5/Magic7/WIN/500系列)→8/14三批(Magic V3-V Flip2/Magic6/5系列/400-100系列)' }
     ],
     links: [
       { label:'June 2026 全文', url:'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' },
@@ -454,7 +486,9 @@ const entries = [
       { label:'YOYO Next 深度测评', url:'https://www.toutiao.com/article/7663362861230375474/' },
       { label:'YOYO 智能体全方位评测', url:'https://k.sina.com.cn/article_7879848900_1d5acf3c40680394io.html' },
       { label:'MagicOS 11 YOYO AI 爆料', url:'https://www.toutiao.com/article/7663149226608378394' },
-      { label:'Honor MagicOS', url:'https://www.honor.com/global/magic-os/' }
+      { label:'Honor MagicOS', url:'https://www.honor.com/global/magic-os/' },
+      { label:'MagicOS 10 八月版详解', url:'https://digital.it168.com/a2026/0805/6945/000006945035.shtml' },
+      { label:'八月更新七项功能', url:'https://ai.zol.com.cn/1226/12269044.html' }
     ]
   },
   {
@@ -527,7 +561,7 @@ const entries = [
       { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' },
       { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' },
       { ver:'稳定版 (One UI 9.0)', date:'2026-07-22', note:'🎉 Galaxy Unpacked 2026伦敦正式发布！预载 Z Fold 8/Ultra/Flip 8 首发；Gemini Intelligence/Gemini Notebook/Now Nudge/My FanCam/Photo Assist 正式上线；Quick Share兼容AirDrop；Warranty&Care Hub；Foreign Material Detection；AI Assistant Activity仪表盘；蓝色状态栏隐私指示器' },
-      { ver:'稳定版 S26/S25 推送', date:'2026-08', note:'S26系列稳定版8月底-9月灰度推送；S25系列8月起Beta后转稳定版；Good Lock模块适配；My FanCam/Photo Assist/Now Nudge下放S25' }
+      { ver:'稳定版 S26/S25 推送', date:'2026-08', note:'🎉 S26系列稳定版8月5日起开启灰度推送，8月10日全球全量放开！升级包~2.9GB，内含7月完整版安全补丁(修复57项高危漏洞)、内存调度重构(后台保活翻倍)、骁龙8E5温控重调、双卡信号/VoLTE/5G回落修复、4K视频/RAW加载提速、相册批量导出优化。S25系列8月上旬开启灰度测试→转稳定版。S24系列+Z Fold7/Flip7 8月中旬推送。S23系列11-12月(最终大版本更新)。Good Lock Home Up同步适配(多指手势/Dock/Edge自定义出厂预装)' }
     ],
     links: [
       { label:'Samsung 官方 One UI 9', url:'https://www.samsung.com/us/apps/one-ui' },
@@ -542,7 +576,7 @@ const entries = [
     id: 'apple-ios27', brand: 'apple', status: 'upcoming',
     title: 'iOS 27 · Siri AI 独立 App / Safari AI / Camera Siri 模式 / Gemini-killer Image Playground',
     appType: '系统级 Major Update', aiNote: 'Siri AI / Apple Intelligence 2.0',
-    date: 'WWDC 宣布 (2026-06-08) → Beta 4 (7/21) → Beta 5 (8/3) → 正式版 2026-09',
+    date: 'WWDC 宣布 (2026-06-08) → Beta 4 (7/21) → Beta 5 (8/3) → Beta 6 (8/10) → 正式版 2026-09',
     verdict: 'good', label: '期待值高',
     gist: 'Siri AI 彻底重做（独立 App+屏幕感知），Safari/Mail/Calendar/Image Playground 全面 AI 增强',
     tags: [{t:'WWDC 宣布',c:'tag-upcoming'},{t:'Siri AI',c:'tag-ai'},{t:'Safari AI',c:'tag-ai'},{t:'Image Playground',c:'tag-ai'}],
@@ -568,7 +602,21 @@ const entries = [
       '【Beta 4 新增】高级本地听写(Advanced Dictation)：设备端运算不上云，识别准确率提升，支持长文本',
       '【Beta 4 新增】Always Show Request：Siri回答同时以文字形式显示在屏幕（辅助功能）',
       '【Beta 4 修复】通知中心完整汉化修复（Beta 3大面积英文问题解决）；锁屏底部控件恢复白色图标；音量条液态玻璃质感升级',
-      '【Beta 4 发现】代码中出现双电池iPhone引用("The batteries in this iPhone are performing as expected")——暗示折叠屏iPhone Ultra双电池设计'
+      '【Beta 4 发现】代码中出现双电池iPhone引用("The batteries in this iPhone are performing as expected")——暗示折叠屏iPhone Ultra双电池设计',
+      '【Beta 5 新增】锁屏时钟可缩小并移至顶部小组件行，释放壁纸展示空间',
+      '【Beta 5 新增】AI 扩展壁纸：照片比例不匹配时自动建议 Extend 补齐边缘，设置壁纸时一键修正',
+      '【Beta 5 新增】Image Playground 生成壁纸：壁纸选择器内置入口，从照片库生成"复古插画""动画"等风格壁纸，或纯文字描述从零生成',
+      '【Beta 5 新增】锁屏"正在播放"小组件可滑动移除，音频继续播放不中断',
+      '【Beta 5 新增】Safari 紧凑工具栏恢复"所有标签页"图标（取代 iOS 26 三点菜单）+ 新标签页顶部恢复书签/阅读列表/历史图标 + 标签页自动按类别分类整理',
+      '【Beta 5 新增】全局透明度滑块：替代非黑即白的"清晰/着色"切换，可在不透明到全透明间自由调节液态玻璃效果',
+      '【Beta 5 新增】闹钟音量与铃声解绑：闹钟音量不再跟随铃声音量，独立调节',
+      '【Beta 5 新增】AirPods 自定义 EQ：控制中心可针对 AirPods 设置均衡器',
+      '【Beta 5 新增】信息"返回"按钮可隐藏：避免误触返回上一条消息',
+      '【Beta 5 新增】通话上下文：拨打近期联系过的商家时自动显示从邮件提取的航班号/订单号（本地运行不监听音频，支持 Apple Watch）',
+      '【Beta 5 新增】Screen Time 重设计：实时查看子女使用情况 + Time Allowances 分类限时 + Ask to Buy/Browse 每次确认 + Communication Safety 模糊暴力内容',
+      '【Beta 5 新增】Write with Siri：系统级写作辅助，可匹配个人写作风格、按描述调整语气（休闲/正式）',
+      '【Beta 5 新增】Visual Intelligence 扩展：餐食照片→营养成分、传单→多个日历事件、收据→分账、名片→联系人',
+      '【Beta 5 新增】性能 80+ 项改进：App 启动快 30%、AirDrop 快 80%、动画/键盘/主屏/App 资源库加载优化，覆盖 iPhone 11+'
     ],
     cons: [
       'Siri AI EU 不上线：因监管原因欧洲首发无此功能',
@@ -581,12 +629,16 @@ const entries = [
     monthly: [
       { ver:'Beta 3 (24A5380h)', date:'2026-07-07', note:'Siri语音自定义激活（语速+表达力各5级，仅iPhone 17 Pro/Air）、Safari分页自动分组+Notify Me、Wallet QR通行证、Find My位置隐藏、备忘录自然语言建提醒、信息回复Android消息、RAW 9引擎、照片评分、控制中心蜂窝状态显示、壁纸动画、AirPods自适应滑块；公测版预计7月中旬发布' },
       { ver:'Beta 4 (24A5390f)', date:'2026-07-21', note:'AirPods自适应强度滑块、Wi-Fi每网络独立连接助理、照片缩放填充、ProRes Log 2格式、Apple TV自动追剧下载、Siri启动欢迎界面+预览长度可调、高级本地听写、Always Show Request辅助功能；通知中心完整汉化修复、锁屏控件恢复白色、音量条液态玻璃升级、移除Beta3通知中心壁纸景深特效并修复Bug；代码发现双电池iPhone引用（折叠屏暗示）；公测版同步推送' },
-      { ver:'Beta 5 (24A5400x)', date:'2026-08-03', note:'相机界面支持自定义快捷开关/Widget（曝光、对焦、滤镜、风格、定时器等可自由排列）、音量HUD与控制中心进一步液态玻璃化、主屏幕支持撤销/重做、Health新增AI血糖追踪与摄像头健身监测、Siri接入ChatGPT/Gemini双模型、性能与电池效率优化；后续进入每周一更节奏，公测版Beta 3预计8月5日推送' }
+      { ver:'Beta 5 (24A5400x)', date:'2026-08-03', note:'相机界面支持自定义快捷开关/Widget（曝光、对焦、滤镜、风格、定时器等可自由排列）、音量HUD与控制中心进一步液态玻璃化、主屏幕支持撤销/重做、Health新增AI血糖追踪与摄像头健身监测、Siri接入ChatGPT/Gemini双模型、性能与电池效率优化；后续进入每周一更节奏，公测版Beta 3预计8月5日推送' },
+      { ver:'Beta 5 锁屏/Safari/性能', date:'2026-08-06', note:'锁屏时钟可缩小移至顶部小组件行+AI扩展壁纸+Image Playground生成壁纸+正在播放可滑动移除；Safari紧凑工具栏恢复所有标签页图标+书签/阅读列表/历史图标+标签页自动分类；全局透明度滑块替代清晰/着色切换；闹钟音量与铃声解绑；AirPods自定义EQ；信息返回按钮可隐藏；通话上下文（本地显示航班/订单号）；Screen Time重设计+Time Allowances+Ask to Buy/Browse；Write with Siri系统级写作；Visual Intelligence扩展（餐食营养/传单日历/收据分账/名片联系人）；80+项性能改进（App启动快30%/AirDrop快80%）' },
+      { ver:'Beta 6 (功能冻结)', date:'2026-08-10', note:'🎉 进入功能冻结阶段，仅修复Bug不再增加新功能；每周一更节奏持续；公测版同步推进；RC候选版预计9月7日前后随iPhone发布会发布，正式版预计9月中旬推送' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
       { label:'Apple iOS 27 官方', url:'https://www.apple.com/os/ios/' },
-      { label:'EU 限制报道', url:'https://www.phonearena.com/news/apple-says-siri-ai-will-be-delayed-in-the-european-union-because-of-regulations_id180959' }
+      { label:'EU 限制报道', url:'https://www.phonearena.com/news/apple-says-siri-ai-will-be-delayed-in-the-european-union-because-of-regulations_id180959' },
+      { label:'MacRumors iOS 27 追踪', url:'https://www.macrumors.com/roundup/ios-27' },
+      { label:'锁屏四项自定义', url:'https://www.163.com/dy/article/L3O5VC9A0553TAZH.html' }
     ]
   },
   {
@@ -610,12 +662,14 @@ const entries = [
     ],
     quotes: [],
     monthly: [
-      { ver:'QPR1 Beta 8 (CP31.260623.010)', date:'2026-08-02', note:'修复音频底噪、屏下指纹响应、NFC支付偶发失败、Pixel Tablet 磁吸底座识别问题；稳定版预计9月以 Pixel Feature Drop 形式推送' }
+      { ver:'QPR1 Beta 8 (CP31.260623.010)', date:'2026-08-02', note:'修复音频底噪、屏下指纹响应、NFC支付偶发失败、Pixel Tablet 磁吸底座识别问题；稳定版预计9月以 Pixel Feature Drop 形式推送' },
+      { ver:'8月安全更新 (CP2A.260805.005)', date:'2026-08-05', note:'🎉 Pixel 8/8Pro/8a/9全系/9a/10全系/10a 获推送；⚠️ Pixel 6/6Pro/6a/7/7Pro/7a 本月被排除！修补CVE-2026-0163(Video Processing Unit高严重提权漏洞)；Pixel 10专属修复：游戏崩溃/GPU性能/触屏无响应；QPR2 Beta 1同步推进：修复蓝牙自动重连/Gemini崩溃/通知消失/UI模糊重置' }
     ],
     links: [
       { label:'Android 17 Release Notes', url:'https://developer.android.com/about/versions/17/release-notes' },
       { label:'Android 17 Beta Devices', url:'https://developer.android.com/about/versions/17/devices' },
-      { label:'9to5Google 追踪', url:'https://9to5google.com/guides/android-17/' }
+      { label:'9to5Google 追踪', url:'https://9to5google.com/guides/android-17/' },
+      { label:'Beebom: 8月Pixel更新', url:'https://gadgets.beebom.com/news/google-releases-august-2026-pixel-update-security-patch-pixel-10-bug-fixes' }
     ]
   },
   // ====== 新增系统App追踪 (2026-07) ======
@@ -669,12 +723,12 @@ const DATE_MAP = {
   'google-play-system': '2026-06',
   'xiaomi-hyperos3': '2026-08',
   'xiaomi-gallery': '2026-07',
-  'oppo-coloros16': '2026-04',
-  'honor-yoyo': '2026-07',
+  'oppo-coloros16': '2026-08',
+  'honor-yoyo': '2026-08',
   'vivo-originos': '2025-10-15',
-  'samsung-oneui9-beta': '2026-07',
-  'apple-ios27': '2026-07',
-  'google-android17': '2026-07'
+  'samsung-oneui9-beta': '2026-08',
+  'apple-ios27': '2026-08',
+  'google-android17': '2026-08'
 };
 entries.forEach(e => { e.sortDate = DATE_MAP[e.id] || '2025-01'; });
 
