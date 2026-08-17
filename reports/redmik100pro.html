@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redmi K100 Pro 系列 · 年度旗舰深度报告</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@600;700;900&display=swap');
+
+:root {
+  --bg: #14110e;
+  --bg2: #181410;
+  --surface: #1e1814;
+  --surface2: #2a2118;
+  --border: rgba(255,87,34,.22);
+  --border-hover: rgba(255,87,34,.5);
+  --redmi: #ff5722;
+  --redmi-light: #ff8a50;
+  --amber: #ffb020;
+  --text: #f0eae3;
+  --text-secondary: #b0a496;
+  --text-muted: #6e6256;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(255,87,34,.16), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 82% 55%, rgba(255,176,32,.07), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 12% 70%, rgba(255,87,34,.10), transparent 50%),
+    var(--bg);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,87,34,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,87,34,.03) 1px, transparent 1px);
+  background-size: 62px 62px;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 840px; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,87,34,.4);
+  background: rgba(255,87,34,.08);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--redmi-light);
+  margin-bottom: 28px;
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--redmi-light);
+  box-shadow: 0 0 8px var(--redmi-light);
+}
+
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(34px, 7vw, 66px);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  color: #f8f2eb;
+  margin-bottom: 18px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--redmi-light) 0%, var(--redmi) 50%, var(--amber) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text-secondary);
+  max-width: 660px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.hero-chip {
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #d8cfc3;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.hero-chip strong { color: var(--redmi-light); }
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 56px;
+}
+.bento-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s;
+}
+.bento-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.bento-card.full { grid-column: 1 / -1; }
+.bento-card .icon { font-size: 28px; margin-bottom: 12px; }
+.bento-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.bento-card .value {
+  font-size: 24px;
+  font-weight: 800;
+  color: #f8f2eb;
+  letter-spacing: -.02em;
+  margin-bottom: 6px;
+}
+.bento-card .value em { font-style: normal; color: var(--redmi-light); }
+.bento-card .desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.chapter { margin-bottom: 56px; }
+.chapter-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: var(--redmi-light);
+  margin-bottom: 8px;
+}
+.chapter-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: rgba(255,87,34,.10);
+  color: var(--redmi-light);
+  border: 1px solid rgba(255,87,34,.2);
+  margin-bottom: 12px;
+}
+.chapter h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700;
+  color: #f8f2eb;
+  letter-spacing: -.01em;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.chapter-intro {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.75;
+}
+
+.feat {
+  margin-bottom: 28px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.feat:last-child { border-bottom: none; }
+.feat-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.feat-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: rgba(255,87,34,.08);
+  color: var(--redmi-light);
+  margin-bottom: 8px;
+}
+.feat h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f8f2eb;
+  margin-bottom: 8px;
+}
+.feat p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.note-c, .note-a {
+  margin: 28px 0;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border-left: 3px solid;
+}
+.note-c {
+  background: rgba(255,87,34,.06);
+  border-color: var(--redmi-light);
+}
+.note-a {
+  background: rgba(255,176,32,.06);
+  border-color: var(--amber);
+}
+.note-c .note-label, .note-a .note-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.note-c .note-label { color: var(--redmi-light); }
+.note-a .note-label { color: var(--amber); }
+.note-c p, .note-a p {
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.takeaways {
+  margin: 48px 0;
+  padding: 36px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+  border: 1px solid var(--border);
+}
+.takeaways h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--redmi-light);
+  margin-bottom: 20px;
+}
+.takeaways ul { list-style: none; }
+.takeaways li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-left: 28px;
+  position: relative;
+}
+.takeaways li:last-child { border-bottom: none; }
+.takeaways li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--redmi-light);
+  font-size: 12px;
+  top: 14px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  backdrop-filter: blur(12px);
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+@media (max-width: 720px) {
+  .hero { min-height: 70vh; padding: 60px 16px 40px; }
+  .hero h1 { font-size: 32px; }
+  .hero-sub { font-size: 14px; }
+  .content { padding: 40px 16px 60px; }
+  .bento { grid-template-columns: 1fr; }
+  .chapter h2 { font-size: 22px; }
+  .takeaways { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      2026年8月11日 · REDMI 年度旗舰发布会
+    </div>
+    <h1>K 系最强<br><em>性能之魂</em>回归</h1>
+    <p class="hero-sub">
+      REDMI K100 Pro 系列正式发布——第五代骁龙8至尊版 + AI 独显 D2 双芯，首发 M11 发光材料 185Hz 超高刷屏，最高 9070mAh 金沙江电池。K100 Pro 3999 元起，K100 Pro Max 4499 元起，首销优惠 300 元。
+    </p>
+    <div class="hero-chips">
+      <span class="hero-chip"><strong>骁龙8至尊版</strong> + AI独显D2</span>
+      <span class="hero-chip"><strong>185Hz</strong> 超高刷</span>
+      <span class="hero-chip"><strong>9070mAh</strong> 金沙江电池</span>
+      <span class="hero-chip"><strong>2亿</strong> HP5 主摄</span>
+      <span class="hero-chip"><strong>3999</strong> 元起</span>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="bento">
+    <div class="bento-card full">
+      <div class="icon">⚔️</div>
+      <div class="label">核心结论</div>
+      <div class="value">REDMI 用「双芯 + 185Hz + 9070mAh」<em>重新夺回性能机王座</em></div>
+      <div class="desc">K100 Pro 系列是 K 系列 Pro 杯型的跨代回归：全系旗舰双芯组合、首发 M11 发光材料「超级像素」屏、小米史上最大 9070mAh 电池。Pro Max 首销日销量达上代同期 150%，说明「参数拉满 + 性价比」的策略在 4K 档依然有效。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">⚡</div>
+      <div class="label">双芯平台</div>
+      <div class="value"><em>骁龙8E5</em> + AI独显D2</div>
+      <div class="desc">Pro 用骁龙8E5 V Series，Pro Max 用满血版（3nm / 4.6GHz / 24MB L2），跑分 455.5 万，配合 AI 独显 D2 与狂暴引擎。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">🖥️</div>
+      <div class="label">屏幕</div>
+      <div class="value"><em>M11</em> 超级像素</div>
+      <div class="desc">首发 M11 发光材料 + 全 RGB 无损排列，185Hz 刷新率、4800Hz 触控采样，局部峰值 4500nits。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">🔋</div>
+      <div class="label">续航</div>
+      <div class="value"><em>9070mAh</em> 小米最大</div>
+      <div class="desc">Pro 8580mAh、Pro Max 9070mAh 金沙江电池，100W 有线 + 50W 无线 + 双向反充。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">🔊</div>
+      <div class="label">音频</div>
+      <div class="value"><em>Bose 2.1</em> 三扬声器</div>
+      <div class="desc">Pro Max 独享 1115D 双扬 + 1620 低音炮，Sound by Bose 调音，悬浮灯环随音乐律动。</div>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">01</div>
+    <span class="chapter-tag">性能平台</span>
+    <h2>双芯组合：性能机王的硬件底气</h2>
+    <p class="chapter-intro">
+      K100 Pro 系列全系搭载旗舰平台与 AI 游戏独显 D2 的「双芯」组合，是 K 系列 Pro 杯型的跨代回归。标准版（K100）将稍晚推出，先以 Pro 与 Pro Max 抢占 4K 档旗舰心智。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">处理器</span>
+      <h3>骁龙8E5 V Series 与满血版分工</h3>
+      <p>K100 Pro 搭载第五代骁龙8至尊版 V Series（SM8850-1-AB，2 颗 4.6GHz 超大核 + 6 颗 3.62GHz 大核）；Pro Max 用满血版第五代骁龙8至尊版，3nm 制程、24MB 超大 L2，安兔兔跑分 455.5 万。全系 LPDDR5X + UFS 4.1。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">游戏优化</span>
+      <h3>AI 独显 D2 + 狂暴引擎 + 185fps</h3>
+      <p>AI 独显 D2 配合新一代狂暴引擎，实现 CPU/GPU/DDR 一体化动态调频。Pro Max 首发《穿越火线-枪战王者》185fps 极清模式，支持超 30 款游戏原生 185 帧畅玩。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">散热</span>
+      <h3>3D 循环冷泵，Pro Max 升级至 6300mm²</h3>
+      <p>K100 Pro 内置 5200mm² 冰封循环冷泵，Pro Max 升级至 6300mm²，为高帧游戏与长时间负载提供稳定散热。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">02</div>
+    <span class="chapter-tag">屏幕技术</span>
+    <h2>M11 超级像素：185Hz 直屏的游戏屏新标准</h2>
+    <p class="chapter-intro">
+      K100 Pro 系列首发 M11 发光材料与「超级像素」无损排列（Real RGB），与清华段炼教授团队合作的第四代 pTSF 技术让绿色子像素发光效率提升 20%。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">屏幕规格</span>
+      <h3>6.59" / 6.9" + 185Hz 超高刷</h3>
+      <p>K100 Pro 用 6.59 英寸直屏，Pro Max 升级 6.9 英寸 2608×1200 直屏，均支持 185Hz 刷新率与 4800Hz 瞬时触控采样率。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">亮度与色彩</span>
+      <h3>4500nits 局部峰值 + 90% BT.2020</h3>
+      <p>25% 面积激发亮度 4500nits、1% 面积激发亮度 10000nits，支持 90% BT.2020 色域，Pro Max 子像素数量达 938.9 万，超越同尺寸传统钻石排列 2K 屏。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">护眼</span>
+      <h3>青山护眼 4.0 + 圆偏振光 2.0</h3>
+      <p>升级小米青山护眼 4.0，配备圆偏振光 2.0、全亮度 DC 调光与防晕车模式，游戏党长时间盯屏更友好。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">03</div>
+    <span class="chapter-tag">影像系统</span>
+    <h2>2亿 HP5 主摄：全焦段覆盖的影像升级</h2>
+    <p class="chapter-intro">
+      两款机型均搭载 2 亿像素三星 S5KHP5 主摄（1/1.56 英寸大底、f/1.68、OIS），Pro Max 在长焦与超广角上进一步补强，实现 0.7X 至 10X 全焦段覆盖。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">主摄</span>
+      <h3>2亿像素 HP5：高像素直出 + 长焦微距</h3>
+      <p>2 亿像素可直出高解析力照片，支持长焦微距。全系升级动态照片 3.0，支持 4K 超清实况，新增小米 17 Ultra 同款大师实况运镜玩法。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">焦段分工</span>
+      <h3>Pro：2.5X 浮动长焦 / Pro Max：5X 潜望长焦</h3>
+      <p>K100 Pro 搭配 5000 万像素 2.5X 直立长焦与 800 万超广角；Pro Max 升级为 5000 万像素 5X 潜望长焦 + 5000 万像素超广角。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">04</div>
+    <span class="chapter-tag">续航与影音</span>
+    <h2>9070mAh + Bose 2.1：续航与沉浸感拉满</h2>
+    <p class="chapter-intro">
+      续航是 K100 Pro 系列的又一核心看点。金沙江电池硅含量突破 26%，能量密度达 945Wh/L，Pro Max 的 9070mAh 是小米史上最大容量。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">电池</span>
+      <h3>8580mAh / 9070mAh 金沙江电池</h3>
+      <p>K100 Pro 8580mAh、Pro Max 9070mAh，均支持 100W 有线 + 50W 无线，以及 27W 有线反充与 22.5W 无线反充，兼容 100W PPS 协议。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">音频</span>
+      <h3>Bose 2.1 三扬声器 + 悬浮灯环</h3>
+      <p>Pro Max 搭载三扬声器系统，上下 1115D 双扬配合 1620 超大低音炮，由 Sound by Bose 联合调音。低音炮外围的隐藏悬浮灯环随音乐律动，游戏击杀瞬间点亮。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">连接</span>
+      <h3>澎湃 T1+ 信号芯片 + 7 根竞技天线</h3>
+      <p>双小米澎湃 T1+ 信号增强芯片与 7 根竞技天线，首次配备游戏专网，为横屏游戏场景提供稳定连接保障。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">05</div>
+    <span class="chapter-tag">定价与市场</span>
+    <h2>3999 元起：4K 档的「参数性价比」打法</h2>
+    <p class="chapter-intro">
+      K100 Pro 定位 4K 档旗舰，Pro Max 在均衡体验基础上侧重游戏。首销期全系优惠 300 元（除 16GB+1TB 版本），部分地区可叠加国补。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">价格带</span>
+      <h3>Pro 3999 起 / Pro Max 4499 起</h3>
+      <p>K100 Pro：12+256GB 3999 元 / 16+256GB 4399 元 / 12+512GB 4599 元 / 16+512GB 4999 元。Pro Max：12+256GB 4499 元起，16+1TB 顶配 5999 元。国补价最低 3199 元起。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">首销成绩</span>
+      <h3>Pro Max 首销日销量达上代 150%</h3>
+      <p>卢伟冰 8 月 12 日透露，K100 Pro Max 首销日销量达上代同期 150%。赤霞珠红、流金白、追风蓝、黑四款配色，另有「流萤追光」夜光配色。</p>
+    </div>
+    <div class="note-a">
+      <div class="note-label">🤔 待观察</div>
+      <p>标准版 K100 已确认稍晚推出（9 月后），Pro 系列先用骁龙8E5「V Series」（非 2nm）控成本稳价格，2nm 的满血版留给 Pro Max。这种「分芯」策略能否在 4K 档持续奏效，需看后续标准版与小米 18 系列的衔接。</p>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>📌 Key Takeaways</h3>
+    <ul>
+      <li><strong>性能回归</strong>：K 系列 Pro 杯型跨代回归，双芯组合 + 185Hz + 455.5 万跑分，重新树立 4K 档性能标杆。</li>
+      <li><strong>屏幕突破</strong>：首发 M11 发光材料与「超级像素」全 RGB 无损排列，185Hz 超高刷 + 4800Hz 触控采样。</li>
+      <li><strong>续航拉满</strong>：最高 9070mAh 金沙江电池（小米史上最大），100W 有线 + 50W 无线 + 双向反充。</li>
+      <li><strong>影音沉浸</strong>：Pro Max 独享 Bose 2.1 三扬声器 + 悬浮灯环，游戏氛围感突出。</li>
+      <li><strong>性价比打法</strong>：3999 元起 + 首销优惠 300 + 国补，首销日销量达上代 150%。</li>
+      <li><strong>标准版缺席</strong>：K100 标准版延后至 9 月后，系列完整定位需待后续补齐。</li>
+    </ul>
+  </div>
+
+  <p style="text-align:center; font-size:13px; color: var(--text-muted); padding: 24px; border-top: 1px solid var(--border);">
+    来源：REDMI 官方 · IT时报 · 中国网财经 · 百度百科 · IT之家 · 顶端新闻<br>
+    报告生成日期：2026-08-17 · 具体信息以官方为准
+  </p>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+document.querySelectorAll('.r-fig img').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+
+</body>
+</html>

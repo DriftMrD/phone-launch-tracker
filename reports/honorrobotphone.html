@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>荣耀 Robot Phone · 全球首款机器人手机深度报告</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@600;700;900&display=swap');
+
+:root {
+  --bg: #0d1117;
+  --bg2: #10161e;
+  --surface: #141c28;
+  --surface2: #1d2735;
+  --border: rgba(26,111,232,.25);
+  --border-hover: rgba(26,111,232,.5);
+  --honor-blue: #1a6fe8;
+  --honor-blue-light: #4b9fff;
+  --gold: #d4a853;
+  --silver: #c8d4e5;
+  --text: #e6edf5;
+  --text-secondary: #9aa8bc;
+  --text-muted: #55647c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(26,111,232,.20), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 82% 55%, rgba(212,168,83,.08), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 12% 70%, rgba(26,111,232,.10), transparent 50%),
+    var(--bg);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,232,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,232,.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 840px; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 100px;
+  border: 1px solid rgba(212,168,83,.4);
+  background: rgba(212,168,83,.08);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+}
+
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(34px, 7vw, 66px);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  color: #f2f6fb;
+  margin-bottom: 18px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--honor-blue-light) 55%, var(--honor-blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text-secondary);
+  max-width: 660px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.hero-chip {
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #cfdbe8;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.hero-chip strong { color: var(--honor-blue-light); }
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 56px;
+}
+.bento-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s;
+}
+.bento-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.bento-card.full { grid-column: 1 / -1; }
+.bento-card .icon { font-size: 28px; margin-bottom: 12px; }
+.bento-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.bento-card .value {
+  font-size: 24px;
+  font-weight: 800;
+  color: #f2f6fb;
+  letter-spacing: -.02em;
+  margin-bottom: 6px;
+}
+.bento-card .value em { font-style: normal; color: var(--gold); }
+.bento-card .desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.chapter { margin-bottom: 56px; }
+.chapter-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.chapter-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: rgba(212,168,83,.10);
+  color: var(--gold);
+  border: 1px solid rgba(212,168,83,.2);
+  margin-bottom: 12px;
+}
+.chapter h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700;
+  color: #f2f6fb;
+  letter-spacing: -.01em;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.chapter-intro {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.75;
+}
+
+.feat {
+  margin-bottom: 28px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.feat:last-child { border-bottom: none; }
+.feat-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.feat-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: rgba(212,168,83,.08);
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.feat h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f2f6fb;
+  margin-bottom: 8px;
+}
+.feat p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.note-c, .note-a {
+  margin: 28px 0;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border-left: 3px solid;
+}
+.note-c {
+  background: rgba(26,111,232,.06);
+  border-color: var(--honor-blue-light);
+}
+.note-a {
+  background: rgba(212,168,83,.06);
+  border-color: var(--gold);
+}
+.note-c .note-label, .note-a .note-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.note-c .note-label { color: var(--honor-blue-light); }
+.note-a .note-label { color: var(--gold); }
+.note-c p, .note-a p {
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.takeaways {
+  margin: 48px 0;
+  padding: 36px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+  border: 1px solid var(--border);
+}
+.takeaways h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.takeaways ul { list-style: none; }
+.takeaways li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-left: 28px;
+  position: relative;
+}
+.takeaways li:last-child { border-bottom: none; }
+.takeaways li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--honor-blue-light);
+  font-size: 12px;
+  top: 14px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  backdrop-filter: blur(12px);
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+@media (max-width: 720px) {
+  .hero { min-height: 70vh; padding: 60px 16px 40px; }
+  .hero h1 { font-size: 32px; }
+  .hero-sub { font-size: 14px; }
+  .content { padding: 40px 16px 60px; }
+  .bento { grid-template-columns: 1fr; }
+  .chapter h2 { font-size: 22px; }
+  .takeaways { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      2026年8月12日 · 荣耀「嗨!新朋友」全球发布会
+    </div>
+    <h1>手机学会<em>动了</em><br>全球首款机器人手机</h1>
+    <p class="hero-sub">
+      荣耀 Robot Phone 正式发布——行业最小 4DoF 钛合金机械云台 + 与 ARRI 阿莱联合调校的影像系统 + Agentic OS 伙伴型智能系统。12+512GB 售价 9999 元，16+1TB 售价 12999 元，8 月 18 日正式开售。
+    </p>
+    <div class="hero-chips">
+      <span class="hero-chip"><strong>4DoF</strong> 钛合金云台</span>
+      <span class="hero-chip"><strong>2亿</strong> 云台主摄</span>
+      <span class="hero-chip"><strong>ARRI</strong> 联合调校</span>
+      <span class="hero-chip"><strong>骁龙8E5</strong></span>
+      <span class="hero-chip"><strong>7060mAh</strong></span>
+      <span class="hero-chip"><strong>9999</strong> 元起</span>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="bento">
+    <div class="bento-card full">
+      <div class="icon">🤖</div>
+      <div class="label">核心结论</div>
+      <div class="value">荣耀用一块会动的云台，<em>重新定义「手机」</em></div>
+      <div class="desc">Robot Phone 把「具身交互」塞进手机：钛合金机械云台让摄像头物理上会动，ARRI 电影工业的调色与运镜语言首次下放到移动端，Agentic OS + YOYO Pro 让手机具备「百轮以上自动执行」的代理能力。9999 元起的定价大概率低于成本，荣耀意在抢先定义「机器人手机」这一新品类。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">⚙️</div>
+      <div class="label">机械云台</div>
+      <div class="value"><em>4DoF</em> 钛合金</div>
+      <div class="desc">行业最小四自由度云台，0.8 秒弹出、360° 旋转追踪，电机仅 2.6g、精度 ±0.005mm，CIPA 5.5 级物理防抖。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">🎬</div>
+      <div class="label">影像调校</div>
+      <div class="value"><em>ARRI</em> 联合研发</div>
+      <div class="desc">ARRI LogC3 + 11 种 ARRI Looks + ARRI 电影模式 + 2.39:1 画幅，配合荣耀驭光 H1 影像芯片。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">🧠</div>
+      <div class="label">智能系统</div>
+      <div class="value"><em>Agentic OS</em></div>
+      <div class="desc">伙伴型多模态操作系统，首发 YOYO Pro 模式，支持长指令与百轮以上自动执行能力。</div>
+    </div>
+    <div class="bento-card">
+      <div class="icon">🔋</div>
+      <div class="label">续航充电</div>
+      <div class="value"><em>7060mAh</em> + 120W</div>
+      <div class="desc">新一代青海湖电池 7060mAh，120W 有线快充 + 50W 无线，9.59mm / 248g 机身内堆叠。</div>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">01</div>
+    <span class="chapter-tag">机械云台</span>
+    <h2>4DoF 钛合金云台：让摄像头「长出手」</h2>
+    <p class="chapter-intro">
+      Robot Phone 的核心硬件创新是一块会动的摄像头云台。它把专业稳定器的机械结构微型化到手机内部，让「运镜」从后期剪辑变成物理动作，这是它区别于所有传统影像旗舰的根本。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">机械结构</span>
+      <h3>行业最小 4DoF：0.8 秒弹出，360° 旋转追踪</h3>
+      <p>云台集成 100 余个精密零件、应用 60 余项精密工艺，电机仅 2.6 克、加工精度 ±0.005mm。一键 0.8 秒弹出，支持 360° 旋转追踪与 90°/180° 智能运镜，整体体积比传统方案缩减 65%。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">防抖能力</span>
+      <h3>CIPA 5.5 级物理防抖 + 六种运镜模式</h3>
+      <p>三轴机械防抖云台达到 CIPA 5.5 级，行走、奔跑等动态场景仍能保持画面稳定。云台支持六种运镜模式，专业镜头调度通过一部手机即可实现。</p>
+    </div>
+    <div class="note-a">
+      <div class="note-label">⚠️ 耐用性存疑</div>
+      <p>钛合金云台的长期耐用性、口袋便携性与跌落抗性是公众最关注的点。精密机械结构在手机日常磕碰环境下的可靠性，需要上市后长时间验证。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">02</div>
+    <span class="chapter-tag">影像系统</span>
+    <h2>ARRI 阿莱联合研发：把电影工业塞进手机</h2>
+    <p class="chapter-intro">
+      荣耀与百年电影工业品牌 ARRI 阿莱深度联合，将 Log-C 编码、LUT 调色与 ARRI Look 引入移动端，并首发自研影像芯片「荣耀驭光 H1」，让画质、色彩、运镜与专业工作流融为一体。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">色彩科学</span>
+      <h3>ARRI LogC3 + 11 种 ARRI Looks</h3>
+      <p>内置 11 种 ARRI Looks，覆盖真实还原、复古、个性表达等不同情绪，一键切换电影感。在 LogC3 与 Look 联合加持下，色彩清透、层次分明、暗部深邃自然。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">电影模式</span>
+      <h3>ARRI 电影模式 + 2.39:1 画幅 + 伪色监看</h3>
+      <p>专属 ARRI 电影模式整合伪色监看、峰值对焦等专业辅助工具，支持 2.39:1 经典画幅与 ARRI 专属水印，「一键阿莱，一秒入戏」。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">硬件规格</span>
+      <h3>2亿云台主摄 + 5000万超广角 + 2亿潜望长焦</h3>
+      <p>主摄 2 亿像素 1/1.28" F1.6（最高 4 倍无损变焦），配合 5000 万 122° 超广角与 2 亿像素 2.7X 大底潜望长焦，前置 5000 万像素。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">03</div>
+    <span class="chapter-tag">智能系统</span>
+    <h2>Agentic OS + YOYO Pro：百轮以上自动执行</h2>
+    <p class="chapter-intro">
+      Robot Phone 搭载荣耀新一代伙伴型多模态智能操作系统 Agentic OS，首发 YOYO Pro 模式。它不再是「回答问题」的助手，而是能理解长指令、自主规划并连续执行上百步复杂任务的智能体。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">YOYO Pro</span>
+      <h3>长指令识别，一句话搞定超长任务</h3>
+      <p>YOYO Pro 模式支持长指令识别，可连续完成超 100 步复杂任务。多模态具身交互支持手势识别、拟人情感表达、随音而动，主动识别用户情绪、使用习惯与环境。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">影像智能体</span>
+      <h3>AI 灵感帮拍 / 自动构图 / 直播追焦</h3>
+      <p>配合机械云台，AI 影像智能体支持灵感帮拍、自动构图、AI 直播追焦、视频通话自动跟焦、智能语音运镜等，大幅降低专业视频创作门槛。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">Skill 商店</span>
+      <h3>可扩展的技能生态</h3>
+      <p>通过 Skill 商店自由调用各类扩展技能，让 Robot Phone 的能力边界随生态持续扩展，而非一次发布定终身。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">04</div>
+    <span class="chapter-tag">硬件底座</span>
+    <h2>骁龙8E5 + 7060mAh：机器人也是主力旗舰</h2>
+    <p class="chapter-intro">
+      荣耀强调 Robot Phone 不是「概念玩具」，而是以旗舰硬件为底座的主力机：第五代骁龙8至尊版、7060mAh 青海湖电池、6.31 英寸 6800nits 高亮屏与四麦 AI 阵列。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">性能平台</span>
+      <h3>第五代骁龙8至尊版</h3>
+      <p>为具身交互、AI 计算与专业影像提供充足算力，配合荣耀鸿燕通信系统与四麦 AI 阵列，实现旗舰级连接与拾音能力。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">屏幕与电池</span>
+      <h3>6.31" 6800nits + 7060mAh + 120W</h3>
+      <p>6.31 英寸 2640×1216 LTPO 直屏，峰值亮度 6800nits，120Hz。7060mAh 新一代青海湖电池支持 120W 有线快充与 50W 无线快充。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 03</div>
+      <span class="feat-tag">设计语言</span>
+      <h3>月影灰 / 星轨银 + 全金属一体成型</h3>
+      <p>9.59mm 超薄机身、248g 全金属一体成型，经典配色月影灰沉稳深邃、星轨银璀璨锋锐，融合宇宙意象、金属质感与灵巧云台设计。</p>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-num">05</div>
+    <span class="chapter-tag">定价与市场</span>
+    <h2>9999 元起：一次低于成本的「品类教育」</h2>
+    <p class="chapter-intro">
+      行业分析普遍认为，Robot Phone 的物料与制造成本远高于常规旗舰，9999 元起的定价大概率处于亏损状态。荣耀的意图是抢先定义「机器人手机」新品类，而非追求短期盈利。
+    </p>
+    <div class="feat">
+      <div class="feat-num">FEATURE 01</div>
+      <span class="feat-tag">价格策略</span>
+      <h3>9999 元起，低于 1.5 万元市场预期</h3>
+      <p>12+512GB 售价 9999 元、16+1TB 售价 12999 元，显著低于此前行业普遍预测的 1.5 万元预期。8 月 12 日 20:30 开启预售，京东平台预售量已超 11.4 万台。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-num">FEATURE 02</div>
+      <span class="feat-tag">市场反馈</span>
+      <h3>创作者叫好，普通用户嫌贵</h3>
+      <p>多数用户认可其创新形态，认为对视频创作者是「神器」；也有不少普通用户认为价格偏高。云台长期耐用性、口袋便携性仍是主要争议点。</p>
+    </div>
+    <div class="note-c">
+      <div class="note-label">✨ 前瞻</div>
+      <p>荣耀与阿莱的联合研发成果，还将在不久后上市的荣耀 Magic 9 系列有更多演绎。Robot Phone 更像是荣耀影像与 AI 能力的「技术旗舰秀」，为后续高端产品铺路。</p>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>📌 Key Takeaways</h3>
+    <ul>
+      <li><strong>会动的云台是灵魂</strong>：行业最小 4DoF 钛合金机械云台，让手机摄像头物理上「会运镜」，是全新品类的定义性硬件。</li>
+      <li><strong>ARRI 电影下放</strong>：LogC3 + 11 种 Looks + 电影模式 + 2.39:1 画幅，电影工业语言首次完整落地移动端。</li>
+      <li><strong>AI 代理能力</strong>：Agentic OS + YOYO Pro 支持长指令与百轮以上自动执行，是「机器人」定位的软件基石。</li>
+      <li><strong>旗舰底座</strong>：骁龙8E5 + 7060mAh + 6800nits 屏，不是概念机而是主力旗舰。</li>
+      <li><strong>亏本定价</strong>：9999 元起大概率低于成本，意在抢先定义品类、完成市场教育。</li>
+      <li><strong>海外待验证</strong>：目前信息以国内官方与媒体为主，海外功能级深度评测与云台耐用性实测仍待补充。</li>
+    </ul>
+  </div>
+
+  <p style="text-align:center; font-size:13px; color: var(--text-muted); padding: 24px; border-top: 1px solid var(--border);">
+    来源：荣耀官方 · 新华社 · 广州新闻网 · 京东 · CNMO<br>
+    报告生成日期：2026-08-17 · 具体信息以官方为准
+  </p>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+document.querySelectorAll('.r-fig img').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+
+</body>
+</html>

@@ -326,22 +326,28 @@ const entries = [
     id: 'google-play-system', status: 'released', brand: 'google',
     title: 'Google Play System · 月度更新公开',
     appType: '系统级 · 月度公开', aiNote: '',
-    date: '每月发布',
+    date: '每月发布 · 8月更新 (8/10)',
     verdict: 'good', label: '好评主导',
-    gist: '唯一每月公开系统级 Release Notes 的厂商',
+    gist: '唯一每月公开系统级 Release Notes 的厂商；8月 Wear OS 运动路线精度提升',
     tags: [{t:'系统级',c:'tag-app'},{t:'月度公开',c:'tag-month'}],
     pros: [
       '唯一月度公开：三条线 Release Notes 全公开',
       '透明可追踪：9to5Google 每月整理发布',
-      '覆盖广：Wi-Fi / Wear OS / Android TV 均含'
+      '覆盖广：Wi-Fi / Wear OS / Android TV 均含',
+      '【8月更新】Wear OS 运动路线精度提升：服务端处理原始定位数据，跑步/骑行轨迹更准（无蜂窝手表连回 Wi-Fi/手机后同步）'
     ],
     cons: [
       '非独立 App 更新：属系统底层，用户感知弱',
-      '碎片化：实际落地因机型/OEM 而异'
+      '碎片化：实际落地因机型/OEM 而异',
+      '大屏专属功能：Top Charts 直接打开详情页仅平板/折叠屏可用'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'Play Services v26.31', date:'2026-08-10', note:'🎉 Wear OS 运动路线精度提升（服务端处理原始定位数据）+ 账号管理开发者新功能（手机/Wear）+ 开发者服务/系统管理Bug修复；Play Store v52.7：大屏(平板/折叠)可从 Top Charts 直接打开应用详情页；Android AICore 音频流/效率/诊断优化' },
+      { ver:'Play Services v26.30 + Store v52.6', date:'2026-08-03', note:'Wallet 卡券体验优化；Play Store 影音搜索发现增强 + HOPA 品牌更新；体育赛事联赛轮播（ICC 女子 T20 世界杯首发案例）' }
+    ],
     links: [
+      { label:'August 2026 Notes (AA)', url:'https://www.androidauthority.com/wear-os-workout-routes-google-play-services-update-3696760/' },
       { label:'June 2026 Notes', url:'https://9to5google.com/2026/06/29/june-2026-google-system-updates/' },
       { label:'Gemini 追踪', url:'https://9to5google.com/guides/gemini-app/' }
     ]
@@ -519,7 +525,7 @@ const entries = [
     id: 'samsung-oneui9-beta', brand: 'samsung', status: 'released',
     title: 'One UI 9 稳定版 · Gemini Intelligence 代理式AI / Notes 胶带笔 / Now Nudge / Warranty Hub',
     appType: '系统级 Major Update · Android 17 基底', aiNote: 'Gemini Intelligence / Now Nudge / Photo Assist / AI 安全',
-    date: 'Beta 1 (2026-05-12) → Beta 4 (2026-07-14) → 稳定版 7月22日预载 Z Fold 8 系列',
+    date: 'Beta 1 (2026-05-12) → Beta 4 (2026-07-14) → 稳定版 7月22日预载 Z Fold 8 系列 → S26 持续 Beta（Beta 5 8/12）',
     verdict: 'good', label: '好评主导',
     gist: '基于 Android 17，Gemini Intelligence 代理式AI正式落地（40+App链式任务）；Notes/Contacts/Quick Panel/无障碍全面升级；7月22日稳定版首发预载 Z Fold 8 系列',
     tags: [{t:'稳定版已发布',c:'tag-month'},{t:'Samsung Notes',c:'tag-app'},{t:'Contacts',c:'tag-app'},{t:'无障碍',c:'tag-app'},{t:'Gemini Intelligence',c:'tag-ai'},{t:'Now Nudge',c:'tag-ai'},{t:'安全增强',c:'tag-ai'}],
@@ -561,7 +567,7 @@ const entries = [
       { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' },
       { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' },
       { ver:'稳定版 (One UI 9.0)', date:'2026-07-22', note:'🎉 Galaxy Unpacked 2026伦敦正式发布！预载 Z Fold 8/Ultra/Flip 8 首发；Gemini Intelligence/Gemini Notebook/Now Nudge/My FanCam/Photo Assist 正式上线；Quick Share兼容AirDrop；Warranty&Care Hub；Foreign Material Detection；AI Assistant Activity仪表盘；蓝色状态栏隐私指示器' },
-      { ver:'稳定版 S26/S25 推送', date:'2026-08', note:'🎉 S26系列稳定版8月5日起开启灰度推送，8月10日全球全量放开！升级包~2.9GB，内含7月完整版安全补丁(修复57项高危漏洞)、内存调度重构(后台保活翻倍)、骁龙8E5温控重调、双卡信号/VoLTE/5G回落修复、4K视频/RAW加载提速、相册批量导出优化。S25系列8月上旬开启灰度测试→转稳定版。S24系列+Z Fold7/Flip7 8月中旬推送。S23系列11-12月(最终大版本更新)。Good Lock Home Up同步适配(多指手势/Dock/Edge自定义出厂预装)' }
+      { ver:'Beta 5 (S948BXXU4ZZH6)', date:'2026-08-12', note:'📦 S26系列第五个Beta（距Beta 4约一个月），~1.1GB；8项修复：设置App白屏/冻结、锁屏相机组件慢/黑屏、Phone底部悬浮栏错位、My Files最近文件空白、桌面1×1快捷方式、视频/照片编辑器预览错位闪烁、间歇性屏幕闪烁、Wi-Fi连接错误；含8月安全补丁(56项漏洞：38 Google+18 Samsung)；推送韩国/印度/波兰/德国/英国。⚠️ 修正：S26系列仍未转稳定版（上期"8月灰度推送"信息有误），继续Beta；One UI 9.5已在测试服务器出现，预计随Galaxy S27系列2027年初发布' }
     ],
     links: [
       { label:'Samsung 官方 One UI 9', url:'https://www.samsung.com/us/apps/one-ui' },
@@ -576,7 +582,7 @@ const entries = [
     id: 'apple-ios27', brand: 'apple', status: 'upcoming',
     title: 'iOS 27 · Siri AI 独立 App / Safari AI / Camera Siri 模式 / Gemini-killer Image Playground',
     appType: '系统级 Major Update', aiNote: 'Siri AI / Apple Intelligence 2.0',
-    date: 'WWDC 宣布 (2026-06-08) → Beta 4 (7/21) → Beta 5 (8/3) → Beta 6 (8/10) → 正式版 2026-09',
+    date: 'WWDC 宣布 (2026-06-08) → Developer Beta 5 (8/10) → 公测版3 (8/11) → 正式版 2026-09',
     verdict: 'good', label: '期待值高',
     gist: 'Siri AI 彻底重做（独立 App+屏幕感知），Safari/Mail/Calendar/Image Playground 全面 AI 增强',
     tags: [{t:'WWDC 宣布',c:'tag-upcoming'},{t:'Siri AI',c:'tag-ai'},{t:'Safari AI',c:'tag-ai'},{t:'Image Playground',c:'tag-ai'}],
@@ -623,7 +629,7 @@ const entries = [
       '需 iPhone 17 Pro+：完整 AI 能力仅新芯片可用',
       'Siri 语音自定义仅 iPhone 17 Pro/Air 可用：旧机型不支持',
       'Image Playground 有每日用量限制',
-      '正式版需等 ~3 个月（当前仅 Developer Beta 3）'
+      '正式版需等 ~1 个月（当前 Developer Beta 5 / 公测版3）'
     ],
     quotes: [],
     monthly: [
@@ -631,7 +637,8 @@ const entries = [
       { ver:'Beta 4 (24A5390f)', date:'2026-07-21', note:'AirPods自适应强度滑块、Wi-Fi每网络独立连接助理、照片缩放填充、ProRes Log 2格式、Apple TV自动追剧下载、Siri启动欢迎界面+预览长度可调、高级本地听写、Always Show Request辅助功能；通知中心完整汉化修复、锁屏控件恢复白色、音量条液态玻璃升级、移除Beta3通知中心壁纸景深特效并修复Bug；代码发现双电池iPhone引用（折叠屏暗示）；公测版同步推送' },
       { ver:'Beta 5 (24A5400x)', date:'2026-08-03', note:'相机界面支持自定义快捷开关/Widget（曝光、对焦、滤镜、风格、定时器等可自由排列）、音量HUD与控制中心进一步液态玻璃化、主屏幕支持撤销/重做、Health新增AI血糖追踪与摄像头健身监测、Siri接入ChatGPT/Gemini双模型、性能与电池效率优化；后续进入每周一更节奏，公测版Beta 3预计8月5日推送' },
       { ver:'Beta 5 锁屏/Safari/性能', date:'2026-08-06', note:'锁屏时钟可缩小移至顶部小组件行+AI扩展壁纸+Image Playground生成壁纸+正在播放可滑动移除；Safari紧凑工具栏恢复所有标签页图标+书签/阅读列表/历史图标+标签页自动分类；全局透明度滑块替代清晰/着色切换；闹钟音量与铃声解绑；AirPods自定义EQ；信息返回按钮可隐藏；通话上下文（本地显示航班/订单号）；Screen Time重设计+Time Allowances+Ask to Buy/Browse；Write with Siri系统级写作；Visual Intelligence扩展（餐食营养/传单日历/收据分账/名片联系人）；80+项性能改进（App启动快30%/AirDrop快80%）' },
-      { ver:'Beta 6 (功能冻结)', date:'2026-08-10', note:'🎉 进入功能冻结阶段，仅修复Bug不再增加新功能；每周一更节奏持续；公测版同步推进；RC候选版预计9月7日前后随iPhone发布会发布，正式版预计9月中旬推送' }
+      { ver:'Developer Beta 5', date:'2026-08-10', note:'Siri 界面配色弱化调整；继续功能打磨与Bug修复；⚠️ 修正：本版并非"功能冻结"（后续公测版3仍有新功能加入）' },
+      { ver:'公测版3', date:'2026-08-11', note:'🎉 第三个公测版发布（对应 Developer Beta 5，距公测版2约两周）；Siri AI（ChatGPT/Claude式对话、独立App、屏幕感知、跨App操作）；Liquid Glass 透明度滑块；Visual Intelligence 移入相机（餐食营养/账单分账）；Write with Siri 写作辅助；Safari 标签自动分组；AirPods 自定义EQ；儿童安全（Ask to Browse / Communication Safety / Time Allowances）；多款App图标刷新（Safari/Siri/Remote/Preview）；Siri增强语音新增英式英语；性能：App启动快30%、照片加载快70%、AirDrop快80%；支持 iPhone 11 及以上' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
@@ -645,7 +652,7 @@ const entries = [
     id: 'google-android17', brand: 'google', status: 'upcoming',
     title: 'Android 17 · 底层性能调度 / 搜索即时索引 / Pixel Feature Drop',
     appType: '系统级 Major Update (Beta 4 收尾)', aiNote: '',
-    date: 'Beta 8 (2026-08-02) → 稳定版 2026-09 Pixel Feature Drop',
+    date: 'QPR1 Beta 8 (8/2) → QPR2 Beta 3 (8/14) → 稳定版 2026-09 Pixel Feature Drop',
     verdict: 'mixed', label: '待验证',
     gist: 'Android 17 QPR1 Beta 8 收尾，修复音频/指纹/NFC/平板底座问题；稳定版预计9月以 Pixel Feature Drop 形式推送',
     tags: [{t:'Beta 收尾',c:'tag-upcoming'},{t:'性能优化',c:'tag-app'},{t:'搜索重构',c:'tag-app'}],
@@ -663,7 +670,8 @@ const entries = [
     quotes: [],
     monthly: [
       { ver:'QPR1 Beta 8 (CP31.260623.010)', date:'2026-08-02', note:'修复音频底噪、屏下指纹响应、NFC支付偶发失败、Pixel Tablet 磁吸底座识别问题；稳定版预计9月以 Pixel Feature Drop 形式推送' },
-      { ver:'8月安全更新 (CP2A.260805.005)', date:'2026-08-05', note:'🎉 Pixel 8/8Pro/8a/9全系/9a/10全系/10a 获推送；⚠️ Pixel 6/6Pro/6a/7/7Pro/7a 本月被排除！修补CVE-2026-0163(Video Processing Unit高严重提权漏洞)；Pixel 10专属修复：游戏崩溃/GPU性能/触屏无响应；QPR2 Beta 1同步推进：修复蓝牙自动重连/Gemini崩溃/通知消失/UI模糊重置' }
+      { ver:'8月安全更新 (CP2A.260805.005)', date:'2026-08-05', note:'🎉 Pixel 8/8Pro/8a/9全系/9a/10全系/10a 获推送；⚠️ Pixel 6/6Pro/6a/7/7Pro/7a 本月被排除！修补CVE-2026-0163(Video Processing Unit高严重提权漏洞)；Pixel 10专属修复：游戏崩溃/GPU性能/触屏无响应；QPR2 Beta 1同步推进：修复蓝牙自动重连/Gemini崩溃/通知消失/UI模糊重置' },
+      { ver:'QPR2 Beta 3 (CP41.260731.005)', date:'2026-08-14', note:'🔒 新增反通话呼叫转移诈骗安全限制：sendUssdRequest() API 无法再用 CALL_PHONE 权限执行呼叫转移码（后台被拦截返回 USSD_ERROR_NOT_ALLOWED），系统拨号器手动拨打时新增系统级确认弹窗；修复通知栏/快捷设置视觉损坏+意外重启(Issue #535249652/#543124160)、Device Health 误报电池容量衰减警告；覆盖 Pixel 6a–10 系列（Pixel 11 系列预购期暂不包含）' }
     ],
     links: [
       { label:'Android 17 Release Notes', url:'https://developer.android.com/about/versions/17/release-notes' },
@@ -720,7 +728,7 @@ const DATE_MAP = {
   'apple-calendar': '2026-03',
   'apple-ios266': '2026-07-28',
   'google-recorder': '2025-07',
-  'google-play-system': '2026-06',
+  'google-play-system': '2026-08',
   'xiaomi-hyperos3': '2026-08',
   'xiaomi-gallery': '2026-07',
   'oppo-coloros16': '2026-08',
