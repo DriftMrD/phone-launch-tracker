@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iQOO Neo11 至尊版 · 发布会报告 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@600;700;900&display=swap');
+
+  :root{
+    --bg:#0a0a0f;
+    --bg2:#0d0d18;
+    --panel:rgba(255,255,255,.035);
+    --panel-bd:rgba(0,240,255,.18);
+    --cyan:#00f0ff;
+    --violet:#7b5cff;
+    --mag:#ff2bd6;
+    --text:#eaf6ff;
+    --muted:#8a90b5;
+    --good:#37f5b6;
+    --bad:#ffb13b;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    --serif:'Noto Serif SC','Source Han Serif SC',Georgia,serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    overflow-x:hidden;
+    min-height:100vh;
+  }
+  /* ambient grid + glow */
+  body::before{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(60% 50% at 80% -5%, rgba(123,92,255,.22), transparent 60%),
+      radial-gradient(50% 45% at 10% 10%, rgba(0,240,255,.14), transparent 60%),
+      radial-gradient(40% 40% at 50% 100%, rgba(255,43,214,.12), transparent 60%);
+  }
+  body::after{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(rgba(123,92,255,.06) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(123,92,255,.06) 1px,transparent 1px);
+    background-size:46px 46px;
+    mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 30%,transparent 80%);
+  }
+
+  .wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 20px 90px}
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:86vh;display:flex;flex-direction:column;justify-content:center;
+    padding:90px 20px 60px;position:relative;z-index:1;max-width:900px;margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;
+    letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);
+    border:1px solid var(--panel-bd);background:rgba(0,240,255,.06);
+    padding:7px 16px;border-radius:100px;align-self:flex-start;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{
+    font-family:var(--sans);font-weight:900;letter-spacing:-.03em;line-height:1.02;
+    font-size:clamp(38px,7.5vw,76px);margin:22px 0 10px;
+    background:linear-gradient(120deg,#00f0ff 0%,#7b5cff 50%,#ff2bd6 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 40px rgba(123,92,255,.25);
+  }
+  .hero .sub{font-size:clamp(15px,2vw,19px);color:var(--muted);max-width:620px;margin-bottom:30px}
+  .hero .sub b{color:var(--text);font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .chip{
+    font-size:12.5px;font-weight:600;padding:8px 15px;border-radius:10px;
+    border:1px solid var(--panel-bd);background:var(--panel);color:var(--text);
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .chip b{color:var(--cyan);font-weight:800}
+  .chip .mag{color:var(--mag);font-weight:800}
+
+  /* ===== BENTO ===== */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:54px 0 10px}
+  .bento .cell{
+    background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:18px;
+    padding:20px;position:relative;overflow:hidden;
+  }
+  .bento .cell::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,240,255,.08),transparent 55%);opacity:.7}
+  .bento .cell .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .bento .cell .v{font-size:clamp(22px,3vw,30px);font-weight:900;margin-top:6px;color:var(--text)}
+  .bento .cell .v small{font-size:13px;font-weight:600;color:var(--muted)}
+  .bento .feature{grid-column:span 4;border:1px solid var(--panel-bd);
+    background:linear-gradient(110deg,rgba(0,240,255,.1),rgba(123,92,255,.12));}
+  .bento .feature .v{font-size:clamp(18px,2.4vw,23px);font-weight:800;line-height:1.4}
+  .bento .feature .tagline{color:var(--cyan);font-weight:800}
+
+  /* ===== CHAPTER ===== */
+  .chapter{margin-top:60px;padding-top:8px}
+  .ch-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+  .ch-num{font-family:var(--sans);font-size:46px;font-weight:900;line-height:1;
+    background:linear-gradient(180deg,rgba(0,240,255,.5),rgba(123,92,255,.12));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .ch-tag{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--cyan);border:1px solid var(--panel-bd);padding:5px 12px;border-radius:100px;background:rgba(0,240,255,.05)}
+  .ch-title{font-family:var(--serif);font-size:clamp(23px,3.4vw,32px);font-weight:900;margin-top:10px;letter-spacing:-.01em}
+  .ch-intro{color:var(--muted);margin-top:10px;font-size:15px;max-width:760px}
+
+  .feat{border-left:2px solid var(--panel-bd);padding:16px 0 16px 20px;margin-top:18px;position:relative}
+  .feat::before{content:'';position:absolute;left:-5px;top:22px;width:9px;height:9px;border-radius:50%;
+    background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+  .feat .ft{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--text)}
+  .feat .fm{font-size:11.5px;font-weight:700;color:var(--violet);letter-spacing:.06em;margin:3px 0 7px;text-transform:uppercase}
+  .feat .fd{font-size:14.5px;color:#c4cbe8}
+
+  /* ===== GALLERY ===== */
+  .gallery{margin-top:54px}
+  .r-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .r-fig{cursor:zoom-in;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);
+    background:var(--panel);transition:transform .2s,border-color .2s}
+  .r-fig:hover{transform:translateY(-3px);border-color:var(--panel-bd)}
+  .r-fig .art{height:170px;display:flex;align-items:flex-end;padding:14px;position:relative}
+  .r-fig .art .lbl{font-size:13px;font-weight:800;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5);position:relative;z-index:1}
+  .r-fig .art .spark{position:absolute;right:12px;top:12px;font-size:11px;font-weight:800;color:#fff;
+    background:rgba(0,0,0,.3);padding:4px 9px;border-radius:100px;z-index:1}
+  .r-fig figcaption{font-size:12.5px;color:var(--muted);padding:11px 14px}
+  .g-tilt{background:linear-gradient(135deg,#00f0ff,#7b5cff);}
+  .g-batt{background:linear-gradient(135deg,#7b5cff,#ff2bd6);}
+  .g-perf{background:linear-gradient(135deg,#00f0ff,#0b6bff);}
+
+  /* ===== NOTES ===== */
+  .note{margin-top:22px;padding:18px 20px;border-radius:16px;font-size:14.5px;display:flex;gap:14px;align-items:flex-start}
+  .note-c{background:rgba(55,245,182,.07);border:1px solid rgba(55,245,182,.28)}
+  .note-a{background:rgba(255,177,59,.07);border:1px solid rgba(255,177,59,.3)}
+  .note .ic{font-size:20px;line-height:1.4}
+  .note .tx b{color:var(--text);font-weight:700}
+  .note-c .tx b{color:var(--good)}
+  .note-a .tx b{color:var(--bad)}
+
+  /* ===== TAKEAWAYS ===== */
+  .takeaways{margin-top:56px;border:1px solid var(--panel-bd);border-radius:22px;padding:30px;
+    background:linear-gradient(120deg,rgba(0,240,255,.08),rgba(123,92,255,.1));position:relative;overflow:hidden}
+  .takeaways h2{font-family:var(--serif);font-size:24px;font-weight:900;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px}
+  .takeaways h2::before{content:'';width:10px;height:30px;border-radius:4px;background:linear-gradient(var(--cyan),var(--violet))}
+  .takeaways ul{list-style:none;display:grid;gap:13px}
+  .takeaways li{display:flex;gap:12px;font-size:15px;color:#d7def8}
+  .takeaways li .n{color:var(--cyan);font-weight:900;flex-shrink:0}
+  .takeaways li b{color:#fff}
+
+  .foot{margin-top:50px;text-align:center;color:var(--muted);font-size:12.5px;line-height:1.8}
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox{position:fixed;inset:0;z-index:9999;background:rgba(4,4,9,.9);display:none;
+    align-items:center;justify-content:center;cursor:zoom-out;backdrop-filter:blur(12px);padding:24px}
+  .lightbox.show{display:flex;animation:lb .2s ease}
+  @keyframes lb{from{opacity:0}to{opacity:1}}
+  .lb-inner{width:min(560px,92vw)}
+  .lb-art{height:340px;border-radius:18px;display:flex;align-items:flex-end;padding:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.6);border:1px solid var(--panel-bd)}
+  .lb-art .lbl{font-size:18px;font-weight:900;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+  .lb-cap{margin-top:14px;color:var(--muted);font-size:13.5px;text-align:center}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:720px){
+    .bento{grid-template-columns:repeat(2,1fr)}
+    .bento .feature{grid-column:span 2}
+    .r-cols{grid-template-columns:1fr}
+    .hero{padding:70px 18px 44px;min-height:80vh}
+    .ch-num{font-size:38px}
+    .wrap{padding:0 16px 70px}
+  }
+  @media(max-width:420px){
+    .chips{gap:8px}.chip{padding:7px 12px;font-size:11.5px}
+    .bento{grid-template-columns:1fr}.bento .feature{grid-column:span 1}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <span class="eyebrow"><span class="dot"></span>2026 · 8月18日 19:00 · 深圳 "胜不可挡"</span>
+  <h1>iQOO Neo11<br>至尊版</h1>
+  <p class="sub">性能与续航的「双至尊」之选 —— 同档唯一真 <b>2K 屏</b> + 同档最大 <b>9100mAh</b> 蓝海电池，把电竞旗舰的门槛重新拉高。</p>
+  <div class="chips">
+    <span class="chip"><b>天玑9500M</b> 定制旗舰芯</span>
+    <span class="chip"><b>9100mAh</b> 蓝海电池</span>
+    <span class="chip"><b>6.83"</b> 2K 护眼超冠屏</span>
+    <span class="chip"><b>100W</b> 超快闪充</span>
+    <span class="chip"><span class="mag">国补2899</span> 元起</span>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- ===== BENTO ===== -->
+  <div class="bento reveal">
+    <div class="cell feature">
+      <div class="k">核心结论</div>
+      <div class="v"><span class="tagline">同档性能续航双天花板。</span> 用 3399 元起的定价，塞进了定制旗舰芯、真 2K 屏与接近万毫安的电池，是 2026 下半年中端性能市场的标杆级「堆料王」。</div>
+    </div>
+    <div class="cell"><div class="k">屏幕</div><div class="v">2K <small>真屏</small></div></div>
+    <div class="cell"><div class="k">电池</div><div class="v">9100<small>mAh</small></div></div>
+    <div class="cell"><div class="k">芯片</div><div class="v">9500<small>M</small></div></div>
+    <div class="cell"><div class="k">起售价</div><div class="v"><small>国补</small>2899<small>元</small></div></div>
+  </div>
+
+  <!-- ===== CH01 性能 ===== -->
+  <div class="chapter reveal">
+    <div class="ch-head">
+      <span class="ch-num">01</span>
+      <span class="ch-tag">性能 · 电竞</span>
+    </div>
+    <h2 class="ch-title">怪兽级性能，双芯协同</h2>
+    <p class="ch-intro">iQOO 与 MediaTek 深度联合定制的天玑 9500M，加上自研电竞芯片 Q2，把「2K + 144FPS 超分超帧并发」第一次带到了 Neo 系列。这不是参数堆砌，而是实打实的帧率与触控体验升级。</p>
+    <div class="feat">
+      <div class="ft">天玑 9500M 定制旗舰芯</div>
+      <div class="fm">芯片 · 全大核</div>
+      <div class="fd">台积电第三代 3nm 制程、全大核 CPU 架构，搭配 LPDDR5X Ultra 与 UFS 4.1；新一代 Monster 超核引擎写入芯片底层，彻底激发潜能。相比标准天玑 9500 少一颗 GPU 核心，更偏游戏能效。</div>
+    </div>
+    <div class="feat">
+      <div class="ft">自研电竞芯片 Q2</div>
+      <div class="fm">显示 · 超分超帧</div>
+      <div class="fd">实现原画级 2K 超分 + 2K+144FPS 超帧并发，挑战同档唯一的真 2K 游戏视效；配合全新 8K 冰穹 VC 液冷散热（均热性能提升 5%），长时间高负载也不降频、不压亮度。</div>
+    </div>
+    <div class="feat">
+      <div class="ft">寰宇电竞 Wi-Fi 三芯片</div>
+      <div class="fm">网络 · 信号</div>
+      <div class="fd">2 颗 vivo X300 Pro 同款 Wi-Fi 增强芯片 + 1 颗 iQOO 15 同款电竞 Wi-Fi 信号芯片，号称最远 220 米校园连接、可穿 4 堵墙；通过 KPL 赛事用机认证。</div>
+    </div>
+  </div>
+
+  <!-- ===== CH02 屏幕 ===== -->
+  <div class="chapter reveal">
+    <div class="ch-head">
+      <span class="ch-num">02</span>
+      <span class="ch-tag">屏幕 · 显示</span>
+    </div>
+    <h2 class="ch-title">同档唯一真 2K 护眼超冠屏</h2>
+    <p class="ch-intro">首发维信诺 F2 发光材料，6.83 英寸、514PPI，把「高分辨率 + 低蓝害 + 高亮」三者同时拉满，是这块屏最大的定语。</p>
+    <div class="feat">
+      <div class="ft">F2 发光材料 · 514PPI</div>
+      <div class="fm">面板 · 发光效率</div>
+      <div class="fd">首发维信诺 F2，发光效率更高、功耗更低；1000nits 手动最高亮度、2000nits 全屏峰值、局部峰值 4500nits、最低 1nit，首帧亮度占比 98% 降低拖影。</div>
+    </div>
+    <div class="feat">
+      <div class="ft">护眼与触控双认证</div>
+      <div class="fm">健康 · 操控</div>
+      <div class="fd">圆偏振光 2.0、全亮度 DC 调光、≤5% 有害蓝光，通过莱茵游戏护眼 + 莱茵全局护眼双认证；500Hz 多指触控采样率 + iQOO 15 Ultra 同款超感触控芯片，游戏跟手度拉满。</div>
+    </div>
+  </div>
+
+  <!-- ===== CH03 续航 ===== -->
+  <div class="chapter reveal">
+    <div class="ch-head">
+      <span class="ch-num">03</span>
+      <span class="ch-tag">续航 · 电池</span>
+    </div>
+    <h2 class="ch-title">9100mAh 蓝海，一天充一次都嫌多</h2>
+    <p class="ch-intro">第四代硅碳负极技术把能量密度做到 886Wh/L，配上全局直驱供电 2.0，官方承诺四年电池健康度 ≥80%。这是目前 2K 屏手机里电池最大的选手之一。</p>
+    <div class="feat">
+      <div class="ft">9100mAh + 100W 闪充</div>
+      <div class="fm">容量 · 快充</div>
+      <div class="fd">Neo 史上最大蓝海电池；实测连续畅玩 MOBA 13.7 小时、连续刷短视频 23 小时；大学生日常场景实测连续使用 9 小时剩余电量 56%。100W 超快闪充回血迅速。</div>
+    </div>
+    <div class="feat">
+      <div class="ft">全局直驱供电 2.0</div>
+      <div class="fm">健康 · 寿命</div>
+      <div class="fd">边玩边充时直接由充电器供电、减少电池循环发热，配合四年 ≥80% 健康度承诺，长期重度使用更安心。</div>
+    </div>
+  </div>
+
+  <!-- ===== CH04 系统/AI ===== -->
+  <div class="chapter reveal">
+    <div class="ch-head">
+      <span class="ch-num">04</span>
+      <span class="ch-tag">系统 · AI</span>
+    </div>
+    <h2 class="ch-title">出厂 OriginOS 6.0，蓝心小 V 就位</h2>
+    <p class="ch-intro">iQOO Neo11 至尊版出厂即搭载 OriginOS 6.0，通过 5 年持久流畅认证；《王者荣耀》接入原子通知，是电竞场景里最有感知的系统级小功能。</p>
+    <div class="feat">
+      <div class="ft">蓝心小 V + 原子通知</div>
+      <div class="fm">AI · 游戏</div>
+      <div class="fd">蓝心大模型带来圈搜、小 V 记忆等 AI 能力；《王者荣耀》接入原子通知，游戏内重要消息以胶囊形式轻量提示，不破坏沉浸。</div>
+    </div>
+    <div class="feat">
+      <div class="ft">旗舰级防护与品质</div>
+      <div class="fm">耐用 · 防护</div>
+      <div class="fd">磐石玻璃提升抗摔、航空铝中框通过 1.2 米大理石跌落挑战；支持 IP68 & IP69 防尘防水、超声波 3D 指纹（湿手可解）、Wi-Fi 7、全功能 NFC、对称式立体双扬、高震感 X 轴马达。</div>
+    </div>
+  </div>
+
+  <!-- ===== GALLERY ===== -->
+  <div class="gallery reveal">
+    <div class="ch-head"><span class="ch-tag">视觉 · 画廊</span></div>
+    <h2 class="ch-title" style="font-size:22px">三大至尊卖点一览</h2>
+    <div class="r-cols">
+      <figure class="r-fig shot" data-grad="linear-gradient(135deg,#00f0ff,#7b5cff)" data-cap="2K 护眼超冠屏 · 维信诺 F2 · 514PPI · 2000nits 全屏峰值">
+        <div class="art g-tilt"><span class="spark">DISPLAY</span><span class="lbl">真 2K 屏</span></div>
+        <figcaption>同档唯一真 2K 屏，高分辨率与低蓝害兼得。</figcaption>
+      </figure>
+      <figure class="r-fig shot" data-grad="linear-gradient(135deg,#7b5cff,#ff2bd6)" data-cap="9100mAh 蓝海电池 · 第四代硅碳 · 886Wh/L · 100W 闪充">
+        <div class="art g-batt"><span class="spark">BATTERY</span><span class="lbl">9100mAh</span></div>
+        <figcaption>接近万毫安的电池，2K 屏手机里的容量天花板。</figcaption>
+      </figure>
+      <figure class="r-fig shot" data-grad="linear-gradient(135deg,#00f0ff,#0b6bff)" data-cap="天玑 9500M + 自研电竞芯片 Q2 · 2K+144FPS 超分超帧">
+        <div class="art g-perf"><span class="spark">PERFORMANCE</span><span class="lbl">双芯电竞</span></div>
+        <figcaption>定制旗舰芯 + Q2，原画级超分超帧并发。</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ===== NOTES ===== -->
+  <div class="note note-c reveal">
+    <span class="ic">✅</span>
+    <div class="tx"><b>最香的点：</b> 用 2899 元（国补）的价格，同时拿到了定制旗舰芯、真 2K 屏与 9100mAh 电池——这三项里任何一项单独出现在竞品上都要更贵。对重度游戏 + 续航焦虑用户，几乎是闭眼入的档位。</div>
+  </div>
+  <div class="note note-a reveal">
+    <span class="ic">⚠️</span>
+    <div class="tx"><b>要留意的：</b> 影像仅为 5000 万主摄（索尼 LYTIA 700V）+ 800 万超广角，没有长焦；机身 9.13mm 大 R 角偏厚；国行 AI 功能与部分生态联动仍受限于国内大模型落地节奏，海外深度评测样本偏少（信息缺口）。</div>
+  </div>
+
+  <!-- ===== TAKEAWAYS ===== -->
+  <div class="takeaways reveal">
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li><span class="n">01</span><span><b>定位精准：</b>中端价格、旗舰级性能与续航，是 2026 下半年「性价比性能机」的标杆。</span></li>
+      <li><span class="n">02</span><span><b>屏幕是真 2K：</b>F2 材料 + 514PPI + 双莱茵护眼，同档稀缺。</span></li>
+      <li><span class="n">03</span><span><b>电池接近万毫安：</b>9100mAh + 100W + 直驱供电，续航与寿命双优。</span></li>
+      <li><span class="n">04</span><span><b>双芯电竞：</b>天玑 9500M + Q2，2K+144FPS 超分超帧首发 Neo 系列。</span></li>
+      <li><span class="n">05</span><span><b>系统到位：</b>出厂 OriginOS 6.0、蓝心小 V、《王者荣耀》原子通知、5 年流畅认证。</span></li>
+      <li><span class="n">06</span><span><b>取舍清晰：</b>影像与轻薄妥协，但目标用户本就不为这两点买单。</span></li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    数据来源：iQOO 官方 / IT之家 / 新浪科技 / 羊城派（2026-08-18 发布会）<br>
+    截至 2026-08-24 · 具体规格与价格以官方为准 · 本页为产品主场展示，无返回入口
+  </div>
+
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lb" onclick="this.classList.remove('show')">
+  <div class="lb-inner">
+    <div class="lb-art" id="lbArt"><span class="lbl" id="lbLbl"></span></div>
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</div>
+
+<script>
+  // Lightbox for gallery shots
+  document.querySelectorAll('.shot').forEach(function(el){
+    el.addEventListener('click', function(){
+      document.getElementById('lbArt').style.background = el.dataset.grad;
+      document.getElementById('lbLbl').textContent = el.querySelector('.lbl').textContent;
+      document.getElementById('lbCap').textContent = el.dataset.cap;
+      document.getElementById('lb').classList.add('show');
+    });
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.getElementById('lb').classList.remove('show'); });
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>

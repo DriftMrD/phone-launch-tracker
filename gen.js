@@ -384,7 +384,8 @@ const entries = [
     quotes: [],
     monthly: [
       { ver:'HyperOS 3 八月更新', date:'2026-08-01', note:'超级岛支持麦当劳取餐码、备忘录优化、家人守护、屏幕共享隐私模式、录音机修复；HyperOS 4 预计8月内测' },
-      { ver:'🎉 HyperOS 4 官宣', date:'2026-08-01', note:'小米官方7月31日发布HyperOS 4.0宣传海报！8月上旬启动首批稳定版灰度推送。核心底层Rust语言重写（自研代码占比75%→90%），"零遗留"清理MIUI时代冗余代码；空闲内存占用降28%、后台保活提升35%、连续365天流畅衰减仅5%、整体流畅度提升40%、内存管理提升30%；液态玻璃设计语言+2.5D图标+AI浮岛+AI配色+前摄主动AI感知；首批推送小米17系列+Redmi K90，小米18系列出厂预装；分三批推送（旗舰完整版/中端标准版/老机型轻量化版）' }
+      { ver:'🎉 HyperOS 4 官宣', date:'2026-08-01', note:'小米官方7月31日发布HyperOS 4.0宣传海报！8月上旬启动首批稳定版灰度推送。核心底层Rust语言重写（自研代码占比75%→90%），"零遗留"清理MIUI时代冗余代码；空闲内存占用降28%、后台保活提升35%、连续365天流畅衰减仅5%、整体流畅度提升40%、内存管理提升30%；液态玻璃设计语言+2.5D图标+AI浮岛+AI配色+前摄主动AI感知；首批推送小米17系列+Redmi K90，小米18系列出厂预装；分三批推送（旗舰完整版/中端标准版/老机型轻量化版）' },
+      { ver:'澎湃OS 4.0 正式版预告', date:'2026-08-22', note:'📱 官方披露下半年排期：雷军年度演讲(8月中下旬)将同步推送澎湃OS 4.0正式版，并发布小米MIX Fold5阔折叠旗舰(玄戒O3/徕卡影像/6000mAh)与Redmi K100标准版；HyperOS 4(澎湃OS 4.0)以Rust重写核心/零遗留/液态玻璃/AI浮岛成为小米年度系统大版本，首批机型小米17系列+Redmi K90' }
     ],
     links: [
       { label:'NokiaMob 清单', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' },
@@ -412,7 +413,13 @@ const entries = [
       '【8月更新】应用五分身：从双开升级到5个分身，覆盖游戏/小微商户场景',
       '【8月更新】病毒风险主动防御：风险应用自动设权限为"不允许"+隐私替身替换敏感数据',
       '【8月更新】无障碍服务管控：拦截无障碍服务和所有文件访问权限的流氓软件',
-      '【8月更新】极光引擎内存调度重构：原生流畅度+12%，高负载场景不易锁帧'
+      '【8月更新】极光引擎内存调度重构：原生流畅度+12%，高负载场景不易锁帧',
+      '【8月体验升级】双指外扩清空桌面全部应用角标：满屏小红点一键秒清',
+      '【8月体验升级】锁屏岛全屏歌词新增酷狗概念版支持，抬眼即见',
+      '【8月体验升级】交通优行卡覆盖全国330城市公交地铁，一张卡出行',
+      '【8月体验升级】智能到站提醒新增广州/深圳/福州，临近到站震动+弹窗+蓝牙语音播报',
+      '【8月体验升级】跨屏解锁：手机投屏平板后可在平板镜像界面直接解锁手机',
+      '【8月体验升级】天气新增桌面台风路径卡片，实时查看路径/风力/强度'
     ],
     cons: [
       'EU 推送延迟数月：印尼 2026-01 首发，EU 到 2026-04 仍等',
@@ -426,7 +433,8 @@ const entries = [
       { kind:'good', top:'自定义好用', text:'"I like the actual customization through system setting, it’s fast and effective."', src:'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/', name:'XDA Forums' }
     ],
     monthly: [
-      { ver:'ColorOS 16.0.10.500', date:'2026-08-05', note:'🎉 1.08GB大版本更新！桌面角标一键清理(双指张开)+生活卡片(汇率/台风)+小布记忆跨应用收藏+团购券防过期+便签个性化+应用五分身+病毒主动防御+无障碍管控+极光引擎内存重构(流畅度+12%)+相机横屏Bug修复；适配Find X9 Pro/一加15T等旗舰' }
+      { ver:'ColorOS 16.0.10.500', date:'2026-08-05', note:'🎉 1.08GB大版本更新！桌面角标一键清理(双指张开)+生活卡片(汇率/台风)+小布记忆跨应用收藏+团购券防过期+便签个性化+应用五分身+病毒主动防御+无障碍管控+极光引擎内存重构(流畅度+12%)+相机横屏Bug修复；适配Find X9 Pro/一加15T等旗舰' },
+      { ver:'八月体验升级', date:'2026-08-17', note:'🎉 OPPO官方8月17日发布ColorOS 16八月体验升级（8月7日起分批、8月31日前完成推送）：双指外扩清空桌面全部角标、锁屏岛酷狗概念版歌词、交通优行卡覆盖330城、智能到站提醒新增广深福、相册横屏图标/文字/菜单竖屏异常修复、小布记忆同步多浏览器收藏+记账洞见+旅行合集地图、跨屏解锁、天气台风路径卡片、隐私替身(风险应用自动禁用重要权限+隐私替身)、存储清理分区展示；覆盖Find X9/X8/X7全系、Find N6/N5、Reno16/Reno15、K15 Pro及一加15/13/Ace6/Ace5等大批机型' }
     ],
     links: [
       { label:'XDA 讨论', url:'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' },
@@ -507,14 +515,18 @@ const entries = [
     tags: [{t:'系统级',c:'tag-app'},{t:'全球版追踪',c:'tag-month'}],
     pros: [
       '升级包可查：vivo.com/en 升级主页列各机型版本',
-      'OriginOS 6 流畅：国内口碑"6 到飞起"'
+      'OriginOS 6 流畅：国内口碑"6 到飞起"',
+      '【16.0.29.5】蓝心小V/圈搜/小V记忆AI细节优化：识别准确率提升、语音交互更跟手'
     ],
     cons: [
       '海外反馈稀缺：Reddit/XDA 缺功能级深度讨论',
       '月更不公开：Funtouch OS 无公开 Release Notes'
     ],
     quotes: [],
-    monthly: [],
+    monthly: [
+      { ver:'OriginOS 6.0 16.0.29.5', date:'2026-08-07', note:'vivo/iQOO推送OriginOS 6.0维护更新(16.0.29.5)：延续蓝河流畅引擎，优化后台应用留存(常用APP保活改善、切回不复载)、闲置应用后台管控(夜间待机掉电改善)、游戏/视频温控策略打磨；修复网络断流/通知延迟/锁屏异常/第三方闪退/相机小瑕疵；蓝心小V/圈搜/小V记忆AI细节优化(识别准确率与响应提升)；分批推送X100/X Fold/S系列、iQOO 12/Neo9/Z9/Z10等已升级OriginOS 6机型' },
+      { ver:'iQOO Neo11 至尊版 出厂', date:'2026-08-18', note:'iQOO Neo11 至尊版(8/18发布)出厂预装OriginOS 6.0，5年持久流畅认证；蓝心小V/原子通知(《王者荣耀》接入原子通知)/寰宇电竞Wi-Fi三芯片；同批iQOO Z11S出厂OriginOS 6.0(10000mAh硅碳/天玑7500)' }
+    ],
     links: [
       { label:'vivo 升级包', url:'https://www.vivo.com/en/support/upgradePackageHome' },
       { label:'OriginOS 6 Tracker', url:'https://techpp.com/2025/10/16/origin-os-6-update-tracker/' }
@@ -567,7 +579,8 @@ const entries = [
       { ver:'Beta 3', date:'2026-06', note:'网络速度指示器、更多 AI 功能打磨' },
       { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' },
       { ver:'稳定版 (One UI 9.0)', date:'2026-07-22', note:'🎉 Galaxy Unpacked 2026伦敦正式发布！预载 Z Fold 8/Ultra/Flip 8 首发；Gemini Intelligence/Gemini Notebook/Now Nudge/My FanCam/Photo Assist 正式上线；Quick Share兼容AirDrop；Warranty&Care Hub；Foreign Material Detection；AI Assistant Activity仪表盘；蓝色状态栏隐私指示器' },
-      { ver:'Beta 5 (S948BXXU4ZZH6)', date:'2026-08-12', note:'📦 S26系列第五个Beta（距Beta 4约一个月），~1.1GB；8项修复：设置App白屏/冻结、锁屏相机组件慢/黑屏、Phone底部悬浮栏错位、My Files最近文件空白、桌面1×1快捷方式、视频/照片编辑器预览错位闪烁、间歇性屏幕闪烁、Wi-Fi连接错误；含8月安全补丁(56项漏洞：38 Google+18 Samsung)；推送韩国/印度/波兰/德国/英国。⚠️ 修正：S26系列仍未转稳定版（上期"8月灰度推送"信息有误），继续Beta；One UI 9.5已在测试服务器出现，预计随Galaxy S27系列2027年初发布' }
+      { ver:'Beta 5 (S948BXXU4ZZH6)', date:'2026-08-12', note:'📦 S26系列第五个Beta（距Beta 4约一个月），~1.1GB；8项修复：设置App白屏/冻结、锁屏相机组件慢/黑屏、Phone底部悬浮栏错位、My Files最近文件空白、桌面1×1快捷方式、视频/照片编辑器预览错位闪烁、间歇性屏幕闪烁、Wi-Fi连接错误；含8月安全补丁(56项漏洞：38 Google+18 Samsung)；推送韩国/印度/波兰/德国/英国。⚠️ 修正：S26系列仍未转稳定版（上期"8月灰度推送"信息有误），继续Beta；One UI 9.5已在测试服务器出现，预计随Galaxy S27系列2027年初发布' },
+      { ver:'One UI 9.5 开发泄露', date:'2026-08-17', note:'📱 基于Android 17的One UI 9.5早期固件现身Galaxy S26（S942BXXU4CZH9）与未发布S27 Ultra（AZH3）；新增原生AppLock应用锁（密码/生物识别锁定单App，无需安全文件夹）；玻璃质感视觉语言（悬浮标签栏/Now Brief更亮边框+投影）；多年未改的指纹注册界面重设计；相机UI打磨（弹出菜单圆角/模糊降级、S26基础款原生24MP模式开关）；电话App搜索移至底部悬浮栏；S26当前出厂One UI 8.5，One UI 9稳定版预计8月底向S26推送，9.5公开Beta可能年底面向S26' }
     ],
     links: [
       { label:'Samsung 官方 One UI 9', url:'https://www.samsung.com/us/apps/one-ui' },
@@ -638,7 +651,8 @@ const entries = [
       { ver:'Beta 5 (24A5400x)', date:'2026-08-03', note:'相机界面支持自定义快捷开关/Widget（曝光、对焦、滤镜、风格、定时器等可自由排列）、音量HUD与控制中心进一步液态玻璃化、主屏幕支持撤销/重做、Health新增AI血糖追踪与摄像头健身监测、Siri接入ChatGPT/Gemini双模型、性能与电池效率优化；后续进入每周一更节奏，公测版Beta 3预计8月5日推送' },
       { ver:'Beta 5 锁屏/Safari/性能', date:'2026-08-06', note:'锁屏时钟可缩小移至顶部小组件行+AI扩展壁纸+Image Playground生成壁纸+正在播放可滑动移除；Safari紧凑工具栏恢复所有标签页图标+书签/阅读列表/历史图标+标签页自动分类；全局透明度滑块替代清晰/着色切换；闹钟音量与铃声解绑；AirPods自定义EQ；信息返回按钮可隐藏；通话上下文（本地显示航班/订单号）；Screen Time重设计+Time Allowances+Ask to Buy/Browse；Write with Siri系统级写作；Visual Intelligence扩展（餐食营养/传单日历/收据分账/名片联系人）；80+项性能改进（App启动快30%/AirDrop快80%）' },
       { ver:'Developer Beta 5', date:'2026-08-10', note:'Siri 界面配色弱化调整；继续功能打磨与Bug修复；⚠️ 修正：本版并非"功能冻结"（后续公测版3仍有新功能加入）' },
-      { ver:'公测版3', date:'2026-08-11', note:'🎉 第三个公测版发布（对应 Developer Beta 5，距公测版2约两周）；Siri AI（ChatGPT/Claude式对话、独立App、屏幕感知、跨App操作）；Liquid Glass 透明度滑块；Visual Intelligence 移入相机（餐食营养/账单分账）；Write with Siri 写作辅助；Safari 标签自动分组；AirPods 自定义EQ；儿童安全（Ask to Browse / Communication Safety / Time Allowances）；多款App图标刷新（Safari/Siri/Remote/Preview）；Siri增强语音新增英式英语；性能：App启动快30%、照片加载快70%、AirDrop快80%；支持 iPhone 11 及以上' }
+      { ver:'公测版3', date:'2026-08-11', note:'🎉 第三个公测版发布（对应 Developer Beta 5，距公测版2约两周）；Siri AI（ChatGPT/Claude式对话、独立App、屏幕感知、跨App操作）；Liquid Glass 透明度滑块；Visual Intelligence 移入相机（餐食营养/账单分账）；Write with Siri 写作辅助；Safari 标签自动分组；AirPods 自定义EQ；儿童安全（Ask to Browse / Communication Safety / Time Allowances）；多款App图标刷新（Safari/Siri/Remote/Preview）；Siri增强语音新增英式英语；性能：App启动快30%、照片加载快70%、AirDrop快80%；支持 iPhone 11 及以上' },
+      { ver:'Beta 6 / 公测版4 (24A5418b)', date:'2026-08-17', note:'🎉 iOS 27 Beta 6（构建24A5418b）8月17日推送，同日发布公测版4，进入每周一更收尾阶段；修复Beta 5置顶信息(Pinned Messages)显示异常；录屏新增3秒倒计时+控制中心录制指示自动清除；通知横幅新增morph动画（交互后融入通知中心指示）；相机自动夜景模式显示A标识区分手动/自动；Siri图标继续替换Apple Intelligence标识；高级本地听写预览(Advanced Dictation Preview)可在设置开启；AirPlay家庭影院PIN修复、部分Apple Intelligence与神经引擎模型加载修复、CarPlay/相机人像模糊/时钟锁屏等修复；已知问题降至14类、已解决升至74类；RC预计8月底、正式版9月随新iPhone推送' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
@@ -671,7 +685,8 @@ const entries = [
     monthly: [
       { ver:'QPR1 Beta 8 (CP31.260623.010)', date:'2026-08-02', note:'修复音频底噪、屏下指纹响应、NFC支付偶发失败、Pixel Tablet 磁吸底座识别问题；稳定版预计9月以 Pixel Feature Drop 形式推送' },
       { ver:'8月安全更新 (CP2A.260805.005)', date:'2026-08-05', note:'🎉 Pixel 8/8Pro/8a/9全系/9a/10全系/10a 获推送；⚠️ Pixel 6/6Pro/6a/7/7Pro/7a 本月被排除！修补CVE-2026-0163(Video Processing Unit高严重提权漏洞)；Pixel 10专属修复：游戏崩溃/GPU性能/触屏无响应；QPR2 Beta 1同步推进：修复蓝牙自动重连/Gemini崩溃/通知消失/UI模糊重置' },
-      { ver:'QPR2 Beta 3 (CP41.260731.005)', date:'2026-08-14', note:'🔒 新增反通话呼叫转移诈骗安全限制：sendUssdRequest() API 无法再用 CALL_PHONE 权限执行呼叫转移码（后台被拦截返回 USSD_ERROR_NOT_ALLOWED），系统拨号器手动拨打时新增系统级确认弹窗；修复通知栏/快捷设置视觉损坏+意外重启(Issue #535249652/#543124160)、Device Health 误报电池容量衰减警告；覆盖 Pixel 6a–10 系列（Pixel 11 系列预购期暂不包含）' }
+      { ver:'QPR2 Beta 3 (CP41.260731.005)', date:'2026-08-14', note:'🔒 新增反通话呼叫转移诈骗安全限制：sendUssdRequest() API 无法再用 CALL_PHONE 权限执行呼叫转移码（后台被拦截返回 USSD_ERROR_NOT_ALLOWED），系统拨号器手动拨打时新增系统级确认弹窗；修复通知栏/快捷设置视觉损坏+意外重启(Issue #535249652/#543124160)、Device Health 误报电池容量衰减警告；覆盖 Pixel 6a–10 系列（Pixel 11 系列预购期暂不包含）' },
+      { ver:'QPR2 Beta 2', date:'2026-08-19', note:'🎉 Android 16 QPR2 Beta 2达平台稳定性(Platform Stability)；含9月安全补丁；新增开发者验证(Developer Verification，2026-09起部分地区仅限已验证开发者发布App方可安装)、SMS OTP保护(含retriever hash短信延迟≤3小时)、自定义App图标形状+文件夹预览、Health Connect自动步数追踪+运动数据扩展；垃圾回收优化；覆盖Pixel 6至10系列' }
     ],
     links: [
       { label:'Android 17 Release Notes', url:'https://developer.android.com/about/versions/17/release-notes' },
