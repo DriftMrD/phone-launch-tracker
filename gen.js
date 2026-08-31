@@ -373,7 +373,10 @@ const entries = [
       '【HyperOS 4】内存管理提升30%：重构内存调度机制，长期使用不卡顿',
       '【HyperOS 4】液态玻璃设计语言：玻璃质感界面元素+实时光场渲染+2.5D图标+控制中心/通知面板半透明效果',
       '【HyperOS 4】AI浮岛+AI配色+前摄主动AI感知：智能场景识别与主动服务',
-      '【HyperOS 4】可自定义大文件夹+堆叠桌面小部件+锁屏通知更简洁布局'
+      '【HyperOS 4】可自定义大文件夹+堆叠桌面小部件+锁屏通知更简洁布局',
+      '【HyperOS 4】Mimo 端侧大模型+超级小爱智能体：旗舰机离线运行文档总结/多语种实时翻译/AI修图/长文本创作/跨应用连续任务',
+      '【HyperOS 4】跨设备协同2.0：手机-平板-汽车-米家无缝互联，无感流转（手机复制文字直接粘贴车机/平板）',
+      '【HyperOS 4】REDMI K100 Pro/Pro Max 出厂预装澎湃OS 4 稳定版，Beta 第三批 9/17 开放、正式版首批支持'
     ],
     cons: [
       '海外深度反馈少：不如三星/苹果社区活跃',
@@ -385,7 +388,8 @@ const entries = [
     monthly: [
       { ver:'HyperOS 3 八月更新', date:'2026-08-01', note:'超级岛支持麦当劳取餐码、备忘录优化、家人守护、屏幕共享隐私模式、录音机修复；HyperOS 4 预计8月内测' },
       { ver:'🎉 HyperOS 4 官宣', date:'2026-08-01', note:'小米官方7月31日发布HyperOS 4.0宣传海报！8月上旬启动首批稳定版灰度推送。核心底层Rust语言重写（自研代码占比75%→90%），"零遗留"清理MIUI时代冗余代码；空闲内存占用降28%、后台保活提升35%、连续365天流畅衰减仅5%、整体流畅度提升40%、内存管理提升30%；液态玻璃设计语言+2.5D图标+AI浮岛+AI配色+前摄主动AI感知；首批推送小米17系列+Redmi K90，小米18系列出厂预装；分三批推送（旗舰完整版/中端标准版/老机型轻量化版）' },
-      { ver:'澎湃OS 4.0 正式版预告', date:'2026-08-22', note:'📱 官方披露下半年排期：雷军年度演讲(8月中下旬)将同步推送澎湃OS 4.0正式版，并发布小米MIX Fold5阔折叠旗舰(玄戒O3/徕卡影像/6000mAh)与Redmi K100标准版；HyperOS 4(澎湃OS 4.0)以Rust重写核心/零遗留/液态玻璃/AI浮岛成为小米年度系统大版本，首批机型小米17系列+Redmi K90' }
+      { ver:'澎湃OS 4.0 正式版预告', date:'2026-08-22', note:'📱 官方披露下半年排期：雷军年度演讲(8月中下旬)将同步推送澎湃OS 4.0正式版，并发布小米MIX Fold5阔折叠旗舰(玄戒O3/徕卡影像/6000mAh)与Redmi K100标准版；HyperOS 4(澎湃OS 4.0)以Rust重写核心/零遗留/液态玻璃/AI浮岛成为小米年度系统大版本，首批机型小米17系列+Redmi K90' },
+      { ver:'HyperOS 4 Beta 招募', date:'2026-08-14', note:'🎉 小米8月14日公布澎湃OS 4并启动首批Beta招募；REDMI K100 Pro/Pro Max 出厂即预装澎湃OS 4稳定版（未进Beta首批因新品优先保稳定），官方"答网友问"明确：Beta 第三批 9月17日起向 K100 Pro 系列开放，正式版 K100 系列为首批支持；小米17全系/REDMI K90系列/K100系列首批Beta公测；新系统液态玻璃视觉+AI浮岛+Mimo端侧大模型+超级小爱智能体，分三批推送（8月发布后旗舰→9-10月中端→明年初入门）' }
     ],
     links: [
       { label:'NokiaMob 清单', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' },
@@ -419,7 +423,10 @@ const entries = [
       '【8月体验升级】交通优行卡覆盖全国330城市公交地铁，一张卡出行',
       '【8月体验升级】智能到站提醒新增广州/深圳/福州，临近到站震动+弹窗+蓝牙语音播报',
       '【8月体验升级】跨屏解锁：手机投屏平板后可在平板镜像界面直接解锁手机',
-      '【8月体验升级】天气新增桌面台风路径卡片，实时查看路径/风力/强度'
+      '【8月体验升级】天气新增桌面台风路径卡片，实时查看路径/风力/强度',
+      '【8月更新】AI Remix Collage：Smart Cutout 提取照片主体生成贴纸集/拼贴/情绪板，可自定义描边与图层（Reno16 首发后下放全系）',
+      '【8月更新】Notes 图片涂鸦标注：直接在笔记图片上画/高亮/批注，无需跳转其他应用',
+      '【8月更新】Phone Manager 智能拦截：实时检测并拦截可疑应用行为（恶意弹窗/异常耗电/异常设备控制）并弹窗告警'
     ],
     cons: [
       'EU 推送延迟数月：印尼 2026-01 首发，EU 到 2026-04 仍等',
@@ -434,7 +441,8 @@ const entries = [
     ],
     monthly: [
       { ver:'ColorOS 16.0.10.500', date:'2026-08-05', note:'🎉 1.08GB大版本更新！桌面角标一键清理(双指张开)+生活卡片(汇率/台风)+小布记忆跨应用收藏+团购券防过期+便签个性化+应用五分身+病毒主动防御+无障碍管控+极光引擎内存重构(流畅度+12%)+相机横屏Bug修复；适配Find X9 Pro/一加15T等旗舰' },
-      { ver:'八月体验升级', date:'2026-08-17', note:'🎉 OPPO官方8月17日发布ColorOS 16八月体验升级（8月7日起分批、8月31日前完成推送）：双指外扩清空桌面全部角标、锁屏岛酷狗概念版歌词、交通优行卡覆盖330城、智能到站提醒新增广深福、相册横屏图标/文字/菜单竖屏异常修复、小布记忆同步多浏览器收藏+记账洞见+旅行合集地图、跨屏解锁、天气台风路径卡片、隐私替身(风险应用自动禁用重要权限+隐私替身)、存储清理分区展示；覆盖Find X9/X8/X7全系、Find N6/N5、Reno16/Reno15、K15 Pro及一加15/13/Ace6/Ace5等大批机型' }
+      { ver:'八月体验升级', date:'2026-08-17', note:'🎉 OPPO官方8月17日发布ColorOS 16八月体验升级（8月7日起分批、8月31日前完成推送）：双指外扩清空桌面全部角标、锁屏岛酷狗概念版歌词、交通优行卡覆盖330城、智能到站提醒新增广深福、相册横屏图标/文字/菜单竖屏异常修复、小布记忆同步多浏览器收藏+记账洞见+旅行合集地图、跨屏解锁、天气台风路径卡片、隐私替身(风险应用自动禁用重要权限+隐私替身)、存储清理分区展示；覆盖Find X9/X8/X7全系、Find N6/N5、Reno16/Reno15、K15 Pro及一加15/13/Ace6/Ace5等大批机型' },
+      { ver:'八月全球更新', date:'2026-08-28', note:'🎉 OPPO 8月ColorOS 16全球更新（8/1–8/31分批，覆盖15款机型：Find N6/N5/X9 Ultra/Pro/s/X9/X8 Pro/X8、Reno16 Pro/5G、Reno15 Pro/5G/4G）新增五大功能：① AI Remix Collage（Smart Cutout 提取主体→贴纸/拼贴/情绪板，Reno16 首发后下放）② 实时汇率换算桌面小组件（2×2/4×2，多币种实时汇率）③ 双指捏合清空全部应用角标（8/17 体验升级已含）④ Notes 图片涂鸦标注（直接在图片上画/高亮/批注）⑤ Phone Manager 智能拦截可疑应用行为（恶意弹窗/异常耗电/异常设备控制实时告警）；Storage Cleanup 分类重组、隐藏应用可浮动窗打开' }
     ],
     links: [
       { label:'XDA 讨论', url:'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' },
@@ -473,7 +481,10 @@ const entries = [
       '【MagicOS 10 八月更新】AI 侧边栏常用服务固定：高频AI工具置顶常驻，零层级触达',
       '【MagicOS 10 八月更新】文件管理重构：我的文件与浏览合并为统一视图，结构更精简',
       '【MagicOS 10 八月更新】远程协助扩展：支持更多设备型号，一键远程帮亲友排查问题',
-      '【MagicOS 10 八月更新】推送覆盖广：从旗舰Magic V6/Magic8到千元机100系列均获同等AI体验，不分机型阉割'
+      '【MagicOS 10 八月更新】推送覆盖广：从旗舰Magic V6/Magic8到千元机100系列均获同等AI体验，不分机型阉割',
+      '【MagicOS 11】AI 窥屏防护：智能识别机主身份，他人偷看屏幕时弹出"偷看表情包警告"，保护隐私',
+      '【MagicOS 11】荣耀琉光架构：安卓底层重构+液态玻璃效果拉满，功耗几乎零增长',
+      '【MagicOS 11】荣耀蜂鸟架构：人因流畅体系，一镜到底从系统到三方应用全机型流畅'
     ],
     cons: [
       '深度评测缺：海外社区讨论集中在官方论坛/国内媒体',
@@ -490,7 +501,8 @@ const entries = [
       { ver:'Agentic OS 框架', date:'2026-06-24', note:'MWC 上海首发定义：意图驱动/自然交互/主动智能/天生跨端' },
       { ver:'MagicOS 10 Jul (10.0.0.170)', date:'2026-07-16', note:'第二批10款机型推送；丝滑动效（并行响应+一镜到底）、灵动胶囊（滑动交互+YOYO帮记）、3D照片锁屏、一语微信发消息/打视频、漫画生成、Live盲盒、120Hz高刷投屏、远程协助' },
       { ver:'MagicOS 11 / YOYO Next', date:'2026-07-22', note:'🎉 MagicOS 11 内测持续推送；YOYO Next架构详解：MCP系统级架构+GUI Agent纯视觉方案+Cloud-Slim混合推理+DeepSeek-V4接入；3000+场景自主执行（90天从200+扩展）；YOYO Claw省50%词元；安卓首创液态玻璃UI；跨应用14步自动化实测；自进化长期全局记忆；Agentic OS完整技术框架7月发布' },
-      { ver:'MagicOS 10 Aug (10.0.170)', date:'2026-08-05', note:'🎉 八月版本七大AI功能升级！YOYO记忆首次支持长视频解析（抖音/B站/小红书/快手/本地视频三指下滑触发→自动生成摘要+分段总结）；荣耀笔记AI语义搜索（自然语言模糊匹配，不再依赖关键词）；AI翻译自动识别语种（无需手动选）；AI侧边栏常用服务固定（高频AI工具置顶零层级触达）；文件管理"我的文件"与"浏览"合并重构；远程协助扩展更多设备；夏日主题（悠悠碧波/沁凉一夏）；三批推送：8/6首批(Magic V6/Magic8/600系列)→8/7二批(Magic V5/Magic7/WIN/500系列)→8/14三批(Magic V3-V Flip2/Magic6/5系列/400-100系列)' }
+      { ver:'MagicOS 10 Aug (10.0.170)', date:'2026-08-05', note:'🎉 八月版本七大AI功能升级！YOYO记忆首次支持长视频解析（抖音/B站/小红书/快手/本地视频三指下滑触发→自动生成摘要+分段总结）；荣耀笔记AI语义搜索（自然语言模糊匹配，不再依赖关键词）；AI翻译自动识别语种（无需手动选）；AI侧边栏常用服务固定（高频AI工具置顶零层级触达）；文件管理"我的文件"与"浏览"合并重构；远程协助扩展更多设备；夏日主题（悠悠碧波/沁凉一夏）；三批推送：8/6首批(Magic V6/Magic8/600系列)→8/7二批(Magic V5/Magic7/WIN/500系列)→8/14三批(Magic V3-V Flip2/Magic6/5系列/400-100系列)' },
+      { ver:'MagicOS 11 剧透第四弹', date:'2026-08-31', note:'🎉 荣耀8月31日发布MagicOS 11提前剧透第四弹——AI窥屏防护覆盖超多机型：智能识别机主身份，他人偷看时弹出"偷看表情包警告"，隐私/社恐福音；设置路径：设置>隐私与安全>窥屏防护；内测招募覆盖Magic8/V6/WIN/GTPro/数字600/MagicPad3Pro等17款手机/平板；MagicOS 11首发荣耀琉光架构(安卓底层重构/液态玻璃功耗近零增长)+荣耀蜂鸟架构(人因流畅/一镜到底全机型流畅)' }
     ],
     links: [
       { label:'June 2026 全文', url:'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' },
@@ -516,7 +528,9 @@ const entries = [
     pros: [
       '升级包可查：vivo.com/en 升级主页列各机型版本',
       'OriginOS 6 流畅：国内口碑"6 到飞起"',
-      '【16.0.29.5】蓝心小V/圈搜/小V记忆AI细节优化：识别准确率提升、语音交互更跟手'
+      '【16.0.29.5】蓝心小V/圈搜/小V记忆AI细节优化：识别准确率提升、语音交互更跟手',
+      '【16.0.14.2】相机 4K Live 动态照片：支持 4K 超清录制与保存动态影像，X300 系列首批（与 vivo S60 同款）',
+      '【OriginOS 7 Beta】视频剪辑导出流畅：重分配性能调度+并行编码线程，长视频/4K 导出等待明显缩短'
     ],
     cons: [
       '海外反馈稀缺：Reddit/XDA 缺功能级深度讨论',
@@ -525,7 +539,8 @@ const entries = [
     quotes: [],
     monthly: [
       { ver:'OriginOS 6.0 16.0.29.5', date:'2026-08-07', note:'vivo/iQOO推送OriginOS 6.0维护更新(16.0.29.5)：延续蓝河流畅引擎，优化后台应用留存(常用APP保活改善、切回不复载)、闲置应用后台管控(夜间待机掉电改善)、游戏/视频温控策略打磨；修复网络断流/通知延迟/锁屏异常/第三方闪退/相机小瑕疵；蓝心小V/圈搜/小V记忆AI细节优化(识别准确率与响应提升)；分批推送X100/X Fold/S系列、iQOO 12/Neo9/Z9/Z10等已升级OriginOS 6机型' },
-      { ver:'iQOO Neo11 至尊版 出厂', date:'2026-08-18', note:'iQOO Neo11 至尊版(8/18发布)出厂预装OriginOS 6.0，5年持久流畅认证；蓝心小V/原子通知(《王者荣耀》接入原子通知)/寰宇电竞Wi-Fi三芯片；同批iQOO Z11S出厂OriginOS 6.0(10000mAh硅碳/天玑7500)' }
+      { ver:'iQOO Neo11 至尊版 出厂', date:'2026-08-18', note:'iQOO Neo11 至尊版(8/18发布)出厂预装OriginOS 6.0，5年持久流畅认证；蓝心小V/原子通知(《王者荣耀》接入原子通知)/寰宇电竞Wi-Fi三芯片；同批iQOO Z11S出厂OriginOS 6.0(10000mAh硅碳/天玑7500)' },
+      { ver:'OriginOS 6.0 16.0.14.2', date:'2026-08-19', note:'🎉 vivo开启OriginOS 6大版本16.0.14.2首批推送（868MB，PD2548_A_16.0.14.2.W10.V000L1）：相机新增4K Live动态照片（4K超清录制保存动态影像），首批X300 Pro/X300/X300s/X300 Ultra（X300 Ultra 8/17 21:55提前开放），X200 Ultra 8/25–8/28分批；覆盖2026全系旗舰；同批OriginOS 7 Beta(8/11推送)已首曝"视频剪辑导出流畅"新特性（重分配性能调度+并行编码线程，长视频/4K导出等待明显缩短）' }
     ],
     links: [
       { label:'vivo 升级包', url:'https://www.vivo.com/en/support/upgradePackageHome' },
@@ -595,7 +610,7 @@ const entries = [
     id: 'apple-ios27', brand: 'apple', status: 'upcoming',
     title: 'iOS 27 · Siri AI 独立 App / Safari AI / Camera Siri 模式 / Gemini-killer Image Playground',
     appType: '系统级 Major Update', aiNote: 'Siri AI / Apple Intelligence 2.0',
-    date: 'WWDC 宣布 (2026-06-08) → Developer Beta 5 (8/10) → 公测版3 (8/11) → 正式版 2026-09',
+    date: 'WWDC 宣布 (2026-06-08) → Developer Beta 5 (8/10) → 公测版4 (8/17) → Beta 7 (8/25) → 正式版 2026-09',
     verdict: 'good', label: '期待值高',
     gist: 'Siri AI 彻底重做（独立 App+屏幕感知），Safari/Mail/Calendar/Image Playground 全面 AI 增强',
     tags: [{t:'WWDC 宣布',c:'tag-upcoming'},{t:'Siri AI',c:'tag-ai'},{t:'Safari AI',c:'tag-ai'},{t:'Image Playground',c:'tag-ai'}],
@@ -635,7 +650,9 @@ const entries = [
       '【Beta 5 新增】Screen Time 重设计：实时查看子女使用情况 + Time Allowances 分类限时 + Ask to Buy/Browse 每次确认 + Communication Safety 模糊暴力内容',
       '【Beta 5 新增】Write with Siri：系统级写作辅助，可匹配个人写作风格、按描述调整语气（休闲/正式）',
       '【Beta 5 新增】Visual Intelligence 扩展：餐食照片→营养成分、传单→多个日历事件、收据→分账、名片→联系人',
-      '【Beta 5 新增】性能 80+ 项改进：App 启动快 30%、AirDrop 快 80%、动画/键盘/主屏/App 资源库加载优化，覆盖 iPhone 11+'
+      '【Beta 5 新增】性能 80+ 项改进：App 启动快 30%、AirDrop 快 80%、动画/键盘/主屏/App 资源库加载优化，覆盖 iPhone 11+',
+      '【Beta 7】Siri AI 候补名单机制：初期权限受限，按服务器状况分批开放（Beta 7 已含相关代码）',
+      '【Beta 7】临近 RC 最后打磨：以 Bug 修复与稳定性优化为主，无肉眼新功能（Siri 响应/灵动岛加载/照片共享相册筛选/续航信号触控优化）'
     ],
     cons: [
       'Siri AI EU 不上线：因监管原因欧洲首发无此功能',
@@ -652,7 +669,8 @@ const entries = [
       { ver:'Beta 5 锁屏/Safari/性能', date:'2026-08-06', note:'锁屏时钟可缩小移至顶部小组件行+AI扩展壁纸+Image Playground生成壁纸+正在播放可滑动移除；Safari紧凑工具栏恢复所有标签页图标+书签/阅读列表/历史图标+标签页自动分类；全局透明度滑块替代清晰/着色切换；闹钟音量与铃声解绑；AirPods自定义EQ；信息返回按钮可隐藏；通话上下文（本地显示航班/订单号）；Screen Time重设计+Time Allowances+Ask to Buy/Browse；Write with Siri系统级写作；Visual Intelligence扩展（餐食营养/传单日历/收据分账/名片联系人）；80+项性能改进（App启动快30%/AirDrop快80%）' },
       { ver:'Developer Beta 5', date:'2026-08-10', note:'Siri 界面配色弱化调整；继续功能打磨与Bug修复；⚠️ 修正：本版并非"功能冻结"（后续公测版3仍有新功能加入）' },
       { ver:'公测版3', date:'2026-08-11', note:'🎉 第三个公测版发布（对应 Developer Beta 5，距公测版2约两周）；Siri AI（ChatGPT/Claude式对话、独立App、屏幕感知、跨App操作）；Liquid Glass 透明度滑块；Visual Intelligence 移入相机（餐食营养/账单分账）；Write with Siri 写作辅助；Safari 标签自动分组；AirPods 自定义EQ；儿童安全（Ask to Browse / Communication Safety / Time Allowances）；多款App图标刷新（Safari/Siri/Remote/Preview）；Siri增强语音新增英式英语；性能：App启动快30%、照片加载快70%、AirDrop快80%；支持 iPhone 11 及以上' },
-      { ver:'Beta 6 / 公测版4 (24A5418b)', date:'2026-08-17', note:'🎉 iOS 27 Beta 6（构建24A5418b）8月17日推送，同日发布公测版4，进入每周一更收尾阶段；修复Beta 5置顶信息(Pinned Messages)显示异常；录屏新增3秒倒计时+控制中心录制指示自动清除；通知横幅新增morph动画（交互后融入通知中心指示）；相机自动夜景模式显示A标识区分手动/自动；Siri图标继续替换Apple Intelligence标识；高级本地听写预览(Advanced Dictation Preview)可在设置开启；AirPlay家庭影院PIN修复、部分Apple Intelligence与神经引擎模型加载修复、CarPlay/相机人像模糊/时钟锁屏等修复；已知问题降至14类、已解决升至74类；RC预计8月底、正式版9月随新iPhone推送' }
+      { ver:'Beta 6 / 公测版4 (24A5418b)', date:'2026-08-17', note:'🎉 iOS 27 Beta 6（构建24A5418b）8月17日推送，同日发布公测版4，进入每周一更收尾阶段；修复Beta 5置顶信息(Pinned Messages)显示异常；录屏新增3秒倒计时+控制中心录制指示自动清除；通知横幅新增morph动画（交互后融入通知中心指示）；相机自动夜景模式显示A标识区分手动/自动；Siri图标继续替换Apple Intelligence标识；高级本地听写预览(Advanced Dictation Preview)可在设置开启；AirPlay家庭影院PIN修复、部分Apple Intelligence与神经引擎模型加载修复、CarPlay/相机人像模糊/时钟锁屏等修复；已知问题降至14类、已解决升至74类；RC预计8月底、正式版9月随新iPhone推送' },
+      { ver:'Beta 7 (24A5424a)', date:'2026-08-25', note:'🎉 iOS 27 第7个开发者测试版（构建24A5424a）8月25日推送，进入 RC 前最后打磨阶段；以 Bug 修复+稳定性优化为主，无肉眼可见新功能：Siri 响应速度提升、灵动岛加载等待动画重打磨、照片共享相册筛选/快捷指令运行逻辑修补、续航控制/信号表现/触控跟手度改善、后台 APP 保活增强；新增 Siri AI 候补名单机制（初期权限按服务器状况分批开放，Beta 7 已含代码）；公测版5 同步推送；RC 预计9月初、正式版随 9月9日 iPhone 发布（约9月15日）' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
@@ -686,7 +704,8 @@ const entries = [
       { ver:'QPR1 Beta 8 (CP31.260623.010)', date:'2026-08-02', note:'修复音频底噪、屏下指纹响应、NFC支付偶发失败、Pixel Tablet 磁吸底座识别问题；稳定版预计9月以 Pixel Feature Drop 形式推送' },
       { ver:'8月安全更新 (CP2A.260805.005)', date:'2026-08-05', note:'🎉 Pixel 8/8Pro/8a/9全系/9a/10全系/10a 获推送；⚠️ Pixel 6/6Pro/6a/7/7Pro/7a 本月被排除！修补CVE-2026-0163(Video Processing Unit高严重提权漏洞)；Pixel 10专属修复：游戏崩溃/GPU性能/触屏无响应；QPR2 Beta 1同步推进：修复蓝牙自动重连/Gemini崩溃/通知消失/UI模糊重置' },
       { ver:'QPR2 Beta 3 (CP41.260731.005)', date:'2026-08-14', note:'🔒 新增反通话呼叫转移诈骗安全限制：sendUssdRequest() API 无法再用 CALL_PHONE 权限执行呼叫转移码（后台被拦截返回 USSD_ERROR_NOT_ALLOWED），系统拨号器手动拨打时新增系统级确认弹窗；修复通知栏/快捷设置视觉损坏+意外重启(Issue #535249652/#543124160)、Device Health 误报电池容量衰减警告；覆盖 Pixel 6a–10 系列（Pixel 11 系列预购期暂不包含）' },
-      { ver:'QPR2 Beta 2', date:'2026-08-19', note:'🎉 Android 16 QPR2 Beta 2达平台稳定性(Platform Stability)；含9月安全补丁；新增开发者验证(Developer Verification，2026-09起部分地区仅限已验证开发者发布App方可安装)、SMS OTP保护(含retriever hash短信延迟≤3小时)、自定义App图标形状+文件夹预览、Health Connect自动步数追踪+运动数据扩展；垃圾回收优化；覆盖Pixel 6至10系列' }
+      { ver:'QPR2 Beta 2', date:'2026-08-19', note:'🎉 Android 16 QPR2 Beta 2达平台稳定性(Platform Stability)；含9月安全补丁；新增开发者验证(Developer Verification，2026-09起部分地区仅限已验证开发者发布App方可安装)、SMS OTP保护(含retriever hash短信延迟≤3小时)、自定义App图标形状+文件夹预览、Health Connect自动步数追踪+运动数据扩展；垃圾回收优化；覆盖Pixel 6至10系列' },
+      { ver:'QPR2 稳定版启动推送', date:'2026-08-28', note:'🎉 QPR2 稳定版开始分批推送 Pixel 6–10 系列及 Pixel Tablet/Fold：更智能通知（AI 摘要+低优先级自动分组静音）、Material 3 Expressive 新图标形状/扩展深色模式、锁屏/快捷设置/连接控制打磨；开发者验证 9月起部分地区生效、SMS OTP 保护（含 retriever hash 短信延迟≤3小时）、Health Connect 自动步数追踪' }
     ],
     links: [
       { label:'Android 17 Release Notes', url:'https://developer.android.com/about/versions/17/release-notes' },
