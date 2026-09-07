@@ -281,12 +281,14 @@ const entries = [
     ],
     quotes: [],
     monthly: [
-      { ver:'iOS 26.6 (23G71)', date:'2026-07-28', note:'正式版全量推送；错误修复、安全性更新、Spotlight索引优化，为iOS 27铺路' }
+      { ver:'iOS 26.6 (23G71)', date:'2026-07-28', note:'正式版全量推送；错误修复、安全性更新、Spotlight索引优化，为iOS 27铺路' },
+      { ver:'iOS 26.5.2', date:'2026-06-29', note:'安全更新：修复约25+项WebKit与Kernel漏洞（CVE-2026-43701/43724/43722等），涵盖越界写入、UAF、剪贴板劫持等；无新功能，建议所有支持设备升级' }
     ],
     links: [
       { label:'iClarified 发布说明', url:'https://www.iclarified.com/101598/apple-officially-releases-ios-266-and-ipados-266-download' },
       { label:'Heise 报道', url:'https://www.heise.de/en/news/iOS-26-6-macOS-26-6-and-more-apple-releases-new-operating-systems-11379591.html' },
-      { label:'Mashable 解读', url:'https://in.mashable.com/tech/112299/what-is-ios-266-apple-releases-new-iphone-update-with-security-patches-for-iphone-11-and-later-model' }
+      { label:'Mashable 解读', url:'https://in.mashable.com/tech/112299/what-is-ios-266-apple-releases-new-iphone-update-with-security-patches-for-iphone-11-and-later-model' },
+      { label:'Apple 安全通告 iOS 26.5.2', url:'https://support.apple.com/zh-cn/127594' }
     ]
   },
   {
@@ -389,7 +391,8 @@ const entries = [
       { ver:'HyperOS 3 八月更新', date:'2026-08-01', note:'超级岛支持麦当劳取餐码、备忘录优化、家人守护、屏幕共享隐私模式、录音机修复；HyperOS 4 预计8月内测' },
       { ver:'🎉 HyperOS 4 官宣', date:'2026-08-01', note:'小米官方7月31日发布HyperOS 4.0宣传海报！8月上旬启动首批稳定版灰度推送。核心底层Rust语言重写（自研代码占比75%→90%），"零遗留"清理MIUI时代冗余代码；空闲内存占用降28%、后台保活提升35%、连续365天流畅衰减仅5%、整体流畅度提升40%、内存管理提升30%；液态玻璃设计语言+2.5D图标+AI浮岛+AI配色+前摄主动AI感知；首批推送小米17系列+Redmi K90，小米18系列出厂预装；分三批推送（旗舰完整版/中端标准版/老机型轻量化版）' },
       { ver:'澎湃OS 4.0 正式版预告', date:'2026-08-22', note:'📱 官方披露下半年排期：雷军年度演讲(8月中下旬)将同步推送澎湃OS 4.0正式版，并发布小米MIX Fold5阔折叠旗舰(玄戒O3/徕卡影像/6000mAh)与Redmi K100标准版；HyperOS 4(澎湃OS 4.0)以Rust重写核心/零遗留/液态玻璃/AI浮岛成为小米年度系统大版本，首批机型小米17系列+Redmi K90' },
-      { ver:'HyperOS 4 Beta 招募', date:'2026-08-14', note:'🎉 小米8月14日公布澎湃OS 4并启动首批Beta招募；REDMI K100 Pro/Pro Max 出厂即预装澎湃OS 4稳定版（未进Beta首批因新品优先保稳定），官方"答网友问"明确：Beta 第三批 9月17日起向 K100 Pro 系列开放，正式版 K100 系列为首批支持；小米17全系/REDMI K90系列/K100系列首批Beta公测；新系统液态玻璃视觉+AI浮岛+Mimo端侧大模型+超级小爱智能体，分三批推送（8月发布后旗舰→9-10月中端→明年初入门）' }
+      { ver:'HyperOS 4 Beta 招募', date:'2026-08-14', note:'🎉 小米8月14日公布澎湃OS 4并启动首批Beta招募；REDMI K100 Pro/Pro Max 出厂即预装澎湃OS 4稳定版（未进Beta首批因新品优先保稳定），官方"答网友问"明确：Beta 第三批 9月17日起向 K100 Pro 系列开放，正式版 K100 系列为首批支持；小米17全系/REDMI K90系列/K100系列首批Beta公测；新系统液态玻璃视觉+AI浮岛+Mimo端侧大模型+超级小爱智能体，分三批推送（8月发布后旗舰→9-10月中端→明年初入门）' },
+      { ver:'HyperOS 3 应用商店月更', date:'2026-09', note:'相册4.3.0.20(首页自定义)、日历/时钟/计算器/录音体验更新9月推送；AI录音机/AI写作仅部分机型；超级小爱V7.7深度研究/圈屏9月底自升级；浏览器体验9月中上旬支持。此前6月 HyperOS 3.0.306.0 修复小米17 Ultra相机卡顿与17 Pro Max过热' }
     ],
     links: [
       { label:'NokiaMob 清单', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' },
@@ -595,7 +598,8 @@ const entries = [
       { ver:'Beta 4 (S948BXXU4ZZG4)', date:'2026-07-14', note:'~1.25GB 修复包；含7月5日安全补丁；修复锁屏横竖屏时钟异常、隐私显示快捷开关失效、游戏导航栏消失、快捷面板性能、实时通知计时器截断、车载蓝牙音量Routine等6项问题' },
       { ver:'稳定版 (One UI 9.0)', date:'2026-07-22', note:'🎉 Galaxy Unpacked 2026伦敦正式发布！预载 Z Fold 8/Ultra/Flip 8 首发；Gemini Intelligence/Gemini Notebook/Now Nudge/My FanCam/Photo Assist 正式上线；Quick Share兼容AirDrop；Warranty&Care Hub；Foreign Material Detection；AI Assistant Activity仪表盘；蓝色状态栏隐私指示器' },
       { ver:'Beta 5 (S948BXXU4ZZH6)', date:'2026-08-12', note:'📦 S26系列第五个Beta（距Beta 4约一个月），~1.1GB；8项修复：设置App白屏/冻结、锁屏相机组件慢/黑屏、Phone底部悬浮栏错位、My Files最近文件空白、桌面1×1快捷方式、视频/照片编辑器预览错位闪烁、间歇性屏幕闪烁、Wi-Fi连接错误；含8月安全补丁(56项漏洞：38 Google+18 Samsung)；推送韩国/印度/波兰/德国/英国。⚠️ 修正：S26系列仍未转稳定版（上期"8月灰度推送"信息有误），继续Beta；One UI 9.5已在测试服务器出现，预计随Galaxy S27系列2027年初发布' },
-      { ver:'One UI 9.5 开发泄露', date:'2026-08-17', note:'📱 基于Android 17的One UI 9.5早期固件现身Galaxy S26（S942BXXU4CZH9）与未发布S27 Ultra（AZH3）；新增原生AppLock应用锁（密码/生物识别锁定单App，无需安全文件夹）；玻璃质感视觉语言（悬浮标签栏/Now Brief更亮边框+投影）；多年未改的指纹注册界面重设计；相机UI打磨（弹出菜单圆角/模糊降级、S26基础款原生24MP模式开关）；电话App搜索移至底部悬浮栏；S26当前出厂One UI 8.5，One UI 9稳定版预计8月底向S26推送，9.5公开Beta可能年底面向S26' }
+      { ver:'One UI 9.5 开发泄露', date:'2026-08-17', note:'📱 基于Android 17的One UI 9.5早期固件现身Galaxy S26（S942BXXU4CZH9）与未发布S27 Ultra（AZH3）；新增原生AppLock应用锁（密码/生物识别锁定单App，无需安全文件夹）；玻璃质感视觉语言（悬浮标签栏/Now Brief更亮边框+投影）；多年未改的指纹注册界面重设计；相机UI打磨（弹出菜单圆角/模糊降级、S26基础款原生24MP模式开关）；电话App搜索移至底部悬浮栏；S26当前出厂One UI 8.5，One UI 9稳定版预计8月底向S26推送，9.5公开Beta可能年底面向S26' },
+      { ver:'One UI 9.0 国行稳定版', date:'2026-08-20', note:'国行S25/Z Fold7/Z Flip7 8月20至23日首发推送（672MB，基于Android 17，含2026年8月安全补丁：修复23项高危与6项Exynos调制解调器补丁）；9月5日S24系列、9月20日S23系列、10至11月A/M系列分批；引入防回滚熔断机制（降级将禁用Samsung Pay与生物识别支付）；隐私仪表板升级为7天敏感权限时间轴；视频续航提升约4%（19.4小时）；8月28日首发热修补丁修复部分S25指纹识别延迟' }
     ],
     links: [
       { label:'Samsung 官方 One UI 9', url:'https://www.samsung.com/us/apps/one-ui' },
@@ -740,12 +744,14 @@ const entries = [
     ],
     quotes: [],
     monthly: [
+      { ver:'相册 4.3.0.20', date:'2026-09', note:'HyperOS 3 相册新版：首页与影集页支持自定义布局（按使用习惯组织相册），需升级至4.3.0.20及以上版本，预计9月底通过应用商店推送' },
       { ver:'v5.0.7.0-0618-R', date:'2026-07-01', note:'底层加载重构、AI工具统一入口、批量编辑、浅色模式、动态照片编辑保留动态效果、大量Bug修复' }
     ],
     links: [
       { label:'HyperOS Gallery APK', url:'https://memeosupdates.com/apps/com.miui.gallery/5000700' },
       { label:'HyperOS App Updates', url:'https://hyperosupdates.com/latest-apps' },
-      { label:'NokiaMob HyperOS 3', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' }
+      { label:'NokiaMob HyperOS 3', url:'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' },
+      { label:'Xiaomi HyperOS 3 官方', url:'https://hyperos.mi.com/' }
     ]
   }
 ];

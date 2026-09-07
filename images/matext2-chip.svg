@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720">
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f7e3a1"/><stop offset="100%" stop-color="#a87c2e"/></linearGradient>
+    <linearGradient id="r4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff5a64"/><stop offset="100%" stop-color="#c4161c"/></linearGradient>
+    <radialGradient id="bg4" cx="50%" cy="45%" r="70%"><stop offset="0%" stop-color="#160a11"/><stop offset="100%" stop-color="#07060c"/></radialGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg4)"/>
+
+  <text x="600" y="70" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#f0e8f5" letter-spacing="2">麒麟 9050 Pro · 逻辑折叠</text>
+  <text x="600" y="104" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#b8a8c8" letter-spacing="2">晶圆对晶圆混合键合 · 双层垂直堆叠 · 不依赖更先进光刻</text>
+
+  <!-- two stacked dies -->
+  <g transform="translate(600 400)">
+    <rect x="-200" y="-60" width="400" height="130" rx="14" fill="#1a0e16" stroke="url(#g4)" stroke-width="3"/>
+    <rect x="-200" y="80" width="400" height="130" rx="14" fill="#150b12" stroke="url(#r4)" stroke-width="3"/>
+    <text x="-180" y="-10" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#d4a853">TOP DIE · 逻辑层</text>
+    <text x="-180" y="135" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#ff6b7a">BOTTOM DIE · 计算层</text>
+    <!-- bond lines -->
+    <g stroke="#d4a853" stroke-width="2" opacity="0.8">
+      <line x1="-160" y1="70" x2="-160" y2="80"/><line x1="-80" y1="70" x2="-80" y2="80"/>
+      <line x1="0" y1="70" x2="0" y2="80"/><line x1="80" y1="70" x2="80" y2="80"/>
+      <line x1="160" y1="70" x2="160" y2="80"/>
+    </g>
+    <text x="0" y="180" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#8b7a98">Hybrid Bonding · 垂直互连</text>
+  </g>
+
+  <!-- stat chips -->
+  <g font-family="Helvetica, Arial, sans-serif" fill="#f0e8f5">
+    <text x="250" y="250" text-anchor="middle" font-size="40" font-weight="800" fill="url(#r4)">+55%</text>
+    <text x="250" y="278" text-anchor="middle" font-size="13" fill="#b8a8c8">晶体管密度</text>
+    <text x="600" y="250" text-anchor="middle" font-size="40" font-weight="800" fill="url(#g4)">2.38亿</text>
+    <text x="600" y="278" text-anchor="middle" font-size="13" fill="#b8a8c8">个/mm²</text>
+    <text x="950" y="250" text-anchor="middle" font-size="40" font-weight="800" fill="url(#r4)">-66%</text>
+    <text x="950" y="278" text-anchor="middle" font-size="13" fill="#b8a8c8">NPU 同性能功耗</text>
+  </g>
+</svg>

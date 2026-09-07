@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华为 Mate XT 2 非凡大师 · HarmonyOS 7 发布会报告</title>
+<style>
+  :root {
+    --bg: #07060c;
+    --bg-light: #0e0810;
+    --red: #c4161c;
+    --red-glow: rgba(196, 22, 28, 0.38);
+    --gold: #d4a853;
+    --gold-glow: rgba(212, 168, 83, 0.30);
+    --text: #f3ecf2;
+    --text-dim: #c2b2c6;
+    --text-muted: #83748a;
+    --card: rgba(255, 255, 255, 0.035);
+    --border: rgba(255, 255, 255, 0.09);
+    --grad: linear-gradient(135deg, #f7e3a1 0%, #d4a853 28%, #c4161c 70%, #8b1a1f 100%);
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --serif: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* gold particle field */
+  .field { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .field span {
+    position: absolute;
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px var(--gold-glow);
+    animation: float linear infinite;
+  }
+  .field span.r { background: var(--red); box-shadow: 0 0 8px var(--red-glow); }
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0); opacity: .2; }
+    50% { opacity: .9; }
+    100% { transform: translateY(-120vh) translateX(20px); opacity: 0; }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 86vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center;
+    padding: 80px 24px 110px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(680px 460px at 28% 38%, rgba(196,22,28,0.18), transparent 60%),
+      radial-gradient(560px 360px at 78% 30%, rgba(212,168,83,0.14), transparent 58%),
+      radial-gradient(440px 300px at 52% 82%, rgba(196,22,28,0.10), transparent 55%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px;
+    background: linear-gradient(to top, var(--bg), transparent);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 880px; }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.34em; color: var(--gold);
+    font-weight: 600; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 60px; font-weight: 700; line-height: 1.08;
+    margin-bottom: 20px; color: var(--text);
+  }
+  .hero h1 .g {
+    background: var(--grad);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-sub {
+    font-size: 16px; color: var(--text-dim); line-height: 1.8;
+    max-width: 660px; margin: 0 auto 30px;
+  }
+  .hero-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .hero-chips span {
+    font-size: 12px; color: var(--text-dim);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 6px 16px; border-radius: 999px;
+  }
+  .hero-chips span.gold {
+    background: rgba(212,168,83,0.14);
+    border-color: rgba(212,168,83,0.35); color: #f0d9a0;
+  }
+  .hero-chips span.red {
+    background: rgba(196,22,28,0.16);
+    border-color: rgba(196,22,28,0.34); color: #ff7d88;
+  }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; position: relative; z-index: 1; }
+
+  /* BENTO */
+  .bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 44px 0 52px; }
+  .bt {
+    background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+    padding: 24px; display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .bt:hover { transform: translateY(-4px); border-color: rgba(212,168,83,0.34); }
+  .bt::before {
+    content: ''; position: absolute; top: -50%; right: -30%; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(212,168,83,0.12), transparent 70%); pointer-events: none;
+  }
+  .bt-hero {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(196,22,28,0.12), rgba(212,168,83,0.08));
+    border: 1px solid rgba(212,168,83,0.22); padding: 30px 28px;
+  }
+  .bt-lab { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .bt-num { font-size: 44px; font-weight: 800; line-height: 1; color: var(--red); margin: 4px 0 8px; text-shadow: 0 0 30px var(--red-glow); }
+  .bt-num span { font-size: 18px; font-weight: 500; color: var(--text-dim); margin-left: 4px; }
+  .bt-val { font-size: 13px; color: var(--text-muted); }
+  .bt-hero .bt-headline {
+    font-family: var(--serif); font-size: 27px; font-weight: 700; line-height: 1.35;
+    color: var(--text); margin-bottom: 10px;
+  }
+  .bt-hero .bt-headline strong { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bt-hero .bt-sub { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+
+  /* CHAPTER */
+  .chapter { margin: 58px 0 16px; position: relative; }
+  .ch-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .ch-star {
+    width: 46px; height: 46px; flex-shrink: 0; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ch-star svg { width: 100%; height: 100%; }
+  .ch-star-num {
+    position: absolute; font-family: var(--serif); font-size: 16px; font-weight: 700;
+    color: var(--gold);
+  }
+  .ch-kick { font-size: 11px; letter-spacing: 0.24em; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+  .ch-title { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 1.3; color: var(--text); margin-bottom: 12px; }
+  .ch-intro { font-size: 15px; color: var(--text-dim); line-height: 1.8; margin-bottom: 18px; }
+
+  /* FEAT */
+  .feat {
+    background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+    padding: 24px; margin: 20px 0; position: relative; overflow: hidden;
+  }
+  .feat::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--grad); opacity: 0.85;
+  }
+  .f-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+  .f-idx {
+    font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--gold);
+    border: 1px solid rgba(212,168,83,0.4); border-radius: 6px; padding: 1px 8px;
+  }
+  .f-tag { font-size: 11px; color: var(--text-muted); background: rgba(255,255,255,0.05); border-radius: 999px; padding: 2px 10px; }
+  .feat h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; line-height: 1.4; }
+  .feat p { font-size: 14.5px; color: var(--text-dim); line-height: 1.85; margin-bottom: 10px; }
+  .feat p strong { color: #ffd9a0; font-weight: 700; }
+
+  .cols { display: grid; grid-template-columns: 300px 1fr; gap: 22px; align-items: start; margin-top: 8px; }
+  .cols .fig { margin: 0; }
+  figure.fig { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #0c0710; }
+  figure.fig img { width: 100%; display: block; cursor: zoom-in; transition: transform 0.4s ease; }
+  figure.fig:hover img { transform: scale(1.03); }
+  figure.fig figcaption { font-size: 12.5px; color: var(--text-muted); padding: 10px 12px; line-height: 1.6; background: rgba(0,0,0,0.25); }
+  .m-badge {
+    position: absolute; top: 10px; left: 10px; font-size: 10.5px; font-weight: 700;
+    color: #1a0d12; background: var(--gold); padding: 3px 9px; border-radius: 999px; letter-spacing: 0.05em;
+  }
+
+  .note { border-radius: 14px; padding: 18px 20px; margin: 18px 0; display: flex; gap: 14px; align-items: flex-start; }
+  .note-l {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; flex-shrink: 0;
+    padding: 4px 10px; border-radius: 8px; text-transform: uppercase;
+  }
+  .note-c { background: rgba(212,168,83,0.08); border: 1px solid rgba(212,168,83,0.25); }
+  .note-c .note-l { color: var(--gold); background: rgba(212,168,83,0.14); }
+  .note-a { background: rgba(196,22,28,0.08); border: 1px solid rgba(196,22,28,0.28); }
+  .note-a .note-l { color: #ff7d88; background: rgba(196,22,28,0.16); }
+  .note-t { font-size: 14px; color: var(--text-dim); line-height: 1.8; }
+  .note-t strong { color: #ffd9a0; }
+
+  .spec-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+  .spec-table th, .spec-table td { border: 1px solid var(--border); padding: 9px 12px; text-align: left; color: var(--text-dim); }
+  .spec-table th { background: rgba(212,168,83,0.08); color: var(--gold); font-weight: 600; }
+  .spec-table td:first-child { color: var(--text); font-weight: 600; }
+
+  /* KEY TAKEAWAYS */
+  .kt-wrap { margin-top: 60px; text-align: center; margin-bottom: 30px; }
+  .kt-kick { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .kt-title { font-family: var(--serif); font-size: 32px; font-weight: 700; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .take { display: flex; gap: 18px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; margin-bottom: 14px; }
+  .take-n { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--red); flex-shrink: 0; text-shadow: 0 0 22px var(--red-glow); }
+  .take-b h3 { font-family: var(--serif); font-size: 18px; color: var(--text); margin-bottom: 6px; }
+  .take-b p { font-size: 14px; color: var(--text-dim); line-height: 1.8; }
+
+  footer { text-align: center; padding: 40px 24px 60px; color: var(--text-muted); font-size: 12.5px; position: relative; z-index: 1; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* LIGHTBOX */
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(4,3,8,0.94); z-index: 999;
+    display: none; align-items: center; justify-content: center; padding: 40px;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img { max-width: 92%; max-height: 88%; border-radius: 12px; box-shadow: 0 20px 80px rgba(0,0,0,0.6); }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 38px; }
+    .bento { grid-template-columns: 1fr; }
+    .bt-hero { grid-column: span 1; }
+    .cols { grid-template-columns: 1fr; }
+    .ch-title { font-size: 24px; }
+    .bt-hero .bt-headline { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="field" id="field"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026 · 09 · 07　广州大湾区文化体育中心　|　HarmonyOS 7 发布会</div>
+    <h1>华为 Mate XT 2 非凡大师<br>与 <span class="g">HarmonyOS 7</span> 同台</h1>
+    <div class="hero-sub">华为时隔六年重启全球发布会：三折叠 + 阔直板双形态齐发，麒麟 9050 Pro 逻辑折叠芯片领衔，小艺升级为系统级智能体中枢。折叠屏「三国杀」正式开场。</div>
+    <div class="hero-chips">
+      <span class="gold">麒麟 9050 Pro</span>
+      <span class="red">展翼三折叠 3.5mm</span>
+      <span class="gold">灵盾硬件防窥屏</span>
+      <span class="red">HarmonyOS 7</span>
+      <span>刘德华 品牌大使</span>
+      <span>¥ 2 万+ 起</span>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+
+  <div class="bento">
+    <div class="bt bt-hero">
+      <div class="bt-headline">三折叠形态再进化 + <strong>鸿蒙 7 智能体</strong> 双线齐发</div>
+      <div class="bt-sub">Mate XT 2 以「展翼」U 型双内折取代前代 Z 型折叠，展开仅 3.5mm；同步带来全球首款阔直板 Pura X View 与 HarmonyOS 7。华为以自研芯片 + 自研系统组合，在折叠屏高端市场正面迎战苹果与小米。</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">展开厚度</div>
+      <div class="bt-num">3.5<span>mm</span></div>
+      <div class="bt-val">Mate XT 2 展开态 · 业界最薄折叠屏</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">峰值亮度</div>
+      <div class="bt-num">6500<span>nits</span></div>
+      <div class="bt-val">Pura X View 阔直板 · 1,000,000:1 对比度</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">电池容量</div>
+      <div class="bt-num">7000<span>mAh</span></div>
+      <div class="bt-val">Pura X View · 机身仅 6.68mm / 201g</div>
+    </div>
+    <div class="bt">
+      <div class="bt-lab">系统智能体</div>
+      <div class="bt-num">小艺<span>Agent</span></div>
+      <div class="bt-val">HarmonyOS 7 · 系统级中枢 · 20亿+ 场景学习</div>
+    </div>
+  </div>
+
+  <!-- Chapter 01 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-star">
+        <svg viewBox="0 0 46 46" fill="none"><polygon points="23,3 28,18 44,18 31,28 35,44 23,34 11,44 15,28 2,18 18,18" fill="url(#s1)" opacity="0.92"/><defs><linearGradient id="s1" x1="0" y1="0" x2="46" y2="46"><stop offset="0%" stop-color="#d4a853"/><stop offset="100%" stop-color="#c4161c"/></linearGradient></defs></svg>
+        <span class="ch-star-num">01</span>
+      </div>
+      <span class="ch-kick">FORM · DESIGN</span>
+    </div>
+    <h2 class="ch-title">展翼三折叠：从 Z 型到 U 型双内折</h2>
+    <p class="ch-intro">Mate XT 2 摒弃前代 Z 型折叠，改用 U 型双内折「展翼」结构，左右双翼向内收拢，主屏完全包裹于机身内部——解决了一代机型的折痕与防护痛点。</p>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">形态</span><span class="f-tag">行业首发</span></div>
+      <h3>U 型双内折：主屏零外露，防护结构性升级</h3>
+      <div class="cols">
+        <figure class="fig">
+          <img src="../images/matext2-fold.svg" onclick="openLightbox(this.src)" alt="展翼三折叠结构示意" loading="lazy">
+          <figcaption>Mate XT 2「展翼」三折叠结构 · 双翼向内收拢、主屏包裹于机身内部</figcaption>
+          <span class="m-badge">形态重构</span>
+        </figure>
+        <div>
+          <p>前代 Mate XT 采用 Z 型折叠，外屏长期暴露、折痕明显。Mate XT 2 改为 <strong>U 型双内折</strong>，左右两翼向内对折，主屏在折叠态被完整包裹，既保护屏幕，也消除了侧边缝隙藏污纳垢的隐患。</p>
+          <p>机身首次增设<strong>独立外屏</strong>，折叠状态下即可完成扫码、回消息等高频操作，无需展开——这对三折叠的日常可用性是关键补强。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">工艺</span><span class="f-tag">轻薄</span></div>
+      <h3>极致轻薄：展开 3.5mm，余承东称「业界最薄」</h3>
+      <p>展开态厚度仅 <strong>3.5mm</strong>，折叠态比上一代薄 0.5mm。配合超可靠三折叠玄武架构，可应对高温喷淋等严苛测试。在「三折叠 + 大屏」的组合下，这个厚度是结构工程的显著进步。</p>
+      <div class="note note-c">
+        <span class="note-l">点评</span>
+        <div class="note-t">三折叠的难点从来不是「能折」，而是折完之后还能薄、还能耐用、还能日常用。Mate XT 2 在形态上的核心进步是「内折护屏 + 外屏补高频操作」，这比单纯的参数堆叠更有实用价值。但三折叠的铰链复杂度与维修成本仍是潜在隐忧，耐用性需等长期评测验证。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 02 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-star">
+        <svg viewBox="0 0 46 46" fill="none"><polygon points="23,3 28,18 44,18 31,28 35,44 23,34 11,44 15,28 2,18 18,18" fill="url(#s2)" opacity="0.92"/><defs><linearGradient id="s2" x1="0" y1="0" x2="46" y2="46"><stop offset="0%" stop-color="#d4a853"/><stop offset="100%" stop-color="#c4161c"/></linearGradient></defs></svg>
+        <span class="ch-star-num">02</span>
+      </div>
+      <span class="ch-kick">PRIVACY</span>
+    </div>
+    <h2 class="ch-title">灵盾硬件防窥屏：折叠屏隐私的硬件解法</h2>
+    <p class="ch-intro">Mate XT 2 首发硬件级灵盾防窥屏，双击外屏即可开启，从物理层面限制侧视角度——与三星 Galaxy S26 Ultra 的 Privacy Display 正面同赛道。</p>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">防窥</span><span class="f-tag">硬件级</span></div>
+      <h3>双击开启，侧面视角有效阻隔，正面观感不受影响</h3>
+      <div class="cols">
+        <figure class="fig">
+          <img src="../images/matext2-privacy.svg" onclick="openLightbox(this.src)" alt="灵盾防窥屏原理" loading="lazy">
+          <figcaption>灵盾防窥屏：正面清晰可见，侧面视角内容遮蔽</figcaption>
+        </figure>
+        <div>
+          <p>传统软件防窥依赖模糊或隐藏，体验割裂。华为的<strong>灵盾防窥屏</strong>是<strong>硬件级</strong>方案：通过屏幕光学结构限制侧方视角，正面观看清晰如常，旁人从侧面（地铁、电梯、咖啡馆）则看不到内容。</p>
+          <p>此前该技术已用于 MateBook Pro S，本次<strong>首次下放至手机端</strong>。可在输入 PIN / 图案 / 密码或通知弹窗出现时选择性开启，亦可指定单应用生效。</p>
+        </div>
+      </div>
+      <div class="note note-a">
+        <span class="note-l">竞争视角</span>
+        <div class="note-t">2026 年「防窥」成为旗舰刚需：三星 S26 Ultra 用 Privacy Display、华为用灵盾防窥屏、苹果尚未在硬件层跟进。三家路径一致——<strong>把隐私从「软件提醒」升级为「物理不可见」</strong>。对常处公共空间的用户，这项功能的实际价值高于多数跑分参数。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 03 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-star">
+        <svg viewBox="0 0 46 46" fill="none"><polygon points="23,3 28,18 44,18 31,28 35,44 23,34 11,44 15,28 2,18 18,18" fill="url(#s3)" opacity="0.92"/><defs><linearGradient id="s3" x1="0" y1="0" x2="46" y2="46"><stop offset="0%" stop-color="#d4a853"/><stop offset="100%" stop-color="#c4161c"/></linearGradient></defs></svg>
+        <span class="ch-star-num">03</span>
+      </div>
+      <span class="ch-kick">SILICON</span>
+    </div>
+    <h2 class="ch-title">麒麟 9050 Pro：逻辑折叠，国产芯片的进阶信号</h2>
+    <p class="ch-intro">Mate XT 2 搭载全球首款采用「逻辑折叠」技术的麒麟 9050 Pro，通过晶圆对晶圆混合键合将单层平面重构为双层垂直堆叠，不依赖更先进光刻工艺即实现性能突破。</p>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">芯片</span><span class="f-tag">封装创新</span></div>
+      <h3>晶圆对晶圆混合键合：垂直堆叠，绕过光刻瓶颈</h3>
+      <div class="cols">
+        <figure class="fig">
+          <img src="../images/matext2-chip.svg" onclick="openLightbox(this.src)" alt="麒麟9050 Pro 逻辑折叠" loading="lazy">
+          <figcaption>麒麟 9050 Pro · 逻辑折叠（晶圆对晶圆混合键合）双 die 垂直堆叠</figcaption>
+          <span class="m-badge">自研</span>
+        </figure>
+        <div>
+          <p>麒麟 9050 Pro 的核心创新是<strong>逻辑折叠（Logic Fold）</strong>：用<strong>晶圆对晶圆（Wafer-on-Wafer）混合键合</strong>将传统单层平面设计重构为双层垂直堆叠架构。在不依赖更先进光刻工艺的前提下，晶体管密度提升约 <strong>55%</strong>（达每平方毫米 2.38 亿个）。</p>
+          <p>9 月 4 日何庭波发布的「韬定律」第三篇论文，以麒麟 2026 实测数据显示：同等性能下 NPU / GPU / CPU 功耗分别下降 <strong>66% / 58% / 41%</strong>，正面回应了外界对 3D 堆叠发热的质疑，并带动半导体设备指数当日午间涨超 3%。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">能效</span><span class="f-tag">功耗</span></div>
+      <h3>同性能功耗大降，3D 堆叠的散热质疑被数据推翻</h3>
+      <p>论文给出的实测结论是：在提供相同算力时，<strong>NPU 功耗降 66%、GPU 降 58%、CPU 降 41%</strong>。这意味着麒麟 9050 Pro 在 AI 推理、图形与通用计算上都能以更低发热达成既往性能，直接利好三折叠这种散热受限形态。</p>
+      <div class="note note-c">
+        <span class="note-l">点评</span>
+        <div class="note-t">「逻辑折叠」是一条与台积电 2nm 正面不同的技术路线——不卷最先进制程，而卷封装与堆叠。对华为而言，这是在地缘约束下维持旗舰芯片竞争力的务实解法。但实验室数据与量产机的持续高负载表现仍有差距，真机散热还需等上市评测。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 04 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-star">
+        <svg viewBox="0 0 46 46" fill="none"><polygon points="23,3 28,18 44,18 31,28 35,44 23,34 11,44 15,28 2,18 18,18" fill="url(#s4)" opacity="0.92"/><defs><linearGradient id="s4" x1="0" y1="0" x2="46" y2="46"><stop offset="0%" stop-color="#d4a853"/><stop offset="100%" stop-color="#c4161c"/></linearGradient></defs></svg>
+        <span class="ch-star-num">04</span>
+      </div>
+      <span class="ch-kick">HARMONYOS 7</span>
+    </div>
+    <h2 class="ch-title">HarmonyOS 7：小艺从语音助手升级为系统级智能体</h2>
+    <p class="ch-intro">HarmonyOS 7 标志鸿蒙迈入「Agent 时代」：方舟引擎融入基于 20 亿+ 场景学习数据训练的性能大模型，小艺成为可编排多步任务的系统级中枢。</p>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">智能体</span><span class="f-tag">小艺</span></div>
+      <h3>小艺中枢：跨设备流转 + 主动服务 + 多步任务编排</h3>
+      <div class="cols">
+        <figure class="fig">
+          <img src="../images/matext2-os.svg" onclick="openLightbox(this.src)" alt="HarmonyOS 7 小艺智能体" loading="lazy">
+          <figcaption>HarmonyOS 7 · 小艺系统级智能体中枢连接跨设备与系统能力</figcaption>
+        </figure>
+        <div>
+          <p>小艺不再是单纯的语音唤醒工具，而是<strong>系统级智能体中枢</strong>：可理解意图、串联手机 / 平板 / 车机能力，并<strong>编排多步任务</strong>（如「规划行程并同步到车机」）。这与 Apple Intelligence、Galaxy AI 的 Agent 化方向一致，是 2026 年旗舰系统的共同主线。</p>
+          <p>性能大模型基于 <strong>20 亿+ 场景学习数据</strong>训练，可根据用户习惯智能调度系统资源，提升流畅度与续航。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">07</span><span class="f-tag">存储</span><span class="f-tag">性能</span></div>
+      <h3>超空间存储 + 方舟引擎：256GB 机型最多省 22GB</h3>
+      <p>方舟存储引擎采用<strong>超空间存储技术</strong>，通过数据去重与压缩释放空间：从 HarmonyOS 6 升级后，<strong>256GB 机型最多可节省 22GB，512GB 省 51GB，1TB 省 109GB</strong>。系统今日已开启首批公测，覆盖手机、平板等数十款机型。</p>
+      <div class="note note-a">
+        <span class="note-l">购买启示</span>
+        <div class="note-t">HarmonyOS 7 的「超空间存储」对 256GB 小容量用户是实打实的利好——<strong>同等硬件下可用空间多出 22GB</strong>，相当于变相延长了换机周期。这也是华为在「系统级差异化」上的典型打法：不堆硬件，而是把软件体验做厚。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 05 -->
+  <div class="chapter">
+    <div class="ch-meta">
+      <div class="ch-star">
+        <svg viewBox="0 0 46 46" fill="none"><polygon points="23,3 28,18 44,18 31,28 35,44 23,34 11,44 15,28 2,18 18,18" fill="url(#s5)" opacity="0.92"/><defs><linearGradient id="s5" x1="0" y1="0" x2="46" y2="46"><stop offset="0%" stop-color="#d4a853"/><stop offset="100%" stop-color="#c4161c"/></linearGradient></defs></svg>
+        <span class="ch-star-num">05</span>
+      </div>
+      <span class="ch-kick">PURA X VIEW</span>
+    </div>
+    <h2 class="ch-title">Pura X View：全球首款「阔直板」，16:9.5 宽屏新形态</h2>
+    <p class="ch-intro">与三折叠同场，华为还带来全球首款「阔直板」手机 Pura X View——16:9.5 阔型直屏，主打宽屏交互与超长续航，与 Mate XT 2 形成形态互补。</p>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">08</span><span class="f-tag">阔屏</span><span class="f-tag">续航</span></div>
+      <h3>16:9.5 阔型屏 + 7000mAh：宽屏党的新选择</h3>
+      <div class="cols">
+        <figure class="fig">
+          <img src="../images/matext2-pura.svg" onclick="openLightbox(this.src)" alt="Pura X View 阔直板" loading="lazy">
+          <figcaption>Pura X View · 全球首款阔直板 · 16:9.5 阔型屏 / 6500nits / 201g</figcaption>
+          <span class="m-badge">形态首创</span>
+        </figure>
+        <div>
+          <p>Pura X View 采用 <strong>16:9.5 阔型直屏</strong>，屏占比达 <strong>96.1%</strong>，极窄四等边黑边低至 1.05mm；屏幕拥有 <strong>6500nits 高峰值亮度</strong>、1,000,000:1 对比度，分辨率 2232×1320，支持 2160Hz 高频 PWM 调光。</p>
+          <p>整机仅 <strong>6.68mm 厚、201g 重</strong>，却内置 <strong>7000mAh 超大电池</strong>——在轻薄直板里是罕见的续航规格，明显瞄准「宽屏 + 长续航」的差异化人群。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">09</span><span class="f-tag">同场新品</span></div>
+      <h3>全场景协同：WATCH 6 Pro 陶瓷白 + FreeBuds 7</h3>
+      <p>发布会同步带来 <strong>HUAWEI WATCH 6 Pro 陶瓷白</strong>（首款全陶瓷手表，被称「高智小白瓷」，吴磊代言）与 <strong>FreeBuds 7</strong> 等穿戴音频新品，延续华为「全场景生态」打法。刘德华作为 Mate XT 2 非凡大师品牌大使亲临现场，强化超高端定位。</p>
+      <table class="spec-table">
+        <tr><th>项目</th><th>Mate XT 2 非凡大师</th><th>Pura X View</th></tr>
+        <tr><td>形态</td><td>展翼三折叠（U 型双内折）</td><td>阔直板（16:9.5）</td></tr>
+        <tr><td>展开厚度</td><td>3.5mm（业界最薄折叠）</td><td>6.68mm</td></tr>
+        <tr><td>重量</td><td>—</td><td>201g</td></tr>
+        <tr><td>屏幕</td><td>三折叠大屏</td><td>6500nits / 96.1% 屏占比</td></tr>
+        <tr><td>电池</td><td>—</td><td>7000mAh</td></tr>
+        <tr><td>芯片</td><td colspan="2">麒麟 9050 Pro（逻辑折叠）</td></tr>
+        <tr><td>系统</td><td colspan="2">HarmonyOS 7（小艺智能体）</td></tr>
+        <tr><td>起售价</td><td>超 2 万元（史上最贵华为）</td><td>待公布</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Key Takeaways -->
+  <div class="kt-wrap">
+    <div class="kt-kick">Key Takeaways</div>
+    <div class="kt-title">核心要点</div>
+  </div>
+
+  <div class="take">
+    <div class="take-n">01</div>
+    <div class="take-b">
+      <h3>三折叠形态领先，但价格锁定超高端</h3>
+      <p>Mate XT 2 的 U 型双内折 + 外屏补位是实用进步，展开 3.5mm 领先行业；但「超 2 万元」起售价将其牢牢钉在超高端，走量不是目标，树立技术标杆才是。</p>
+    </div>
+  </div>
+  <div class="take">
+    <div class="take-n">02</div>
+    <div class="take-b">
+      <h3>灵盾防窥屏是 2026 旗舰隐私的硬件解法</h3>
+      <p>与三星 S26 Ultra Privacy Display 同赛道，华为把「防窥」从软件提醒升级为物理不可见。对公共空间重度用户，这项功能的价值高于多数跑分。</p>
+    </div>
+  </div>
+  <div class="take">
+    <div class="take-n">03</div>
+    <div class="take-b">
+      <h3>麒麟 9050 Pro 逻辑折叠，国产芯片的进阶信号</h3>
+      <p>用晶圆对晶圆混合键合实现垂直堆叠，绕过先进光刻瓶颈；韬定律论文以实测数据（同性能功耗降 41–66%）正面回应 3D 堆叠发热质疑。路线务实，真机散热待验证。</p>
+    </div>
+  </div>
+  <div class="take">
+    <div class="take-n">04</div>
+    <div class="take-b">
+      <h3>HarmonyOS 7 小艺智能体，Agent 时代开局</h3>
+      <p>小艺升级为系统级中枢、可编排多步任务，超空间存储为小容量机型实打实释放空间。华为以「自研芯片 + 自研系统」组合，在折叠屏高端市场正面迎战苹果与小米。</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  数据来源：华为 2026 秋季全场景新品发布会（2026-09-07，广州）· 各科技媒体公开报道 · 截至 2026-09-07<br>
+  本页为发布会深度分析报告，具体参数以华为官方为准。
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+document.querySelectorAll('.fig img').forEach(function(img) {
+  img.addEventListener('click', function() { openLightbox(this.src); });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+
+// gold particle field
+(function(){
+  var f = document.getElementById('field');
+  var n = 46;
+  for (var i=0;i<n;i++){
+    var s = document.createElement('span');
+    if (i % 4 === 0) s.className = 'r';
+    s.style.left = Math.random()*100 + 'vw';
+    s.style.top = (100 + Math.random()*20) + 'vh';
+    var d = 8 + Math.random()*14;
+    s.style.animationDuration = d + 's';
+    s.style.animationDelay = (-Math.random()*d) + 's';
+    s.style.opacity = 0.2 + Math.random()*0.6;
+    f.appendChild(s);
+  }
+})();
+</script>
+</body>
+</html>

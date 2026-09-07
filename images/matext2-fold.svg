@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7e3a1"/><stop offset="100%" stop-color="#a87c2e"/>
+    </linearGradient>
+    <linearGradient id="r2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff5a64"/><stop offset="100%" stop-color="#c4161c"/>
+    </linearGradient>
+    <linearGradient id="pnl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c0f17"/><stop offset="100%" stop-color="#0b0710"/>
+    </linearGradient>
+    <radialGradient id="bg2" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#160a11"/><stop offset="100%" stop-color="#07060c"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg2)"/>
+
+  <text x="600" y="70" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#f0e8f5" letter-spacing="2">展翼三折叠 · U 型双内折</text>
+  <text x="600" y="104" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#b8a8c8" letter-spacing="3">展开 3.5mm · 折叠比上代薄 0.5mm · 业界最薄折叠屏</text>
+
+  <!-- unfolded wide -->
+  <g transform="translate(600 380)">
+    <rect x="-430" y="-150" width="860" height="300" rx="22" fill="url(#pnl)" stroke="url(#g2)" stroke-width="2.5"/>
+    <line x1="-143" y1="-150" x2="-143" y2="150" stroke="#c4161c" stroke-width="2" opacity="0.5"/>
+    <line x1="143" y1="-150" x2="143" y2="150" stroke="#c4161c" stroke-width="2" opacity="0.5"/>
+    <circle cx="-360" cy="-110" r="16" fill="none" stroke="url(#g2)" stroke-width="3"/>
+    <text x="0" y="8" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="url(#g2)" letter-spacing="4">UNFOLDED · 10.2"</text>
+    <text x="0" y="40" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#8b7a98" letter-spacing="2">三屏一体 · 主屏完全包裹于机身内部</text>
+  </g>
+
+  <!-- folded compact -->
+  <g transform="translate(600 600)">
+    <rect x="-70" y="-90" width="140" height="180" rx="20" fill="url(#pnl)" stroke="url(#g2)" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#d4a853" letter-spacing="2">FOLDED</text>
+  </g>
+
+  <!-- arrows -->
+  <path d="M 250 380 q -60 0 -90 -120" fill="none" stroke="url(#r2)" stroke-width="2" opacity="0.7"/>
+  <path d="M 950 380 q 60 0 90 -120" fill="none" stroke="url(#r2)" stroke-width="2" opacity="0.7"/>
+  <text x="150" y="250" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#d4a853">双翼向内收拢</text>
+  <text x="1050" y="250" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#d4a853">主屏零外露</text>
+</svg>

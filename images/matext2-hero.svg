@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="36%" r="78%">
+      <stop offset="0%" stop-color="#2a0d12"/>
+      <stop offset="46%" stop-color="#13080f"/>
+      <stop offset="100%" stop-color="#07060c"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7e3a1"/>
+      <stop offset="50%" stop-color="#d4a853"/>
+      <stop offset="100%" stop-color="#a87c2e"/>
+    </linearGradient>
+    <linearGradient id="redg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff5a64"/>
+      <stop offset="100%" stop-color="#c4161c"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#241018"/>
+      <stop offset="100%" stop-color="#0c0710"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="600" cy="320" r="360" fill="#c4161c" opacity="0.12" filter="url(#soft)"/>
+  <circle cx="600" cy="300" r="220" fill="#d4a853" opacity="0.10" filter="url(#soft)"/>
+
+  <!-- tri-fold phone -->
+  <g transform="translate(600 410)">
+    <!-- left wing (folded behind) -->
+    <rect x="-250" y="-210" width="120" height="420" rx="20" fill="url(#screen)" stroke="#d4a853" stroke-width="2" opacity="0.55" transform="rotate(-12)"/>
+    <!-- center panel -->
+    <rect x="-110" y="-240" width="220" height="480" rx="26" fill="url(#screen)" stroke="url(#gold)" stroke-width="3"/>
+    <!-- right wing -->
+    <rect x="130" y="-210" width="120" height="420" rx="20" fill="url(#screen)" stroke="#d4a853" stroke-width="2" opacity="0.55" transform="rotate(12)"/>
+    <!-- hinge line -->
+    <line x1="0" y1="-238" x2="0" y2="238" stroke="#d4a853" stroke-width="1.5" opacity="0.6"/>
+    <line x1="-110" y1="-238" x2="-110" y2="238" stroke="#c4161c" stroke-width="1.5" opacity="0.5"/>
+    <line x1="110" y1="-238" x2="110" y2="238" stroke="#c4161c" stroke-width="1.5" opacity="0.5"/>
+    <!-- camera deco -->
+    <circle cx="-66" cy="-190" r="20" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <circle cx="-66" cy="-190" r="9" fill="#c4161c" opacity="0.8"/>
+    <circle cx="-66" cy="-150" r="9" fill="#d4a853" opacity="0.7"/>
+    <!-- brand mark -->
+    <text x="0" y="60" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="url(#gold)" letter-spacing="6">HUAWEI</text>
+  </g>
+
+  <text x="600" y="700" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#f0e8f5" letter-spacing="2">Mate XT 2 非凡大师</text>
+  <text x="600" y="742" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#d4a853" letter-spacing="8">TRIFOLD · ULTIMATE DESIGN</text>
+</svg>
