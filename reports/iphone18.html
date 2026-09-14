@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone 18 Pro 系列 & iPhone Ultra 发布会报告 · 手机发布会追踪器</title>
+<style>
+  :root {
+    --bg: #000000;
+    --surface: #0a0a0a;
+    --card: #0f0f0f;
+    --card-hover: #141414;
+    --border: #1c1c1e;
+    --border-light: #2c2c2e;
+    --text: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --text-muted: #6e6e73;
+    --white: #ffffff;
+
+    --apple-blue: #0071e3;
+    --apple-purple: #af52de;
+    --apple-pink: #ff375f;
+    --apple-orange: #ff9f0a;
+    --apple-green: #34c759;
+    --apple-teal: #5ac8fa;
+
+    --grad-hero: linear-gradient(180deg, #000000 0%, #0a0a14 50%, #0d0a18 100%);
+    --grad-accent: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-purple) 45%, var(--apple-pink) 100%);
+    --grad-soft: linear-gradient(135deg, rgba(0,113,227,0.08) 0%, rgba(175,82,222,0.08) 50%, rgba(255,55,95,0.06) 100%);
+
+    --font-sans: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+    --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+  }
+
+  .report-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+    position: relative;
+  }
+
+  /* ==================== HERO ==================== */
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 40px 60px;
+    margin: 0 -40px;
+    overflow: hidden;
+    background: var(--grad-hero);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0,113,227,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 35% at 25% 45%, rgba(175,82,222,0.05) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 35% at 75% 45%, rgba(255,55,95,0.05) 0%, transparent 50%);
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 300px;
+    background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+    z-index: 1;
+  }
+
+  .hero > * { position: relative; z-index: 2; }
+
+  .hero-logo {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+  }
+  .hero-logo svg { width: 100%; height: 100%; }
+
+  .hero-kicker {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 7.5vw, 84px);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 .grad {
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 580px;
+    margin-bottom: 48px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 10px 24px;
+    border-radius: 980px;
+    margin-bottom: 32px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--apple-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0,113,227,0.5);
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-tags span {
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-tags span::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  .hero-tags span:first-child::before { display: none; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0.4;
+    animation: heroFloat 3s ease-in-out infinite;
+  }
+  .hero-scroll svg { width: 20px; height: 20px; stroke: var(--text-muted); stroke-width: 1.5; }
+  @keyframes heroFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+
+  /* ==================== BENTO ==================== */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin: 0 0 80px;
+  }
+  .bento-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: all 0.35s cubic-bezier(0.25, 0, 0, 1);
+    position: relative;
+  }
+  .bento-card:hover { background: var(--card-hover); border-color: var(--border-light); transform: scale(1.01); }
+  .bento-card.col-2 { grid-column: span 2; }
+  .bento-card.col-3 { grid-column: span 3; }
+  .bento-card.col-6 { grid-column: span 6; }
+  .bento-card.hero-card {
+    background:
+      radial-gradient(ellipse 80% 40% at 70% 15%, rgba(0,113,227,0.06), transparent 55%),
+      radial-gradient(ellipse 60% 30% at 30% 80%, rgba(175,82,222,0.05), transparent 50%),
+      var(--card);
+    border-color: var(--border-light);
+  }
+  .bento-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .bento-num {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .bento-num.large { font-size: 56px; }
+  .bento-val { font-size: 14px; color: var(--text-secondary); line-height: 1.55; font-weight: 400; }
+  .bento-card.hero-card .bento-headline {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .bento-card.hero-card .bento-headline .grad {
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bento-card.hero-card .bento-sub { font-size: 15px; color: var(--text-secondary); line-height: 1.65; max-width: 600px; }
+  .bento-accent-line {
+    position: absolute;
+    top: 0; left: 28px; right: 28px;
+    height: 1px;
+    background: var(--grad-accent);
+    opacity: 0.25;
+  }
+
+  /* ==================== SECTION DIVIDER ==================== */
+  .section-divider { height: 1px; background: var(--border); margin: 40px 0; position: relative; }
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 1px;
+    background: var(--grad-accent);
+    opacity: 0.4;
+  }
+
+  /* ==================== CHAPTER ==================== */
+  .chapter { margin: 80px 0 32px; }
+  .chapter-badge { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .chapter-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--grad-accent);
+    box-shadow: 0 0 16px rgba(175,82,222,0.3);
+  }
+  .chapter-num { font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-muted); }
+  .chapter-kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+  .chapter-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin: 0 0 20px;
+  }
+  .chapter-intro {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 680px;
+  }
+  .chapter-intro strong { color: var(--text); font-weight: 600; }
+
+  /* ==================== FEATURE ==================== */
+  .feat { margin: 48px 0; padding: 0; }
+  .feat-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+  .feat-num { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em; }
+  .feat-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .feat-tag.pro { color: var(--apple-blue); border-color: rgba(0,113,227,0.15); }
+  .feat-tag.ultra { color: var(--apple-purple); border-color: rgba(175,82,222,0.15); }
+  .feat-tag.ai { color: var(--apple-pink); border-color: rgba(255,55,95,0.15); }
+  .feat-tag.chip { color: var(--apple-teal); border-color: rgba(90,200,250,0.15); }
+  .feat-tag.cam { color: var(--apple-orange); border-color: rgba(255,159,10,0.15); }
+  .feat-title {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin: 0 0 20px;
+  }
+  .feat p { font-size: 16px; font-weight: 400; color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px; }
+  .feat p strong { color: var(--text); font-weight: 600; }
+  .feat ul { padding-left: 18px; margin: 12px 0 18px; list-style: none; }
+  .feat li { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .feat li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    opacity: 0.5;
+  }
+  .feat li strong { color: var(--text); font-weight: 600; }
+
+  /* ==================== COLUMNS ==================== */
+  .cols { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); gap: 32px; align-items: start; margin: 24px 0; }
+  .cols-2 { grid-template-columns: 1fr 1fr; }
+
+  /* ==================== FIGURE ==================== */
+  .fig {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--card);
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .fig:hover { border-color: var(--border-light); }
+  .fig img { width: 100%; display: block; cursor: pointer; transition: transform 0.4s cubic-bezier(0.25, 0, 0, 1); }
+  .fig img:hover { transform: scale(1.02); }
+  .fig figcaption {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+    background: var(--card);
+  }
+  .fig-badge {
+    position: absolute;
+    top: 12px; left: 12px; z-index: 2;
+    font-size: 11px; font-weight: 600;
+    color: var(--white);
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 4px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ==================== AI BOX ==================== */
+  .ai-box {
+    position: relative;
+    border-radius: 16px;
+    padding: 28px;
+    margin: 20px 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .ai-box::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: var(--grad-accent);
+    opacity: 0.3;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .ai-box .ai-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--apple-pink);
+    margin-bottom: 16px;
+  }
+  .ai-box .ai-badge::before { content: ''; width: 6px; height: 6px; background: var(--grad-accent); border-radius: 50%; }
+
+  /* ==================== NOTE ==================== */
+  .note { border-radius: 14px; padding: 18px 22px; margin: 18px 0; }
+  .note-comment { background: rgba(0,113,227,0.04); border: 1px solid rgba(0,113,227,0.08); }
+  .note-warning { background: rgba(255,159,10,0.04); border: 1px solid rgba(255,159,10,0.08); }
+  .note-label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+  .note-comment .note-label { color: var(--apple-blue); }
+  .note-warning .note-label { color: var(--apple-orange); }
+  .note-text { font-size: 15px; font-weight: 400; color: var(--text-secondary); line-height: 1.7; }
+  .note-text strong { color: var(--text); font-weight: 600; }
+
+  /* ==================== SPEC TABLE ==================== */
+  .spec-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0 28px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .spec-table th {
+    background: var(--card);
+    text-align: left;
+    padding: 12px 18px;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+  }
+  .spec-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); color: var(--text-secondary); background: var(--surface); }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table td strong { color: var(--text); font-weight: 600; }
+
+  /* ==================== TIMELINE ==================== */
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0 32px; }
+  .timeline-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 22px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .timeline-item:hover { border-color: var(--border-light); background: var(--card-hover); }
+  .timeline-phase { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; }
+  .timeline-date { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; color: var(--white); margin-bottom: 8px; }
+  .timeline-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .timeline-item.active { border-color: rgba(0,113,227,0.25); background: rgba(0,113,227,0.03); }
+  .timeline-item.active .timeline-phase { color: var(--apple-blue); }
+
+  /* ==================== LIGHTBOX ==================== */
+  .lightbox {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain; box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
+
+  /* ==================== FOOTER ==================== */
+  .page-footer { text-align: center; padding: 60px 0 20px; border-top: 1px solid var(--border); margin-top: 80px; }
+  .page-footer a { color: var(--apple-blue); text-decoration: none; transition: opacity 0.2s; }
+  .page-footer a:hover { opacity: 0.7; }
+  .page-footer p { font-size: 13px; font-weight: 400; color: var(--text-muted); line-height: 1.6; }
+
+  /* ==================== MOBILE ==================== */
+  @media (max-width: 768px) {
+    .report-page { padding: 0 20px 80px; }
+    .hero { min-height: 85vh; padding: 60px 20px 40px; margin: 0 -20px; }
+    .hero h1 { font-size: 40px; }
+    .hero-sub { font-size: 16px; }
+    .hero-logo { width: 40px; height: 40px; margin-bottom: 28px; }
+    .bento { grid-template-columns: 1fr 1fr; }
+    .bento-card.col-2 { grid-column: span 2; }
+    .bento-card.col-3 { grid-column: span 3; }
+    .bento-card.col-6 { grid-column: span 2; }
+    .bento-card.hero-card .bento-headline { font-size: 20px; }
+    .chapter { margin: 56px 0 24px; }
+    .chapter-title { font-size: 28px; }
+    .cols { grid-template-columns: 1fr; gap: 24px; }
+    .cols-2 { grid-template-columns: 1fr; }
+    .feat { margin: 36px 0; }
+    .feat-title { font-size: 24px; }
+    .timeline { grid-template-columns: 1fr; }
+    .hero-scroll { bottom: 32px; }
+  }
+  @media (max-width: 480px) {
+    .bento { grid-template-columns: 1fr; }
+    .bento-card.col-2, .bento-card.col-3, .bento-card.col-6 { grid-column: auto; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 15px; }
+    .hero-tags { gap: 12px; }
+    .hero-tags span { font-size: 12px; }
+    .chapter-title { font-size: 24px; }
+    .feat-title { font-size: 20px; }
+    .bento-num { font-size: 32px; }
+    .bento-num.large { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="report-page">
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-logo">
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+    </div>
+    <div class="hero-kicker">Apple Park, Cupertino · 2026 年 9 月 9 日</div>
+    <h1>iPhone 18 Pro 系列<br>&amp; <span class="grad">iPhone Ultra</span></h1>
+    <p class="hero-sub">特努斯接任 CEO 后的首场秋季主题演讲 · 苹果首次分两波发布 · 旗舰 Pro/Pro Max 与首款折叠屏 Ultra 同台亮相，标准版推迟至 2027 春</p>
+    <div class="hero-badge">已发布 · 9 月 12 日预购 · 9 月 18 日开售</div>
+    <div class="hero-tags">
+      <span>A20 Pro · 台积电 2nm</span>
+      <span>iOS 27 出厂预装</span>
+      <span>7.8″ 折叠内屏</span>
+      <span>首款折叠 iPhone</span>
+    </div>
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ==================== BENTO ==================== -->
+  <div class="bento">
+    <div class="bento-card col-6 hero-card">
+      <div class="bento-accent-line"></div>
+      <div class="bento-label">核心结论</div>
+      <div class="bento-headline">两波发布策略，把<span class="grad">折叠屏</span>推上超高端</div>
+      <div class="bento-sub">2026 秋季只发 Pro / Pro Max + 折叠 Ultra；标准 iPhone 18、iPhone 18e、iPhone Air 2 推迟到 2027 春，平滑收入节奏的同时让 Ultra 独占折叠新形态定价层</div>
+    </div>
+
+    <div class="bento-card col-2">
+      <div class="bento-label">Pro 起售价</div>
+      <div class="bento-num">$1,299</div>
+      <div class="bento-val">Pro Max 约 $1,399 起；国行 Pro 9999 元 / Pro Max 10999 元起</div>
+    </div>
+    <div class="bento-card col-2">
+      <div class="bento-label">Ultra 起售价</div>
+      <div class="bento-num">$2,000+</div>
+      <div class="bento-val">史上最贵 iPhone；国行 14999 元起，顶配破 2 万</div>
+    </div>
+    <div class="bento-card col-2">
+      <div class="bento-label">折叠内屏</div>
+      <div class="bento-num">7.8″</div>
+      <div class="bento-val">4:3 比例，展开仅 4.5mm，接近 iPad mini 体验</div>
+    </div>
+
+    <div class="bento-card col-3">
+      <div class="bento-label">核心芯片</div>
+      <div class="bento-num large">A20 Pro</div>
+      <div class="bento-val">台积电 2nm（N2），12GB RAM，自研 C2 基带</div>
+    </div>
+    <div class="bento-card col-3">
+      <div class="bento-label">关键节点</div>
+      <div class="bento-num large">9·18</div>
+      <div class="bento-val">9/9 发布 → 9/12 预购 → 9/18 开售 + iOS 27 同步推送</div>
+    </div>
+  </div>
+
+  <!-- ==================== CHAPTER 01: 设计语言 ==================== -->
+  <div class="section-divider"></div>
+
+  <div class="chapter">
+    <div class="chapter-badge">
+      <span class="chapter-dot"></span>
+      <span class="chapter-num">01</span>
+      <span class="chapter-kicker">DESIGN</span>
+    </div>
+    <h2 class="chapter-title">设计语言：延续与颠覆并存</h2>
+    <p class="chapter-intro">本届发布会呈现出两种截然不同的产品哲学——Pro 系列是稳扎稳打的「精修」，而 iPhone Ultra 则是苹果第一次把折叠形态摆上舞台中央。一个守成，一个破局。</p>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-num">01</span>
+      <span class="feat-tag pro">iPhone 18 Pro</span>
+      <span class="feat-tag pro">Pro Max</span>
+    </div>
+    <h3 class="feat-title">Pro 系列：熟悉的轮廓，更克制的进化</h3>
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/iphone18-lineup.svg" onclick="openLightbox(this.src)" alt="iPhone 18 Pro 与 Pro Max 三摄机型" loading="lazy">
+        <figcaption>iPhone 18 Pro（6.3″）与 Pro Max（6.9″）：钛金属机身 + 更小的灵动岛</figcaption>
+      </figure>
+      <div>
+        <p>Pro 系列延续了上一代的整体轮廓，肉眼可见的变化集中在三点：</p>
+        <ul>
+          <li><strong>尺寸不变</strong>：Pro 6.3″、Pro Max 6.9″，依旧钛金属中框平衡强度与散热；</li>
+          <li><strong>灵动岛缩小</strong>：Face ID 元件进一步压缩，正面可用显示区域更完整；</li>
+          <li><strong>新配色</strong>：市场传闻新增深樱桃红、深蓝等钛金属新色，呼应「静奢」取向。</li>
+        </ul>
+        <div class="note note-comment">
+          <span class="note-label">点评</span>
+          <div class="note-text">对 Pro 用户而言这是一次「舒服的升级」——芯片、影像、电池全面进档，但不用重新适应新形态。苹果把风险都留给了 Ultra。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-num">02</span>
+      <span class="feat-tag ultra">iPhone Ultra</span>
+      <span class="feat-tag ultra">折叠屏</span>
+    </div>
+    <h3 class="feat-title">Ultra：苹果的第一台折叠，也是第一台「做减法」的 iPhone</h3>
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/iphone18-ultra.svg" onclick="openLightbox(this.src)" alt="iPhone Ultra 展开形态" loading="lazy">
+        <span class="fig-badge">形态突破</span>
+        <figcaption>iPhone Ultra 横向书本式折叠：7.8″ 内屏 + 5.5″ 外屏，展开 4.5mm</figcaption>
+      </figure>
+      <div>
+        <p>Ultra 采用横向书本式折叠，外屏 5.5″、内屏 7.8″（接近 4:3），展开厚度仅约 4.5mm。为追求极致轻薄，苹果做出了一系列<strong>激进取舍</strong>：</p>
+        <ul>
+          <li><strong>取消 Face ID</strong>：改用侧边电源键集成 Touch ID——这是高端 iPhone 多年来首次回归指纹；</li>
+          <li><strong>后置仅双摄</strong>：48MP 主摄 + 48MP 超广角，<strong>无独立长焦</strong>；</li>
+          <li><strong>取消 MagSafe</strong> 与 Action Button，内屏/外屏各一枚前摄；</li>
+          <li><strong>双电池设计</strong>：合计约 4883mAh，无均热板，高负载存在降频风险。</li>
+        </ul>
+        <div class="note note-warning">
+          <span class="note-label">第一代风险</span>
+          <div class="note-text">铰链寿命、折痕控制、软件适配——这些折叠屏行业老大难，苹果第一次做同样逃不掉。Ultra 砍掉了 Face ID、长焦、均热板，配置反而不如万元级 Pro Max。追求稳定体验的用户，Pro Max 仍是更理性的主力机选择。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CHAPTER 02: 性能与能效 ==================== -->
+  <div class="section-divider"></div>
+
+  <div class="chapter">
+    <div class="chapter-badge">
+      <span class="chapter-dot" style="background: linear-gradient(135deg, var(--apple-teal), var(--apple-blue)); box-shadow: 0 0 16px rgba(90,200,250,0.25);"></span>
+      <span class="chapter-num">02</span>
+      <span class="chapter-kicker">PERFORMANCE</span>
+    </div>
+    <h2 class="chapter-title">A20 Pro：2nm 的能效红利</h2>
+    <p class="chapter-intro">三款新机均搭载台积电 2nm（N2）工艺的 A20 Pro 芯片，并配备 12GB RAM 以支撑更复杂的端侧 AI。这是苹果首次在旗舰全线用上 2nm。</p>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-num">01</span>
+      <span class="feat-tag chip">A20 Pro · N2</span>
+    </div>
+    <h3 class="feat-title">同功耗性能 +18%，同性能功耗 -30%</h3>
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/iphone18-a20.svg" onclick="openLightbox(this.src)" alt="A20 Pro 芯片" loading="lazy">
+        <figcaption>A20 Pro：台积电 2nm 工艺，C2 自研基带，12GB RAM 起步</figcaption>
+      </figure>
+      <div>
+        <p>据供应链与分析师数据，A20 Pro 相较上代带来显著能效改进：</p>
+        <ul>
+          <li><strong>性能提升约 15–18%</strong>，同等功耗下；</li>
+          <li><strong>功耗降低 25–30%</strong>，同等性能下；</li>
+          <li><strong>自研 C2 基带</strong>：替代高通方案，信号与能效进一步可控；</li>
+          <li><strong>12GB RAM 全线化</strong>：为 Siri AI 的屏幕感知与跨 App 编排提供内存基础。</li>
+        </ul>
+        <div class="note note-comment">
+          <span class="note-label">点评</span>
+          <div class="note-text">2nm 是本届最硬的底牌。对折叠 Ultra 而言，能效比直接决定「4.5mm 机身 + 双电池」能否撑住一天——这是折叠形态能否成立的关键。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-num">02</span>
+      <span class="feat-tag pro">电池</span>
+    </div>
+    <h3 class="feat-title">三档电池：从 4288mAh 到 5567mAh</h3>
+    <table class="spec-table">
+      <tr><th>机型</th><th>电池容量</th><th>备注</th></tr>
+      <tr><td>iPhone 18 Pro</td><td><strong>4,288 mAh</strong></td><td>较上代小幅提升</td></tr>
+      <tr><td>iPhone 18 Pro Max</td><td><strong>5,567 mAh</strong></td><td>最大容量，2nm + 大电池续航可期</td></tr>
+      <tr><td>iPhone Ultra</td><td><strong>≈ 4,883 mAh</strong></td><td>双电池合计；无均热板，高负载或降频</td></tr>
+    </table>
+    <div class="note note-warning">
+      <span class="note-label">续航提示</span>
+      <div class="note-text">Ultra 的双电池方案与无均热板设计，意味着重度游戏/影像场景下的持续性能输出存在不确定性。第一代折叠，建议等首批实测续航与发热数据再决定是否入手。</div>
+    </div>
+  </div>
+
+  <!-- ==================== CHAPTER 03: 影像 ==================== -->
+  <div class="section-divider"></div>
+
+  <div class="chapter">
+    <div class="chapter-badge">
+      <span class="chapter-dot" style="background: linear-gradient(135deg, var(--apple-orange), var(--apple-pink)); box-shadow: 0 0 16px rgba(255,159,10,0.25);"></span>
+      <span class="chapter-num">03</span>
+      <span class="chapter-kicker">CAMERA</span>
+    </div>
+    <h2 class="chapter-title">影像：物理可变光圈回归专业</h2>
+    <p class="chapter-intro">Pro 系列维持三摄系统，最大亮点是 Pro Max 独占的<strong>物理可变光圈</strong>；Ultra 则在影像上做了明显让步。</p>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-num">01</span>
+      <span class="feat-tag cam">三摄系统</span>
+      <span class="feat-tag cam">可变光圈</span>
+    </div>
+    <h3 class="feat-title">三颗 48MP + Pro Max 独占可变光圈</h3>
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/iphone18-camera.svg" onclick="openLightbox(this.src)" alt="iPhone 18 Pro 三摄与可变光圈" loading="lazy">
+        <figcaption>Pro 系列三摄 + Pro Max 独占物理可变光圈（f/1.4–f/4.0，十档调节）</figcaption>
+      </figure>
+      <div>
+        <p>Pro 与 Pro Max 均配备三颗 48MP 后置镜头，Pro Max 进一步独占：</p>
+        <ul>
+          <li><strong>物理可变光圈主摄</strong>：支持 f/1.4 至 f/4.0 十档调节，弱光与景深可控；</li>
+          <li><strong>更高解析度超广角与长焦</strong>：Pro Max 长焦规格进一步拉大与 Pro 差距；</li>
+          <li><strong>24MP 前摄</strong>：自拍与视频通话细节更扎实。</li>
+        </ul>
+        <div class="note note-comment">
+          <span class="note-label">点评</span>
+          <div class="note-text">物理可变光圈是专业摄影的硬需求——它和单纯靠算法虚化是两回事。Pro Max 用这一独占特性继续拉开与 Pro 的身位，符合苹果「顶配即标杆」的一贯逻辑。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="feat-meta">
+      <span class="feat-num">02</span>
+      <span class="feat-tag ultra">Ultra 影像取舍</span>
+    </div>
+    <h3 class="feat-title">Ultra：48MP 双摄，够用但不追求极致</h3>
+    <p>为轻薄让步，Ultra 的影像系统明显精简：<strong>48MP 主摄 + 48MP 超广角</strong>双摄组合，<strong>无长焦镜头</strong>。对于日常记录与社交分享足够，但无法与 Pro Max 的长焦与可变光圈较量。</p>
+    <div class="note note-comment">
+      <span class="note-label">点评</span>
+      <div class="note-text">折叠屏的第一代，苹果的策略很清晰：先把「形态」做对，影像、性能都让位。Ultra 的目标用户是「愿意为形态付溢价」的尝鲜者，而不是影像发烧友。</div>
+    </div>
+  </div>
+
+  <!-- ==================== CHAPTER 04: iOS 27 ==================== -->
+  <div class="section-divider"></div>
+
+  <div class="chapter">
+    <div class="chapter-badge">
+      <span class="chapter-dot" style="background: linear-gradient(135deg, var(--apple-pink), var(--apple-purple)); box-shadow: 0 0 20px rgba(255,55,95,0.25);"></span>
+      <span class="chapter-num">04</span>
+      <span class="chapter-kicker">iOS 27 &amp; SIRI AI</span>
+    </div>
+    <h2 class="chapter-title">iOS 27：随新机一同到来</h2>
+    <p class="chapter-intro">iPhone 18 系列出厂预装 iOS 27。正式版于 <strong>2026 年 9 月 14 日</strong>向 iPhone 11 及后续全系免费推送，Siri AI 成为本届系统的最大变量。</p>
+  </div>
+
+  <div class="ai-box">
+    <div class="ai-badge">iOS 27 · Siri AI</div>
+    <div class="feat" style="margin:0;">
+      <div class="feat-meta">
+        <span class="feat-num">01</span>
+        <span class="feat-tag ai">AI · 系统级</span>
+      </div>
+      <h3 class="feat-title">Siri AI 落地：独立 App + 相机视觉</h3>
+      <div class="cols">
+        <figure class="fig">
+          <img src="../images/iphone18-ios27.svg" onclick="openLightbox(this.src)" alt="iOS 27 Siri AI" loading="lazy">
+          <span class="fig-badge">9/14 推送</span>
+          <figcaption>iOS 27：Siri AI App、相机 Siri 模式、Liquid Glass 滑块，9 月 14 日全系免费推送</figcaption>
+        </figure>
+        <div>
+          <p>iOS 27 把重构后的 Siri AI 摆上系统中心：</p>
+          <ul>
+            <li><strong>Siri App</strong>：专属应用汇聚对话，iCloud 跨设备续接；</li>
+            <li><strong>相机 Siri 模式</strong>：对准即搜，按快门后 Siri 可见你所见；</li>
+            <li><strong>Liquid Glass 透明度滑块</strong>：从超清到全着色自由调节；</li>
+            <li><strong>照片增强</strong>：Spatial Reframing、Extend 扩边、Clean Up 去物更自然；</li>
+            <li><strong>AirPods 自定义 EQ</strong> + <strong>Safari 标签页主题 + Notify Me</strong> 页面变更追踪。</li>
+          </ul>
+          <div class="note note-warning" style="background: rgba(255,159,10,0.04); border-color: rgba(255,159,10,0.08);">
+            <span class="note-label" style="color: var(--apple-orange);">区域限制</span>
+            <div class="note-text">Siri AI 英文先发，<strong>中国大陆与欧盟暂不提供</strong>（需等待监管推进）。Messages Suggestions 与 Passwords 弱密码自动更新也标注为「后续软件更新」补上。国内用户可先享受性能、设计、照片与 Safari 等升级。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GALLERY ==================== -->
+  <div class="section-divider"></div>
+
+  <div class="chapter">
+    <div class="chapter-badge">
+      <span class="chapter-dot" style="background: var(--grad-accent); box-shadow: 0 0 16px rgba(175,82,222,0.2);"></span>
+      <span class="chapter-num">05</span>
+      <span class="chapter-kicker">GALLERY</span>
+    </div>
+    <h2 class="chapter-title">产品图集</h2>
+  </div>
+
+  <div class="cols cols-2">
+    <figure class="fig">
+      <img src="../images/iphone18-hero.svg" onclick="openLightbox(this.src)" alt="iPhone 18 系列全家福" loading="lazy">
+      <figcaption>iPhone 18 Pro / Pro Max / Ultra 三机登场（概念渲染）</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="../images/iphone18-a20.svg" onclick="openLightbox(this.src)" alt="A20 Pro 芯片" loading="lazy">
+      <figcaption>A20 Pro 芯片：台积电 2nm 工艺核心</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="../images/iphone18-camera.svg" onclick="openLightbox(this.src)" alt="三摄系统" loading="lazy">
+      <figcaption>Pro 系列方形三摄模组 + 可变光圈</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="../images/iphone18-ultra.svg" onclick="openLightbox(this.src)" alt="折叠形态" loading="lazy">
+      <figcaption>iPhone Ultra 展开：7.8″ 内屏的 iPad 级体验</figcaption>
+    </figure>
+  </div>
+
+  <!-- ==================== KEY TAKEAWAYS ==================== -->
+  <div class="section-divider"></div>
+
+  <div class="chapter">
+    <div class="chapter-badge">
+      <span class="chapter-dot" style="background: var(--grad-accent); box-shadow: 0 0 20px rgba(175,82,222,0.2);"></span>
+      <span class="chapter-num">06</span>
+      <span class="chapter-kicker">KEY TAKEAWAYS</span>
+    </div>
+    <h2 class="chapter-title">核心要点</h2>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-dot" style="background: var(--apple-blue); box-shadow: 0 0 16px rgba(0,113,227,0.2);"></div>
+    <div class="takeaway-content">
+      <h3>两波发布：折叠屏独占超高端</h3>
+      <p>苹果用「9 月只发 Pro + Ultra、标准版推迟到 2027 春」的策略，让首款折叠 iPhone 独占新形态定价层（14999 元起），同时避免与走量机型抢 spotlight。</p>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-dot" style="background: var(--apple-purple); box-shadow: 0 0 16px rgba(175,82,222,0.2);"></div>
+    <div class="takeaway-content">
+      <h3>Ultra 是「做减法」的折叠</h3>
+      <p>取消 Face ID（改侧边 Touch ID）、无长焦、无 MagSafe、无均热板——第一代折叠把风险与成本都压在形态上。稳定党选 Pro Max，尝鲜党才考虑 Ultra。</p>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-dot" style="background: var(--apple-teal); box-shadow: 0 0 16px rgba(90,200,250,0.2);"></div>
+    <div class="takeaway-content">
+      <h3>2nm 能效是真正的底牌</h3>
+      <p>A20 Pro 同性能功耗降 25–30%，对 4.5mm 的折叠 Ultra 与 5567mAh 的 Pro Max 都至关重要。芯片红利决定了这一代的实际体验上限。</p>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-dot" style="background: var(--apple-pink); box-shadow: 0 0 16px rgba(255,55,95,0.2);"></div>
+    <div class="takeaway-content">
+      <h3>对国内用户：硬件到位，Siri AI 待定</h3>
+      <p>三款新机的硬件与 iOS 27 的性能/设计/照片升级国内可正常享用；但 Siri AI 因监管暂不提供。换机看硬件与影像即可，AI 价值需等后续落地。</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>手机发布会追踪器 · iPhone 18 Pro 系列 &amp; iPhone Ultra 深度分析<br>数据截至 2026年9月14日 · <a href="https://www.apple.com/apple-events/" target="_blank">Apple Events</a></p>
+  </footer>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>

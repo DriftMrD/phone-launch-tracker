@@ -611,11 +611,11 @@ const entries = [
     ]
   },
   {
-    id: 'apple-ios27', brand: 'apple', status: 'upcoming',
+    id: 'apple-ios27', brand: 'apple', status: 'released',
     title: 'iOS 27 · Siri AI 独立 App / Safari AI / Camera Siri 模式 / Gemini-killer Image Playground',
     appType: '系统级 Major Update', aiNote: 'Siri AI / Apple Intelligence 2.0',
-    date: 'WWDC 宣布 (2026-06-08) → Developer Beta 5 (8/10) → 公测版4 (8/17) → Beta 7 (8/25) → 正式版 2026-09',
-    verdict: 'good', label: '期待值高',
+    date: 'WWDC 宣布 (2026-06-08) → Developer Beta 5 (8/10) → 公测版4 (8/17) → Beta 7 (8/25) → RC (9/9) → 正式版 2026-09-14',
+    verdict: 'good', label: '正式版已推送',
     gist: 'Siri AI 彻底重做（独立 App+屏幕感知），Safari/Mail/Calendar/Image Playground 全面 AI 增强',
     tags: [{t:'WWDC 宣布',c:'tag-upcoming'},{t:'Siri AI',c:'tag-ai'},{t:'Safari AI',c:'tag-ai'},{t:'Image Playground',c:'tag-ai'}],
     pros: [
@@ -674,7 +674,8 @@ const entries = [
       { ver:'Developer Beta 5', date:'2026-08-10', note:'Siri 界面配色弱化调整；继续功能打磨与Bug修复；⚠️ 修正：本版并非"功能冻结"（后续公测版3仍有新功能加入）' },
       { ver:'公测版3', date:'2026-08-11', note:'🎉 第三个公测版发布（对应 Developer Beta 5，距公测版2约两周）；Siri AI（ChatGPT/Claude式对话、独立App、屏幕感知、跨App操作）；Liquid Glass 透明度滑块；Visual Intelligence 移入相机（餐食营养/账单分账）；Write with Siri 写作辅助；Safari 标签自动分组；AirPods 自定义EQ；儿童安全（Ask to Browse / Communication Safety / Time Allowances）；多款App图标刷新（Safari/Siri/Remote/Preview）；Siri增强语音新增英式英语；性能：App启动快30%、照片加载快70%、AirDrop快80%；支持 iPhone 11 及以上' },
       { ver:'Beta 6 / 公测版4 (24A5418b)', date:'2026-08-17', note:'🎉 iOS 27 Beta 6（构建24A5418b）8月17日推送，同日发布公测版4，进入每周一更收尾阶段；修复Beta 5置顶信息(Pinned Messages)显示异常；录屏新增3秒倒计时+控制中心录制指示自动清除；通知横幅新增morph动画（交互后融入通知中心指示）；相机自动夜景模式显示A标识区分手动/自动；Siri图标继续替换Apple Intelligence标识；高级本地听写预览(Advanced Dictation Preview)可在设置开启；AirPlay家庭影院PIN修复、部分Apple Intelligence与神经引擎模型加载修复、CarPlay/相机人像模糊/时钟锁屏等修复；已知问题降至14类、已解决升至74类；RC预计8月底、正式版9月随新iPhone推送' },
-      { ver:'Beta 7 (24A5424a)', date:'2026-08-25', note:'🎉 iOS 27 第7个开发者测试版（构建24A5424a）8月25日推送，进入 RC 前最后打磨阶段；以 Bug 修复+稳定性优化为主，无肉眼可见新功能：Siri 响应速度提升、灵动岛加载等待动画重打磨、照片共享相册筛选/快捷指令运行逻辑修补、续航控制/信号表现/触控跟手度改善、后台 APP 保活增强；新增 Siri AI 候补名单机制（初期权限按服务器状况分批开放，Beta 7 已含代码）；公测版5 同步推送；RC 预计9月初、正式版随 9月9日 iPhone 发布（约9月15日）' }
+      { ver:'Beta 7 (24A5424a)', date:'2026-08-25', note:'🎉 iOS 27 第7个开发者测试版（构建24A5424a）8月25日推送，进入 RC 前最后打磨阶段；以 Bug 修复+稳定性优化为主，无肉眼可见新功能：Siri 响应速度提升、灵动岛加载等待动画重打磨、照片共享相册筛选/快捷指令运行逻辑修补、续航控制/信号表现/触控跟手度改善、后台 APP 保活增强；新增 Siri AI 候补名单机制（初期权限按服务器状况分批开放，Beta 7 已含代码）；公测版5 同步推送；RC 预计9月初、正式版随 9月9日 iPhone 发布（9月14日）' },
+      { ver:'正式版 (27.0)', date:'2026-09-14', note:'🎉 iOS 27 正式版（27.0）9月14日（周一）10:00 AM PT 全量免费推送，支持 iPhone 11 及后续所有机型 + iPhone SE(2代起)；RC 已于9月9日随 iPhone 发布后放出。落地功能：Siri AI 独立 App(iCloud 跨设备续接) + 相机 Siri 模式(对准即搜) + Liquid Glass 透明度滑块(超清↔全着色) + 照片 Spatial Reframing/Extend/Clean Up 增强 + AirPods 自定义 EQ + Safari 标签页主题分组 + Notify Me 页面变更追踪 + 屏幕使用时间重设计(Time Allowances/Ask to Browse/Ask to Communicate) + 健康围绝经期通知；性能：App 启动快30%、照片加载快70%、AirDrop 快80%。⚠️ Siri AI 英文先发，中国大陆与欧盟暂不提供；Messages Suggestions 与 Passwords 弱密码自动更新标注为「后续软件更新」补上' }
     ],
     links: [
       { label:'PhoneArena 全文', url:'https://www.phonearena.com/ios-27-release-date-features-news-compatible-iphones' },
@@ -775,7 +776,7 @@ const DATE_MAP = {
   'honor-yoyo': '2026-08',
   'vivo-originos': '2025-10-15',
   'samsung-oneui9-beta': '2026-08',
-  'apple-ios27': '2026-08',
+  'apple-ios27': '2026-09',
   'google-android17': '2026-08'
 };
 entries.forEach(e => { e.sortDate = DATE_MAP[e.id] || '2025-01'; });
