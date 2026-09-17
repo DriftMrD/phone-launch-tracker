@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#0c0e13"/>
+  <text x="800" y="110" text-anchor="middle" fill="#ffb300" font-family="Arial" font-size="38" font-weight="bold">双 NPU · 天玑 AI 智能体化引擎 3.0</text>
+  <!-- NPU 1 -->
+  <g transform="translate(260,220)">
+    <rect x="0" y="0" width="480" height="420" rx="32" fill="#151a24" stroke="#ffb300" stroke-opacity="0.5" stroke-width="3"/>
+    <text x="240" y="120" text-anchor="middle" fill="#ffb300" font-family="Arial" font-size="34" font-weight="bold">第二代超能效 NPU</text>
+    <text x="240" y="230" text-anchor="middle" fill="#e8e4dc" font-family="Arial" font-size="60" font-weight="bold">−40%</text>
+    <text x="240" y="290" text-anchor="middle" fill="#8b93a3" font-family="Arial" font-size="24">功耗对比上代</text>
+    <text x="240" y="350" text-anchor="middle" fill="#5c6373" font-family="Arial" font-size="22">低功耗持续感知 · 传感器中枢融合</text>
+  </g>
+  <!-- NPU 2 -->
+  <g transform="translate(860,220)">
+    <rect x="0" y="0" width="480" height="420" rx="32" fill="#151a24" stroke="#ff7a1a" stroke-opacity="0.6" stroke-width="3"/>
+    <text x="240" y="120" text-anchor="middle" fill="#ff7a1a" font-family="Arial" font-size="34" font-weight="bold">超性能 NPU 1090</text>
+    <text x="240" y="220" text-anchor="middle" fill="#e8e4dc" font-family="Arial" font-size="44" font-weight="bold">预填充 +51%</text>
+    <text x="240" y="290" text-anchor="middle" fill="#e8e4dc" font-family="Arial" font-size="44" font-weight="bold">每瓦词元 +55%</text>
+    <text x="240" y="360" text-anchor="middle" fill="#5c6373" font-family="Arial" font-size="22">端侧最高 30B MoE · INT4 算力翻倍</text>
+  </g>
+  <text x="800" y="760" text-anchor="middle" fill="#8b93a3" font-family="Arial" font-size="24">Hybrid Attention 混合注意力 · 新一代大模型压缩 · 系统级 AI 隐私保护</text>
+</svg>

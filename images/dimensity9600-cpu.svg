@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#0c0e13"/>
+  <text x="800" y="110" text-anchor="middle" fill="#ffb300" font-family="Arial" font-size="38" font-weight="bold">2+3+3 全大核 · 小核全砍</text>
+  <!-- Ultra x2 -->
+  <g>
+    <rect x="240" y="200" width="200" height="360" rx="20" fill="#ffb300"/>
+    <rect x="460" y="200" width="200" height="360" rx="20" fill="#ffb300"/>
+    <text x="340" y="400" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="34" font-weight="bold">C2-Ultra</text>
+    <text x="340" y="446" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="26">4.55GHz</text>
+    <text x="560" y="400" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="34" font-weight="bold">C2-Ultra</text>
+    <text x="560" y="446" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="26">4.55GHz</text>
+  </g>
+  <!-- Pro x3 -->
+  <g>
+    <rect x="700" y="200" width="150" height="360" rx="20" fill="#ff8c1a"/>
+    <rect x="870" y="200" width="150" height="360" rx="20" fill="#ff8c1a"/>
+    <rect x="1040" y="200" width="150" height="360" rx="20" fill="#ff8c1a"/>
+    <text x="775" y="392" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="26" font-weight="bold">C2-Pro</text>
+    <text x="775" y="428" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="22">4.35GHz</text>
+    <text x="945" y="392" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="26" font-weight="bold">C2-Pro</text>
+    <text x="945" y="428" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="22">4.35GHz</text>
+    <text x="1115" y="392" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="26" font-weight="bold">C2-Pro</text>
+    <text x="1115" y="428" text-anchor="middle" fill="#0c0e13" font-family="Arial" font-size="22">3.1GHz</text>
+  </g>
+  <text x="1370" y="380" text-anchor="middle" fill="#8b93a3" font-family="Arial" font-size="24">34.5MB 缓存</text>
+  <text x="1370" y="420" text-anchor="middle" fill="#5c6373" font-family="Arial" font-size="22">LPDDR6 + UFS 5.0</text>
+  <text x="800" y="700" text-anchor="middle" fill="#e8e4dc" font-family="Arial" font-size="28">单核 +17% · 多核 +15% · 多核峰值功耗 −61%</text>
+  <text x="800" y="760" text-anchor="middle" fill="#8b93a3" font-family="Arial" font-size="24">能效比约为上代 1.7 倍（媒体测算）</text>
+</svg>

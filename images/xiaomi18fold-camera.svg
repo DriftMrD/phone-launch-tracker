@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#1a1614"/>
+  <text x="800" y="120" text-anchor="middle" fill="#e8ddd2" font-family="Arial" font-size="40" font-weight="bold">徕卡 Summilux 全焦段三摄</text>
+  <!-- 主摄 -->
+  <g transform="translate(300,260)">
+    <circle cx="180" cy="180" r="180" fill="#241d18" stroke="#e20612" stroke-width="4"/>
+    <circle cx="180" cy="180" r="130" fill="#171310" stroke="#ff6900" stroke-opacity="0.6" stroke-width="3"/>
+    <circle cx="180" cy="180" r="70" fill="#0f0c0a"/>
+    <circle cx="140" cy="140" r="20" fill="#ff6900" opacity="0.35"/>
+    <text x="180" y="420" text-anchor="middle" fill="#ff6900" font-family="Arial" font-size="28" font-weight="bold">2亿 HP5 主摄</text>
+    <text x="180" y="456" text-anchor="middle" fill="#8a7f72" font-family="Arial" font-size="22">1/1.56" · F1.7 · OIS</text>
+  </g>
+  <!-- 潜望 -->
+  <g transform="translate(640,300)">
+    <rect x="0" y="0" width="320" height="300" rx="40" fill="#241d18" stroke="#ff6900" stroke-opacity="0.5" stroke-width="3"/>
+    <rect x="60" y="60" width="200" height="180" rx="24" fill="#171310"/>
+    <path d="M100 150 L180 90 L180 120 L220 120 L220 180 L180 180 L180 210 Z" fill="#ff6900" opacity="0.7"/>
+    <text x="160" y="356" text-anchor="middle" fill="#ff6900" font-family="Arial" font-size="28" font-weight="bold">5000万 JN5 潜望</text>
+    <text x="160" y="392" text-anchor="middle" fill="#8a7f72" font-family="Arial" font-size="22">3.5x 光学 · OIS</text>
+  </g>
+  <!-- 超广角 -->
+  <g transform="translate(1040,300)">
+    <rect x="0" y="0" width="320" height="300" rx="40" fill="#241d18" stroke="#ff6900" stroke-opacity="0.5" stroke-width="3"/>
+    <circle cx="160" cy="150" r="80" fill="#171310"/>
+    <circle cx="160" cy="150" r="44" fill="#0f0c0a"/>
+    <text x="160" y="356" text-anchor="middle" fill="#ff6900" font-family="Arial" font-size="28" font-weight="bold">5000万 OV50M 超广角</text>
+    <text x="160" y="392" text-anchor="middle" fill="#8a7f72" font-family="Arial" font-size="22">8K24fps · 全焦段杜比视界</text>
+  </g>
+  <text x="800" y="840" text-anchor="middle" fill="#6e6357" font-family="Arial" font-size="22">LEICA Summilux 镜头认证 · 徕卡经典影调</text>
+</svg>

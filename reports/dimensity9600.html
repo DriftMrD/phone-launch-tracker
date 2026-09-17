@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天玑9600 系列发布会报告 · 首款 2nm 安卓旗舰芯</title>
+<style>
+  :root{
+    --bg:#0c0e13; --bg2:#11141c; --card:#141824; --card2:#171c2a;
+    --amber:#ffb300; --ember:#ff7a1a; --ink:#eef0f4; --ink2:#a8b0bf; --ink3:#6b7383;
+    --line:rgba(255,179,0,.20); --grid:rgba(255,255,255,.045);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI",Roboto,sans-serif;overflow-x:hidden;line-height:1.75}
+  ::selection{background:var(--amber);color:#0c0e13}
+  img{display:block;max-width:100%}
+  a{color:var(--amber);text-decoration:none}
+
+  /* ===== Hero ===== */
+  .hero{min-height:84vh;display:flex;flex-direction:column;justify-content:center;position:relative;padding:9vh 24px 11vh;overflow:hidden;
+    background:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;background-color:var(--bg)}
+  .hero::before{content:"";position:absolute;inset:auto 0 0 0;height:420px;background:radial-gradient(760px 380px at 50% 100%,rgba(255,179,0,.14),transparent 70%)}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+  .hero .inner{max-width:900px;margin:0 auto;width:100%;text-align:center;position:relative}
+  .eyebrow{display:inline-block;letter-spacing:.4em;font-size:13px;color:var(--amber);border:1px solid var(--line);padding:8px 22px;border-radius:4px;background:rgba(255,179,0,.06)}
+  .hero h1{font-size:clamp(46px,7.5vw,100px);font-weight:800;line-height:1.05;margin-top:34px;letter-spacing:-.01em}
+  .hero h1 span{background:linear-gradient(95deg,#ffb300,#ff7a1a 60%,#ff5511);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{max-width:720px;margin:26px auto 0;color:var(--ink2);font-size:clamp(16px,2vw,19px)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+  .chip{font-family:"SF Mono",Menlo,monospace;font-size:13px;color:var(--ink2);border:1px solid var(--grid);background:var(--card);border-radius:6px;padding:8px 16px}
+  .chip b{color:var(--amber);font-weight:600}
+  .meta-row{margin-top:40px;color:var(--ink3);font-size:13px;letter-spacing:.18em;font-family:"SF Mono",Menlo,monospace}
+
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  section{margin:86px 0}
+  .kicker{display:flex;align-items:center;gap:14px;margin-bottom:16px;font-family:"SF Mono",Menlo,monospace}
+  .kicker .no{font-size:13px;color:#0c0e13;background:var(--amber);padding:2px 12px;border-radius:4px;font-weight:700}
+  .kicker .cat{font-size:12px;letter-spacing:.28em;color:var(--ink3)}
+  h2{font-size:clamp(27px,4vw,40px);font-weight:800;line-height:1.28;margin-bottom:16px}
+  .lede{color:var(--ink2);font-size:16.5px;margin-bottom:32px}
+
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-28px}
+  .b-card{background:var(--card);border:1px solid var(--grid);border-radius:10px;padding:20px 18px}
+  .b-card.main{grid-column:span 2;background:linear-gradient(135deg,rgba(255,179,0,.13),rgba(255,122,26,.04));border-color:var(--line)}
+  .b-card .lab{font-family:"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.2em;color:var(--ink3);text-transform:uppercase}
+  .b-card .val{font-size:clamp(20px,3vw,30px);font-weight:800;margin-top:6px}
+  .b-card .val em{font-style:normal;color:var(--amber)}
+  .b-card .note{font-size:12.5px;color:var(--ink3);margin-top:4px}
+
+  .feat{display:flex;gap:20px;padding:26px 0;border-top:1px solid var(--grid)}
+  .feat .no{flex:0 0 44px;height:44px;border-radius:8px;border:1px solid var(--line);background:rgba(255,179,0,.08);color:var(--amber);font-family:"SF Mono",Menlo,monospace;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center}
+  .feat h3{font-size:20px;font-weight:700;margin-bottom:8px}
+  .feat h3 .ftag{font-size:11px;letter-spacing:.14em;color:var(--amber);border:1px solid var(--line);border-radius:4px;padding:2px 9px;margin-left:10px;vertical-align:2px;font-weight:600}
+  .feat p{color:var(--ink2);font-size:15.5px}
+
+  .r-fig{margin:34px 0}
+  .r-fig img{border-radius:10px;border:1px solid var(--grid);cursor:zoom-in;width:100%}
+  .r-fig figcaption,.r-cols figcaption{text-align:center;color:var(--ink3);font-size:13px;margin-top:12px;font-family:"SF Mono",Menlo,monospace}
+  .r-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0}
+  .r-cols figure{margin:0}
+  .r-cols img{border-radius:10px;border:1px solid var(--grid);cursor:zoom-in;width:100%}
+
+  .note-c,.note-a{border-radius:10px;padding:24px 26px;margin:38px 0;font-size:15.5px}
+  .note-a{background:rgba(255,179,0,.07);border:1px solid var(--line);border-left:3px solid var(--amber)}
+  .note-c{background:rgba(90,110,255,.07);border:1px solid rgba(110,130,255,.25);border-left:3px solid #6e82ff}
+  .note-a b:first-child,.note-c b:first-child{display:inline-block;margin-bottom:8px;font-size:12px;letter-spacing:.24em}
+  .note-a b:first-child{color:var(--amber)}
+  .note-c b:first-child{color:#9aa8ff}
+  .note-c p,.note-a p{color:var(--ink2)}
+
+  .take{background:linear-gradient(140deg,rgba(255,179,0,.10),rgba(255,122,26,.03));border:1px solid var(--line);border-radius:14px;padding:34px}
+  .take h2{margin-bottom:18px}
+  .take ol{list-style:none;counter-reset:tk}
+  .take li{counter-increment:tk;display:flex;gap:14px;padding:12px 0;color:var(--ink2);font-size:15.5px;border-top:1px dashed var(--grid)}
+  .take li::before{content:counter(tk,decimal-leading-zero);font-family:"SF Mono",Menlo,monospace;color:var(--amber);font-weight:700}
+  .take li b{color:var(--ink)}
+
+  .footer{padding:60px 22px 80px;text-align:center;color:var(--ink3);font-size:13px;letter-spacing:.12em}
+  .footer .top{width:56px;height:2px;background:var(--amber);margin:0 auto 24px}
+
+  #lightbox{position:fixed;inset:0;background:rgba(5,6,9,.95);display:none;align-items:center;justify-content:center;z-index:99;padding:24px}
+  #lightbox.show{display:flex}
+  #lightbox img{max-width:96vw;max-height:92vh;border-radius:8px}
+  #lightbox .hint{position:absolute;bottom:20px;color:var(--ink3);font-size:13px;letter-spacing:.2em}
+
+  @media (max-width:720px){
+    .bento{grid-template-columns:1fr 1fr}
+    .b-card.main{grid-column:span 2}
+    .r-cols{grid-template-columns:1fr}
+    .hero{min-height:76vh}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <div class="eyebrow">2026.09.15 · 深圳 · MediaTek 天玑旗舰芯片发布会</div>
+    <h1>天玑 <span>9600</span> 系列</h1>
+    <p class="sub">联发科首款台积电 2nm 手机芯片，也是安卓阵营第一颗 2nm 旗舰 SoC。"2+3+3"全大核、小核全砍，双 NPU 面向智能体时代——9600 Pro 与 9600M 双芯齐发，vivo X500 Pro 与 OPPO Find X10 系列即将首批搭载。</p>
+    <div class="chips">
+      <span class="chip">TSMC <b>2nm</b> · 330亿晶体管</span>
+      <span class="chip">C2-Ultra <b>4.55GHz</b> ×2</span>
+      <span class="chip">多核功耗 <b>−61%</b></span>
+      <span class="chip">端侧 <b>30B MoE</b></span>
+      <span class="chip">GPU <b>185帧</b> 光追</span>
+      <span class="chip">首发 <b>LPDDR6</b></span>
+    </div>
+    <div class="meta-row">RELEASED · 9600 PRO + 9600M · 2026-09-15</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="bento">
+    <div class="b-card main">
+      <div class="lab">核心结论</div>
+      <div class="val">能效比约上代 <em>1.7 倍</em>，安卓旗舰芯的"2nm 元年"正式开启</div>
+      <div class="note">性能涨两成、功耗降两成，AI 与影像规格全面领先</div>
+    </div>
+    <div class="b-card"><div class="lab">工艺</div><div class="val">TSMC <em>2nm</em></div><div class="note">DTCO 设计工艺协同优化</div></div>
+    <div class="b-card"><div class="lab">单核 / 多核</div><div class="val">+17% / <em>+15%</em></div><div class="note">对比天玑 9500</div></div>
+    <div class="b-card"><div class="lab">多核峰值功耗</div><div class="val"><em>−61%</em></div><div class="note">2nm 漏电控制 + 全大核调度</div></div>
+    <div class="b-card"><div class="lab">LLM 预填充</div><div class="val"><em>+51%</em></div><div class="note">每瓦词元生成 +55%</div></div>
+  </div>
+
+  <section>
+    <div class="kicker"><span class="no">01</span><span class="cat">CPU · 全大核架构</span></div>
+    <h2>小核全砍：2+3+3 的豪赌</h2>
+    <p class="lede">2 颗 Arm C2-Ultra（4.55GHz）+ 3 颗 C2-Pro（4.35GHz）+ 3 颗 C2-Pro（3.1GHz），34.5MB 缓存（L2+L3+SLC），首发 LPDDR6 + UFS 5.0。没有小核的旗舰 CPU，靠 2nm 漏电控制和 DTCO 联合优化兜住日常功耗。</p>
+    <div class="feat">
+      <div class="no">01</div>
+      <div><h3>官方数据：单核 +17%，多核 +15%，多核峰值功耗 −61%<span class="ftag">FIRST PARTY</span></h3><p>对移动芯片而言，"峰值性能下功耗降 61%"比跑分更值钱——它意味着重载场景（游戏、多任务、端侧大模型）不再烫手。媒体测算综合能效比约为上代 1.7 倍。</p></div>
+    </div>
+    <div class="feat">
+      <div class="no">02</div>
+      <div><h3>天玑智算融合架构 + 调度引擎<span class="ftag">SCHEDULER</span></h3><p>CPU 与 NPU 深度协同，调度引擎统一调配算力、电源、内存资源，主打"多应用全保活"。这也是全大核架构能落地日常低负载场景的关键软件补丁。</p></div>
+    </div>
+    <figure class="r-fig">
+      <img src="../images/dimensity9600-cpu.svg" alt="2+3+3 CPU 架构示意">
+      <figcaption>CPU 核心配置与官方性能数据（示意图）</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="no">02</span><span class="cat">AI · 智能体引擎</span></div>
+    <h2>双 NPU：为"智能体时代"预埋的算力底座</h2>
+    <p class="lede">第二代超能效 NPU 功耗 −40%，负责低功耗持续感知；超性能 NPU 1090 主攻端侧大模型——预填充性能 +51%、每瓦生成词元 +55%。生成式 AI 引擎 3.0 的 INT4 运算能力翻倍，支持 Hybrid Attention 混合注意力，端侧最高可跑 30B 参数 MoE 模型。</p>
+    <div class="feat">
+      <div class="no">03</div>
+      <div><h3>端侧 30B MoE：旗舰手机的"新军备竞赛"<span class="ftag">AGENTIC AI</span></h3><p>发布会上联发科把"智能体化引擎 3.0"放在 C 位：主动感知 + 任务执行 + 系统级 AI 隐私保护。这与小米玄戒 O3 的"All in AI"、各家的系统级 Agent（小爱/小布/YOYO）形成同一叙事——端侧算力不再是卖点参数，而是 Agent 落地的前置条件。</p></div>
+    </div>
+    <figure class="r-fig">
+      <img src="../images/dimensity9600-ai.svg" alt="双 NPU 架构示意">
+      <figcaption>双 NPU 分工与官方 AI 性能数据（示意图）</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="no">03</span><span class="cat">GPU · 游戏与影像</span></div>
+    <h2>G2-Ultra NX：185 帧光追与 4K240 慢动作</h2>
+    <p class="lede">GPU 峰值性能 +27%、同性能功耗 −24%、光追性能 +18%。神经网络渲染架构融合 GPU 与 AI 算力，第三代光追引擎、OMM 硬件加速、倍帧技术 4.0 与 Ray Tracing Pipeline 天玑平台率先落地，最高 185 帧游戏。</p>
+    <div class="feat">
+      <div class="no">04</div>
+      <div><h3>Imagiq 1290：ISP 与 NPU 融合计算<span class="ftag">CINEMA</span></h3><p>支持全景深计算光学影像、60fps 运动级追焦；视频侧 4K240 原生超高速慢动作、4K120 Log 原色直出、17EV 微单级动态范围、4K60 CSI 电影级视频。对 vivo / OPPO 这两家"影像叙事"厂商来说，这些规格正是它们新机发布会的弹药。</p></div>
+    </div>
+    <div class="r-cols">
+      <figure><img src="../images/dimensity9600-gpu.svg" alt="GPU 性能柱状图"><figcaption>GPU 官方提升幅度（示意图）</figcaption></figure>
+      <figure><img src="../images/dimensity9600-hero.svg" alt="天玑9600 主视觉"><figcaption>天玑 9600 系列主视觉（示意图）</figcaption></figure>
+    </div>
+    <div class="note-c"><b>注意 · CAVEAT</b><p>9600M 为"普及型旗舰"：保留旗舰 ISP、NPU 协同影像与 185 帧游戏架构，但定位与规格低于 9600 Pro，官网未公布全部细分差异。此外"2nm"为台积电 N2 第一代工艺，实际能效表现要看 vivo / OPPO 的整机调校，发布会数据均为联发科官方口径。</p></div>
+  </section>
+
+  <section>
+    <div class="kicker"><span class="no">04</span><span class="cat">落地 · Devices</span></div>
+    <h2>首发梯队：9 月下旬的安卓旗舰大战</h2>
+    <p class="lede">vivo X500 系列（9/21）与 OPPO Find X10 系列（9/22）将成为天玑 9600 / 9600 Pro 的首批商用机型，直接对标骁龙 8 Elite Gen6 阵营（小米 18、iQOO 16、红米 K100）。2nm 之争、双 2 亿像素之争、8000mAh 之争，全部压缩在 9 月最后一周爆发。</p>
+    <div class="note-a"><b>点评 · ANALYST NOTE</b><p>天玑 9600 Pro 最狠的一刀不是性能，而是把"端侧大模型 + 全大核 + 2nm"打包成了一套完整的智能体叙事。对高通而言，骁龙 8 Elite Gen6 的 2nm 平台将承受前所未有的对位压力；对消费者而言，9 月下旬大概率是近年"含金量"最高的换机窗口。</p></div>
+  </section>
+
+  <section class="take">
+    <h2>Key Takeaways</h2>
+    <ol>
+      <li><b>安卓首款 2nm 旗舰芯：</b>330 亿晶体管 + DTCO 联合优化，官方数据单核 +17% / 多核 +15% / 峰值功耗 −61%。</li>
+      <li><b>全大核是宣言不是冒险：</b>2+3+3 架构靠调度引擎与 2nm 能效兜底，多应用全保活成为系统级卖点。</li>
+      <li><b>AI 是真正的 C 位：</b>双 NPU、端侧 30B MoE、智能体化引擎 3.0——芯片厂商开始直接为"手机 Agent"供货。</li>
+      <li><b>9/21–9/22 见分晓：</b>vivo X500 与 OPPO Find X10 首发落地，2nm 实际能效与游戏/AI 体验将由这两场发布会验证。</li>
+    </ol>
+  </section>
+
+  <div class="footer">
+    <div class="top"></div>
+    手机发布会追踪 · 天玑 9600 系列发布会报告 · 数据来源：MediaTek 官方发布会 / 媒体报道 · 截至 2026-09-17
+  </div>
+</div>
+
+<div id="lightbox"><img id="lightboxImg" src="" alt=""><div class="hint">点击任意处或按 ESC 关闭</div></div>
+<script>
+function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('show');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('show');}
+document.querySelectorAll('.r-fig img,.r-cols img').forEach(function(im){im.addEventListener('click',function(){openLightbox(im.src);});});
+document.getElementById('lightbox').addEventListener('click',closeLightbox);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+</script>
+</body>
+</html>

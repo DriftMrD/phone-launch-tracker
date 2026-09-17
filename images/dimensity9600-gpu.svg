@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#0c0e13"/>
+  <text x="800" y="110" text-anchor="middle" fill="#ffb300" font-family="Arial" font-size="38" font-weight="bold">G2-Ultra NX GPU · 185 帧光追</text>
+  <!-- 柱状图 -->
+  <g font-family="Arial">
+    <rect x="360" y="360" width="120" height="280" rx="12" fill="#2a3140"/>
+    <rect x="360" y="430" width="120" height="210" rx="12" fill="#ffb300"/>
+    <text x="420" y="700" text-anchor="middle" fill="#8b93a3" font-size="24">峰值性能 +27%</text>
+    <rect x="620" y="360" width="120" height="280" rx="12" fill="#2a3140"/>
+    <rect x="620" y="464" width="120" height="176" rx="12" fill="#ff8c1a"/>
+    <text x="680" y="700" text-anchor="middle" fill="#8b93a3" font-size="24">功耗 −24%</text>
+    <rect x="880" y="360" width="120" height="280" rx="12" fill="#2a3140"/>
+    <rect x="880" y="452" width="120" height="188" rx="12" fill="#ff7a1a"/>
+    <text x="940" y="700" text-anchor="middle" fill="#8b93a3" font-size="24">光追 +18%</text>
+    <rect x="1140" y="360" width="120" height="280" rx="12" fill="#2a3140"/>
+    <rect x="1140" y="380" width="120" height="260" rx="12" fill="#ffb300"/>
+    <text x="1200" y="700" text-anchor="middle" fill="#8b93a3" font-size="24">185 帧游戏</text>
+  </g>
+  <text x="800" y="780" text-anchor="middle" fill="#5c6373" font-family="Arial" font-size="22">第三代光追引擎 · OMM 硬件加速 · 倍帧技术 4.0 · Ray Tracing Pipeline · 神经网络渲染架构</text>
+</svg>

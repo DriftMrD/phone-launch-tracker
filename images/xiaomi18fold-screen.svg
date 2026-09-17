@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#1a1614"/>
+  <text x="800" y="110" text-anchor="middle" fill="#ff6900" font-family="Arial" font-size="40" font-weight="bold">√2:1 纸张比例 · 三种形态</text>
+  <!-- 外屏 -->
+  <g transform="translate(280,220)">
+    <rect x="0" y="0" width="300" height="424" rx="34" fill="#241d18" stroke="#ff6900" stroke-opacity="0.5" stroke-width="2"/>
+    <text x="150" y="470" text-anchor="middle" fill="#d8cfc4" font-family="Arial" font-size="26">外屏 5.38"</text>
+    <text x="150" y="502" text-anchor="middle" fill="#8a7f72" font-family="Arial" font-size="20">单手握持</text>
+  </g>
+  <!-- 中折叠 -->
+  <g transform="translate(660,180)">
+    <rect x="0" y="0" width="170" height="424" rx="28" fill="#2e2620"/>
+    <rect x="170" y="0" width="170" height="424" rx="28" fill="#241d18"/>
+    <line x1="170" y1="0" x2="170" y2="424" stroke="#ff6900" stroke-width="3"/>
+    <rect x="0" y="0" width="340" height="424" rx="28" fill="none" stroke="#ff6900" stroke-opacity="0.5" stroke-width="2"/>
+    <text x="170" y="470" text-anchor="middle" fill="#d8cfc4" font-family="Arial" font-size="26">中折叠 7.58"</text>
+    <text x="170" y="502" text-anchor="middle" fill="#8a7f72" font-family="Arial" font-size="20">介于大折叠与小折叠之间</text>
+  </g>
+  <!-- 对比 A4 -->
+  <g transform="translate(1120,220)">
+    <rect x="0" y="0" width="300" height="424" rx="8" fill="none" stroke="#8a7f72" stroke-dasharray="10 8" stroke-width="2"/>
+    <text x="150" y="216" text-anchor="middle" fill="#8a7f72" font-family="Arial" font-size="24">A 系列纸张比例</text>
+    <text x="150" y="252" text-anchor="middle" fill="#6e6357" font-family="Arial" font-size="20">展开即"一张纸"</text>
+    <text x="150" y="470" text-anchor="middle" fill="#d8cfc4" font-family="Arial" font-size="26">√2 : 1</text>
+  </g>
+  <text x="800" y="840" text-anchor="middle" fill="#6e6357" font-family="Arial" font-size="22">展开 163.8 × 117.8 × 5.02 mm · 折叠 10.68 mm · 219 g</text>
+</svg>
