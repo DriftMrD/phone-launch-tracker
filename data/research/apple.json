@@ -1,0 +1,964 @@
+[
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "recorder",
+    "name": "通话录音与说话人转录",
+    "desc": "通话中一键录音，音频与转录文稿自动落到 Notes 的 Call Recordings 文件夹，转录逐句标注说话人，支持全文搜索、点文字跳播；开 Apple Intelligence 还能出通话摘要。",
+    "userVoice": "媒体普遍认为「录音自动进备忘录+说话人分离」是同类最完整的一套；但用户抱怨受限区域太多，欧盟、俄罗斯、沙特等 19 个国家和地区整个功能不可用。",
+    "tosNote": "Apple 把通话录音做成系统级并强制双方播报提示音，合规上绕过了争议；tOS 海外版一直不敢开通话录音，可照抄这套「提示音+双方告知+区域黑名单」方案。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/guide/iphone/record-and-transcribe-a-call-iph57c6590e9/ios",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iPhone call recording transcript Notes app speaker labels"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18"
+    ],
+    "os": "iOS 26",
+    "product": "recorder",
+    "name": "语音备忘录边录边转写",
+    "desc": "Voice Memos 录制过程中上划波形即可看实时转写，当前词高亮；录完可复制整段或选段文稿，列表搜索同时命中标题与转写内容，选中词会把播放头定位到对应音频位置。",
+    "userVoice": "实测转写准确度对英文与中文都可用，但仅支持 iPhone 12 及以上、10 种语言，且并非所有国家开放。",
+    "tosNote": "「搜索命中转写内容 + 点词跳播」是 tOS 录音机最缺的一环，我们目前只能搜文件名；建议优先补转写索引，端侧 ASR 已有供应商方案，成本可控。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/guide/iphone/view-a-transcription-iph00953a982/ios",
+    "date": "2025-09",
+    "confidence": "high",
+    "imgQuery": "iPhone Voice Memos live transcription while recording"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18"
+    ],
+    "os": "iOS 26",
+    "product": "recorder",
+    "name": "备忘录内录音与转写",
+    "desc": "Notes 附件菜单里直接 Record Audio，录完自动生成转写稿，可 Find in Transcript 搜索、Add Transcript to Note 插入正文，开 Apple Intelligence 可一键摘要；删音频即删转写。",
+    "userVoice": "会议场景「录音+手写要点+转写稿同处一条笔记」的组合被媒体视为最实用的学生/职场用法，缺点是删掉音频会连转写一起丢。",
+    "tosNote": "tOS 是录音机与记事本两个独立 App，用户要手工搬；建议做「记事本内嵌录音块」，比单独做一个转写 App 更容易形成会议记录闭环。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/guide/iphone/record-and-transcribe-audio-iphbe11247b5/ios",
+    "date": "2025-09",
+    "confidence": "high",
+    "imgQuery": "Apple Notes record audio transcript inline note"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "recorder",
+    "name": "端侧高级听写",
+    "desc": "iPhone Air 与 iPhone 17 Pro 及后续机型用专门的端侧模型跑系统听写，靠更强的自然语言理解减少拼写、标点与大小写错误，长文本听写不再需要上云。",
+    "userVoice": "官方发布说明将其列为本代听写主要卖点；旧机型不具备该端侧模型，听写准确率无变化，形成明显的机型分层。",
+    "tosNote": "Apple 用「新机独占端侧大模型」给听写做分层卖点；tOS 若跟进要想清楚：低端机没模型时体验断档，最好保留云端兜底而不是直接关掉。",
+    "source": "系统更新",
+    "sourceName": "iClarified",
+    "sourceUrl": "https://www.iclarified.com/102060/ios-27-release-notes",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 advanced on-device dictation settings iPhone"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "files",
+    "name": "文件夹 AI 智能命名建议",
+    "desc": "在 Files 里按「重命名」等两秒，键盘上方出现候选名；模型会读 PDF 正文、看图片内容、看文件夹里有什么来生成描述性文件名，通过文件选择器保存文档时同样给建议。",
+    "userVoice": "MacStories 称「很喜欢这个功能」，但也实测到把 Codex 图标 Codex.png 建议成 Blue Cloud、猫的照片识别失败；好消息是往文档里塞指令做提示注入被模型忽略了。",
+    "tosNote": "tOS 文管重命名还是纯手工输入，这是投入产出比很高的切入点：只做「截图/PDF/下载文件」三类高频重命名建议就能显著降低整理成本。",
+    "source": "媒体实测",
+    "sourceName": "MacStories",
+    "sourceUrl": "https://www.macstories.net/stories/ios-and-ipados-27-review/9/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Files app AI rename suggestions keyboard"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "files",
+    "name": "iCloud 共享访问请求",
+    "desc": "iCloud 共享链接支持 Access Requests：没被邀请的人打开链接可直接申请权限，所有者审批时选只读或可编辑；同时协作链接有更丰富的预览卡片，创建分享链接的入口也更浅。",
+    "userVoice": "",
+    "tosNote": "「被拒后能就地申请权限」解决的是分享链路断裂问题，tOS 云盘目前只能让对方回去找人重发链接；这是云盘留存的关键小功能，建议跟。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iCloud shared link access request permission iOS 27"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "files",
+    "name": "语义索引重建（本地不上云）",
+    "desc": "iOS 27 重建了搜索底座，文件、文件夹、文档、邮件、短信、联系人、照片、笔记、系统设置等全量纳入语义索引，新数据即时入库；索引只存本机，不与 Apple 服务器或其他设备同步。",
+    "userVoice": "heise 指出欧盟用户即便拿不到 Siri AI，也能吃到更可靠的搜索；索引进行中会在设置里有提示，重建期间建议接 Wi-Fi 与电源。",
+    "tosNote": "Apple 先把「本地语义索引」建好再谈 AI 找文件，顺序值得学；tOS 做全局搜索前必须先定索引边界与隐私口径，否则合规和功耗两头都会挨打。",
+    "source": "系统更新",
+    "sourceName": "heise online",
+    "sourceUrl": "https://www.heise.de/en/news/iOS-27-Apple-improves-Spotlight-search-new-support-document-online-11432349.html",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Spotlight semantic search indexing settings notice"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "player",
+    "name": "AutoMix 升级并扩展多端",
+    "desc": "AutoMix 换了新算法生成更多过渡类型，按调性与 BPM 做 DJ 式衔接，首次扩展到 tvOS 与 HomePod；传统 Crossfade 仍保留供选择，Apple TV 还新增 Hi-Res Lossless 输出。",
+    "userVoice": "媒体评价过渡确实更「沉浸」，派对场景最受益；但 iOS 26 就有的基础功能，这次更像调优而非新能力。",
+    "tosNote": "AutoMix 本质是端侧音频分析+自动混音，tOS 播放器完全没有对应能力；本地音乐场景做「智能衔接」差异化明显，但要先解决本地曲库 BPM/调性分析的算力开销。",
+    "source": "发布会",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/06/09/apple-music-gains-automix-upgrades-and-more-in-ios-27/",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "Apple Music AutoMix settings iOS 27"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "player",
+    "name": "艺人页重设计 + 超大播放组件",
+    "desc": "Apple Music 艺人页换成全屏取色背景，随机播放按钮前置、艺人名与主推歌单展示更醒目；同时吃下 iOS 27 的超大 widget 尺寸，新增 Recently Played / Recommendations / Top Charts 三个整页组件。",
+    "userVoice": "9to5Mac 称 Apple Music 是所有系统 App 里用超大 widget 用得最狠的一个；也有编辑实测 beta 1 上专辑页并无可见变化，官方口径与实机存在落差。",
+    "tosNote": "整页大组件是把播放器从「App」变成「桌面控件」的入口打法；tOS 播放器如果只做 4x2 卡片，用户仍需进 App，建议评估整页组件的桌面占位收益。",
+    "source": "媒体实测",
+    "sourceName": "9to5Mac",
+    "sourceUrl": "https://9to5mac.com/2026/07/20/apple-music-in-ios-27-five-new-features-coming-to-your-iphone/",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Apple Music artist page redesign iOS 27 extra large widget"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "player",
+    "name": "CarPlay 驻车视频播放",
+    "desc": "CarPlay App 可提供视频浏览与播放，但仅限车辆静止时；行驶中自动降级为纯音频。支持 AirPlay 的 iPhone App 也能投到车机屏，不过需要车厂开启，目前尚无厂商宣布支持。",
+    "userVoice": "MacRumors 明确指出「AirPlay 投车机」这条目前是空头承诺——没有任何车厂宣布启用，属于纸面能力。",
+    "tosNote": "Apple 把「视频只在驻车时可播」做成平台级安全约束，责任在系统而非 App；tOS 车机互联若要开视频，必须同样把行车判定收到系统层，不能交给三方 App 自觉。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "CarPlay video playback while parked iOS 27"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "notes",
+    "name": "Markdown 双向互通",
+    "desc": "把 Markdown 文本粘进备忘录会自动转成富文本，零额外步骤；反向在编辑菜单右箭头里新增 Copy as Markdown，把选中的富文本导出成 ** 加粗、## 标题、[]() 链接等原生语法。iOS 26 已支持 Markdown 文件导入导出。",
+    "userVoice": "Cult of Mac 编辑称已经把它接进工作流：在备忘录起草评测，Copy as Markdown 后直接贴进 WordPress，还让 Siri 生成了 Markdown 转 HTML 的快捷指令。",
+    "tosNote": "Markdown 双向互通是把系统记事本纳入生产力工具链的关键；tOS 记事本导出只有纯文本和图片，建议先补 Copy as Markdown，成本远低于自研编辑器。",
+    "source": "发布会",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/06/17/ios-27-apple-notes-app-new-features/",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "Apple Notes copy as Markdown menu iOS 27"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "notes",
+    "name": "分隔线 + 章节级内链",
+    "desc": "光标处可通过编辑菜单 Insert Divider Line 插入水平分隔线切分长笔记；链接功能新增 Link to Section，输入笔记标题后能直接选中该笔记的某个章节做跳转，不再只能链到整条笔记。",
+    "userVoice": "Cult of Mac 认为章节内链是「终于可以了」的功能，对长课堂笔记和菜谱互引最有用。",
+    "tosNote": "长笔记的结构化能力（分隔线+锚点跳转）是 tOS 记事本相对竞品最明显的短板；实现难度不高，属于可以在一个版本内补齐的基础编辑能力。",
+    "source": "发布会",
+    "sourceName": "Cult of Mac",
+    "sourceUrl": "https://www.cultofmac.com/how-to/ios-27-notes-features",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "Apple Notes divider line link to section iOS 27"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "notes",
+    "name": "Siri 答案直接写进笔记",
+    "desc": "Siri AI 给出的回答可以不离开对话就推进新笔记或追加到已有笔记；也能把一段乱格式的原文交给 Siri 整理格式后存成笔记。老机型可拿到分隔线与 Markdown，但拿不到这部分 AI 写入。",
+    "userVoice": "MacStories 主编称自己「用 Siri 配 Apple Notes、提醒事项和 HomeKit 体验非常好」，认为 Siri 最擅长的正是这类一两步就完结的小任务。",
+    "tosNote": "「助手产出物一键落地到记事本」是 AI 能留下沉淀的关键闭环，tOS 现在还是复制粘贴；建议记事本优先对助手开放写入 Intent，比做笔记内 AI 面板更划算。",
+    "source": "媒体实测",
+    "sourceName": "9to5Mac",
+    "sourceUrl": "https://9to5mac.com/2026/07/30/heres-everything-new-for-apple-notes-in-ios-27/",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Siri AI add answer to Apple Notes iOS 27"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "notes",
+    "name": "提醒事项自然语言建条目",
+    "desc": "在 Reminders 直接打「今晚 6 点接爸爸」或「明天下午 3 点把照片发给 Eric」，Apple Intelligence 自动补全日期、时间、地点；底部新增条目菜单被取消，图片与旗标等改到 Details 里设置。",
+    "userVoice": "MacRumors 实测称该能力仍在 beta 状态、并不总是稳定：有时自动填好，有时还得手动点一下下方的时间建议才生效。",
+    "tosNote": "自然语言建待办对输入效率提升明显，但 Apple 把菜单砍掉换成 Details 的取舍造成了老用户找不到入口；tOS 跟进时要保留显式入口，别用 AI 替掉可见控件。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Reminders natural language input date time autofill"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "calendar",
+    "name": "日历自然语言输入",
+    "desc": "边打字边识别人物、日期、地点，点键盘上方的建议即可写进事件。时间会自动套用，但换日期必须手动点顶部日期建议（如打「7 月 14 日下午 2 点和 Eric 开会」要点一下 July 14），否则默认落在当前选中日。",
+    "userVoice": "MacRumors 指出这条的手动点击要求是明显的体验瑕疵——自然语言输入里唯独日期不自动生效，做不到的部分只能转交 Siri 完成。",
+    "tosNote": "自然语言建日程的坑在于「部分生效」比「完全不生效」更让人困惑；tOS 日历若跟进，要把日期解析做到与时间同等自动，否则不如不做。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Calendar natural language event entry suggestion"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "calendar",
+    "name": "邮件一键加日程 / 传单批量导入",
+    "desc": "含航班时间或餐厅预订的邮件顶部出现一键加入日历的按钮，带物流信息的可转进 Wallet 追踪；相机 Siri 模式拍一张日程表或活动传单，可一次把多个事件批量导入日历或提醒事项。",
+    "userVoice": "9to5Mac 早前评价 iOS 26 的截图建日程「一旦习惯就成了默认日历 App 的加分项」，本代把入口从截图扩展到邮件与相机后覆盖面更广。",
+    "tosNote": "Apple 的做法是把「加日程」做成跨 App 的系统建议位，而不是日历自己的功能；tOS 日历要拿到这类流量，必须先争取邮件/信息/相册的建议位协议。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Mail add to calendar button flight reservation"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "clock",
+    "name": "闹钟音量与铃声解绑",
+    "desc": "设置→声音与触感新增 Alarms and Timers 分组，关掉 Match Ringtone Volume 后出现独立滑块，可以把铃声调到静音同时让闹钟保持指定音量；Apple 注明它不会覆盖起床闹钟等自带音量的闹钟。",
+    "userVoice": "MacRumors 形容这是「晚上把铃声降到零也照样能被叫醒」的刚需修复，属于呼声很久的细节。",
+    "tosNote": "「夜间静音但闹钟照响」是高频投诉点，tOS 闹钟音量目前仍跟系统铃声耦合；这条是纯策略改动、无算法成本，建议立刻跟。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 alarms and timers volume slider match ringtone volume"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18"
+    ],
+    "os": "iOS 26",
+    "product": "clock",
+    "name": "贪睡时长 1–15 分钟自定义",
+    "desc": "时钟→闹钟里打开 Snooze 后可点 Snooze Duration，在 1 到 15 分钟之间自选，取代了沿用机械钟时代的 9 分钟固定值；设置按单个闹钟生效，工作日与周末可设不同时长。",
+    "userVoice": "媒体一致称「终于」，但实测发现设置不会被继承——新建的每个闹钟仍默认 9 分钟，得逐个重设，被认为是没做完的一半。",
+    "tosNote": "Apple 用了近 20 年才放开贪睡时长，还留了「不继承默认值」的坑；tOS 时钟若要做，直接把它做成全局默认项就能在这点上反超。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/how-to/ios-customize-iphone-alarm-snooze-duration-finally/",
+    "date": "2025-09",
+    "confidence": "high",
+    "imgQuery": "iPhone Clock app snooze duration picker 1 to 15 minutes"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18"
+    ],
+    "os": "iOS 26",
+    "product": "calc",
+    "name": "计算器单位与货币换算",
+    "desc": "基础或科学计算器里打开 Convert 模式，可换算长度、重量、货币、速度、时间等，顶部横滑切换类别，任一侧输入即时出结果，一键反转换算方向；Math Notes 里写「50 m in feet =」同样生效。",
+    "userVoice": "",
+    "tosNote": "换算内置到计算器主界面（而非独立工具页）是降低使用门槛的关键，tOS 计算器把换算藏在二级页；建议改成模式切换并支持汇率离线缓存。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/guide/iphone/convert-units-or-currency-iph69d274dde/ios",
+    "date": "2025-09",
+    "confidence": "high",
+    "imgQuery": "iPhone Calculator convert units currency mode"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18"
+    ],
+    "os": "iOS 26",
+    "product": "calc",
+    "name": "Math Notes 混合单位换算",
+    "desc": "Math Notes 会自动换算表达式里出现的单位与货币，还支持不同体系混算，例如直接写「42 meters + 143 feet」就能求解；可用单位与基础/科学计算器的 Convert 模式保持一致。",
+    "userVoice": "媒体称手写表达式实时求解、变量与函数复用体验最好，但基础计算器本身仍弱，复杂运算不如专业工具，且能力被锁在 Apple 生态内。",
+    "tosNote": "Apple 把计算器和笔记合成一个「可运算的纸」，这是形态创新而非功能叠加；tOS 若要跟，切入点是手写识别+单位推理，纯做好看的计算器没有差异化。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/guide/iphone/solve-math-with-math-notes-iph46efa613a/ios",
+    "date": "2025-09",
+    "confidence": "high",
+    "imgQuery": "iPhone Math Notes mixed units meters feet calculation"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "scan",
+    "name": "相机 Siri 模式视觉智能",
+    "desc": "Visual Intelligence 搬进相机，与照片、视频并列成为新的 Siri 模式，按快门后 Siri 即可见你所见，下拉看结论并追问；替代了原先的 Camera Control 主入口（长按相机控制键仍可唤起），需 iPhone 15 Pro 及以上。",
+    "userVoice": "官方举例识别植物、动物、食物营养；所有视觉提问都会存进 Siri App，保留期可设一个月、一年或永久，被视为隐私上比较克制的处理。",
+    "tosNote": "把「扫一扫」并进相机模式条、而不是做独立 App，是抢入口的关键一步；tOS 扫一扫入口分散在负一屏与工具箱，建议评估进相机模式条的可行性。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Camera Siri mode visual intelligence viewfinder"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "scan",
+    "name": "视觉智能四类新识别动作",
+    "desc": "新增四项：拍餐食给营养评价（不报具体卡路里，只讲营养构成好坏）、拍餐厅账单按人分账并用 Apple Cash 收款（仅美国）、从日程表一次导入多个事件、拍名片导入联系人；还能读洗标、解析停车牌、核对配料表过敏原。",
+    "userVoice": "媒体称因为接上了 Siri 的联网检索能力，识别后能直接给出建议而不只是给个词条，实用度比 iOS 26 明显提升；分账功能受 Apple Cash 限制只在美国可用。",
+    "tosNote": "这套「识别→立刻能执行的动作」才是扫一扫的价值所在，tOS 扫一扫多数结果止步于搜索页；建议按本地场景挑 2–3 个（发票、快递单、药盒）做成可执行动作。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 visual intelligence nutrition bill splitting business card"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "scan",
+    "name": "Wallet 扫码生成数字通行证",
+    "desc": "Wallet 新增 Create a Pass：对着实体票、会员卡、优惠券的条码或二维码拍一张，Visual Intelligence 自动成卡，也可手填。模板分 Standard / Membership / Event，可选 12 种背景色、多种纹理或 7 款主题背景，字段可增删（VIN、保险、券码等）。",
+    "userVoice": "MacRumors 认为这解决了「没有官方 App 的纸质票没法进 Wallet」这个老问题，是本代最实用的小功能之一。",
+    "tosNote": "扫一扫最强的落地形态是「扫完生成一张可复用的卡」，tOS 扫码结果基本是一次性的；卡包×扫一扫联动值得做，难点是本地票务/会员条码的格式覆盖。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Wallet create a pass scan barcode template"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18"
+    ],
+    "os": "iOS 26",
+    "product": "scan",
+    "name": "文稿扫描：自动边缘检测存 PDF",
+    "desc": "Notes 附件菜单或 Files 的更多菜单里选 Scan Documents，Auto 模式下保持稳定即自动识别页边并连拍多页，可切 Manual 用快门或音量键拍，拖四角校正后 Keep Scan；iOS 26 起还能在取景时切闪光灯与滤镜，成品保存为 PDF。",
+    "userVoice": "The Verge 评测认为 Notes/Files 内置扫描对多数人已经够用，不必装三方 App；多页连拍的自动节奏是体验关键。",
+    "tosNote": "Apple 把扫描做成「笔记和文管的附件入口」而非独立 App，让扫描结果天然落在文件体系里；tOS 扫描件散落在相册与文管之间，建议统一落盘路径与 PDF 命名。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/en-us/108963",
+    "date": "2025-09",
+    "confidence": "high",
+    "imgQuery": "iPhone Notes scan documents auto edge detection PDF"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "theme",
+    "name": "Liquid Glass 透明度滑块",
+    "desc": "设置新增 Appearance 分区（把浅色/深色与字号也收进来），里面的 Liquid Glass 滑块取代 iOS 26 的 Clear/Tinted 两档开关，可在近乎全透明与厚磨砂之间无级调节，全系统生效，涵盖控制中心、文件夹、锁屏通知；中点为默认值，首次升级会主动引导设置。",
+    "userVoice": "MacRumors 称「如果你从来不喜欢 Liquid Glass，这是好消息」；仍嫌不够的用户可以继续用辅助功能里的 Reduce Transparency 近乎关掉所有半透明。",
+    "tosNote": "Apple 用一个无级滑块把「设计争议」交还用户，同时保住了设计语言不倒退——这是处理换肤争议最聪明的姿势；tOS 主题的毛玻璃强度建议同样做成连续可调。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/how-to/ios-27-tone-down-liquid-glass-transparency/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Settings Appearance Liquid Glass slider"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "theme",
+    "name": "锁屏紧凑时钟",
+    "desc": "锁屏自定义的 Font & Color 面板右上角新增图标，点一下把大时钟缩小并移到顶部日期与小组件行，最大化露出壁纸；紧凑模式下仍可改字体、字重和颜色，但时钟的 Liquid Glass 滑块不可用，且按每个锁屏单独生效。",
+    "userVoice": "9to5Mac 指出这与 iOS 26「把时钟拉到最大」完全反向，适合有 Apple Watch、不靠手机看时间的人；iGeeksBlog 强调可以一个锁屏用大钟、另一个用紧凑钟。",
+    "tosNote": "Apple 连续两代在时钟大小上反向加码，说明锁屏个性化的真实诉求是「让我自己决定壁纸被挡多少」；tOS 主题商城的锁屏模板建议提供同一壁纸的大钟/小钟两版。",
+    "source": "发布会",
+    "sourceName": "9to5Mac",
+    "sourceUrl": "https://9to5mac.com/2026/06/09/ios-27-adds-unique-new-setting-to-personalize-your-iphones-lock-screen/",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "iOS 27 compact Lock Screen clock top widget row"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "theme",
+    "name": "壁纸 AI 扩边（Extend）",
+    "desc": "照片比例和屏幕不匹配、或裁得太紧留了空白时，锁屏会主动建议用 Extend 补齐：模型分析既有画面并沿边缘生成匹配的背景内容，不必再暴力裁切；同一能力在照片 App 的编辑工具里也有。",
+    "userVoice": "9to5Mac 把它列为本代锁屏四项改进之一，认为对「喜欢的照片就是比例不对」这类场景是实打实的解决方案。",
+    "tosNote": "壁纸扩边是生成式模型在主题场景最刚需的落点，成本可控且无版权风险（素材是用户自己的图）；tOS 主题商城建议优先做这个，而不是做 AI 生成壁纸库。",
+    "source": "媒体实测",
+    "sourceName": "9to5Mac",
+    "sourceUrl": "https://9to5mac.com/2026/08/05/ios-27-lock-screen-customization/",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Lock Screen wallpaper Extend AI fill edges"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "theme",
+    "name": "AI 生成壁纸",
+    "desc": "壁纸选择器内置 Image Playground 入口：既能把相册照片转成「复古插画」「动画」等风格，也能纯文字描述从零生成。模型改跑 Private Cloud Compute，首次支持照片级写实输出，成图带隐形 SynthID 水印，免费但有每日额度，iCloud+ 可提额。",
+    "userVoice": "iGeeksBlog 实测认为壁纸选择器里出的图仍偏插画风、不够写实，适合做趣味个性化而非风景壁纸；需 iPhone 15 Pro 及以上。",
+    "tosNote": "Apple 给 AI 生成图定了「隐形水印 + 每日额度 + 订阅提额」三件套，这是把生成成本明码标价的模板；tOS 主题商城做 AI 壁纸前必须先定水印与额度策略。",
+    "source": "媒体实测",
+    "sourceName": "9to5Mac",
+    "sourceUrl": "https://9to5mac.com/2026/08/05/ios-27-lock-screen-customization/",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Image Playground generate wallpaper picker"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "labs",
+    "name": "一句话生成快捷指令",
+    "desc": "Shortcuts 点 New Shortcut 直接进 Describe a Shortcut，用自然语言描述要干什么，Apple Intelligence 自动选动作、组装成完整自动化并列出每一步供试跑；不满意可用 Describe a change 多轮细调，也能随时转手动编辑界面。",
+    "userVoice": "官方承认 AI Shortcuts 仍在 beta、不总是准确，复杂需求经常需要手动补刀；但媒体认为它第一次让普通用户敢碰快捷指令。",
+    "tosNote": "自动化的门槛从来不是能力而是编辑器，Apple 用自然语言把门槛直接削掉；tOS「玩机」要做自动化，入口就该是一个输入框，而不是积木式编辑器。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Shortcuts describe a shortcut natural language interface"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "labs",
+    "name": "举起手机就能问周围",
+    "desc": "VoiceOver 的 Live Recognition 接上 Apple Intelligence：按「Ask」即可询问取景框里的内容并追问，还能指定跟踪某个物体、播报它的动作变化；默认问题、输入方式（听写或打字）、音量键拍静图都可在设置里改，可绑定 Action 按钮、手势、蓝牙键盘或辅助功能快捷键。",
+    "userVoice": "AppleVis 评测认为可定制程度是这次最大亮点——盲用用户可以把「问一个问题」直接挂到 Action 按钮上，一键完成识别。",
+    "tosNote": "Apple 把最前沿的多模态能力先给了无障碍场景，既拿口碑又练模型；tOS 玩机/无障碍长期缺投入，建议把「举起手机问周围」做成无障碍旗舰功能对外讲。",
+    "source": "发布会",
+    "sourceName": "Apple Newsroom",
+    "sourceUrl": "https://www.apple.com/newsroom/2026/05/apple-unveils-new-accessibility-features-and-updates-with-apple-intelligence/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Live Recognition ask a question VoiceOver camera"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "labs",
+    "name": "语音控制用自己的话点按钮",
+    "desc": "Voice Control 支持 flexible inputs：不必记准确标签或编号，用自己的描述就能操作，比如说「tap the gear」「tap the button in the top right」；同期 VoiceOver 增强了对照片、图表、截图的上下文理解，Accessibility Reader 能处理更复杂来源并给摘要与翻译。",
+    "userVoice": "被 Macworld 列为 iOS 27 无障碍四项主要升级之一，核心价值是把「记指令」换成「说人话」。",
+    "tosNote": "「描述式点按」本质上是屏幕理解模型的落地，和 tOS 想做的自动点选/行为验证是同一套底层；建议把无障碍语音控制与内部自动化测试能力合并投入，一份模型两处收益。",
+    "source": "系统更新",
+    "sourceName": "Macworld",
+    "sourceUrl": "https://www.macworld.com/article/2986799/ios-27-new-iphone-features-release-date-beta-compatiblity-apple-intelligence-siri.html",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Voice Control flexible inputs tap the gear"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "clone",
+    "name": "Quick Start 两条路径",
+    "desc": "新机贴近旧机后可选 Download from iCloud 或 Transfer from iPhone：前者数据后台下载、新机立刻能用；后者直连传输但两台机器都得等传完才能用。全程需两机靠近并插电，旧机只要 iOS 11 及以上；被 Apple School/Business Manager 纳管的新机不能用 Quick Start。",
+    "userVoice": "MacObserver 提醒 Apple 的 Quick Start 文档写在 iOS 27 之前、也没说明两机都升 27 后设置页会不会变；卡住时的建议是保持两机靠近插电别重来。",
+    "tosNote": "「先能用、数据后台补」这条路径是换机体验的胜负手，tOS 换机大多还是必须等传完；建议把「关键数据优先、其余后台续传」做成默认，而不是可选项。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/en-us/102659",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "iPhone Quick Start transfer your data download from iCloud screen"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18"
+    ],
+    "os": "iOS 27",
+    "product": "clone",
+    "name": "临时 iCloud 空间",
+    "desc": "换机时若 iCloud 空间不够，设置→通用→传输或还原里的 Prepare for New iPhone 会判定资格并免费开临时空间做整机备份；有 21 天窗口把备份还原到新机（可再延 21 天），还原完备份再保留 7 天后永久删除。",
+    "userVoice": "AppleMagazine 指出关键点是「不必为了换机专门升级 iCloud+」——5GB 免费档用户也能跑完整机迁移；前提是旧机在还原前不能抹掉。",
+    "tosNote": "用「限时免费云空间」把换机卡点拆掉，比逼用户买会员聪明得多；tOS 换机在海外没有自家云容量兜底，这套 21 天临时空间的商业设计值得直接抄。",
+    "source": "系统更新",
+    "sourceName": "Apple Support",
+    "sourceUrl": "https://support.apple.com/en-us/104980",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iPhone temporary iCloud storage prepare for new iPhone backup"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "clone",
+    "name": "iPhone Handoff 一号双机",
+    "desc": "新增 iPhone Handoff，同一个号码可以在两台 iPhone 上使用并随时切换，适合把旧机留作备机；依赖 eSIM 且需运营商支持，首发仅美国 T-Mobile 与德国电信，T-Mobile 每月还要收 5 美元。",
+    "userVoice": "MacRumors 直言运营商门槛与每月 5 美元是最大障碍，能用上的人很少。",
+    "tosNote": "这解决的是「换机后旧机还想用同一个号」的过渡痛点，而不是数据搬迁；tOS 换机可考虑更轻的做法：旧机保留为「只收通知」的伴机，不碰运营商也能做。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 iPhone Handoff same number two iPhones eSIM"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "browser",
+    "name": "标签页按话题自动分组",
+    "desc": "Safari 用 Apple Intelligence 分析网页内容，把同主题标签自动聚成组（比如一边挑冰箱一边规划假期会分成两堆）；在标签视图右上角三横线里开 Automatically Create Topics，同一菜单可按主题筛选并只打开某一组，书签与阅读列表也能按主题归类。",
+    "userVoice": "起始页新增 Resume Browsing 区，能接着看最近关掉的主题或其他设备上开着的主题，被认为比单纯分组更实用。",
+    "tosNote": "标签爆炸是浏览器的通病，Apple 选择「自动分组+可筛选」而不是逼用户手动建组；tOS 浏览器若做，务必保留「不自动分组」开关，AI 分错组比不分组更烦。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "Safari iOS 27 automatically create topics tab groups"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "browser",
+    "name": "Notify Me 网页变更监控",
+    "desc": "在网址栏左侧设置图标里选 Notify Me，用文字说明要盯什么变化，并设检查频率与时间点，Safari 就会代你轮询并在检测到变化时通知；最快一小时一次，也可选每日、每周、每月。官方场景是票务开售与商品补货。",
+    "userVoice": "媒体普遍把它列为 iOS 27 最实用的非 AI 明星功能之一；一小时的最短轮询间隔对抢票这类场景仍偏慢。",
+    "tosNote": "「让浏览器替你盯页面」把浏览器从被动工具变成后台代理，是很强的留存钩子；tOS 浏览器做这个的难点是后台唤醒配额与省电策略，要和系统功耗团队一起定。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "Safari iOS 27 Notify Me webpage change monitoring"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "browser",
+    "name": "一句话生成浏览器扩展",
+    "desc": "网址栏左侧菜单新增 Create an Extension，用自然语言描述想要的功能，Apple 直接生成扩展；官方给了 Boost Productivity、Improve Focus、Get Creative、Develop and Design 四类灵感，例子包括「给当前网页生成引用并复制」「把最小字号设为 14pt」「点元素时显示它的尺寸」。",
+    "userVoice": "被多家媒体视为本代 Safari 最激进的一步——把扩展生态的门槛从写代码降到写一句话。",
+    "tosNote": "这是把浏览器变成可编程终端的信号，tOS 浏览器连扩展体系都还没有；短期不建议跟，但「用一句话改当前页样式/行为」的轻量版可以作为玩机功能试水。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "Safari iOS 27 create an extension natural language prompt"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "gallery",
+    "name": "Clean Up 三档去物",
+    "desc": "Clean Up 换新模型重做，不再局限于纯色背景上的小瑕疵，能重建大面积背景；提供 Fast（小瑕疵快速处理）、High Quality（复杂场景精修）、Auto（交给系统判断）三档，需 iPhone 15 Pro 及以上。",
+    "userVoice": "官方发布说明明确写了「支持移除更大的物体、结果更真实」；三档选择被视为对首代 Clean Up「一档打天下、复杂场景直接崩」的补救。",
+    "tosNote": "把消除功能拆成快/精/自动三档，本质是把算力成本的选择权交给用户，很值得学；tOS 相册 AI 消除目前只有一档，复杂背景失败率高，建议先加 High Quality 档。",
+    "source": "系统更新",
+    "sourceName": "iClarified",
+    "sourceUrl": "https://www.iclarified.com/102060/ios-27-release-notes",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Photos Clean Up fast high quality auto options"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "gallery",
+    "name": "Extend 扩图与空间重构",
+    "desc": "Extend 用生成式填充把画面往外扩，可双指捏合调边界，用来扶正地平线、改画幅比例或给主体留白；Spatial Reframing 借助拍摄时记录的空间信息，在后期虚拟改变相机位置与主体角度，缺失像素由 AI 补齐，双指可平移缩放旋转。",
+    "userVoice": "官方把这两项与 Clean Up 并列为本代照片三大编辑升级；Extend 同时被用在锁屏壁纸补边，是少数「同一能力两处落地」的案例。",
+    "tosNote": "Spatial Reframing 依赖拍摄时留存的空间数据，这是相机与相册必须提前约定的管线；tOS 若想做同类能力，得在拍摄侧先开始存深度/空间信息，否则后期无从下手。",
+    "source": "系统更新",
+    "sourceName": "iClarified",
+    "sourceUrl": "https://www.iclarified.com/102060/ios-27-release-notes",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Photos Extend tool Spatial Reframing edit"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "gallery",
+    "name": "我拍的 / 证件照片夹",
+    "desc": "照片 App 的 Utilities 下新增两个合集：Captured by Me 汇总当前与历史 iPhone 用相机拍下的照片，自动排除截图、表情包等外来图片；Identity Documents 把护照、驾照等证件类照片归到一处。",
+    "userVoice": "r/iOSBeta 高赞帖称「等了多年的功能」，过去只能搜机型名、且同机型别人传来的照片也会混进来；也有用户吐槽「一个『我自己拍的照片』文件夹花了 19 年才做出来」。",
+    "tosNote": "「只看我自己拍的」是 Android 相册靠 DCIM 目录天然具备的能力，这条 tOS 已经领先；真正要抄的是 Identity Documents 那种按内容自动归类的证件夹，配合隐藏相册做隐私卖点。",
+    "source": "用户反馈",
+    "sourceName": "Reddit r/iOSBeta",
+    "sourceUrl": "https://www.reddit.com/r/iOSBeta/comments/1u21cxu/ios_27_db1_new_utilites_category_in_photos/",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Photos Utilities Captured by Me Identity Documents"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "gallery",
+    "name": "星级评分与关键词",
+    "desc": "照片和视频可以打 1–5 星并加关键词，再按星级筛选；设置→照片里新增 Show Rating Controls，开启后缩略图上直接显示评分角标。库里还有 Show Selected 选项，可把勾选的照片集中起来批量改位置等元数据。",
+    "userVoice": "被 MacRumors 视为向专业修图工作流靠拢的一步；社区里长期抱怨照片 App 切换分区会丢失浏览位置、批量操作后丢选择，这类批量元数据编辑算是回应。",
+    "tosNote": "星级+关键词是把相册从「时间流」变成「可检索资产库」的基础设施；tOS 相册连关键词都没有，建议先做关键词与批量编辑，评分可后置。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Photos star rating keywords show rating controls"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "gallery",
+    "name": "共享相册接纳安卓/Windows",
+    "desc": "iCloud 共享相册允许安卓与 Windows 用户通过网页参与投稿，且支持原分辨率、常见全部格式；相册可设 30 天后过期、按照片或视频筛选、用任意 emoji 回应，并有谁加了什么的活动日志。注意共享相册内容算在相册所有者的 iCloud 容量里。",
+    "userVoice": "MacRumors 特别提醒了「内容占你自己的 iCloud 空间」这个隐性代价，属于容易被忽略的坑。",
+    "tosNote": "「跨平台原图共享+30 天自动过期」正好卡住旅行团、家庭群的真实需求，tOS 相册分享还停在生成链接看压缩图；建议优先做原图投稿与过期回收。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iCloud Shared Albums Android Windows contribute full resolution"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "gallery",
+    "name": "照片 App 布局仍是争议焦点",
+    "desc": "iOS 26 把照片 App 从 iOS 18 的单页流部分退回接近 iOS 17 的双区（Library / Collections）结构，iOS 27 在此基础上只做加法（Utilities 合集、评分、幻灯片），没有再动导航；社区要求恢复常驻底部标签栏的声音仍在。",
+    "userVoice": "r/ApplePhotos 长帖抱怨切换分区会丢失浏览位置、批量加入相册后选择被清空、搜索「7 plus」不再命中机型；r/apple 的高赞评论是「Apple 请试着不要每年都改一遍照片 App」。",
+    "tosNote": "Apple 连续三代改照片导航、三代被骂，教训很直接：相册的导航是肌肉记忆资产，改版收益远小于损失。tOS 相册若要重构，宁可加分区也不要动主结构。",
+    "source": "用户反馈",
+    "sourceName": "Reddit r/ApplePhotos",
+    "sourceUrl": "https://www.reddit.com/r/ApplePhotos/comments/1rztouc/anyone_else_still_frustrated_with_the_photo_app/",
+    "date": "2026-09",
+    "confidence": "medium",
+    "imgQuery": "iOS 26 Photos app library collections tabs layout complaint"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "Siri 独立 App 跨端续接",
+    "desc": "新增独立 Siri App，卡片式列出各设备上的近期对话，可搜索、置顶常用会话，对话经 iCloud 私密同步到 iPhone/iPad/Mac/Vision Pro；一次请求可包含多个任务，支持持续多轮对话，长按输入框的 Ask… 可切换到 ChatGPT（切换后上下文不带过去）。",
+    "userVoice": "MacStories 主编评价很不留情：「这个 Siri App 相当糟糕」，极其简陋、动画卡顿、预览经常不显示，感觉像两年前的 GPT-4；最讽刺的是 Siri 无法检索自己的历史对话，你问它「我们之前聊过这个吗」它一无所知。",
+    "tosNote": "把助手做成有历史、可跨端续接的 App 是正确方向，但 Apple 证明了「有 App」不等于「好用」；tOS 若做助手 App，会话检索和 Memory 必须一期就有，否则同样会被骂简陋。",
+    "source": "媒体实测",
+    "sourceName": "MacStories",
+    "sourceUrl": "https://www.macstories.net/stories/ios-and-ipados-27-review/7/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Siri app conversation history card interface"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "个人语境语义索引",
+    "desc": "Siri 接入重建后的语义索引，可跨邮件、信息、文件、照片、笔记、日历检索并理解内容，支持「我哥上周让我看的那部电影叫什么」「房东上个月发我的租约在哪」「Sarah 发我的门禁码是多少」这类不指定 App 的追问。",
+    "userVoice": "MacStories 称这恰恰是 Siri AI 三个月里最不给力的一环：明知 iMessage 里有数据却查不到，或返回过期信息；根因是端侧索引不是实时入库，整体像个黑盒。",
+    "tosNote": "跨 App 语义检索是助手的真正护城河，也是最难兜住体验的一环——索引延迟直接等于「AI 失忆」。tOS 若要做，必须先解决增量索引的实时性，宁可缩小数据范围也别做大而不准。",
+    "source": "媒体实测",
+    "sourceName": "MacStories",
+    "sourceUrl": "https://www.macstories.net/stories/ios-and-ipados-27-review/6/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Siri personal context search email messages photos"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "屏幕感知（选中即问）",
+    "desc": "任意 App 里选中文字或长按图片后可直接问 Siri，无需描述你在看什么：能摘要正文、翻译菜单、说出照片拍摄地、解释图表含义，三方 App 同样支持；系统级上下文菜单里统一提供 Ask Siri 入口。",
+    "userVoice": "MacRumors 强调「在三方 App 里也能用」是关键差异；MacStories 则指出语音交互仍是「提问—等待—听答案」的老模式，无法像 ChatGPT Voice 那样边走边长聊。",
+    "tosNote": "屏幕感知靠的是系统级选区与上下文菜单协议，三方 App 零适配即可受益——这是 OS 厂商独有的杠杆。tOS 助手要做这个，抓手是输入法与选区菜单，而不是每个 App 单独接。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/roundup/ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Siri onscreen awareness ask about selection any app"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "App Actions 跨应用编排",
+    "desc": "Siri 可调用 Apple 与已适配三方 App 的工具完成任务：回封邮件、把今天的照片发给 Eric、加周二下午 3 点的会、把这些照片加进猫相册、规划先绕去咖啡店的路线、把 2 点的会挪到周四。",
+    "userVoice": "MacStories 实测出明确上限：同一句话里可以要求做两件事（定时器+开灯），但塞三件事时第三件会被静默丢弃；也常遇到超时和「抱歉出了点问题」。Viticci 结论是「它不是能长跑任务的 agentic 产品」。",
+    "tosNote": "Apple 的 App Actions 能力上限就卡在「两步以内」，这给了后来者时间窗；tOS 做 Intent 编排时，务必把失败与丢步显式反馈给用户——静默丢任务比做不到更伤信任。",
+    "source": "媒体实测",
+    "sourceName": "MacStories",
+    "sourceUrl": "https://www.macstories.net/stories/ios-and-ipados-27-review/7/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Siri app actions multi step request example"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "Write with Siri 写作",
+    "desc": "任何能打字的地方都可以让 Siri 从零起草、改写、缩短、把要点转成段落、把语气改得更正式，也能选中文字问「这样写怎么样」；在信息与邮件里 Siri 会按你和对方的关系模仿你的写作风格（沿用你惯用的措辞与标点），并在输入时自动校对拼写语法。",
+    "userVoice": "上一代 Writing Tools 被 PCMag 评为「Apple AI 里目前最好用的功能」，但也批触屏上点击次数太多、体验笨拙；本代把风格个性化做进 Smart Reply，就是在回应「智能回复不像人写的」这类差评。",
+    "tosNote": "Apple 的解法是把写作能力做成输入层能力而非某个 App 的功能，覆盖面最大；tOS 要跟就得从输入法切入，同时注意「模仿用户风格」在隐私口径上要讲清数据不出端。",
+    "source": "系统更新",
+    "sourceName": "iClarified",
+    "sourceUrl": "https://www.iclarified.com/102060/ios-27-release-notes",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Write with Siri writing tools keyboard toolbar"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "搜索即提问取代 Spotlight",
+    "desc": "从主屏中间下划不再是 Spotlight，而是 Search or Ask：既能搜索也能直接打字或说话问 Siri，Siri 同时常驻灵动岛；简短回答显示在灵动岛区域，下划可追问或用「+」上传文件与照片。邮件搜索改为按相关度与意图排序、给最多 5 条 Top Results。",
+    "userVoice": "MacRumors 直白写「你熟悉的 Spotlight 在 iOS 27 里没了」；搜索索引重建后结果时效性明显更好，邮件搜索从按时间排改成按相关度排是感知最强的变化。",
+    "tosNote": "把全局搜索入口直接改成「搜索或提问」，是用最高频入口给助手导流的狠招；tOS 负一屏搜索同样是流量金矿，但要想清楚搜索确定性与 AI 不确定性如何共存。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Search or Ask interface swipe down home screen"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "通话前自动取订单号",
+    "desc": "打给商家时 Phone 会主动从邮件里找出相关信息并在通话界面展示，比如给航空公司改签时直接显示确认码或订位号；Apple 强调它只看你拨给谁、不分析通话音频，全程端侧运行不上传，需 iPhone 15 Pro 及以上，iPad/Mac 拨号同样生效。",
+    "userVoice": "MacRumors 特别点出官方口径「不听内容、只看号码、数据不出本机」，认为这是 Apple 处理通话类 AI 争议的标准话术。",
+    "tosNote": "这套「只看元数据不看内容+端侧运行」的设计就是为了绕开通话隐私争议，值得当模板抄；tOS 想做通话辅助，先把边界定成「不解析音频」，合规沟通会顺畅得多。",
+    "source": "系统更新",
+    "sourceName": "MacRumors",
+    "sourceUrl": "https://www.macrumors.com/2026/09/15/50-new-things-iphone-can-do-ios-27/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Call Context phone app flight confirmation number"
+  },
+  {
+    "brand": "apple",
+    "modelIds": [
+      "iphone18",
+      "wwdc2026"
+    ],
+    "os": "iOS 27",
+    "product": "assistant",
+    "name": "Siri AI 区域与机型门槛",
+    "desc": "Siri AI 首发仅英文（澳/加/爱/印/新/南非/英/美），因数字市场法案欧盟不上线，中国大陆也不提供；完整 Apple Intelligence 需 iPhone 15 Pro 及以上，语音自定义与高级听写还要 iPhone Air / 17 Pro 及以上。iOS 27 本体支持到 iPhone 11 与 SE 二代。",
+    "userVoice": "官方发布说明把 Messages Suggestions 与 Passwords 弱密码自动更新标为「后续软件更新」补上，意味着首发即缺件；Beta 7 还被发现加入了按服务器状况分批放号的候补名单机制。",
+    "tosNote": "Apple 用「英文先发+分批放号+区域黑名单」把 AI 的合规风险摊薄，同时给自己留足打磨时间；tOS 的 AI 功能出海按这个节奏灰度，比一次性全量安全得多。",
+    "source": "系统更新",
+    "sourceName": "9to5Mac",
+    "sourceUrl": "https://9to5mac.com/2026/09/09/ios-27-here-are-apples-full-release-notes/",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "iOS 27 Siri AI availability English regions device requirements"
+  }
+]

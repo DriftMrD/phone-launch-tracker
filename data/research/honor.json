@@ -1,0 +1,985 @@
+[
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "recorder",
+    "name": "YOYO 帮记实时转写会议",
+    "desc": "会议中实时把语音转成文字并区分发言人用颜色标注，自动提取关键词、任务、时间点和责任人，散会后 1-3 分钟生成含会议主题/核心要点/任务分工/后续安排的纪要，可导出 Word、TXT、PDF。",
+    "userVoice": "媒体实测称普通话识别准确率高，能识别部分方言和英文；但必须联网做智能分析，安静环境效果才好，嘈杂会场转写质量下降明显。",
+    "tosNote": "tOS 录音机目前只有转写没有说话人分离和任务抽取，建议优先补齐说话人分离+结构化纪要，导出 Word 是办公用户的硬需求。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15886359/",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO meeting notes real-time transcription screenshot MagicOS 10"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "recorder",
+    "name": "YOYO 帮记接入灵动胶囊",
+    "desc": "MagicOS 10 七月版（10.0.0.170）把 YOYO 帮记接进灵动胶囊：会议开始前胶囊主动推荐开启帮记，会议进行中可直接在胶囊上控制录制状态，不用回到应用本体。",
+    "userVoice": "",
+    "tosNote": "这是把录音机从「应用」变成「系统服务」的关键一步，tOS 录音只有通知栏控制，建议把录音态接入灵动岛类容器并加日程前置推荐。",
+    "source": "系统更新",
+    "sourceName": "IT之家",
+    "sourceUrl": "https://www.ithome.com/0/973/101.htm",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Honor MagicOS dynamic capsule recording control YOYO notes"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "recorder",
+    "name": "会议纪要模板扩充",
+    "desc": "六月版把 YOYO 笔记的会议纪要模板库扩容，针对商务、学术等不同会议类型提供更多可选纪要结构，用户会前可按会议类型预设参数，比如开启专业词汇提取。",
+    "userVoice": "",
+    "tosNote": "模板化是低成本高感知的做法，tOS 录音机可以先做 3-4 个纪要模板（周会/访谈/课堂），比硬堆模型能力见效快。",
+    "source": "系统更新",
+    "sourceName": "Huawei Central",
+    "sourceUrl": "https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/",
+    "date": "2026-06",
+    "confidence": "medium",
+    "imgQuery": "Honor YOYO notes meeting minutes template selection"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "recorder",
+    "name": "通话录音笔记支持隐藏",
+    "desc": "六月版优化笔记与录音的耦合：通话录音生成的笔记条目可以手动隐藏，不再混在普通笔记列表里，避免通话内容在笔记首页被旁人直接看到。",
+    "userVoice": "",
+    "tosNote": "通话录音是隐私最敏感的一类录音，tOS 目前和普通录音同列表，建议加独立分区+隐藏开关，成本低但能挡掉一批隐私投诉。",
+    "source": "系统更新",
+    "sourceName": "Huawei Central",
+    "sourceUrl": "https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/",
+    "date": "2026-06",
+    "confidence": "medium",
+    "imgQuery": "Honor Notes call recording note hide setting"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "files",
+    "name": "「我的文件」与「浏览」合并",
+    "desc": "八月版把文件管理原本并列的「我的文件」和「浏览」两个一级标签页合并为统一视图，页面层级从两层压到一层，常用文件的查找和管理路径更短。",
+    "userVoice": "",
+    "tosNote": "荣耀这刀砍在信息架构上，和 tOS 文管「最近/浏览」双 tab 的老问题一模一样；建议同步评估合并，但要保留分类入口不被埋深。",
+    "source": "系统更新",
+    "sourceName": "快科技",
+    "sourceUrl": "https://news.mydrivers.com/1/1142/1142279.htm",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor MagicOS 10 file manager merged browse tab screenshot"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "files",
+    "name": "排序功能外显到一级页面",
+    "desc": "五月版优化文件管理排序布局，把原本藏在二级菜单里的文件排序能力直接外显到一级页面，用户不用点开更多菜单就能切换按时间、大小、名称排序。",
+    "userVoice": "",
+    "tosNote": "极小改动、极高频收益。tOS 文管排序同样藏在右上角菜单里，建议直接跟，一个版本就能落地。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30200729-1-1.html",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor file manager sort button first level page"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "files",
+    "name": "系统管家一键快速清理",
+    "desc": "五月版系统管家新增「一键快速清理」，省掉原本先扫描再勾选的两步流程，点一次即刻释放存储空间，配合 MagicOS 10 的智能清理可处理大文件和重复照片。",
+    "userVoice": "",
+    "tosNote": "tOS 清理仍是扫描-确认-清理三步，转化率低；建议做一键快清+可撤销回收站，别为了清理量牺牲误删风险。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30200729-1-1.html",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor phone manager one tap quick clean storage"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "files",
+    "name": "存储碎片智能清理保六年流畅",
+    "desc": "X80 Pro Max 首发荣耀蜂鸟架构 2.0，系统自动整理存储空间碎片与冗余文件，官方称整机六年稳定流畅，短视频连续滑动场景流畅度最高提升 40%。",
+    "userVoice": "媒体首发评测认可长期流畅度，称同时开十几个应用切后台也没杀后台；但六年承诺无法在评测周期内验证，属于口碑预支。",
+    "tosNote": "把「清理」讲成「六年流畅」是叙事升级而非功能升级，tOS 文管可复用同一话术，前提是真有碎片整理数据支撑，否则会被实测打脸。",
+    "source": "发布会",
+    "sourceName": "荣耀官网",
+    "sourceUrl": "https://www.honor.com/cn/news/honor-x80-pro-max-launch/",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "Honor X80 Pro Max storage fragment smart cleaning six years fluency"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "player",
+    "name": "切歌动效与专辑封面旋转",
+    "desc": "六月版为媒体播放新增切歌过渡动效，音频专辑封面在切换曲目时带旋转转场，把系统播放器的视觉质感拉到接近第三方音乐应用的水平。",
+    "userVoice": "",
+    "tosNote": "纯动效投入但用户感知强。tOS 自带播放器切歌是硬切，建议排一个动效专项，和灵动胶囊播控一起改，避免两套视觉割裂。",
+    "source": "系统更新",
+    "sourceName": "Huawei Central",
+    "sourceUrl": "https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/",
+    "date": "2026-06",
+    "confidence": "medium",
+    "imgQuery": "Honor MagicOS music player album art rotation transition"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "player",
+    "name": "媒体播放胶囊频谱律动",
+    "desc": "三月版给灵动胶囊的媒体播放态加了实时频谱律动显示，胶囊会跟随当前播放音频的节奏跳动，播放控制不展开也能看出是否在出声。",
+    "userVoice": "",
+    "tosNote": "胶囊频谱是低成本炫技，但对「后台到底有没有在播」有真实判别价值；tOS 若已有胶囊容器，建议顺手做掉。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30072697-1-1.html",
+    "date": "2026-03",
+    "confidence": "high",
+    "imgQuery": "Honor dynamic capsule music spectrum animation"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "notes",
+    "name": "荣耀笔记 AI 语义搜索",
+    "desc": "八月版荣耀笔记首页搜索框升级为 AI 语义搜索，不再依赖关键词精确匹配，用自然语言描述笔记大意即可定位到对应笔记，入口在荣耀笔记首页右上角搜索。",
+    "userVoice": "媒体普遍把它列为八月七大升级里最实用的一项，认为解决了笔记多了以后靠关键词翻不到的老问题。",
+    "tosNote": "语义检索是笔记的护城河功能，tOS 记事本仍是全文关键词匹配；建议端侧向量化先跑通标题+首段，全量向量化功耗压不住。",
+    "source": "系统更新",
+    "sourceName": "快科技",
+    "sourceUrl": "https://news.mydrivers.com/1/1142/1142279.htm",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor Notes AI semantic search screenshot MagicOS 10"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "notes",
+    "name": "语音速记与课堂总结",
+    "desc": "九月开学季版本优化笔记：语音速记触达更便捷、课堂总结生成更高效、语义搜索精度进一步提升，配合课程表导入日历构成完整的学生场景闭环，8 月 30 日起分批推送。",
+    "userVoice": "",
+    "tosNote": "荣耀把笔记绑死在开学季场景做营销，tOS 记事本缺少场景化包装；建议按学期节奏做「课堂模式」，比堆通用 AI 功能更抓人。",
+    "source": "系统更新",
+    "sourceName": "IT之家",
+    "sourceUrl": "https://www.ithome.com/0/988/354.htm",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "Honor Notes voice quick note classroom summary back to school"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "notes",
+    "name": "AI 笔记摘要排版纠错润色",
+    "desc": "打开任意笔记点 AI 笔记，可用智慧摘要（对话式生成摘要）、智慧排版（总结排版/原文排版可切风格）、智慧纠错、智慧润色（可调语气风格），结果支持替换原文或另存新笔记。",
+    "userVoice": "",
+    "tosNote": "四件套已是国内笔记标配，tOS 若只做润色会被对比出短板；重点补「替换原文/另存」的双出口，这是用户敢不敢用 AI 的关键。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15868680/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor AI Notes smart summary polish proofread menu"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "notes",
+    "name": "备忘录合并进荣耀笔记",
+    "desc": "升级到 MagicOS 10 后，原独立的「备忘录」应用被合并升级为「荣耀笔记」，备忘录相关功能全部迁入笔记 App，官方在俱乐部答疑中确认这是产品策略而非 bug。",
+    "userVoice": "俱乐部有用户明确发帖「希望开放备忘录的功能」，说明合并后一部分轻量记事用户找不到原入口，产生迁移阵痛。",
+    "tosNote": "合并能省一个应用但必然掉一批老用户，tOS 若要合并记事本与便签，务必保留旧图标做重定向，别直接下架。",
+    "source": "用户反馈",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-29930461-6-1.html",
+    "date": "2026-01",
+    "confidence": "medium",
+    "imgQuery": "Honor Notes app replacing memo app MagicOS"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "calendar",
+    "name": "课程表一键导入日历",
+    "desc": "九月版支持把课程表一键导入日历，导入后由 YOYO 建议和灵动胶囊做上课实时提醒，不需要手动逐节录入课程时间地点，8 月 30 日起陆续推送。",
+    "userVoice": "媒体宣传口径称支持拍照导入课表并自动课前提醒，但官方更新日志只写「一键导入」，拍照识别这一步尚待实测确认。",
+    "tosNote": "课表解析是典型的高频窄场景，tOS 日历没有；难点是国内高校课表格式极度碎片化，建议先做截图 OCR + 人工确认，不做全自动。",
+    "source": "系统更新",
+    "sourceName": "IT之家",
+    "sourceUrl": "https://www.ithome.com/0/988/354.htm",
+    "date": "2026-09",
+    "confidence": "high",
+    "imgQuery": "Honor calendar import class schedule one click MagicOS"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "calendar",
+    "name": "赛事日程创建与一键跳转",
+    "desc": "六月版升级日历功能，支持直接创建赛事类日程，并在日程详情里提供一键跳转到浏览器对应赛事页面的入口，把日历从纯记录工具变成内容入口。",
+    "userVoice": "",
+    "tosNote": "日程带深链是低成本的体验增量，tOS 日历目前只有纯文本备注；建议先支持 URL 字段和一键打开，再谈内容源合作。",
+    "source": "系统更新",
+    "sourceName": "Huawei Central",
+    "sourceUrl": "https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/",
+    "date": "2026-06",
+    "confidence": "medium",
+    "imgQuery": "Honor calendar sports event schedule browser link"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "calendar",
+    "name": "生日提醒全局仪式感",
+    "desc": "五月版新增生日提醒：生日当天桌面、负一屏和 YOYO 智能体形象都会呈现生日氛围，设置路径为设置 > 荣耀 AI&YOYO > YOYO 建议 > 生日提醒。",
+    "userVoice": "",
+    "tosNote": "日历数据驱动系统级视觉是荣耀的惯用打法，tOS 日历数据孤立在应用内；建议开放日程事件给桌面/AOD 订阅，先从生日、纪念日做起。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30200729-1-1.html",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO birthday reminder desktop animation"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "clock",
+    "name": "桌面闹钟小组件与格言组件",
+    "desc": "六月版桌面新增闹钟小组件和格言小组件，闹钟不用进应用就能在桌面查看下一个响铃时间，配合新的桌面编辑手势（双指捏合/长按/两者）可快速摆放。",
+    "userVoice": "",
+    "tosNote": "闹钟组件是老需求，tOS 时钟只有时间显示组件；建议补「下一个闹钟」组件并支持一键关闭，通勤党感知最强。",
+    "source": "系统更新",
+    "sourceName": "Huawei Central",
+    "sourceUrl": "https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/",
+    "date": "2026-06",
+    "confidence": "medium",
+    "imgQuery": "Honor MagicOS home screen alarm clock widget"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "clock",
+    "name": "锁屏世界时钟计时器秒表",
+    "desc": "七月版（10.0.0.170）锁屏小组件新增世界时钟、计时器、秒表、蓝牙耳机电量、YOYO 帮记等场景，时钟三大子功能首次做到锁屏一键直达，不用解锁进应用。",
+    "userVoice": "",
+    "tosNote": "时钟拆成三个独立锁屏组件是很聪明的解法，tOS 锁屏组件体系还没开放给系统应用；建议先把计时器/秒表做进去，厨房和健身场景转化最高。",
+    "source": "系统更新",
+    "sourceName": "IT之家",
+    "sourceUrl": "https://m.ithome.com/html/977749.htm",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Honor lock screen widgets world clock timer stopwatch"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "clock",
+    "name": "智慧摆台台历态时钟",
+    "desc": "小折叠熄屏后弯折到帐篷态或台历态平放，会自动进入智慧摆台，显示时钟和天气或切换到音乐模式；显示方式可选轻触显示、全天显示、充电常显，电量低于 10% 自动不显示。",
+    "userVoice": "官方明确提示开启全天显示会增加耗电，这也是折叠用户实际使用中最常关掉它的原因。",
+    "tosNote": "折叠形态感知驱动时钟形态是 tOS 折叠机型的必答题；难点不在 UI 而在形态识别误判率和低电保护策略，建议直接抄它的三档显示策略。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15861444/",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Honor Magic V Flip smart display stand tent mode clock"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "calc",
+    "name": "计算器历史记录重算与百分比",
+    "desc": "MagicOS 计算器支持快速查找历史计算记录并在记录上直接重新计算和修改表达式，同时补齐了百分比计算，这两项是此前被用户反复吐槽缺失的基础能力。",
+    "userVoice": "",
+    "tosNote": "历史记录可回溯编辑是计算器的及格线，tOS 计算器只能查看不能复算；工作量极小，建议直接排期补上。",
+    "source": "系统更新",
+    "sourceName": "IT之家",
+    "sourceUrl": "https://www.ithome.com/0/883/106.htm",
+    "date": "2025-09",
+    "confidence": "medium",
+    "imgQuery": "Honor calculator history record recalculate percentage"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "calc",
+    "name": "计算器换算能力仍被用户催更",
+    "desc": "荣耀俱乐部「MagicOS 用户共创」帖中，用户集中提出计算器需要增加更多换算功能（单位、汇率等），版主回复记录需求，说明该能力在 MagicOS 10 上仍不完整。",
+    "userVoice": "同一贴用户还一并提了侧边栏响应慢、笔记不能拖格式、相册双指旋转易失败等问题，计算器换算是其中优先级明确的一条。",
+    "tosNote": "这是荣耀明确暴露的短板，tOS 计算器若已有汇率/单位换算应作为对比点放大；没有的话优先级也不高，属于长尾需求。",
+    "source": "用户反馈",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-29930461-6-1.html",
+    "date": "2026-01",
+    "confidence": "medium",
+    "imgQuery": "Honor calculator unit conversion feature request"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "scan",
+    "name": "荣耀任意门指关节一圈即达",
+    "desc": "开启设置 > 荣耀 AI&YOYO > 荣耀任意门 > 指关节一圈即达后，任意界面用单指关节敲击画圈框选，系统自动识别圈中的图片或文字并推荐购物、导航、音乐、分享、文字提取等服务。",
+    "userVoice": "官方 FAQ 自承圈选后经常推荐不出相关服务，需要用户手动开「图文自动识别」或点「文字提取」切到文字模式才行，识别链路不够稳。",
+    "tosNote": "圈选搜是 tOS 扫一扫最该补的入口级能力；难点是服务推荐的召回，建议只做「搜同款+文字提取+发给助手」三条确定路径，别做全服务分发。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15882095/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor Magic Portal knuckle circle to search screenshot"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "scan",
+    "name": "AI 截图智能推荐服务",
+    "desc": "截图完成瞬间，AI 截图会根据截图内容和用户使用习惯自动推荐相应的应用或服务，一点即用；该能力在 MagicOS 10 全球版同步上线，是 Magic Portal 体系的一部分。",
+    "userVoice": "海外媒体（Gizmochina）在 Magic 7 Pro 的 MagicOS 10 升级实测中把它列为最显眼的新交互之一，认为学习用户习惯的思路比固定菜单更聪明。",
+    "tosNote": "截图后推荐是 OCR 能力最自然的落点，tOS 截图后只有编辑/分享；建议先做「识别到二维码/地址/快递单号」三类强信号再扩，避免误推荐招骂。",
+    "source": "媒体实测",
+    "sourceName": "Gizmochina",
+    "sourceUrl": "https://www.gizmochina.com/2026/02/19/honor-magic-7-pro-magicos-10-android-16-update/",
+    "date": "2026-02",
+    "confidence": "high",
+    "imgQuery": "Honor MagicOS 10 AI screenshot app suggestions"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "scan",
+    "name": "YOYO 看见取景实时解析",
+    "desc": "通过 AI 键实时唤起 YOYO 看见，对准取景画面即可实时解析并回答，官方主打三个场景：挑西瓜等果蔬挑选、按冰箱现有食材生成菜谱、按面料给出衣物洗护建议。",
+    "userVoice": "俱乐部用户实测在植物园识别出「琴叶榕」并给出养护方法，带娃问花草的场景反馈正面。",
+    "tosNote": "这是把扫一扫从「识别物体」推到「给建议」，tOS 扫一扫停在识别结果页；建议接一层生活知识问答，模型不用大但要有场景卡片化输出。",
+    "source": "发布会",
+    "sourceName": "荣耀官网",
+    "sourceUrl": "https://www.honor.com/cn/magic-os/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO Vision see and ask camera recognition"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "theme",
+    "name": "夏日主题含水波纹指纹与 AOD",
+    "desc": "八月版上新「沁凉一夏」「悠悠碧波」两套夏日主题，主题包整套含壁纸、水波纹指纹解锁动画和配套熄屏显示（AOD），路径为设置 > 桌面和个性化 > 主题。",
+    "userVoice": "俱乐部用户对水波纹指纹解锁动画反馈正面，「水波纹好看」是主题相关跟帖里出现频次最高的评价。",
+    "tosNote": "把指纹动画和 AOD 打包进主题是提升付费感知的关键，tOS 主题包目前不含指纹动效；建议优先开放指纹解锁动画接口给主题创作者。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30338199-1-1.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor MagicOS summer theme ripple fingerprint AOD"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "theme",
+    "name": "普通照片一键转 3D 动态壁纸",
+    "desc": "八月版锁屏新增支持把普通照片一键转化为 3D 动态壁纸，轻晃手机即呈现裸眼 3D 视差锁屏效果；同一套 3D 能力也开放在图库里生成 3D 照片。",
+    "userVoice": "",
+    "tosNote": "单图生深度做视差锁屏是端侧模型的高性价比落点，tOS 锁屏只有静态和动态照片；建议先做人像类，风景类深度估计翻车率高。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30348908-1-1.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor 3D dynamic wallpaper lock screen parallax photo"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "theme",
+    "name": "AI 魔法主题：宠物照生成主题包",
+    "desc": "在荣耀主题 > 推荐 > 精选 > 魔法主题上传 1 张猫或狗的照片，2-3 分钟生成最多 8 张超大壁纸库的主题包，应用后每次亮屏切换一张；每日最多创建 5 次、每月累计 60 次。",
+    "userVoice": "官方文档自列诸多限制：只能传猫狗、正面清晰坐姿或站姿、分辨率不低于 1080×1920、长短边比不超过 2:1，不满足就直接生成失败。",
+    "tosNote": "生成式主题是主题商城的新增量，但荣耀用「只支持猫狗」把成功率锁死了；tOS 若跟，建议同样先收窄到一个品类，别开放全图输入。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15886091/",
+    "date": "2026-06",
+    "confidence": "high",
+    "imgQuery": "Honor AI magic theme pet photo generated wallpaper pack"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "theme",
+    "name": "魔法锁屏 AI 风格图像生成",
+    "desc": "锁屏编辑界面点「AI 风格」选择照片和风格（AI、极简、国韵等）即可生成专属锁屏壁纸；另有魔法形象可设为动态锁屏，首发于 Magic7 系列和荣耀 300 系列。",
+    "userVoice": "",
+    "tosNote": "把生成式能力放进锁屏编辑器而不是单独 App，是降低使用门槛的正确做法；tOS 建议同样把 AI 风格挂在锁屏编辑二级页，而非主题商城里。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15868672/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor magic lock screen AI style wallpaper generation"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "labs",
+    "name": "远程协助应用上线",
+    "desc": "七月版新增独立的「远程协助」系统应用，一键连接亲友设备远程排查用机问题；八月版进一步扩展支持机型范围，让老机型也能作为被协助端。",
+    "userVoice": "",
+    "tosNote": "远程协助是帮爸妈用机的刚需，也是降低客服工单的实招；tOS 若做，重点是权限可视化和随时中断，否则容易被做成诈骗工具。",
+    "source": "系统更新",
+    "sourceName": "IT之家",
+    "sourceUrl": "https://www.ithome.com/0/973/101.htm",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Honor remote assistance app MagicOS connect family device"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "labs",
+    "name": "游戏空间 AI 变声与脚步声增强",
+    "desc": "五月版给荣耀 WIN 系列游戏管家加入 AI 变声（支持跨性别声音变换）和脚步声增强，后者在《和平精英》等 9 款 FPS 游戏中强化脚步细节，辅助听声辨位。",
+    "userVoice": "",
+    "tosNote": "只覆盖 WIN 游戏机型，说明荣耀也把它当窄众能力；tOS 游戏空间若跟，建议只做脚步增强不做变声，变声的合规和社交风险较高。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30200729-1-1.html",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor game space AI voice changer footstep enhancement FPS"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "labs",
+    "name": "智慧空间联动极客中心自动调档",
+    "desc": "荣耀智慧空间 App 可创建场景：触发条件选「指定应用启动」（如王者荣耀/原神），执行任务选系统功能 > 性能模式开启 + 游戏加速开启，实现点游戏图标即自动拉满调度。",
+    "userVoice": "俱乐部教程明确说明全自动方案只在 MagicOS 11 内测等已开放性能场景的机型可用，大多数现网机型只能做「启动游戏自动打开极客中心页面」的半自动。",
+    "tosNote": "把性能开关开放给场景自动化是差异点，但权限风险大；tOS 建议先开放低危动作（勿扰、亮度、音量）给自动化，性能类留白名单。",
+    "source": "媒体实测",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30356217-1-1.html",
+    "date": "2026-08",
+    "confidence": "medium",
+    "imgQuery": "Honor smart space scene automation geek center game performance"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "clone",
+    "name": "iCloud 云端数据直接克隆",
+    "desc": "换机克隆新机端选「这是新设备 > 苹果设备 > iCloud 云端下载」，登录 iCloud 后可直接把云端的图库、文档、日历等数据拉到荣耀设备，不需要旧 iPhone 在场。",
+    "userVoice": "媒体实测称 iOS 换荣耀的克隆速度较此前提升 200% 以上，原先接近一小时的数据现在半小时内搞定。",
+    "tosNote": "云端直拉是绕开旧机在场的关键路径，tOS 换机仍要求双机同时在线；建议优先做 iCloud 相册和联系人，这两类占迁移量八成以上。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15808394/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor Phone Clone iCloud download migration screen"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "clone",
+    "name": "iOS/安卓/鸿蒙三系统全打通",
+    "desc": "荣耀换机克隆同时覆盖 iOS、安卓和 HarmonyOS NEXT 三大系统，行业首发鸿蒙 NEXT 数据迁移；媒体实测荣耀 600 系列 44GB 数据 30-40 分钟完成，同品牌间最高速率 8GB/min。",
+    "userVoice": "实测覆盖联系人、短信、通话记录、图库、录音、日历、笔记、应用列表等 17 类以上数据，但鸿蒙 NEXT 侧官方明确不支持三方应用数据。",
+    "tosNote": "「鸿蒙也能搬」是能打的营销点，tOS 换机对鸿蒙 NEXT 支持是空白；建议至少打通联系人/相册/日历三类基础数据，三方数据不碰。",
+    "source": "媒体实测",
+    "sourceName": "新浪",
+    "sourceUrl": "https://www.sina.cn/gc/article/nippvuk1529132.html",
+    "date": "2026-06",
+    "confidence": "medium",
+    "imgQuery": "Honor Phone Clone HarmonyOS NEXT iOS Android migration"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "clone",
+    "name": "微信聊天记录只能覆盖迁移",
+    "desc": "荣耀官方 FAQ 明确：换机克隆的微信聊天记录当前不支持合并迁移，只支持覆盖迁移，新机在迁移前已有的聊天记录会被旧机数据整体覆盖；旧机为华为或其他三方手机时更是直接不支持迁移。",
+    "userVoice": "官方文档单列了一条问题「换机克隆后新手机查看不到微信聊天记录」，说明这是高频工单，解决方案只能引导用户改用微信自带的备份迁移。",
+    "tosNote": "这是所有厂商的共同天花板，微信不开放合并接口；tOS 不要承诺微信全量迁移，应在迁移前用显眼弹窗做覆盖风险提示，避免售后纠纷。",
+    "source": "用户反馈",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15802173/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor Phone Clone WeChat chat history migration warning"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "browser",
+    "name": "荣耀浏览器 AI 快看资讯",
+    "desc": "八月版荣耀浏览器焕新，新增「AI 快看」：聚合全球 7×24 小时快讯并做 AI 归纳，号称 1 分钟看懂热点，把浏览器首页从信息流改造成摘要流。",
+    "userVoice": "",
+    "tosNote": "自带浏览器靠资讯流变现的老路子在被 AI 摘要重构，tOS 浏览器若还在做纯瀑布流，建议尽快加一层摘要视图，否则留存会继续掉。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30348908-1-1.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor Browser AI news quick read summary feed"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "browser",
+    "name": "网页划词问 AI 与 AI 总结",
+    "desc": "八月版浏览器支持网页划词直接向 AI 提问（读到哪问到哪）、一键生成整页核心摘要，以及「搜词 AI 追问」——传统搜索结果页联动 AI 继续深挖线索。",
+    "userVoice": "",
+    "tosNote": "划词问 AI 的难点不是模型而是选词交互和长网页分块，tOS 浏览器建议先做整页总结（确定性高），再做划词追问。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30348908-1-1.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor Browser select text ask AI webpage summary"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "gallery",
+    "name": "AI 消除：圈选与涂抹双模式",
+    "desc": "图库相册选图 > 编辑 > AI 消除，大遮挡物用智能圈选消除，小遮挡物调画笔大小手动涂抹；官方列出路人、桌面杂物、水印、大干扰物体、文字、细线瑕疵六类消除场景并自动补全背景纹理。",
+    "userVoice": "",
+    "tosNote": "圈选/涂抹双模式 + 按遮挡物尺寸分流是成熟设计，tOS 相册消除只有涂抹；建议补智能圈选，大物体消除的成功率差距主要来自这一步。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://iknow-dl.service.hihonor.com/ctkbfm/applet/simulator/zh-cn15867772/index.html",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor gallery AI eraser remove passerby circle brush"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "honorx80promax"
+    ],
+    "os": "MagicOS 10",
+    "product": "gallery",
+    "name": "魔法抠图与背景替换",
+    "desc": "图库 > 相册 > 魔法修图 > 智能抠图，一键分割人、动物等主体，主体可移动、缩放、复制、删除、镜像并自动填充背景；可换成透明背景或纯色背景做证件照。",
+    "userVoice": "俱乐部体验帖称主体边缘处理自然、细节保留完整，配合「修改背景」可玩性高；但需要先完成识别才能抠，复杂发丝场景仍有瑕疵。",
+    "tosNote": "抠图+纯色背景做证件照是被严重低估的高频刚需，tOS 相册没有；建议优先做证件照这一条确定性路径，而非泛化的创意抠图。",
+    "source": "系统更新",
+    "sourceName": "荣耀官网支持",
+    "sourceUrl": "https://www.honor.com/cn/support/content/zh-cn15878854/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor gallery magic cutout subject background replace ID photo"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "gallery",
+    "name": "3D 照片一键直发微博",
+    "desc": "八月版打通跨平台分享：在图库点右上角「3D 照片」把静态图生成 3D 效果后，可直接发布到微博保持立体效果；荣耀 600 系列发布会上即宣布与微博首次开启 3D 照片一键上传合作。",
+    "userVoice": "",
+    "tosNote": "自研效果只有被第三方平台承接才有社交传播价值，tOS 的特效照片目前发出去就退化成静图；建议尽早和一两家社交平台谈格式承接。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30348908-1-1.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor gallery 3D photo share to Weibo"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "gallery",
+    "name": "AI 电影追色",
+    "desc": "五月版图库新增「AI 电影追色」，一键为已拍好的视频套上电影级色彩风格，属于把相机端的调色能力后置到图库编辑环节；四月版已先适配到荣耀 400 系列。",
+    "userVoice": "",
+    "tosNote": "视频调色下放到相册是低门槛创作的正确方向，tOS 相册视频编辑只有滤镜；建议做 3-5 个电影风格预设而不是可调参数面板。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30200729-1-1.html",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor gallery AI cinematic color grading video"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "gallery",
+    "name": "分身 Live 与出框拼图",
+    "desc": "荣耀 600 系列首发一组 Live 玩法：分身 Live（图库 > 创作 > 分身 Live 做「世另我」同框）、4K Live 拼图出框、动态照片人像拼图出框，把全焦段 4K Live 素材变成可二次创作的社交内容。",
+    "userVoice": "",
+    "tosNote": "荣耀把影像硬件优势顺着相册创作链路一路做到分享，形成拍-修-享闭环；tOS 若没有对应拍摄格式，硬做出框玩法意义不大，建议先补动态照片能力。",
+    "source": "发布会",
+    "sourceName": "腾讯新闻",
+    "sourceUrl": "https://news.qq.com/rain/a/20260529A06XRW00",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor 600 clone Live 4K Live collage out of frame gallery"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "gallery",
+    "name": "3D Live 三种运镜玩法",
+    "desc": "七月版（10.0.0.170）新增 3D Live：支持子弹时刻、希区柯克、高光慢动作三种运镜效果，入口在图库动态照片大图页左上角「动态照片」，或 YOYO 智能体 > AI 创作 > Live 玩法。",
+    "userVoice": "",
+    "tosNote": "同一能力做了图库和助手双入口，说明荣耀也没想清楚创作该放哪；tOS 建议单一入口放相册，助手只做唤起，避免功能重复维护。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30309616-1-1.html",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Honor 3D Live bullet time Hitchcock zoom gallery"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "assistant",
+    "name": "YOYO 时光机生成旅行手记",
+    "desc": "旅行归来相册新增超过 9 张照片时，YOYO 建议桌面卡片会主动提醒；打开 YOYO > 展开侧边栏 > YOYO 时光机，可一键把散乱旅行照片生成高质量个性化旅行手记。",
+    "userVoice": "",
+    "tosNote": "触发条件写死成「新增 9 张以上」是很务实的工程解法，tOS 相册回忆是定时生成而非事件驱动；建议改成基于地理位置+新增量的主动触发。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30348908-1-1.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO Time Machine travel journal generated from photos"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "assistant",
+    "name": "YOYO 记忆长视频解析",
+    "desc": "八月版 YOYO 记忆首次支持长视频解析：在抖音、哔哩哔哩、小红书、快手及本地视频里三指下滑即可记录，自动生成摘要与分段总结，把课程、攻略、旅行、美食类视频转成可检索笔记（三方应用需升到最新版）。",
+    "userVoice": "被多家媒体列为八月更新里最重的一项，但依赖第三方应用升级到最新版才可用，覆盖面受制于用户的 App 版本。",
+    "tosNote": "三指下滑作为全局记录手势是 tOS 可以直接借鉴的交互；难点在长视频抽帧+ASR 的端云配比，建议本地视频走端侧、平台视频走云端。",
+    "source": "系统更新",
+    "sourceName": "快科技",
+    "sourceUrl": "https://news.mydrivers.com/1/1142/1142279.htm",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO Memory long video parsing three finger swipe summary"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "assistant",
+    "name": "YOYO 口令 PDF 转文档",
+    "desc": "八月版新增 PDF 转文档：唤醒 YOYO 后上传 PDF 文件，输入口令「转 Word/PPT/Excel」即可完成格式转换，转换结果可直接编辑分享，省掉第三方转换工具和付费墙。",
+    "userVoice": "",
+    "tosNote": "这是把办公刚需塞进助手对话流的聪明做法，tOS 文件管理器里 PDF 只能预览；建议在文管长按菜单直接加「转 Word」，比放助手里更符合直觉。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30348908-1-1.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO convert PDF to Word PPT Excel command"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600",
+      "magicvflip3"
+    ],
+    "os": "MagicOS 10",
+    "product": "assistant",
+    "name": "一语微信：语音直发消息与通话",
+    "desc": "七月版 YOYO 新增微信 A2A 助手能力，语音说「给 xx 发微信/打微信语音电话/打微信视频电话」即可直接执行，要求 YOYO 智能体升到 90.10.30.063 及以上、微信升到 8.0.72 及以上。",
+    "userVoice": "被荣耀反复作为「跨应用执行」的旗舰案例宣传，但对双方版本号的硬性要求意味着老用户可能长期用不上。",
+    "tosNote": "A2A 是和微信谈下来的定向协议，不是通用无障碍模拟；tOS 想跟只能走谈合作这条路，工程上做不出等效体验，建议把资源压在谈判而非技术。",
+    "source": "系统更新",
+    "sourceName": "IT之家",
+    "sourceUrl": "https://m.ithome.com/html/977749.htm",
+    "date": "2026-07",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO voice send WeChat message A2A assistant"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "assistant",
+    "name": "京东外卖一语复购",
+    "desc": "荣耀 600 系列与京东深度合作，支持京东外卖「一语复购」——一句话直接重下上次的订单，不用进 App 翻历史订单；发布会把它作为 YOYO 跨应用执行的落地样板。",
+    "userVoice": "",
+    "tosNote": "复购比首单简单得多（参数全都有），是跨应用代理最容易跑通的场景；tOS 若要做点咖啡类代理，建议同样从复购切入而不是从头下单。",
+    "source": "发布会",
+    "sourceName": "荣耀官网",
+    "sourceUrl": "https://www.honor.com/cn/news/honor-600-launch/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO JD takeout voice reorder one sentence"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "assistant",
+    "name": "YOYO 统一出码托管",
+    "desc": "荣耀 600 系列升级 YOYO 提醒能力，取餐码、抢票码、排队码、取件码都可以交给 YOYO 统一托管并在合适时机主动呈现，官方口径是「YOYO 出码，一个顶俩」。",
+    "userVoice": "",
+    "tosNote": "把四类码统一收口是真正的体验差异，tOS 的码散落在各 App 和通知里；建议先做取件码和取餐码（短信/通知可结构化解析），成功率最高。",
+    "source": "发布会",
+    "sourceName": "荣耀官网",
+    "sourceUrl": "https://www.honor.com/cn/news/honor-600-launch/",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO code reminder pickup queue ticket capsule"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honor600"
+    ],
+    "os": "MagicOS 10",
+    "product": "assistant",
+    "name": "AI 情报官定时订阅推送",
+    "desc": "五月版新增 AI 情报官：对 YOYO 说「XX 时间为我订阅 XX 情报/信息」，系统就会在指定时间通过通知中心准时推送该主题的信息汇总，属于用户自定义的主动服务。",
+    "userVoice": "",
+    "tosNote": "让用户自己定义主动服务，回避了系统猜不准的老问题，思路值得抄；tOS 助手目前只有被动问答，建议补一个「订阅」动词。",
+    "source": "系统更新",
+    "sourceName": "荣耀俱乐部",
+    "sourceUrl": "https://club.honor.com/cn/thread-30200729-1-1.html",
+    "date": "2026-05",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO AI intelligence officer subscribe info notification"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honorrobotphone"
+    ],
+    "os": "Agentic OS",
+    "product": "assistant",
+    "name": "YOYO Pro 跨应用百步执行",
+    "desc": "Robot Phone 以 Agentic OS 为内核首发系统级 Agent 架构与 YOYO Pro 模式，构建感知-规划-推理-执行-反馈闭环，官方称支持长指令遵循与跨应用泛化，一句话交办后台连续完成超 100 步复杂任务。",
+    "userVoice": "同源的 MagicOS 11 内测实测有 14 步出差安排（日历核对→12306 订票→美团订酒店→同步日程）全程无需手动，但纯视觉 GUI Agent 的长期准确率仍待验证。",
+    "tosNote": "YOYO 的跨应用执行靠自研端侧模型+GUI Agent，tOS 现阶段只能做应用内深链；建议先把高频 3 个场景做深做稳，不做全量代理。",
+    "source": "发布会",
+    "sourceName": "荣耀官网",
+    "sourceUrl": "https://www.honor.com/cn/news/honor-robot-phone-launch/",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor Robot Phone YOYO Pro agentic OS long instruction execution"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honorrobotphone"
+    ],
+    "os": "Agentic OS",
+    "product": "assistant",
+    "name": "YOYO 技能商店开放系统能力",
+    "desc": "荣耀上线 YOYO 技能商店，商店内 Skills 一键安装后 YOYO 即可自动调用；开发者和科技爱好者可调用云台控制、多模态通话、相机等 100 余项系统能力自建 Skills，发布会现场演示了手机联动机甲小车。",
+    "userVoice": "",
+    "tosNote": "把系统能力打包成可安装技能，是助手从「厂商定义」转向「生态定义」的分水岭；tOS 若做，最大难点是能力开放的权限审核与滥用治理。",
+    "source": "发布会",
+    "sourceName": "新华网",
+    "sourceUrl": "http://www.news.cn/tech/20260813/6ba33d0d41ed401cadf47f9ae0dd7126/c.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor YOYO skill store Robot Phone developer skills"
+  },
+  {
+    "brand": "honor",
+    "modelIds": [
+      "honorrobotphone"
+    ],
+    "os": "Agentic OS",
+    "product": "assistant",
+    "name": "影像智能体：直播与视频通话追焦",
+    "desc": "抖音直播场景升起云台后点悬浮框即可激活「AI 直播追焦」，镜头自动平稳跟随；微信视频通话同样支持追焦，人走动镜头自动转。原生相机内「灵感帮拍」可 AI 识别主体、推荐姿势并联动云台自动构图。",
+    "userVoice": "数码博主实测认为这套影像智能体把机械云台能力真正用到了日常高频场景，移动直播不用再担心跑出画面；官方称后续更新会支持更多直播平台。",
+    "tosNote": "云台是硬件护城河，tOS 无法复刻；但「AI 追焦」的软件部分可用裁切跟随近似实现，建议在视频通话场景先做数字跟随，别硬碰硬件。",
+    "source": "发布会",
+    "sourceName": "新浪新闻",
+    "sourceUrl": "https://www.sina.cn/news/detail/5331177130952419.html",
+    "date": "2026-08",
+    "confidence": "high",
+    "imgQuery": "Honor Robot Phone AI live tracking gimbal Douyin WeChat video call"
+  }
+]

@@ -58,7 +58,8 @@ PRODUCTS: [
   { id: 'clone',     name: '换机',     color: '#9333ea' },
   { id: 'browser',   name: '浏览器',   color: '#0284c7' },
   { id: 'gallery',   name: '相册',     color: '#ea580c' },
-  { id: 'assistant', name: '语音助手', color: '#4f46e5' }
+  { id: 'assistant', name: '语音助手', color: '#4f46e5' },
+  { id: 'passwords', name: '密码管理', color: '#0f766e' }
 ],
 
 FEATURES: [
@@ -651,7 +652,7 @@ FEATURES: [
   name: '蓝心小 V / 小 V Pro 系统级 Agent',
   product: 'assistant',
   brands: ['vivo', 'iqoo'],
-  desc: 'OriginOS 6 出厂即带圈搜、小 V 记忆；OriginOS 7 升级小 V Pro，宣称 6000+ 原子能力、可离线跨应用。海外 Funtouch 几乎没有同级讨论和公开月更。',
+  desc: 'OriginOS 6 出厂即带圈搜、小 V 记忆；9/16 OriginOS 7 正式发布，小 V 升级 Pro 模式：任务自动拆解 + 跨端执行，官方称可调用 6000+ 原子能力、支持上万种任务。典型演示是把收藏的攻略、相册截图、历史笔记串成一份含交通住宿景点美食的旅行路书，遇航班变动还能动态调整。海外 Funtouch 几乎没有同级讨论和公开月更。',
   note: '国内海报和海外 Funtouch 是两套产品。tOS 对标要以海外实际预装为准；圈搜和小 V 记忆 2.0 的自动打标签更值得搬。',
   source: { kind: 'update', label: '系统更新 · OriginOS 6/7', href: 'updates/vivo-originos.html' }
 },
@@ -662,6 +663,129 @@ FEATURES: [
   desc: 'Pixel 11 发布叙事是 AI 接管像素；录音机摘要、系统搜索即时索引都通向 Gemini。Android 17 本身很少点名独立系统 App。',
   note: '谷歌把系统应用当 Gemini 的工具。tOS 相反：应用是产品，助手是总线。不要让录音机/日历没有自己的主按钮。',
   source: { kind: 'launch', label: '发布会 · Pixel 11', href: 'reports/googlepixel11.html' }
+},
+
+/* ===== 2026-09-20 增量：iOS 27 正式版 / 澎湃 OS 3 月更 / OriginOS 7 正式发布 / Good Lock 适配收尾 ===== */
+
+{
+  name: '闹钟音量与铃声音量解绑',
+  product: 'clock',
+  brands: ['apple'],
+  desc: 'iOS 27 在「设置 · 声音与触感」里把闹钟音量从铃声音量中拆出来，两者不再共用一个滑块。此前调小铃声会连带把闹钟调小导致睡过头，或反过来被满音量通知吓到。',
+  note: '零成本、高频痛点、不看硬件——最该优先搬的一类。验收要拆细：闹钟、计时器、通知三者是否都独立；静音/勿扰模式下闹钟是否照常响。',
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html' }
+},
+{
+  name: '视频任意一帧直接存成照片',
+  product: 'gallery',
+  brands: ['apple'],
+  desc: 'iOS 27 支持把视频里的某一帧直接存为照片，不用截图再裁。拍小孩、宠物这类动体时，能从一段视频里挑出最清晰的一帧。',
+  note: '体量小但用一次就回不去。实现上有两个坑：存下来的帧要不要继承原视频的 HDR / 运动照片元数据；以及它会不会被「重复照片」检测误判成重复项。',
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html' }
+},
+{
+  name: '快捷指令用一句话生成',
+  product: 'labs',
+  brands: ['apple'],
+  desc: 'iOS 27 的「描述一个快捷指令」：点加号、用自然语言写出想要的效果（离开公司时给家人发 ETA、CarPlay 连上时播某个播放列表），系统自动把步骤拼出来，之后还能继续用口语微调或手动改步骤。',
+  note: '快捷指令多年「能做但没人用」，卡点从来不是能力而是搭积木的编辑成本，自然语言生成正打在这点上。前提是生成结果必须可展开、可手动改，否则出错时用户无从排查。旧编辑器仍要保留。',
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html' }
+},
+{
+  name: '密码 App：泄露提醒 + 应用内直接改密码',
+  product: 'passwords',
+  brands: ['apple'],
+  desc: 'iOS 27 的「密码」App 会提示哪些账号已卷入泄露，并支持在应用内直接发起修改流程，不用自己去网站找改密码入口。',
+  note: '密码管理正从浏览器的附属能力升级成系统级独立 App。要做得先定三件事：泄露检测的数据源与更新频率、改密码深链的站点覆盖率、跨端同步的加密与账号恢复路径。',
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html' }
+},
+{
+  name: 'Good Lock 24 模块收尾适配 One UI 9',
+  product: 'labs',
+  brands: ['samsung'],
+  desc: '9 月 2 日起 Good Lock 的 24 个模块（其中 2 个非全球可用）全部兼容 One UI 9；随后 Home Up 18.0.00.36 修整合侧屏不显示最近应用、DIY 主屏项目偶发不显示，NavStar 9.0.00.16 修导航栏按钮间距与折叠/平板 UI，One Hand Operation+ 9.3.13.0 修重启后手势失效。',
+  note: '真正值得学的不是功能，是节奏管理：beta 期公开「还有几个模块没适配」的清单，逐周收敛，稳定版前清零。tOS 若也要建玩机模块池，需要同样的兼容度看板，否则用户升级后第一反应是「我的模块废了」。',
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-oneui9-beta.html' }
+},
+{
+  name: '小米换机 Mi Mover 4.6.1.7（9/16 月更）',
+  product: 'clone',
+  brands: ['xiaomi', 'redmi'],
+  desc: '9 月 16 日应用商店更新：Mi Mover 4.6.1.7（38.71MB）、家人守护 Family Guard 3.14.09.04.00、HyperOS 录屏 4.16.2.8.1、HyperOS 壁纸等一批系统应用同日刷新。',
+  note: '换机是换机周期里唯一被高频使用的工具，版本迭代如此密集说明仍在补兼容性。tOS 换机该盯的不是传输速度（已有公开 benchmark 可对标），而是「旧机侧数据项覆盖率」——通讯录/微信记录/桌面布局/系统设置，哪项漏了用户立刻感知。',
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
+},
+{
+  name: '跨苹果互联：通知同步、微信镜像回复、云相册同步',
+  product: 'clone',
+  brands: ['xiaomi', 'redmi'],
+  desc: '澎湃 OS 3 打通苹果设备：iPhone 通知同步到小米手机、可镜像并回复微信/QQ、文件照片视频互传、云相册同步、一键热点与位置共享；Mac 上可开三个手机应用窗，iPad 上跑 HyperOS 桌面并支持多任务。同期新增独立「密码」App 打通苹果生态。',
+  note: '这是把「换机」从一次性迁移工具，升级成跨生态常驻通道——用户不必二选一。若目标市场是安卓换安卓，优先级不高；但若用户群里存在 iOS 转换者，这一步直接决定首周留存。',
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
+},
+{
+  name: '新增独立「密码」App 并打通苹果设备',
+  product: 'passwords',
+  brands: ['xiaomi', 'redmi'],
+  desc: '澎湃 OS 3.0 版本更新中新增独立的密码管理工具，官方表述是「打通苹果设备，实现更便捷的密码管理体验」，与高级数据保护、双重认证登录同批上线。',
+  note: '和苹果同期押注同一件事，说明密码管理正被重新定义为系统级 App 而非浏览器功能。要跟进的话，先解决跨端同步的加密与恢复，再谈填充体验；否则用户不敢把真密码放进来。',
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
+},
+{
+  name: '锁屏直接扫码，无需先解锁',
+  product: 'scan',
+  brands: ['vivo', 'iqoo'],
+  desc: 'OriginOS 7 在锁屏界面直接给出扫码入口，不用解锁再去找扫一扫。国内支付/加好友/取餐都是高频动作，解锁那一步是纯摩擦。',
+  note: '典型的「入口前移」改动，成本低收益高。安全边界要画死：锁屏扫码只允许调起相机 + 识别结果，绝不暴露通知内容、相册或付款码列表，否则就是隐私事故。',
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
+},
+{
+  name: '相册主动推荐重复与模糊照片供清理',
+  product: 'gallery',
+  brands: ['vivo', 'iqoo'],
+  desc: 'OriginOS 7 相册会主动挑出重复、模糊的相似照片并给出清理建议，不用用户自己翻几千张图找。',
+  note: '苹果做的是 Clean Up 消除路人，vivo 做的是「批量识别该删的」——后者更贴近存储焦虑，也更实用。风险集中在误删：必须可逐张预览、可撤销、默认不自动执行。',
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
+},
+{
+  name: '日历从录音里自动提取待办',
+  product: 'calendar',
+  brands: ['vivo', 'iqoo'],
+  desc: 'OriginOS 7 日历可识别录音内容里的待办事项并自动生成日程，把「说完再手动记下来」这一步省掉。',
+  note: '这条把录音机和日历打通了——录音机的产出不该只是一份音频和摘要，而是可落库的结构化日程。tOS 若已有会议转写，最值钱的下一步就是往日历/待办落，而不是再优化一次摘要措辞。',
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
+},
+{
+  name: '小 V 记忆卡：锁屏记录并关联上下文',
+  product: 'notes',
+  brands: ['vivo', 'iqoo'],
+  desc: 'OriginOS 7 新增「小V记忆卡」，可在锁屏直接记录，并与既有上下文关联；配合小 V Pro 的长期记忆，把收藏的攻略、相册截图、历史笔记串成一份旅行路书。',
+  note: '记事本的价值正从「记下来」转向「被 AI 取用」。做之前先定三件事：内容存在哪、AI 读取的粒度、用户能否查看并删除某条记忆。记忆可见可控是信任前提，缺了它功能越强越吓人。',
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
+},
+{
+  name: '存储压缩 2.0：256GB 机型最多释放约 20GB',
+  product: 'files',
+  brands: ['vivo', 'iqoo'],
+  desc: 'OriginOS 7 的存储压缩 2.0 针对长期不用的应用做压缩以释放空间，官方称 256GB 设备最多可腾出约 20GB。',
+  note: '与荣耀 Storage Space 2.0 是同一思路，说明「不动用户文件也能瘦身」已成共识。验收盯两点：压缩后应用首次启动的解压耗时是否可接受，以及压缩是否影响后台保活与通知到达。',
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
+},
+{
+  name: '双路定向播音：外放与蓝牙同时出声',
+  product: 'player',
+  brands: ['vivo', 'iqoo'],
+  desc: 'OriginOS 7 支持手机外放与蓝牙设备同时输出音频，解决一人戴耳机、另一人只能跟着外放的场景。',
+  note: '小众但需求明确。实现难点是两条通路的延迟对齐——蓝牙有固有延迟，不做补偿会有明显回声/重影感。这类功能适合放在音频设置的进阶层，不必占一级入口。',
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
+},
+{
+  name: '游戏防眩光模式（官方称视觉舒适度 +29%）',
+  product: 'labs',
+  brands: ['vivo', 'iqoo'],
+  desc: 'OriginOS 7 新增游戏防眩光模式，官方称视觉舒适度提升约 29%；同期提供使用时长预测与充电时长预测。',
+  note: '把「护眼」做成游戏场景的独立开关，比全局护眼更贴合场景。可借鉴的是触发方式：应能被游戏启动自动带入，而不是每次手动开——手动开的设置等于不存在。',
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
 }
 
 ]

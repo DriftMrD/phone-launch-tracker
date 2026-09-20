@@ -526,30 +526,6 @@
     btn.classList.add('active'); currentFilter = btn.dataset.filter; apply();
   }));
 })();
-document.querySelectorAll('.card[data-brand]').forEach(card => {
-  const brand = card.dataset.brand;
-  const href = (card.querySelector('.report-btn') || {}).getAttribute?.('href') || '';
-  const map = [
-    [/voice-recorder|google-recorder/, 'recorder'],
-    [/my-files/, 'files'],
-    [/gallery/, 'gallery'],
-    [/calendar/, 'calendar'],
-    [/math-notes/, 'calc'],
-    [/galaxy-themes/, 'theme'],
-    [/writing-tools/, 'notes'],
-    [/yoyo/, 'assistant']
-  ];
-  let product = '';
-  for (const [re, id] of map) if (re.test(href)) { product = id; break; }
-  const links = card.querySelector('.links');
-  if (!links || links.querySelector('[data-feat-link]')) return;
-  const a = document.createElement('a');
-  a.className = 'report-btn';
-  a.dataset.featLink = '1';
-  a.href = 'app-features.html?brand=' + brand + '&src=update' + (product ? '&product=' + product : '');
-  a.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>对照清单';
-  links.appendChild(a);
-});
 </script>
 </body>
 </html>
