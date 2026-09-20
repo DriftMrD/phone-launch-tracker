@@ -883,12 +883,13 @@ function renderList() {
 <nav class="section-switch">
   <a href="index.html">📱 发布会追踪</a>
   <a href="system-updates.html" class="active">🔍 系统更新日志</a>
+  <a href="app-features.html">📋 功能清单</a>
 </nav>
 
 <section class="hero">
   <div class="hero-badge"><span class="dot"></span>海外功能级深度追踪</div>
   <h1>系统应用<em>更新与利弊</em></h1>
-  <p class="hero-desc">⏱️ 按时间倒序 · 每个条目深挖一个具体功能：上线了什么 · 哪里好用 · 哪里不好用<br>来源：Reddit · Samsung Community · MacRumors · XDA · Tom’s Guide · 9to5 · Android Authority</p>
+  <p class="hero-desc">⏱️ 按时间倒序 · 每个条目深挖一个具体功能：上线了什么 · 哪里好用 · 哪里不好用<br>来源：Reddit · Samsung Community · MacRumors · XDA · Tom’s Guide · 9to5 · Android Authority<br>要按「手机 × 录音机/文管/记事本…」对照，请看 <a href="app-features.html" style="color:var(--text);text-decoration:underline">系统应用功能清单</a> —— 发布会和这些更新日志都是同一部手机上的信息来源。</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">7</div><div class="label">品牌系统</div></div>
     <div class="hero-stat"><div class="num">${entries.filter(e=>e.status==='released').length}</div><div class="label">已发布 / 已分析</div></div>
@@ -968,6 +969,7 @@ function renderDetail(e) {
 <nav class="section-switch">
   <a href="../index.html">📱 发布会追踪</a>
   <a href="../system-updates.html" class="active">🔍 系统更新日志</a>
+  <a href="../app-features.html">📋 功能清单</a>
 </nav>
 
 <div class="detail-wrap">

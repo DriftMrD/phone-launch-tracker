@@ -511,6 +511,7 @@
 <nav class="section-switch">
   <a href="index.html" class="active">📱 发布会追踪</a>
   <a href="system-updates.html">🔄 系统更新日志</a>
+  <a href="app-features.html">📋 功能清单</a>
 </nav>
 
 <!-- ===== Hero ===== -->
@@ -1617,6 +1618,20 @@ document.addEventListener('keydown', function(e) {
     });
   });
 })();
+document.querySelectorAll('.report-btn[href*="reports/"]').forEach(a => {
+  const m = a.getAttribute('href').match(/reports\/([^/.]+)\.html/);
+  if (!m) return;
+  const alias = { wwdc2026: 'iphone18', hdc2026: 'huaweimatext2' };
+  const id = alias[m[1]] || m[1];
+  if (id === 'dimensity9600') return;
+  if (a.parentElement.querySelector('[data-feat-link]')) return;
+  const link = document.createElement('a');
+  link.className = 'report-btn';
+  link.dataset.featLink = '1';
+  link.href = 'app-features.html?phone=' + id;
+  link.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>功能清单';
+  a.parentElement.appendChild(link);
+});
 </script>
 </body>
 </html>
