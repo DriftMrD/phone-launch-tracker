@@ -29,7 +29,7 @@ const vIcon = { good: '👍', mixed: '⚠️', bad: '😤' };
 
 const entries = [
   {
-    id: 'samsung-voice-recorder', status: 'released', brand: 'samsung', status: 'released',
+    id: 'samsung-voice-recorder', status: 'released', brand: 'samsung',
     title: 'Voice Recorder · Galaxy AI 转录与摘要',
     appType: '录音机 · AI 转录/摘要', aiNote: 'AI 转录 / AI 摘要',
     date: 'One UI 7→8.5 持续迭代',
@@ -39,7 +39,8 @@ const entries = [
     pros: [
       '说话人区分精准：清晰标注 Speaker 1/2/3，社区公认强项',
       '金额识别具体：通话转录用 "$" 标注金额（Tom’s Guide）',
-      '多人错误易修正：说话人串音比竞品更易手动纠正'
+      '多人错误易修正：说话人串音比竞品更易手动纠正',
+      'One UI 9 结构化摘要：录音结束自动生成带标题和表格的大纲，告别“仅3条要点”（9/16 起 S26 系列）'
     ],
     cons: [
       '转录准确性极差：多口音（US/UK/印度/非洲）全线失效',
@@ -55,7 +56,8 @@ const entries = [
     monthly: [
       { ver:'v21.5.72.18', date:'2025-05', note:'内部优化，无显著新功能' },
       { ver:'v21.5.86.26', date:'2026-06', note:'🛠️ 修复设备端摘要崩溃 Bug' },
-      { ver:'v21.5.86.26 确认', date:'2026-07', note:'✅ Samsung 官方支持页确认修复；One UI 8.5 第二轮灰度推送覆盖 A34 5G 等更多机型' }
+      { ver:'v21.5.86.26 确认', date:'2026-07', note:'✅ Samsung 官方支持页确认修复；One UI 8.5 第二轮灰度推送覆盖 A34 5G 等更多机型' },
+      { ver:'One UI 9 稳定版', date:'2026-09-16', note:'🎉 One UI 9 稳定版(9/16 起 S26 系列首发) Voice Recorder 摘要升级：从“仅3条要点”改为带标题+表格的结构化大纲，直接弥补此前摘要过简短板；同步新增 My FanCam 视频追焦、文档扫描去手指/弯页' }
     ],
     links: [
       { label:'Tom’s Guide 对比', url:'https://www.tomsguide.com/phones/i-tested-the-ai-transcription-tools-for-iphone-vs-samsung-galaxy-vs-google-pixel-heres-the-winner' },
@@ -75,6 +77,8 @@ const entries = [
       'UI 重构有诚意：搜索栏移底部，单手操作友好',
       'Storage Share：跨设备查看平板/PC 文件',
       'Finder 快捷搜索：主屏系统级搜索入口'
+,
+      'One UI 9 文档扫描：弯曲书页/折角自动校正 + 去除握纸手指（9/16 起 S26 系列）'
     ],
     cons: [
       'S25 缺 AI 摘要：同代 One UI 8.5，S25 无 My Files 摘要开关',
@@ -88,7 +92,8 @@ const entries = [
     monthly: [
       { ver:'v15.0.07.5', date:'2025-02', note:'功能优化 & 问题修复' },
       { ver:'v15.4.00.92', date:'2025-07', note:'One UI 8 支持' },
-      { ver:'One UI 8.5', date:'2026-05', note:'重构 UI + AI 摘要（仅 S26）' }
+      { ver:'One UI 8.5', date:'2026-05', note:'重构 UI + AI 摘要（仅 S26）' },
+      { ver:'One UI 9 稳定版', date:'2026-09-16', note:'🎉 One UI 9 稳定版(9/16 S26 系列首发) 文档扫描升级：自动校正弯曲书页、去除折角与握纸手指；此前 S25 缺失的部分功能随 One UI 9 补齐，但 S25 升级档期仍晚于 S26（9/28 起）' }
     ],
     links: [
       { label:'重构详情', url:'https://sammyguru.com/exclusive-samsung-my-files-app-one-ui-8-5/' },
@@ -547,7 +552,8 @@ const entries = [
       { ver:'OriginOS 6.0 16.0.29.5', date:'2026-08-07', note:'vivo/iQOO推送OriginOS 6.0维护更新(16.0.29.5)：延续蓝河流畅引擎，优化后台应用留存(常用APP保活改善、切回不复载)、闲置应用后台管控(夜间待机掉电改善)、游戏/视频温控策略打磨；修复网络断流/通知延迟/锁屏异常/第三方闪退/相机小瑕疵；蓝心小V/圈搜/小V记忆AI细节优化(识别准确率与响应提升)；分批推送X100/X Fold/S系列、iQOO 12/Neo9/Z9/Z10等已升级OriginOS 6机型' },
       { ver:'iQOO Neo11 至尊版 出厂', date:'2026-08-18', note:'iQOO Neo11 至尊版(8/18发布)出厂预装OriginOS 6.0，5年持久流畅认证；蓝心小V/原子通知(《王者荣耀》接入原子通知)/寰宇电竞Wi-Fi三芯片；同批iQOO Z11S出厂OriginOS 6.0(10000mAh硅碳/天玑7500)' },
       { ver:'OriginOS 6.0 16.0.14.2', date:'2026-08-19', note:'🎉 vivo开启OriginOS 6大版本16.0.14.2首批推送（868MB，PD2548_A_16.0.14.2.W10.V000L1）：相机新增4K Live动态照片（4K超清录制保存动态影像），首批X300 Pro/X300/X300s/X300 Ultra（X300 Ultra 8/17 21:55提前开放），X200 Ultra 8/25–8/28分批；覆盖2026全系旗舰；同批OriginOS 7 Beta(8/11推送)已首曝"视频剪辑导出流畅"新特性（重分配性能调度+并行编码线程，长视频/4K导出等待明显缩短）' },
-      { ver:'OriginOS 7 正式发布', date:'2026-09-16', note:'🎉 vivo 9/16 开发者大会正式发布 OriginOS 7（底层 Android 17）：AI跃迁（蓝心小VPro系统级Agent：任务拆解+跨应用执行，蓝心Harness底座+四款分工大模型，可调用6000+原子能力）；蓝河流畅引擎（应用启动+12%、页面响应+19%、72个月抗老化衰减仅5.08%、256GB释放25GB空间）；原子工作台行业首发首帧交互可打断+五应用任务组；光影美学设计（AI萌宠/闪卡/液态主题）。首发搭载 vivo X500 系列（9/21发布）与 iQOO 16，老机型适配时间未公布；AI功能部分需联网、复杂任务成功率待真实场景验证' }
+      { ver:'OriginOS 7 正式发布', date:'2026-09-16', note:'🎉 vivo 9/16 开发者大会正式发布 OriginOS 7（底层 Android 17）：AI跃迁（蓝心小VPro系统级Agent：任务拆解+跨应用执行，蓝心Harness底座+四款分工大模型，可调用6000+原子能力）；蓝河流畅引擎（应用启动+12%、页面响应+19%、72个月抗老化衰减仅5.08%、256GB释放25GB空间）；原子工作台行业首发首帧交互可打断+五应用任务组；光影美学设计（AI萌宠/闪卡/液态主题）。首发搭载 vivo X500 系列（9/21发布）与 iQOO 16，老机型适配时间未公布；AI功能部分需联网、复杂任务成功率待真实场景验证' },
+      { ver:'vivo X500 系列 首销', date:'2026-09-21', note:'🎉 vivo X500 系列(9/21 发布) 全系预装 OriginOS 7 正式版+蓝心大模型4.0：Pro/Pro Max 首发天玑9600 Pro(台积电2nm)，蔡司超动态主摄蓝图光御900(17EV/CIPA7.0/4K240fps)；蓝心小VPro 系统级Agent(6000+原子能力)随新机落地，复杂任务成功率待真实场景验证' }
     ],
     links: [
       { label:'vivo 升级包', url:'https://www.vivo.com/en/support/upgradePackageHome' },

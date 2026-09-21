@@ -26,6 +26,7 @@ PHONES: [
   { id: 'oppoa7promax',     name: 'A7 Pro Max',       brand: 'oppo',    os: 'ColorOS 16' },
   { id: 'vivoxfold6',       name: 'X Fold6',          brand: 'vivo',    os: 'OriginOS 6' },
   { id: 'vivs60',           name: 'vivo S60',         brand: 'vivo',    os: 'OriginOS 6' },
+  { id: 'vivox500',         name: 'vivo X500',        brand: 'vivo',    os: 'OriginOS 7' },
   { id: 'iqoo15t',          name: 'iQOO 15T',         brand: 'iqoo',    os: 'OriginOS 6' },
   { id: 'iqooneo11',        name: 'Neo11 至尊版',     brand: 'iqoo',    os: 'OriginOS 6' },
   { id: 'googlepixel11',    name: 'Pixel 11',         brand: 'google',  os: 'Android 17' }
@@ -786,6 +787,46 @@ FEATURES: [
   desc: 'OriginOS 7 新增游戏防眩光模式，官方称视觉舒适度提升约 29%；同期提供使用时长预测与充电时长预测。',
   note: '把「护眼」做成游戏场景的独立开关，比全局护眼更贴合场景。可借鉴的是触发方式：应能被游戏启动自动带入，而不是每次手动开——手动开的设置等于不存在。',
   source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html' }
+},
+
+/* ========== vivo X500 发布会（2026-09-21）新增 ========== */
+
+{
+  name: '蓝心大模型 4.0 驱动的小 V：端云协同 + 长期记忆',
+  product: 'assistant',
+  phones: ['vivox500'],
+  desc: 'vivo X500 首发蓝心大模型 4.0，小 V 支持更长上下文与端云协同推理，配合小 V 记忆卡把用户收藏的攻略、截图、历史笔记串成可复用的“旅行路书”等个性化内容。',
+  note: '语音助手真正的护城河不是“能对话”，而是“记得住、用得上”。vivo 把记忆做成锁屏可记、跨 App 关联的卡片，方向对。落地三前提：记忆存在哪、AI 读取粒度、用户能否查看/删除某条——缺了可见可控，功能越强越像监控。',
+  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html' }
+},
+
+{
+  name: '相册 HDR 影像：17EV 动态范围 + 蔡司色彩',
+  product: 'gallery',
+  phones: ['vivox500'],
+  desc: 'vivo X500 主摄蓝图光御900（1/1.28″）支持 17EV 高动态范围与蔡司自然色彩，相册可完整呈现高光到暗部细节，并保留蔡司风格影调。',
+  note: '高动态范围 capture 只是第一步，相册能否“无损呈现 + 选择性压高光”才决定用户感知。建议相册对 HDR 照片默认开启动态范围预览，并提供“高光/阴影”一键微调，而不是只在相机端卷参数。',
+  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html' }
+},
+
+/* ========== One UI 9 稳定版（2026-09-16 S26 系列首发）新增 ========== */
+
+{
+  name: '录音机结构化摘要：自动生成带标题+表格的大纲',
+  product: 'recorder',
+  brands: ['samsung'],
+  desc: 'One UI 9（9/16 起 S26 系列首发）把录音机摘要从“仅 3 条要点”升级为带标题和表格的结构化大纲，直接弥补此前摘要过简、漏关键信息的短板。',
+  note: '这是把“摘要可用性”做对的最小一步——结构化输出比纯要点能读得多。但转录准确性（多口音失效、29% 崩溃）仍是根因，摘要再漂亮也救不了烂转录。tOS 若做会议录音摘要，应让“结构化大纲”成为默认格式，并开放要点级编辑。',
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-voice-recorder.html' }
+},
+
+{
+  name: '文件管理文档扫描：弯曲书页校正 + 去手指',
+  product: 'files',
+  brands: ['samsung'],
+  desc: 'One UI 9 的 My Files 文档扫描升级：自动校正弯曲书页/折角，并去除握纸手指，填补此前 S25 缺失的部分功能。',
+  note: '扫描去手指/弯页是“拍文档”场景的真痛点，但这类能力更适合放在相机或专门的扫描 App，放在文件管理里入口偏深。若 tOS 做文档扫描，建议独立入口 + 自动检测文档边缘触发，而不是埋在文件管理器三级菜单。',
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-my-files.html' }
 }
 
 ]

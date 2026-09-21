@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="dbg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06101e"/><stop offset="1" stop-color="#0a1830"/></linearGradient>
+    <linearGradient id="dscreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a5cff" stop-opacity=".7"/><stop offset="1" stop-color="#00c8d8" stop-opacity=".5"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#dbg2)"/>
+  <g transform="translate(440,450)">
+    <rect x="-180" y="-320" width="360" height="640" rx="44" fill="#0a1830" stroke="#2a4f86" stroke-width="3"/>
+    <rect x="-150" y="-290" width="300" height="580" rx="30" fill="url(#dscreen)"/>
+    <rect x="-150" y="-290" width="300" height="580" rx="30" fill="none" stroke="#9fc2ff" stroke-width="1" opacity=".4"/>
+    <circle cx="0" cy="-262" r="8" fill="#06101e"/>
+    <circle cx="0" cy="120" r="44" fill="none" stroke="#9fc2ff" stroke-width="3" opacity=".7"/>
+    <text x="0" y="134" text-anchor="middle" fill="#cfe0ff" font-family="Arial" font-size="22">3D 超声波</text>
+  </g>
+  <text x="860" y="250" fill="#ffffff" font-family="Arial" font-size="56" font-weight="bold">屏幕与交互</text>
+  <text x="860" y="310" fill="#9fc2ff" font-family="Arial" font-size="32">全系直屏 · 旗舰显示规格梯度分明</text>
+  <g font-family="Arial" fill="#cfe0ff">
+    <text x="860" y="410" font-size="40" font-weight="bold">Pro Max · 6.85″ 2K 蔡司大师色彩屏</text>
+    <text x="860" y="480" font-size="40" font-weight="bold">Pro · 6.36″ 屏</text>
+    <text x="860" y="550" font-size="40" font-weight="bold">标准版 · 6.59″ 1.5K 直屏</text>
+    <text x="860" y="620" font-size="40" font-weight="bold">3D 超声波屏幕指纹</text>
+  </g>
+  <text x="860" y="700" fill="#5f82ad" font-family="Arial" font-size="28">蔡司大师色彩调校 · 四等边收窄 · 黑边控制进一步优化</text>
+</svg>

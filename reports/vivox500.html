@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vivo X500 系列 · 灭霸500 影像旗舰</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text","Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#06101e;
+    color:#dbe6f5;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  :root{
+    --cyan:#00c8d8;
+    --blue:#415fff;
+    --gold:#d4af37;
+    --grad:linear-gradient(135deg,#415fff,#00c8d8);
+    --grad-wide:linear-gradient(116deg,#415fff,#00c8d8 55%,#d4af37 130%);
+    --dark:#06101e;
+    --tile:rgba(255,255,255,.04);
+    --tile-border:rgba(120,170,255,.10);
+    --muted:#6f8bb0;
+    --text:#c3d2e8;
+    --text-bright:#f0f5ff;
+    --mono:'SF Mono',ui-monospace,Consolas,'Courier New',monospace;
+    --serif:'Source Han Serif SC','Noto Serif SC','Songti SC',Georgia,'PingFang SC',serif;
+  }
+
+  /* === HERO === */
+  .hero{
+    position:relative;
+    min-height:86vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px 32px 60px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 900px 520px at 82% -8%,rgba(65,95,255,.28),transparent 60%),
+      radial-gradient(ellipse 700px 420px at 8% 18%,rgba(0,200,216,.18),transparent 55%),
+      radial-gradient(ellipse 520px 320px at 50% 115%,rgba(212,175,55,.07),transparent 50%);
+  }
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:repeating-linear-gradient(0deg,transparent,transparent 64px,rgba(65,95,255,.025) 64px,rgba(65,95,255,.025) 65px);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:960px;margin:0 auto;width:100%;z-index:2}
+  .hero-eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:var(--cyan);
+    font-weight:700;text-transform:uppercase;margin-bottom:24px;
+    text-shadow:0 0 20px rgba(0,200,216,.4);
+  }
+  .hero h1{
+    font-family:var(--serif);font-size:clamp(38px,6.4vw,72px);font-weight:900;line-height:1.06;
+    letter-spacing:-.02em;color:#fff;margin-bottom:20px;
+  }
+  .hero h1 .g{
+    background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:#a7bdda;line-height:1.7;max-width:660px;margin-bottom:28px;
+  }
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-chips span{
+    font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.06em;
+    background:rgba(0,200,216,.06);border:1px solid rgba(0,200,216,.2);
+    padding:6px 14px;border-radius:4px;
+    text-shadow:0 0 8px rgba(0,200,216,.25);
+  }
+
+  /* 光圈装饰 */
+  .aperture{
+    position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+    width:360px;height:360px;pointer-events:none;opacity:.16;z-index:1;
+    border-radius:50%;border:2px solid var(--cyan);
+    box-shadow:0 0 0 40px rgba(65,95,255,.05),0 0 0 90px rgba(0,200,216,.03);
+  }
+
+  /* === CONTENT WRAPPER === */
+  .content{max-width:960px;margin:0 auto;padding:0 32px 100px;position:relative;z-index:2}
+
+  /* === BENTO GRID === */
+  .bento{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    grid-template-rows:auto auto;
+    gap:12px;
+    margin-bottom:64px;
+  }
+  .bt{
+    background:var(--tile);backdrop-filter:blur(20px);
+    border:1px solid var(--tile-border);border-radius:16px;
+    padding:24px 28px;display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .bt::before{
+    content:'';position:absolute;inset:0;border-radius:16px;
+    background:linear-gradient(135deg,rgba(65,95,255,.08),transparent 60%);
+    pointer-events:none;
+  }
+  .bt-price{
+    grid-row:span 2;
+    background:
+      radial-gradient(ellipse 400px 300px at 90% -20%,rgba(0,200,216,.3),transparent 65%),
+      radial-gradient(ellipse 350px 250px at -10% 110%,rgba(65,95,255,.28),transparent 60%),
+      rgba(255,255,255,.03);
+    border-color:rgba(0,200,216,.2);
+  }
+  .bt .bt-label{
+    font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.2em;color:var(--muted);text-transform:uppercase;
+  }
+  .bt .bt-num{
+    font-family:var(--serif);font-size:clamp(32px,5vw,48px);font-weight:900;line-height:1.05;
+    background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;
+    margin:6px 0;
+  }
+  .bt .bt-num span{font-size:.45em;opacity:.7}
+  .bt .bt-desc{font-size:13px;color:var(--muted);line-height:1.5}
+  .bt-price .bt-num{font-size:clamp(46px,7vw,70px)}
+  .bt-price .bt-desc{font-size:14px;color:#8ba4c4}
+
+  /* === CHAPTER === */
+  .chapter{margin-bottom:72px;position:relative}
+  .chapter-head{
+    display:flex;align-items:center;gap:16px;margin-bottom:28px;
+    padding-bottom:18px;border-bottom:1px solid rgba(120,170,255,.10);
+  }
+  .ch-num{
+    font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cyan);
+    border:1px solid rgba(0,200,216,.3);background:rgba(0,200,216,.06);
+    padding:4px 12px;border-radius:4px;letter-spacing:.06em;
+    text-shadow:0 0 12px rgba(0,200,216,.35);
+    box-shadow:0 0 16px rgba(0,200,216,.08);
+  }
+  .ch-kick{
+    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;
+    color:var(--blue);text-transform:uppercase;
+  }
+  .ch-title{
+    font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:900;
+    letter-spacing:-.01em;color:#fff;line-height:1.18;
+  }
+  .ch-intro{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:32px;max-width:700px}
+
+  /* === FEATURE === */
+  .feat{margin-bottom:36px;padding-top:24px;border-top:1px solid rgba(120,170,255,.06)}
+  .feat:first-child{border-top:none;padding-top:0}
+  .f-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .f-idx{
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);
+    border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);
+    padding:3px 10px;border-radius:4px;letter-spacing:.04em;
+  }
+  .f-tag{
+    font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;
+    color:var(--cyan);background:rgba(0,200,216,.1);
+    padding:3px 12px;border-radius:3px;
+  }
+  .feat h3{
+    font-family:var(--serif);font-size:clamp(20px,3vw,26px);font-weight:900;
+    line-height:1.25;letter-spacing:-.008em;color:#fff;margin-bottom:14px;
+  }
+  .feat p{font-size:15.5px;color:var(--text);line-height:1.85;margin-bottom:12px}
+  .feat ul{padding-left:22px;margin:10px 0 14px}
+  .feat li{font-size:15px;color:var(--text);line-height:1.78;margin-bottom:6px}
+  .feat strong{color:#fff;font-weight:700}
+  .feat code{font-family:var(--mono);font-size:13px;background:rgba(65,95,255,.12);padding:2px 7px;border-radius:4px;color:var(--cyan)}
+
+  /* === COLS === */
+  .cols{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:28px;align-items:start;margin:24px 0}
+
+  /* === IMAGE FIGURE === */
+  .fig{
+    border:1px solid rgba(120,170,255,.12);border-radius:14px;overflow:hidden;
+    background:rgba(255,255,255,.02);position:relative;
+  }
+  .fig img{width:100%;display:block;cursor:pointer;transition:transform .2s,filter .2s}
+  .fig img:hover{transform:scale(1.02);filter:brightness(1.08)}
+  .fig figcaption{
+    font-size:12px;color:var(--muted);padding:10px 14px;
+    border-top:1px solid rgba(120,170,255,.08);line-height:1.5;
+    background:rgba(255,255,255,.02);
+  }
+  .fig .badge{
+    position:absolute;top:12px;left:12px;z-index:3;
+    font-family:var(--mono);font-size:10px;font-weight:700;color:var(--cyan);
+    background:rgba(6,16,30,.8);backdrop-filter:blur(8px);
+    padding:4px 10px;border-radius:4px;border:1px solid rgba(0,200,216,.25);
+    text-shadow:0 0 8px rgba(0,200,216,.3);
+  }
+
+  /* === NOTE === */
+  .note{
+    border-radius:10px;padding:16px 20px;margin:20px 0;position:relative;
+  }
+  .note-label{
+    display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;
+  }
+  .note-text{font-size:14.5px;line-height:1.75}
+  .note-c{
+    background:rgba(65,95,255,.08);border:1px solid rgba(65,95,255,.15);
+    border-left:3px solid var(--blue);
+  }
+  .note-c .note-label{color:var(--blue)}
+  .note-c .note-text{color:#9fb2d6}
+  .note-a{
+    background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.14);
+    border-left:3px solid var(--gold);
+  }
+  .note-a .note-label{color:var(--gold)}
+  .note-a .note-text{color:#c8b487}
+  .note strong{font-weight:800;color:#fff}
+
+  /* === SPEC TABLE === */
+  .spec-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px;border-radius:10px;overflow:hidden}
+  .spec-table th{
+    background:rgba(65,95,255,.15);color:var(--cyan);padding:12px 16px;
+    font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;
+    text-align:left;border-bottom:1px solid rgba(65,95,255,.2);
+  }
+  .spec-table td{
+    padding:12px 16px;border-bottom:1px solid rgba(120,170,255,.05);
+    color:var(--text);font-size:14px;
+  }
+  .spec-table tr:hover td{background:rgba(255,255,255,.02)}
+  .spec-table strong{color:#fff}
+
+  /* === TAKEAWAYS === */
+  .takeaways{
+    background:
+      radial-gradient(ellipse 500px 300px at 90% 10%,rgba(0,200,216,.14),transparent 60%),
+      rgba(255,255,255,.02);
+    border:1px solid rgba(120,170,255,.08);border-radius:20px;
+    padding:40px 36px;margin-top:48px;
+  }
+  .takeaways h3{
+    font-family:var(--serif);font-size:28px;font-weight:900;color:#fff;
+    margin-bottom:28px;
+    background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .take-card{
+    padding:20px 24px;border-left:3px solid var(--cyan);margin-bottom:16px;
+    background:rgba(255,255,255,.02);border-radius:0 10px 10px 0;
+  }
+  .take-card:last-child{margin-bottom:0}
+  .take-card h4{
+    font-family:var(--serif);font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;
+  }
+  .take-card p{font-size:14.5px;color:var(--text);line-height:1.74;margin:0}
+
+  /* === LIGHTBOX === */
+  .lightbox{
+    position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;
+    background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out;
+  }
+  .lightbox.show{display:flex}
+  .lightbox img{
+    max-width:92vw;max-height:88vh;border-radius:8px;object-fit:contain;
+    box-shadow:0 8px 60px rgba(0,200,216,.2);
+  }
+
+  /* === GLOW SEPARATOR === */
+  .glow-sep{
+    height:1px;margin:0 -32px 64px;
+    background:linear-gradient(90deg,transparent,rgba(65,95,255,.25),rgba(0,200,216,.2),transparent);
+  }
+
+  /* === RESPONSIVE === */
+  @media(max-width:768px){
+    .hero{min-height:76vh;padding:60px 20px 40px}
+    .hero h1{font-size:clamp(28px,7vw,42px)}
+    .hero-sub{font-size:15px}
+    .content{padding:0 20px 80px}
+    .bento{grid-template-columns:1fr 1fr;gap:10px}
+    .bt-price{grid-column:span 2;grid-row:auto}
+    .cols{grid-template-columns:1fr;gap:18px}
+    .chapter{margin-bottom:52px}
+    .ch-title{font-size:clamp(20px,5vw,28px)}
+    .feat h3{font-size:clamp(18px,4vw,22px)}
+    .takeaways{padding:28px 20px}
+    .take-card{padding:16px 18px}
+    .glow-sep{margin:0 -20px 48px}
+    .aperture{display:none}
+  }
+  @media(max-width:480px){
+    .bento{grid-template-columns:1fr}
+    .bt-price{grid-column:auto}
+    .hero-chips span{font-size:10px;padding:5px 10px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="aperture"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026.09.21 · 北京 / 线上 · vivo</div>
+    <h1>vivo X500 系列<br><span class="g">灭霸500 · 2nm 影像旗舰</span></h1>
+    <div class="hero-sub">全系首发蔡司联合定制「蓝图光御 900」超动态主摄，搭载台积电 2nm 天玑 9600 Pro，预装 OriginOS 7 与蓝心大模型 4.0——vivo 把 2nm 芯片 + 超大电池 + 蔡司专业影像拧成一条差异化主线。</div>
+    <div class="hero-chips">
+      <span>天玑9600 Pro 2nm</span><span>蔡司超动态主摄</span><span>17EV 动态</span><span>8000mAh</span><span>4K 240fps</span><span>OriginOS 7</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENTO ===== -->
+<div class="content">
+  <div class="bento">
+    <div class="bt bt-price">
+      <div class="bt-label">Starting Price</div>
+      <div class="bt-num">3999<span>元起</span></div>
+      <div class="bt-desc">标准版起售 · Pro Max 预计高于 7499 元（参考上代 X300 Ultra）</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Dynamic Range</div>
+      <div class="bt-num">17<span>EV</span></div>
+      <div class="bt-desc">蓝图光御 900 主摄</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Battery</div>
+      <div class="bt-num">8000<span>mAh</span></div>
+      <div class="bt-desc">Pro Max 典型值</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Process</div>
+      <div class="bt-num">2<span>nm</span></div>
+      <div class="bt-desc">天玑 9600 Pro</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Video</div>
+    <div class="bt-num">4K240<span>fps</span></div>
+    <div class="bt-desc">慢动作直出</div>
+  </div>
+</div>
+
+  <figure class="fig" style="margin:4px 0 18px">
+    <img src="../images/x500-hero.svg" alt="vivo X500 系列主视觉" loading="lazy">
+    <figcaption>vivo X500 系列 · 灭霸500 · 蔡司联合定制影像旗舰</figcaption>
+  </figure>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== CH01: 影像 ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">01</span>
+      <span class="ch-kick">Camera · Zeiss</span>
+    </div>
+    <h2 class="ch-title">蔡司超动态主摄：把电影机装进口袋</h2>
+    <div class="ch-intro">vivo X500 系列的核心卖点是影像。Pro 与 Pro Max 全球首发 vivo 蓝图团队与索尼联合定制的「蔡司超动态主摄」蓝图光御 900，主打印度级视频能力——这是 X500 敢于用「灭霸 500」内部代号定调的底气。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/x500-camera.svg" alt="vivo X500 蔡司超动态主摄" loading="lazy">
+        <figcaption>蓝图光御 900 · 1/1.28″ 50MP · 17EV 动态范围</figcaption>
+        <span class="badge">蔡司联合定制</span>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">主摄</span></div>
+          <h3>蓝图光御 900：17EV 动态 + 3° 云台级防抖</h3>
+          <p>这颗 5000 万像素、1/1.28″ 大底主摄实现行业最高的 <strong>17EV 动态范围</strong>，并支持 3° 云台级 OIS 防抖与 CIPA 7.0 专业防抖。它的直接价值是<strong>解决逆光拍摄高光过曝、暗部丢细节</strong>的痛点，并且把高动态范围下放到视频录制——每一帧都拥有电影级动态表现，而不只是照片。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">长焦</span></div>
+      <h3>2 亿像素 APO 超级潜望（Pro Max 独享）</h3>
+      <p>顶配 Pro Max 搭载 2 亿像素定制 APO 潜望长焦，支持 CIPA 7.0 级防抖，可外接 400mm 增距镜，最高 30 倍抓拍。配合蔡司光学调校，远摄与人像色彩更自然通透。标准版与 Pro 则通过双 Pro 蔡司影像 + 8K 原生实况补齐中长焦体验。</p>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">视频</span></div>
+      <h3>4K 240fps 慢动作 + 4K 120fps HDR 直出</h3>
+      <p>蓝图光御 900 首发支持 4K 240fps 慢动作与 4K 120fps HDR 直出。用产品经理韩伯啸的话说：「云台相机有的、没有的，X500 Pro 系列统统都有。」对 vlog、运动、宠物等高频拍摄场景，这是实打实的规格领先。</p>
+    </div>
+
+    <div class="note note-c"><span class="note-label">点评</span><div class="note-text">vivo 的影像打法很清晰：不卷单纯像素数，而是把<strong>高动态范围 + 专业防抖 + 高规格视频</strong>打包成「电影级」叙事。对真实用户而言，17EV 逆光和 4K240 慢动作是肉眼可感知的升级；但 Pro Max 的 2 亿 APO 潜望是顶配独占，标准版/Pro 用户需要在购机前对长焦预期做减法。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== CH02: 性能 ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">02</span>
+      <span class="ch-kick">Performance</span>
+    </div>
+    <h2 class="ch-title">天玑 9600 Pro：台积电 2nm 全大核</h2>
+    <div class="ch-intro">X500 Pro 与 Pro Max 首发台积电 N2P 2nm 工艺的天玑 9600 Pro，采用 2+3+3 全大核架构，超大核主频逼近 5GHz；标准版搭载天玑 9600。全系标配 LPDDR6 内存与 UFS 5.0 闪存。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/x500-chip.svg" alt="天玑 9600 Pro 2nm 芯片" loading="lazy">
+        <figcaption>天玑 9600 Pro · 台积电 N2P 2nm · 2+3+3 全大核</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">芯片</span></div>
+          <h3>全大核架构 + 端侧 AI 算力翻倍</h3>
+          <p>2+3+3 全大核设计意味着没有小核拖累， sustained performance（持续性能）更稳，这对长时间 4K 高规格视频运算与本地 AI 大模型运行至关重要。天玑 9600 系列的 AI 神经算力增强，可支撑大型手游高帧率运行下的发热控制。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text">标准版与 Pro/Pro Max 在芯片制程上存在代差（3nm 天玑 9600 vs 2nm 9600 Pro）。如果你看重极致性能与端侧 AI，Pro Max 更值；但若只是日常影像 + 轻度游戏，标准版的天玑 9600 也完全够用，还能省下预算。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== CH03: 续航与屏幕 ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">03</span>
+      <span class="ch-kick">Battery & Display</span>
+    </div>
+    <h2 class="ch-title">续航与屏幕：梯度分明不将就</h2>
+    <div class="ch-intro">全系标配 7000mAh+ 超大硅碳电池与 3D 超声波指纹、IP68/IP69K 防尘防水。屏幕则按价位梯度拉开：从标准版 1.5K 直屏到 Pro Max 的 2K 蔡司大师色彩屏。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/x500-battery.svg" alt="vivo X500 续航与快充" loading="lazy">
+        <figcaption>全系 7000mAh+ · Pro Max 8000mAh · 90W 有线</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">续航</span></div>
+          <h3>8000mAh + 90W，户外拍摄无焦虑</h3>
+          <p>Pro Max 典型值 7800mAh（标称 8000mAh），标准版 7270mAh（标称 7500mAh），全系 90W 有线快充。对重度影像用户而言，长续航是「能拍完一整天」的硬指标，比充电速度更刚需。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/x500-display.svg" alt="vivo X500 屏幕与指纹" loading="lazy">
+        <figcaption>全系直屏 · 3D 超声波屏幕指纹 · 蔡司大师色彩</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">屏幕</span></div>
+          <h3>2K 蔡司大师色彩屏 + 3D 超声波指纹</h3>
+          <p>Pro Max 配备 6.85″ 2K 蔡司大师色彩屏（京东方 Q11），Pro 为 6.36″，标准版 6.59″ 1.5K 直屏。全系采用 3D 超声波屏幕指纹，湿手解锁更可靠；四等边收窄、黑边控制进一步优化，纳米磨砂后盖不易沾指纹。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== CH04: OriginOS 7 ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">04</span>
+      <span class="ch-kick">Software · OriginOS 7</span>
+    </div>
+    <h2 class="ch-title">OriginOS 7 + 蓝心小V Pro：Agent 化系统</h2>
+    <div class="ch-intro">X500 全系预装基于 Android 17 的 OriginOS 7，深度接入蓝心大模型 4.0。核心变化是「蓝心小V Pro」升级为系统级 Agent——可拆解复杂任务并跨应用自主执行。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/x500-os.svg" alt="OriginOS 7 蓝心小V Pro" loading="lazy">
+        <figcaption>蓝心小V Pro · 6000+ 原子能力 · 跨应用执行</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">07</span><span class="f-tag">AI</span></div>
+          <h3>蓝心小V Pro：从问答到执行</h3>
+          <p>蓝心小V Pro 基于蓝心 Harness 底座 + 四款分工大模型，可调用 6000+ 原子能力，把「旅行攻略」或「会议材料整理」这类复杂任务自动拆解、跨应用执行，并支持离线跨应用操作。原子工作台行业首发首帧交互可打断 + 五应用任务组打包流转。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-a"><span class="note-label">务实提醒</span><div class="note-text">Agent 化是方向，但 <strong>复杂任务成功率仍需真实场景验证</strong>，且部分 AI 功能需联网。对普通用户，更立竿见影的是本地 AI 创作、智能修图、文档处理这些「开箱即用」的能力，而非演示视频里的全自动流程。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== CH05: 价格 ===== -->
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">05</span>
+      <span class="ch-kick">Pricing</span>
+    </div>
+    <h2 class="ch-title">价格与选购建议</h2>
+
+    <table class="spec-table">
+      <tr><th>机型</th><th>屏幕</th><th>电池</th><th>长焦</th><th>起售价（预计）</th></tr>
+      <tr><td>X500 标准版</td><td>6.59″ 1.5K 直屏</td><td><strong>7500mAh</strong></td><td>双 Pro 蔡司</td><td><strong>¥3999</strong></td></tr>
+      <tr><td>X500 Pro</td><td>6.36″</td><td>约 6500mAh</td><td>蔡司潜望</td><td>高于标准版</td></tr>
+      <tr><td>X500 Pro Max</td><td><strong>6.85″ 2K</strong></td><td><strong>8000mAh</strong></td><td>2亿 APO 潜望</td><td>高于 ¥7499</td></tr>
+    </table>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text"><strong>影像党直接上 Pro Max</strong>：2K 大师屏 + 2 亿 APO 潜望 + 8000mAh 是三杯里唯一满血影像组合；<strong>性价比与续航优先选标准版</strong>：7500mAh + 直屏 + 3999 元起，是 X 系列罕见的「续航甜品」；Pro 则是小屏与影像的折中。三杯定位清晰，按预算和影像执念选即可。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <!-- ===== TAKEAWAYS ===== -->
+  <div class="takeaways">
+    <h3>核心结论</h3>
+    <div class="take-card">
+      <h4>影像差异化最稳</h4>
+      <p>17EV 动态 + CIPA 7.0 防抖 + 4K240 慢动作，是 X500 最肉眼可感知、也最难被参数党反驳的升级。</p>
+    </div>
+    <div class="take-card">
+      <h4>2nm 全大核是双刃剑</h4>
+      <p>天玑 9600 Pro 性能与端侧 AI 领先，但仅 Pro/Pro Max 独占；标准版 9600 已够用，购机前先想清是否真需要 2nm。</p>
+    </div>
+    <div class="take-card">
+      <h4>续航是真刚需</h4>
+      <p>全系 7000mAh+ 解决了影像旗舰最大的「拍一半没电」痛点，比快充速度更值得夸。</p>
+    </div>
+    <div class="take-card">
+      <h4>Agent 化看落地</h4>
+      <p>蓝心小V Pro 叙事漂亮，但复杂任务成功率与联网依赖是未知数，别为演示视频买单。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+document.querySelectorAll('.fig img').forEach(function(img){
+  img.addEventListener('click',function(){
+    document.getElementById('lightboxImg').src=this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>
