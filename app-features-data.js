@@ -72,7 +72,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: 'HyperOS 4 录音机可识别会议场景，提炼要点并自动生成可跳转时间轴的大纲；支持跳过静音、手动标记总结，总结后可唤起超级小爱针对录音问答。',
   note: 'tOS 录音机缺的不是转写，是「录完就能问」的闭环。大纲 + 时间轴跳转 + 助手问答应做成同一条产品路径，而不是三个入口。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://gadgets360.com/mobiles/news/xiaomi-hyperos-4-beta-timeline-leak-features-expected-11872760' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://hyperos.mi.com/' }
 },
 {
   name: '长录音转写稳定性修复',
@@ -80,7 +80,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: 'HyperOS 3 八月更新修复长时间录音偶发失败、重复记录；断点续录更可靠。会议场景能力要到 HyperOS 4 才完整。',
   note: '长录音失败是文管/录音机共同的口碑雷区。tOS 应把「连续录 2 小时不丢」当成基础质量门槛，再谈 AI 摘要。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html', url: 'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
 },
 {
   name: 'AI 录音：实时转写 + 说话人 + 摘要模板',
@@ -88,7 +88,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 录音支持实时转写、说话人识别、人声增强，结束自动生成标题/标签/章节，并提供会议/访谈/讲座摘要模板，可导出全文或摘要。部分机型无实时分角色。',
   note: '模板化摘要比「三要点」更接近办公场景。tOS 可跟：会议/访谈/课堂三套模板 + 导出 TXT/DOC，分角色能力不要做成旗舰专属。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/version/coloros16/' }
 },
 {
   name: '录音高亮关键段 + 说话人观点',
@@ -104,7 +104,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 端侧 AI：录音直接生成会议纪要，数据不上云。与 YOYO 长视频解析同一套「本地理解」叙事。',
   note: '端侧纪要是隐私卖点。tOS 海外机更该强调 on-device：转写/纪要默认不出网，云端当增强而不是前提。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html' }
 },
 {
   name: '说话人区分强、转写质量差',
@@ -128,7 +128,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 录音本身转写整洁，但摘要要分享到备忘录；iOS 27 Beta 3 起备忘录支持「今晚 6 点接爸爸」这类自然语言抽时间。录音机仍不是主入口。',
   note: '苹果把纪要能力放在 Notes 而不是 Recorder。tOS 不要学这个跳转；录音机应是第一现场，笔记只做归档。',
-  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/2026/09/14/50-new-things-iphone-can-do-ios-27/' }
 },
 
 /* ========== 文件管理 ========== */
@@ -138,7 +138,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: 'HyperOS 4 文件管理新增最近删除回收站；超级岛可实时显示超级文档处理进度。并修复云盘缩略图、macOS 压缩包显示异常。',
   note: '回收站是文管基础能力，国内竞品已补齐。tOS 文管应把「删除可回」做成默认，压缩包/云盘缩略图当月活质量指标，不要等用户投诉。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://zh-cn.xiaomi-miui.gr/hyperos-4-full-changelog-new-features/' }
 },
 {
   name: 'AI 意图搜索：模糊描述跨应用找文件',
@@ -146,7 +146,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 可用自然语言搜文件/日程/截图，不记文件名也能定位；系统内可浏览并转换 60+ 文档格式（Keynote/PSD/CAD 等），小布可对文档生成思维导图。',
   note: '文管的下一代入口是「描述」不是路径。tOS 应让搜索听得懂「上周客户那份报价 PDF」，并覆盖办公格式预览，减少跳 WPS。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/article/A00000087/' }
 },
 {
   name: 'AI 文件管家：按主题归类 + 输入法找文件',
@@ -170,7 +170,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 存储空间 2.0：无损压缩 + 清冗余，官方称最多腾出约 60GB。与换机演示里「迁完多出 10GB」是同一套空间叙事。',
   note: '海外用户对「系统吃存储」极敏感。tOS 文管应有可见的压缩/清理账单：压缩了什么、能还原、不误伤 WhatsApp 媒体。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.fonearena.com/blog/492627/honor-introduces-magicos-11-features.html' }
 },
 {
   name: '分布式文件管理 + 超空间存储',
@@ -178,7 +178,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'HarmonyOS 7 强化超级终端与分布式文件：跨设备拖文件更稳。超空间存储给 256GB 机型多出约 22GB 可用空间，被报告称为变相延长换机周期。',
   note: '「同等容量更好用」是文管可量化的卖点。tOS 应对 128/256GB 机给出清理+压缩的可见收益，而不是只在旗舰上讲云盘。',
-  source: { kind: 'launch', label: '发布会 · Mate XT 2 / nova 16 SE', href: 'reports/huaweimatext2.html', url: 'https://consumer.huawei.com/' }
+  source: { kind: 'launch', label: '发布会 · Mate XT 2 / nova 16 SE', href: 'reports/huaweimatext2.html' }
 },
 {
   name: '原子工作台：文档与文件跨窗拖放',
@@ -187,7 +187,7 @@ FEATURES: [
   phones: ['vivoxfold6'],
   desc: 'X Fold6 原子工作台支持四窗口，文档/浏览器/微信/邮件同屏，文件可在应用间拖放，全局任务栏接近桌面效率。OriginOS 7 计划把原子工作台下放到直板机。',
   note: '折叠屏文管的关键是拖放，不是多一个文件夹页。tOS 大屏/折叠应优先做跨窗拖文件 + 任务组，直板机用分屏兜住高频场景。',
-  source: { kind: 'launch', label: '发布会 · X Fold6', href: 'reports/vivoxfold6.html', url: 'https://www.vivo.com/' }
+  source: { kind: 'launch', label: '发布会 · X Fold6', href: 'reports/vivoxfold6.html' }
 },
 
 /* ========== 播放器 ========== */
@@ -205,7 +205,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 八月体验：锁屏岛全屏歌词新增酷狗概念版，抬眼即见。和系统流体云是同一套「正在播放」表面。',
   note: '歌词岛要能接头部音乐 App，不能只服务自有播放器。tOS 应先打通 Spotify / YouTube Music / 本地播放器三套媒体会话。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.ithome.com/0/990/542.htm' }
 },
 {
   name: 'AirPods 自适应模式强度滑块 + 自定义 EQ',
@@ -213,7 +213,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 控制中心可调 AirPods 通透/降噪平衡；发布会还提到自定义 EQ。播放体验绑在耳机系统设置，不在独立播放器 App。',
   note: '苹果把「听感」放在系统音频层。tOS 若做播放器，EQ/空间音频应进系统声音，而不是锁死在自有 App 里。',
-  source: { kind: 'launch', label: '发布会 · iPhone 18 / iOS 27', href: 'reports/iphone18.html', url: 'https://www.apple.com/apple-events/' }
+  source: { kind: 'launch', label: '发布会 · iPhone 18 / iOS 27', href: 'reports/iphone18.html', url: 'https://www.apple.com/os/ios/' }
 },
 {
   name: '4K Live 动态照片当媒体资产',
@@ -221,7 +221,7 @@ FEATURES: [
   brands: ['vivo', 'iqoo'],
   desc: 'OriginOS 6.0 16.0.14.2 相机可录 4K Live 动态影像。播放/相册侧要能保留动态效果，否则只是相机卖点、播放器接不住。',
   note: 'Live 图是相机和播放器的交接件。tOS 播放器/相册必须声明：动态照片能原样播、能导出静帧，避免「拍得到、看丢失」。',
-  source: { kind: 'update', label: '系统更新 · OriginOS 6', href: 'updates/vivo-originos.html', url: 'https://www.fonearena.com/blog/492411/vivo-originos-7-features-preview-program-registrations-india.html' }
+  source: { kind: 'update', label: '系统更新 · OriginOS 6', href: 'updates/vivo-originos.html' }
 },
 
 /* ========== 记事本 ========== */
@@ -231,7 +231,7 @@ FEATURES: [
   brands: ['apple'],
   desc: '任意输入框可触发校对、重写、摘要（标准/要点/列表/表格）。PCMag 称「如宣传可用」，但 iPhone 上要点太多次；Compose 还要登录 ChatGPT。',
   note: '笔记 AI 应是系统输入层，不是笔记 App 私有。tOS 记事本先做「圈选即改写/摘要」，触控路径压到两步以内，生成不要绑第三方账号。',
-  source: { kind: 'update', label: '系统更新 · iOS 26/27', href: 'updates/apple-writing-tools.html', url: 'https://www.pcmag.com/explainers/how-smart-is-apple-intelligence-i-tried-every-feature-heres-the-verdict' }
+  source: { kind: 'update', label: '系统更新 · iOS 26/27', href: 'updates/apple-writing-tools.html', url: 'https://www.apple.com/apple-intelligence/' }
 },
 {
   name: 'Samsung Notes 胶带笔 + Gemini Notebook',
@@ -247,7 +247,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: '三指上滑或 Snap Key 把屏幕文字/图/录音丢进小布记忆，自动分类、合集摘要，长视频也能出章节。八月更新便签可换字体皮肤，笔记图片可直接涂鸦。',
   note: '这是目前安卓里最完整的「看见即记下」。tOS 记事本应有系统手势闪记，落到本地笔记而不是新壳 App；视频摘要和涂鸦是下一步，不是第一步。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/article/A00000103/' }
 },
 {
   name: '笔记 AI 语义搜索 + 长视频变笔记',
@@ -255,7 +255,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 10 八月版：笔记支持 AI 语义搜索；YOYO 记忆可对抖音/B 站/小红书/本地视频三指下滑出摘要，视频教程直接变笔记。',
   note: '语义搜比文件夹更重要。tOS 记事本优先「用一句话找到三个月前那条」，视频转笔记可复用录音纪要模型，不必单独堆产品。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 10/11', href: 'updates/honor-yoyo.html', url: 'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 10/11', href: 'updates/honor-yoyo.html' }
 },
 {
   name: 'HyperOS AI Note + 笔记应用改造',
@@ -297,7 +297,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11：YOYO 识别取件码、票务、就医预约、聊天信息，自动生成日历待办；也可从一句话、一张图、一通来电抽日程。',
   note: '取件码/预约是日历的新供给，不只是会议。tOS 日历应接短信/邮件/通知里的时间实体，先做可撤销的建议卡片，避免乱建日程。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.readaitime.com/news/2026-09-15/20a9x1ak' }
 },
 {
   name: 'AI 日历按截止日与习惯排任务',
@@ -323,7 +323,7 @@ FEATURES: [
   brands: ['samsung'],
   desc: 'One UI 9 Beta 4 专门修了锁屏横竖屏时钟显示异常，和实时通知计时器截断一起进稳定版前的修复包。说明时钟仍是锁屏事故高发区。',
   note: '时钟产品的口碑在锁屏，不在闹钟列表。tOS 时钟要覆盖折叠/横屏/AOD 三种表面，发版前当回归用例，而不是主题附赠。',
-  source: { kind: 'update', label: '系统更新 · One UI 9 Beta', href: 'updates/samsung-oneui9-beta.html', url: 'https://gadgets.beebom.com/news/samsung-officially-releases-stable-one-ui-9-update-with-galaxy-z-fold-8-series' }
+  source: { kind: 'update', label: '系统更新 · One UI 9 Beta', href: 'updates/samsung-oneui9-beta.html' }
 },
 {
   name: '超级岛 / 灵动胶囊当「下一件事」表面',
@@ -339,7 +339,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 八月：到站提醒扩至广州/深圳/福州，临近到站震动+弹窗+蓝牙语音。本质是基于位置的闹钟。',
   note: '位置闹钟是时钟的增量，不是地图的边角。tOS 时钟可做「到站/到地点提醒」，和闹钟共用铃声与勿扰规则。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.ithome.com/0/990/542.htm' }
 },
 
 /* ========== 计算器 ========== */
@@ -349,7 +349,7 @@ FEATURES: [
   brands: ['apple'],
   desc: '手写表达式实时出结果，变量/函数/日常计算都能用；iPadOS 26 加 3D 可旋转图表。手机上基础计算器仍偏弱，复杂运算要靠笔记。',
   note: '计算器的升级路径是「写下来就算」，不是多几个科学键。tOS 可让计算器和记事本共用一张草稿纸，手机先保证手写/键盘双输入。',
-  source: { kind: 'update', label: '系统更新 · iOS/iPadOS 26', href: 'updates/apple-math-notes.html', url: 'https://www.macobserver.com/news/math-notes-get-a-new-dimension-with-3d-graph-support-on-ipados-26/' }
+  source: { kind: 'update', label: '系统更新 · iOS/iPadOS 26', href: 'updates/apple-math-notes.html', url: 'https://www.igeeksblog.com/how-to-use-math-notes-on-ipad-iphone/' }
 },
 {
   name: '小艺深度解题',
@@ -357,7 +357,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'nova 16 SE 等机：NPU 算力提升后小艺支持深度解题、智能问答。解题入口在助手，不在计算器 App。',
   note: '拍题/解题不要只活在助手。tOS 计算器应能接收拍照算式，结果可回写笔记，避免用户找不到入口。',
-  source: { kind: 'launch', label: '发布会 · nova 16 SE', href: 'reports/huaweinova16se.html', url: 'https://consumer.huawei.com/' }
+  source: { kind: 'launch', label: '发布会 · nova 16 SE', href: 'reports/huaweinova16se.html' }
 },
 {
   name: '桌面汇率换算卡片',
@@ -365,7 +365,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 八月生活卡片：2×2 / 4×2 汇率换算。把计算器最海外的场景直接放到桌面。',
   note: '汇率/单位换算是海外刚需。tOS 计算器应默认带汇率小组件，数据源可离线缓存，不要藏在科学计算器第二页。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.ithome.com/0/990/542.htm' }
 },
 
 /* ========== 扫一扫 ========== */
@@ -375,7 +375,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 Beta 3：Wallet 扫描 QR 可生成会员卡/活动票/积分卡。扫一扫能力进了钱包，而不是独立扫码 App。',
   note: '扫码结果要有落点：日历、钱包、浏览器、支付。tOS 扫一扫应做成系统服务，识别后按类型分发，而不是只打开一个相机框。',
-  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/2026/09/14/50-new-things-iphone-can-do-ios-27/' }
 },
 {
   name: '三折叠外屏直接扫码',
@@ -384,7 +384,7 @@ FEATURES: [
   phones: ['huaweimatext2'],
   desc: 'Mate XT 2 外屏可在折叠态完成扫码、回消息，不必展开。被报告称为三折叠日常可用性的关键补强。',
   note: '折叠机扫一扫的第一场景是外屏支付/入场。tOS 外屏必须预置扫码，延迟和手电筒策略按单手设计。',
-  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html', url: 'https://consumer.huawei.com/' }
+  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html' }
 },
 {
   name: '小折叠外屏快速扫码',
@@ -393,7 +393,7 @@ FEATURES: [
   phones: ['magicvflip3'],
   desc: 'Magic V Flip3 外屏可独立跑社交/办公 App，配合灵动胶囊完成回消息、看日程、快速扫码，不展开也能过高频操作。',
   note: '与华为同一课：外屏扫码是折叠体验清单里的必选项，不是演示。tOS 小折叠要保证扫码全屏、亮度拉满、识别区不被胶囊挡住。',
-  source: { kind: 'launch', label: '发布会 · Magic V Flip3', href: 'reports/magicvflip3.html', url: 'https://www.honor.com/global/' }
+  source: { kind: 'launch', label: '发布会 · Magic V Flip3', href: 'reports/magicvflip3.html' }
 },
 {
   name: '闪记扫描点餐码 / 超级岛展示取餐码',
@@ -401,7 +401,7 @@ FEATURES: [
   brands: ['oppo', 'xiaomi', 'redmi'],
   desc: 'ColorOS 闪记可扫描点餐码并记账单；HyperOS 超级岛已接麦当劳取餐码，锁屏一键出示。扫码从「打开相机」变成「码自己冒出来」。',
   note: '取餐码/点餐码是扫一扫的日常形态。tOS 应让短信/通知里的码进岛区或钱包，扫一扫负责现场码，两头都要有。',
-  source: { kind: 'update', label: '系统更新 · ColorOS / HyperOS', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS / HyperOS', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/version/coloros16/' }
 },
 
 /* ========== 主题商城 ========== */
@@ -411,7 +411,7 @@ FEATURES: [
   brands: ['samsung'],
   desc: '媒体 2025-10 起集中批评：打开即弹 gacha 广告、自动更新不如 Play、新主题零评分且像 AI 生成。Good Lock 反而成了真正的个性化入口。',
   note: '主题商店若靠弹窗活，产品就死了。tOS 主题商城应零广告、更新走系统更新、和锁屏/图标包同一质量门槛，不要做成第二应用商店。',
-  source: { kind: 'update', label: '系统更新 · Galaxy Themes', href: 'updates/samsung-galaxy-themes.html', url: 'https://www.androidauthority.com/p-3607055/' }
+  source: { kind: 'update', label: '系统更新 · Galaxy Themes', href: 'updates/samsung-galaxy-themes.html', url: 'https://ccstartup.com/blog/2025/10/20/its-time-for-samsung-to-ditch-the-galaxy-store/' }
 },
 {
   name: '液态玻璃 / 柔光玻璃成为系统皮肤',
@@ -419,7 +419,7 @@ FEATURES: [
   brands: ['apple', 'xiaomi', 'redmi', 'honor'],
   desc: 'iOS 27 Liquid Glass、HyperOS 4 柔光玻璃、MagicOS 11 动态液态玻璃都把「主题」上收到系统视觉层。可调的是材质和锁屏，不是一套第三方主题包。',
   note: '2026 主题竞争从商店皮肤变成系统材质。tOS 主题商城应卖图标/壁纸/锁屏组合，并跟系统玻璃材质兼容，避免一换主题就打碎液态玻璃。',
-  source: { kind: 'update', label: '系统更新 · iOS 27 / HyperOS 4 / MagicOS 11', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27 / HyperOS 4 / MagicOS 11', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27/' }
 },
 {
   name: '便签换字体皮肤；相册浅色编辑',
@@ -427,7 +427,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 八月：便签可换字体和皮肤；相册编辑支持深/浅/跟随系统。个性化下放到具体 App，而不是只在主题商店换整包。',
   note: '单 App 皮肤比整机主题更安全。tOS 可先给笔记/时钟/计算器提供官方字体与对比度选项，再考虑整包主题。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/article/A00000108/' }
 },
 
 /* ========== 玩机 ========== */
@@ -445,7 +445,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 从双开升到 5 个分身，面向游戏/小微商户。用户反馈小红书分身账号会串号，「数据完全隔离」未达预期。',
   note: '分身是玩机高频，隔离失败就是事故。tOS 多开必须账号/存储/通知三隔离，并在设置里显示每个分身占用的空间。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html' }
 },
 {
   name: '原子工作台下放直板机 + 五应用任务组',
@@ -461,7 +461,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 用纯视觉 GUI Agent 模拟点击滑动，无需 App 适配 API；演示 14 步出差（日历→12306→美团→同步日程）。准确率待长期验证。',
   note: '这是玩机天花板，也是风险天花板。tOS 若做 Agent 点选，必须逐步确认、可录制回放、敏感页（支付/权限）拦截，不能静默连点。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.huaweicentral.com/honor-upgrades-yoyo-ai-assistant-features-for-magicos-10-devices/' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.digitaling.com/articles/1583070.html' }
 },
 {
   name: 'YOYO Pro：百轮自动执行（Robot Phone）',
@@ -470,7 +470,7 @@ FEATURES: [
   phones: ['honorrobotphone'],
   desc: 'Robot Phone 首发 YOYO Pro，长指令、百轮以上自动执行，再加机械云台具身交互。软件玩机和硬件云台绑在一起卖。',
   note: '长任务执行是助手，也是玩机。tOS 可先在实验室开关里提供「多步脚本」，默认关闭，成功标准是可中断、可审计。',
-  source: { kind: 'launch', label: '发布会 · Robot Phone', href: 'reports/honorrobotphone.html', url: 'https://www.honor.com/global/' }
+  source: { kind: 'launch', label: '发布会 · Robot Phone', href: 'reports/honorrobotphone.html' }
 },
 
 /* ========== 换机 ========== */
@@ -480,7 +480,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 演示：迁移 44GB 用时 57 分 23 秒，成功 12 项、失败 1、不支持 0，并立刻多出约 10–14GB。升级压缩还可再腾约 50GB。',
   note: '换机的考核是时长、成功率、迁完容量。tOS 换机应公开这三项，并支持从 iPhone / 三星 / 小米互迁，失败项可重试而不是整单作废。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://digital.it168.com/a2026/0805/6945/000006945035.shtml' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.fonearena.com/blog/492627/honor-introduces-magicos-11-features.html' }
 },
 {
   name: '小米换机迁移更多设置与系统应用数据',
@@ -488,7 +488,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: 'HyperOS 4 优化小米换机：可迁移更多设置项和系统应用用户数据（需换机 App ≥ 4.5.5.9）。从「搬照片」转向「搬成一台熟手机」。',
   note: '换机成败看系统 App 数据：闹钟、笔记、录音、桌面布局。tOS 换机清单必须包含这些，并在完成后给差异报告。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://hyperosupdates.com/latest-apps' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://zh-cn.xiaomi-miui.gr/hyperos-4-full-changelog-new-features/' }
 },
 {
   name: '超空间存储延长换机周期',
@@ -496,7 +496,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'HarmonyOS 7 超空间让 256GB 大约多 22GB 可用。报告点评：这是用软件推迟换机，不是换机工具本身，但影响换机决策。',
   note: '换机产品还要回答「要不要换」。存储软件化能延缓换机。tOS 可在换机 App 里展示「清理后还能再用」对比，减少误导升级。',
-  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html', url: 'https://consumer.huawei.com/' }
+  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html' }
 },
 {
   name: '跨品牌三系统互传文件',
@@ -504,7 +504,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 YOYO 宣称可跨三套操作系统传文件，并改善与苹果 / OPPO / vivo / 小米的配对。换机不再只是品牌内闭环。',
   note: '海外换机大量来自 iPhone。tOS 换机第一优先级是 iOS → tOS：照片、WhatsApp、桌面、账号，文件互传只是子集。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://ai.zol.com.cn/1226/12269044.html' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://tbreak.com/honor-magicos-11-liquid-glass-android-17/' }
 },
 {
   name: 'Quick Share 与 AirDrop 双向 + NFC Tap',
@@ -522,7 +522,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 Safari 按话题自动分组标签，Notify Me 追踪网页更新，可建自定义扩展。和 Siri 同属系统级信息入口。',
   note: '浏览器要能「替你看着页面」。tOS 浏览器可跟分组 + 页面变更通知，比再做一个信息流首页更接近系统浏览器定位。',
-  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27/' }
 },
 {
   name: 'Browser Ask AI（S26 有、上代同系统没有）',
@@ -538,7 +538,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 八月：小布记忆同步手机浏览器 + UC/夸克/头条极速版收藏。浏览器收藏进了助手记忆，而不是只活在书签里。',
   note: '海外没有夸克这套。tOS 应同步 Chrome 书签/阅读列表到笔记或助手，避免自有浏览器成为孤岛。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/article/A00000108/' }
 },
 
 /* ========== 相册 ========== */
@@ -556,7 +556,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 照片消除更自然，Extend 扩图，Spatial Reframing 空间重构；另有缩放填充消黑边。Image Playground 可改写照片风格但有每日用量。',
   note: '苹果把生成式修图放进系统相册。tOS 要对齐三件事：消除、扩图、用量说明。失败要可撤销到原图。',
-  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27/' }
 },
 {
   name: 'Photo Assist 自然语言修图 + FanCam 追焦',
@@ -564,7 +564,7 @@ FEATURES: [
   brands: ['samsung'],
   desc: 'One UI 9 Gallery：用一句话改图；选视频人物可 AI 追焦重构画面（My FanCam）。和相机能力在相册侧闭环。',
   note: '「改这句话」是比滑杆更像产品的修图。tOS 相册可做自然语言微调，但必须预览对比、限步数，防止不可逆糟改。',
-  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-oneui9-beta.html', url: 'https://news.samsung.com/za/galaxy-unpacked-july-2026-a-first-look-at-galaxy-z-fold8-ultra-galaxy-z-fold8-galaxy-z-flip8' }
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-oneui9-beta.html', url: 'https://gadgets.beebom.com/guides/best-one-ui-9-features' }
 },
 {
   name: 'AI Remix 抠图贴纸 / 笔记图片涂鸦',
@@ -572,7 +572,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16：Smart Cutout 抽主体做贴纸/拼贴/情绪板（Reno16 首发后下放）；笔记里可直接在图片上画。相册能力溢到笔记。',
   note: '抠图贴纸是年轻市场相册差异化。tOS 可做系统级抠图服务，相册和笔记共用，避免两个 App 两套抠图。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html' }
 },
 {
   name: '相册语义检索（端侧）',
@@ -580,7 +580,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 端侧 AI 支持相册语义检索，数据不上云。和录音纪要、长文档摘要并列。',
   note: '「找穿红衣服的那张」是相册搜索的及格线。tOS 相册语义搜应默认端侧，语言覆盖英语/阿语/法语再谈 Generative。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.huaweicentral.com/honor-magicos-10-june-2026-update-brings-new-yoyo-ai-features/' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html' }
 },
 {
   name: 'AI 图片消除 + 文档进相册办公',
@@ -589,7 +589,7 @@ FEATURES: [
   phones: ['vivoxfold6'],
   desc: 'X Fold6 蓝心大模型支持 AI 图片消除、文档摘要、会议纪要。大屏把相册和文档处理放在同一套 AI 叙事里。',
   note: '折叠屏相册要能当轻办公桌：消除路人、扫文档、摘要。tOS 大屏相册应有文档模式，而不是只做影集。',
-  source: { kind: 'launch', label: '发布会 · X Fold6', href: 'reports/vivoxfold6.html', url: 'https://www.vivo.com/' }
+  source: { kind: 'launch', label: '发布会 · X Fold6', href: 'reports/vivoxfold6.html' }
 },
 
 /* ========== 语音助手 ========== */
@@ -599,7 +599,7 @@ FEATURES: [
   brands: ['apple'],
   desc: '十五年最大重构：独立 Siri App 保留对话、iCloud 续接；看屏幕/照片提问；相机快门后 Siri 可见你所见。英文先发，中国大陆与欧盟暂不上线，完整能力偏新芯片。',
   note: 'tOS 要把短信、相册、日程、通话的索引做成公共服务层，助手才能办「依赖个人历史」的事。相机内挂助手是第二步，权限和区域合规要先设计。',
-  source: { kind: 'launch', label: '发布会 · iPhone 18 / WWDC', href: 'reports/iphone18.html', url: 'https://www.apple.com/apple-events/' }
+  source: { kind: 'launch', label: '发布会 · iPhone 18 / WWDC', href: 'reports/iphone18.html', url: 'https://www.apple.com/os/ios/' }
 },
 {
   name: 'Siri 应用内办事 / 跨设备续聊',
@@ -623,7 +623,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: '一句话自规划调用系统应用及支付宝/高德等；任务态进超级岛。专家模式耗积分，额度用完要订阅。圈搜、电源键长按持续对话已在 HyperOS 3/4 铺开。',
   note: '助手开始走订阅制。tOS 基础圈搜/执行应免费；复杂跨端可以增值，但要在设置里写清额度，避免「系统助手突然要付费」。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 4', href: 'updates/xiaomi-hyperos3.html', url: 'https://hyperos.mi.com/' }
 },
 {
   name: '小布记忆：搜索 / 问答 / 推荐闭环',
@@ -631,7 +631,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 以记忆搜索、问答、推荐为矩阵，闪记内容可问、可合集。团购券临期会在建议/流体云出现。EU 版本推送曾晚数月。',
   note: '记忆型助手比聊天型更贴近系统应用。tOS 应用数据应能被助手检索（需权限），并给「为什么推这条」的解释，海外机还要按区域节奏同步。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://xdaforums.com/t/coloros-16-general-discussion-updates.4764786/' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/article/A00000103/' }
 },
 {
   name: 'YOYO Next：MCP + GUI Agent 接管系统',
@@ -639,7 +639,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 给 YOYO 系统级 MCP 权限，可接管系统与三方 App；混合端云推理，接 DeepSeek-V4。12GB 以下机型会砍跨软件 AI。',
   note: '权限过大的助手等于新的无障碍漏洞。tOS 要对助手操作做权限清单和操作日志，内存分级可以，但不能静默少功能。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.toutiao.com/article/7663362861230375474/' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.digitaling.com/articles/1583070.html' }
 },
 {
   name: '小艺中枢：2100+ 系统能力的 Agent',
@@ -647,7 +647,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'HDC / HarmonyOS 7：小艺从语音助手变为智能体，官方称 2100+ 系统能力、500+ Skill、2000+ 鸿蒙智能体，可跨端传文件、行程规划。开发者 Beta 已开，公开落地仍需应用适配。',
   note: '能力数量不是产品。tOS 应挑 20 个可演示的跨应用任务做验收（订票、转文件、建日程），并标明哪些地区/语言不可用。',
-  source: { kind: 'launch', label: '发布会 · HDC 2026 / Mate XT 2', href: 'reports/hdc2026.html', url: 'https://developer.huawei.com/' }
+  source: { kind: 'launch', label: '发布会 · HDC 2026 / Mate XT 2', href: 'reports/hdc2026.html' }
 },
 {
   name: '蓝心小 V / 小 V Pro 系统级 Agent',
@@ -655,7 +655,7 @@ FEATURES: [
   brands: ['vivo', 'iqoo'],
   desc: 'OriginOS 6 出厂即带圈搜、小 V 记忆；9/16 OriginOS 7 正式发布，小 V 升级 Pro 模式：任务自动拆解 + 跨端执行，官方称可调用 6000+ 原子能力、支持上万种任务。典型演示是把收藏的攻略、相册截图、历史笔记串成一份含交通住宿景点美食的旅行路书，遇航班变动还能动态调整。海外 Funtouch 几乎没有同级讨论和公开月更。',
   note: '国内海报和海外 Funtouch 是两套产品。tOS 对标要以海外实际预装为准；圈搜和小 V 记忆 2.0 的自动打标签更值得搬。',
-  source: { kind: 'update', label: '系统更新 · OriginOS 6/7', href: 'updates/vivo-originos.html', url: 'https://www.fonearena.com/blog/492411/vivo-originos-7-features-preview-program-registrations-india.html' }
+  source: { kind: 'update', label: '系统更新 · OriginOS 6/7', href: 'updates/vivo-originos.html', url: 'https://www.ithome.com/1/002/974.htm' }
 },
 {
   name: 'Gemini 仍是 Pixel 系统入口',
@@ -663,7 +663,7 @@ FEATURES: [
   brands: ['google'],
   desc: 'Pixel 11 发布叙事是 AI 接管像素；录音机摘要、系统搜索即时索引都通向 Gemini。Android 17 本身很少点名独立系统 App。',
   note: '谷歌把系统应用当 Gemini 的工具。tOS 相反：应用是产品，助手是总线。不要让录音机/日历没有自己的主按钮。',
-  source: { kind: 'launch', label: '发布会 · Pixel 11', href: 'reports/googlepixel11.html', url: 'https://store.google.com/' }
+  source: { kind: 'launch', label: '发布会 · Pixel 11', href: 'reports/googlepixel11.html' }
 },
 
 /* ===== 2026-09-20 增量：iOS 27 正式版 / 澎湃 OS 3 月更 / OriginOS 7 正式发布 / Good Lock 适配收尾 ===== */
@@ -674,7 +674,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 在「设置 · 声音与触感」里把闹钟音量从铃声音量中拆出来，两者不再共用一个滑块。此前调小铃声会连带把闹钟调小导致睡过头，或反过来被满音量通知吓到。',
   note: '零成本、高频痛点、不看硬件——最该优先搬的一类。验收要拆细：闹钟、计时器、通知三者是否都独立；静音/勿扰模式下闹钟是否照常响。',
-  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/2026/09/14/50-new-things-iphone-can-do-ios-27/' }
 },
 {
   name: '视频任意一帧直接存成照片',
@@ -682,7 +682,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 支持把视频里的某一帧直接存为照片，不用截图再裁。拍小孩、宠物这类动体时，能从一段视频里挑出最清晰的一帧。',
   note: '体量小但用一次就回不去。实现上有两个坑：存下来的帧要不要继承原视频的 HDR / 运动照片元数据；以及它会不会被「重复照片」检测误判成重复项。',
-  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macobserver.com/tips/round-ups/how-to-save-still-frame-from-video-as-photo-ios-27/' }
 },
 {
   name: '快捷指令用一句话生成',
@@ -690,7 +690,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 的「描述一个快捷指令」：点加号、用自然语言写出想要的效果（离开公司时给家人发 ETA、CarPlay 连上时播某个播放列表），系统自动把步骤拼出来，之后还能继续用口语微调或手动改步骤。',
   note: '快捷指令多年「能做但没人用」，卡点从来不是能力而是搭积木的编辑成本，自然语言生成正打在这点上。前提是生成结果必须可展开、可手动改，否则出错时用户无从排查。旧编辑器仍要保留。',
-  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27/' }
 },
 {
   name: '密码 App：泄露提醒 + 应用内直接改密码',
@@ -698,7 +698,7 @@ FEATURES: [
   brands: ['apple'],
   desc: 'iOS 27 的「密码」App 会提示哪些账号已卷入泄露，并支持在应用内直接发起修改流程，不用自己去网站找改密码入口。',
   note: '密码管理正从浏览器的附属能力升级成系统级独立 App。要做得先定三件事：泄露检测的数据源与更新频率、改密码深链的站点覆盖率、跨端同步的加密与账号恢复路径。',
-  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27' }
+  source: { kind: 'update', label: '系统更新 · iOS 27 正式版', href: 'updates/apple-ios27.html', url: 'https://www.macrumors.com/roundup/ios-27/' }
 },
 {
   name: 'Good Lock 24 模块收尾适配 One UI 9',
@@ -706,7 +706,7 @@ FEATURES: [
   brands: ['samsung'],
   desc: '9 月 2 日起 Good Lock 的 24 个模块（其中 2 个非全球可用）全部兼容 One UI 9；随后 Home Up 18.0.00.36 修整合侧屏不显示最近应用、DIY 主屏项目偶发不显示，NavStar 9.0.00.16 修导航栏按钮间距与折叠/平板 UI，One Hand Operation+ 9.3.13.0 修重启后手势失效。',
   note: '真正值得学的不是功能，是节奏管理：beta 期公开「还有几个模块没适配」的清单，逐周收敛，稳定版前清零。tOS 若也要建玩机模块池，需要同样的兼容度看板，否则用户升级后第一反应是「我的模块废了」。',
-  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-oneui9-beta.html', url: 'https://gadgets.beebom.com/news/samsung-officially-releases-stable-one-ui-9-update-with-galaxy-z-fold-8-series' }
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-oneui9-beta.html' }
 },
 {
   name: '小米换机 Mi Mover 4.6.1.7（9/16 月更）',
@@ -714,7 +714,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: '9 月 16 日应用商店更新：Mi Mover 4.6.1.7（38.71MB）、家人守护 Family Guard 3.14.09.04.00、HyperOS 录屏 4.16.2.8.1、HyperOS 壁纸等一批系统应用同日刷新。',
   note: '换机是换机周期里唯一被高频使用的工具，版本迭代如此密集说明仍在补兼容性。tOS 换机该盯的不是传输速度（已有公开 benchmark 可对标），而是「旧机侧数据项覆盖率」——通讯录/微信记录/桌面布局/系统设置，哪项漏了用户立刻感知。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html', url: 'https://hyperosupdates.com/latest-apps' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
 },
 {
   name: '跨苹果互联：通知同步、微信镜像回复、云相册同步',
@@ -730,7 +730,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: '澎湃 OS 3.0 版本更新中新增独立的密码管理工具，官方表述是「打通苹果设备，实现更便捷的密码管理体验」，与高级数据保护、双重认证登录同批上线。',
   note: '和苹果同期押注同一件事，说明密码管理正被重新定义为系统级 App 而非浏览器功能。要跟进的话，先解决跨端同步的加密与恢复，再谈填充体验；否则用户不敢把真密码放进来。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html', url: 'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
 },
 {
   name: '锁屏直接扫码，无需先解锁',
@@ -738,7 +738,7 @@ FEATURES: [
   brands: ['vivo', 'iqoo'],
   desc: 'OriginOS 7 在锁屏界面直接给出扫码入口，不用解锁再去找扫一扫。国内支付/加好友/取餐都是高频动作，解锁那一步是纯摩擦。',
   note: '典型的「入口前移」改动，成本低收益高。安全边界要画死：锁屏扫码只允许调起相机 + 识别结果，绝不暴露通知内容、相册或付款码列表，否则就是隐私事故。',
-  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html', url: 'https://www.fonearena.com/blog/492411/vivo-originos-7-features-preview-program-registrations-india.html' }
+  source: { kind: 'update', label: '系统更新 · OriginOS 7', href: 'updates/vivo-originos.html', url: 'https://www.ithome.com/1/002/974.htm' }
 },
 {
   name: '相册主动推荐重复与模糊照片供清理',
@@ -797,7 +797,7 @@ FEATURES: [
   phones: ['vivox500'],
   desc: 'vivo X500 首发蓝心大模型 4.0，小 V 支持更长上下文与端云协同推理，配合小 V 记忆卡把用户收藏的攻略、截图、历史笔记串成可复用的“旅行路书”等个性化内容。',
   note: '语音助手真正的护城河不是“能对话”，而是“记得住、用得上”。vivo 把记忆做成锁屏可记、跨 App 关联的卡片，方向对。落地三前提：记忆存在哪、AI 读取粒度、用户能否查看/删除某条——缺了可见可控，功能越强越像监控。',
-  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html', url: 'https://www.vivo.com/' }
+  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html', url: 'https://www.ithome.com/1/003/305.htm' }
 },
 
 {
@@ -806,7 +806,7 @@ FEATURES: [
   phones: ['vivox500'],
   desc: 'vivo X500 主摄蓝图光御900（1/1.28″）支持 17EV 高动态范围与蔡司自然色彩，相册可完整呈现高光到暗部细节，并保留蔡司风格影调。',
   note: '高动态范围 capture 只是第一步，相册能否“无损呈现 + 选择性压高光”才决定用户感知。建议相册对 HDR 照片默认开启动态范围预览，并提供“高光/阴影”一键微调，而不是只在相机端卷参数。',
-  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html', url: 'https://www.vivo.com/' }
+  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html' }
 },
 
 /* ========== One UI 9 稳定版（2026-09-16 S26 系列首发）新增 ========== */
@@ -817,7 +817,7 @@ FEATURES: [
   brands: ['samsung'],
   desc: 'One UI 9（9/16 起 S26 系列首发）把录音机摘要从“仅 3 条要点”升级为带标题和表格的结构化大纲，直接弥补此前摘要过简、漏关键信息的短板。',
   note: '这是把“摘要可用性”做对的最小一步——结构化输出比纯要点能读得多。但转录准确性（多口音失效、29% 崩溃）仍是根因，摘要再漂亮也救不了烂转录。tOS 若做会议录音摘要，应让“结构化大纲”成为默认格式，并开放要点级编辑。',
-  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-voice-recorder.html', url: 'https://gadgets.beebom.com/guides/best-one-ui-9-features' }
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-voice-recorder.html' }
 },
 
 {
@@ -826,7 +826,7 @@ FEATURES: [
   brands: ['samsung'],
   desc: 'One UI 9 的 My Files 文档扫描升级：自动校正弯曲书页/折角，并去除握纸手指，填补此前 S25 缺失的部分功能。',
   note: '扫描去手指/弯页是“拍文档”场景的真痛点，但这类能力更适合放在相机或专门的扫描 App，放在文件管理里入口偏深。若 tOS 做文档扫描，建议独立入口 + 自动检测文档边缘触发，而不是埋在文件管理器三级菜单。',
-  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-my-files.html', url: 'https://gadgets.beebom.com/guides/best-one-ui-9-features' }
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-my-files.html' }
 }
 
 ]

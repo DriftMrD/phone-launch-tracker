@@ -375,14 +375,11 @@ function render(keepOpen) {
     const srcCls = r.source.kind === 'launch' ? 'src launch' : 'src';
     const extAttr = r.source.href && r.source.href.indexOf('http') === 0 ? ' target="_blank" rel="noopener"' : '';
     const src = r.source.href
-      ? \`<a class="\${srcCls}" href="\${r.source.href}"\${extAttr}>\${srcKind} · \${r.source.label.replace(/^发布会 · |^系统更新 · /, '')} →</a>\`
+      ? \`<a class="\${srcCls}" href="\${r.source.href}"\${extAttr}>\${srcKind} · \${r.source.label.replace(/^发布会 · |^系统更新 · |^媒体转述 · /, '')} →</a>\`
       : '';
-    const reportLinks = shownPhones.slice(0, 1).map(p =>
-      \`<a class="src launch" href="reports/\${p.id}.html">发布会 · \${p.name} →</a>\`
-    ).join('');
     const phoneLinks = shownPhones.map(p => \`<a href="reports/\${p.id}.html">\${p.name}</a>\`).join(' · ');
     let extHtml = '';
-    if (r.ext) {
+    if (r.ext && r.ext !== r.source.href) {
       try {
         const extDomain = new URL(r.ext).hostname.replace(/^www\\./, '');
         extHtml = \`<a class="src ext" href="\${r.ext}" target="_blank" rel="noopener" title="外网来源原文">\${extDomain} ↗</a>\`;
@@ -395,7 +392,7 @@ function render(keepOpen) {
         \${brandHtml}
         <span class="phones">\${phoneLinks}</span>
       </td>
-      <td class="c-name"><b>\${r.name}</b><span class="src-row">\${src}\${r.source.kind==='update' ? reportLinks : ''}\${extHtml}</span></td>
+      <td class="c-name"><b>\${r.name}</b><span class="src-row">\${src}\${extHtml}</span></td>
       <td class="c-mod"><span class="mtag" style="color:\${r.productColor};background:\${r.productColor}18">\${r.productName}</span></td>
       <td class="c-desc">\${r.desc}</td>
       <td class="c-note">\${r.note}</td>
