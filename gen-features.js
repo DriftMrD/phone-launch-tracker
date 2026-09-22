@@ -38,6 +38,7 @@ const ROWS = FEATURES.map((f, i) => {
     desc: f.desc,
     note: f.note,
     source: f.source || { kind: 'update', label: '', href: '' },
+    ext: (f.source && f.source.url) || '',
     brand: brandId,
     brands: [...new Set(phones.map(p => p.brand))],
     phoneIds: phones.map(p => p.id),
@@ -136,6 +137,8 @@ const html = `<!DOCTYPE html>
   .src{display:inline-flex;font-size:11.5px;color:#6d5bd0;text-decoration:none;border-bottom:1px dashed rgba(109,91,208,.45)}
   .src:hover{color:#4c38b0}
   .src.launch{color:#b45309;border-bottom-color:rgba(180,83,9,.4)}
+  .src.ext{color:#15803d;border-bottom-color:rgba(21,128,61,.4)}
+  .src.ext:hover{color:#166534}
   td.c-mod{width:108px}
   .mtag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:600;white-space:nowrap}
   td.c-desc{color:#4a453f;min-width:280px}
@@ -162,7 +165,7 @@ const html = `<!DOCTYPE html>
   <header>
     <div class="wrap">
       <h1>系统应用功能清单</h1>
-      <p class="sub">同一部手机上的系统应用对照。发布会报告和系统更新日志都是来源，点机型进发布会，点来源进对应深挖页。</p>
+      <p class="sub">同一部手机上的系统应用对照。发布会报告和系统更新日志都是来源，点机型进发布会，点来源进对应深挖页；<b style="color:#15803d">绿色「域名 ↗」为外网原文来源</b>（社区/媒体/官方页）。</p>
     </div>
   </header>
 
@@ -370,13 +373,21 @@ function render(keepOpen) {
     }).join('');
     const srcKind = r.source.kind === 'launch' ? '发布会' : '系统更新';
     const srcCls = r.source.kind === 'launch' ? 'src launch' : 'src';
+    const extAttr = r.source.href && r.source.href.indexOf('http') === 0 ? ' target="_blank" rel="noopener"' : '';
     const src = r.source.href
-      ? \`<a class="\${srcCls}" href="\${r.source.href}">\${srcKind} · \${r.source.label.replace(/^发布会 · |^系统更新 · /, '')} →</a>\`
+      ? \`<a class="\${srcCls}" href="\${r.source.href}"\${extAttr}>\${srcKind} · \${r.source.label.replace(/^发布会 · |^系统更新 · /, '')} →</a>\`
       : '';
     const reportLinks = shownPhones.slice(0, 1).map(p =>
       \`<a class="src launch" href="reports/\${p.id}.html">发布会 · \${p.name} →</a>\`
     ).join('');
     const phoneLinks = shownPhones.map(p => \`<a href="reports/\${p.id}.html">\${p.name}</a>\`).join(' · ');
+    let extHtml = '';
+    if (r.ext) {
+      try {
+        const extDomain = new URL(r.ext).hostname.replace(/^www\\./, '');
+        extHtml = \`<a class="src ext" href="\${r.ext}" target="_blank" rel="noopener" title="外网来源原文">\${extDomain} ↗</a>\`;
+      } catch (e) {}
+    }
     return \`<tr>
       <td class="c-img"><img src="\${r.img}" alt="\${r.productName}"></td>
       <td class="c-no">\${i+1}</td>
@@ -384,7 +395,7 @@ function render(keepOpen) {
         \${brandHtml}
         <span class="phones">\${phoneLinks}</span>
       </td>
-      <td class="c-name"><b>\${r.name}</b><span class="src-row">\${src}\${r.source.kind==='update' ? reportLinks : ''}</span></td>
+      <td class="c-name"><b>\${r.name}</b><span class="src-row">\${src}\${r.source.kind==='update' ? reportLinks : ''}\${extHtml}</span></td>
       <td class="c-mod"><span class="mtag" style="color:\${r.productColor};background:\${r.productColor}18">\${r.productName}</span></td>
       <td class="c-desc">\${r.desc}</td>
       <td class="c-note">\${r.note}</td>
