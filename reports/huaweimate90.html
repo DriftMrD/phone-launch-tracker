@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华为 Mate 90 系列 · 首发韬定律 τ 芯片</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text","Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#0a0612;
+    color:#e2d9ec;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  :root{
+    --red:#c4161c;
+    --purple:#7b5cff;
+    --star:#c0a8ff;
+    --grad:linear-gradient(135deg,#c4161c,#7b5cff);
+    --grad-wide:linear-gradient(116deg,#c4161c,#7b5cff 55%,#c0a8ff 130%);
+    --dark:#0a0612;
+    --tile:rgba(255,255,255,.04);
+    --tile-border:rgba(192,168,255,.12);
+    --muted:#8a7ca0;
+    --text:#d4c8e4;
+    --text-bright:#faf6ff;
+    --mono:'SF Mono',ui-monospace,Consolas,'Courier New',monospace;
+    --serif:'Source Han Serif SC','Noto Serif SC','Songti SC',Georgia,'PingFang SC',serif;
+  }
+  .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:80px 32px 60px;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse 900px 520px at 82% -8%,rgba(196,22,28,.28),transparent 60%),
+    radial-gradient(ellipse 700px 420px at 8% 18%,rgba(123,92,255,.20),transparent 55%),
+    radial-gradient(ellipse 520px 320px at 50% 115%,rgba(192,168,255,.08),transparent 50%)}
+  .hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 64px,rgba(123,92,255,.022) 64px,rgba(123,92,255,.022) 65px);pointer-events:none}
+  .hero-inner{position:relative;max-width:960px;margin:0 auto;width:100%;z-index:2}
+  .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:var(--star);font-weight:700;text-transform:uppercase;margin-bottom:24px;text-shadow:0 0 20px rgba(192,168,255,.4)}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,6.4vw,72px);font-weight:900;line-height:1.06;letter-spacing:-.02em;color:#fff;margin-bottom:20px}
+  .hero h1 .g{background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:#b6a4d0;line-height:1.7;max-width:660px;margin-bottom:28px}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-chips span{font-family:var(--mono);font-size:11px;color:var(--star);letter-spacing:.06em;background:rgba(192,168,255,.06);border:1px solid rgba(192,168,255,.2);padding:6px 14px;border-radius:4px;text-shadow:0 0 8px rgba(192,168,255,.25)}
+  .orbit{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:360px;height:360px;pointer-events:none;opacity:.16;z-index:1;border-radius:50%;border:2px solid var(--red);box-shadow:0 0 0 40px rgba(196,22,28,.05),0 0 0 90px rgba(123,92,255,.03)}
+  .content{max-width:960px;margin:0 auto;padding:0 32px 100px;position:relative;z-index:2}
+  .bento{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:12px;margin-bottom:64px}
+  .bt{background:var(--tile);backdrop-filter:blur(20px);border:1px solid var(--tile-border);border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .bt::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(196,22,28,.08),transparent 60%);pointer-events:none}
+  .bt-price{grid-row:span 2;background:radial-gradient(ellipse 400px 300px at 90% -20%,rgba(192,168,255,.3),transparent 65%),radial-gradient(ellipse 350px 250px at -10% 110%,rgba(196,22,28,.28),transparent 60%),rgba(255,255,255,.03);border-color:rgba(192,168,255,.2)}
+  .bt .bt-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+  .bt .bt-num{font-family:var(--serif);font-size:clamp(32px,5vw,48px);font-weight:900;line-height:1.05;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0}
+  .bt .bt-num span{font-size:.45em;opacity:.7}
+  .bt .bt-desc{font-size:13px;color:var(--muted);line-height:1.5}
+  .bt-price .bt-num{font-size:clamp(46px,7vw,70px)}
+  .bt-price .bt-desc{font-size:14px;color:#9e8cb8}
+  .chapter{margin-bottom:72px;position:relative}
+  .chapter-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(192,168,255,.10)}
+  .ch-num{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--star);border:1px solid rgba(192,168,255,.3);background:rgba(192,168,255,.06);padding:4px 12px;border-radius:4px;letter-spacing:.06em;text-shadow:0 0 12px rgba(192,168,255,.35);box-shadow:0 0 16px rgba(192,168,255,.08)}
+  .ch-kick{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red);text-transform:uppercase}
+  .ch-title{font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:900;letter-spacing:-.01em;color:#fff;line-height:1.18}
+  .ch-intro{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:32px;max-width:700px}
+  .feat{margin-bottom:36px;padding-top:24px;border-top:1px solid rgba(192,168,255,.06)}
+  .feat:first-child{border-top:none;padding-top:0}
+  .f-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .f-idx{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);padding:3px 10px;border-radius:4px;letter-spacing:.04em}
+  .f-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--star);background:rgba(192,168,255,.1);padding:3px 12px;border-radius:3px}
+  .feat h3{font-family:var(--serif);font-size:clamp(20px,3vw,26px);font-weight:900;line-height:1.25;letter-spacing:-.008em;color:#fff;margin-bottom:14px}
+  .feat p{font-size:15.5px;color:var(--text);line-height:1.85;margin-bottom:12px}
+  .feat ul{padding-left:22px;margin:10px 0 14px}
+  .feat li{font-size:15px;color:var(--text);line-height:1.78;margin-bottom:6px}
+  .feat strong{color:#fff;font-weight:700}
+  .feat code{font-family:var(--mono);font-size:13px;background:rgba(123,92,255,.12);padding:2px 7px;border-radius:4px;color:var(--star)}
+  .cols{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:28px;align-items:start;margin:24px 0}
+  .fig{border:1px solid rgba(192,168,255,.12);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02);position:relative}
+  .fig img{width:100%;display:block;cursor:pointer;transition:transform .2s,filter .2s}
+  .fig img:hover{transform:scale(1.02);filter:brightness(1.08)}
+  .fig figcaption{font-size:12px;color:var(--muted);padding:10px 14px;border-top:1px solid rgba(192,168,255,.08);line-height:1.5;background:rgba(255,255,255,.02)}
+  .fig .badge{position:absolute;top:12px;left:12px;z-index:3;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--star);background:rgba(10,6,18,.8);backdrop-filter:blur(8px);padding:4px 10px;border-radius:4px;border:1px solid rgba(192,168,255,.25);text-shadow:0 0 8px rgba(192,168,255,.3)}
+  .note{border-radius:10px;padding:16px 20px;margin:20px 0;position:relative}
+  .note-label{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .note-text{font-size:14.5px;line-height:1.75}
+  .note-c{background:rgba(196,22,28,.08);border:1px solid rgba(196,22,28,.15);border-left:3px solid var(--red)}
+  .note-c .note-label{color:var(--red)}
+  .note-c .note-text{color:#c4a8b8}
+  .note-a{background:rgba(123,92,255,.08);border:1px solid rgba(123,92,255,.15);border-left:3px solid var(--purple)}
+  .note-a .note-label{color:var(--star)}
+  .note-a .note-text{color:#b0a0d4}
+  .note strong{font-weight:800;color:#fff}
+  .spec-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px;border-radius:10px;overflow:hidden}
+  .spec-table th{background:rgba(196,22,28,.15);color:var(--star);padding:12px 16px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-align:left;border-bottom:1px solid rgba(196,22,28,.2)}
+  .spec-table td{padding:12px 16px;border-bottom:1px solid rgba(192,168,255,.05);color:var(--text);font-size:14px}
+  .spec-table tr:hover td{background:rgba(255,255,255,.02)}
+  .spec-table strong{color:#fff}
+  .takeaways{background:radial-gradient(ellipse 500px 300px at 90% 10%,rgba(192,168,255,.14),transparent 60%),rgba(255,255,255,.02);border:1px solid rgba(192,168,255,.08);border-radius:20px;padding:40px 36px;margin-top:48px}
+  .takeaways h3{font-family:var(--serif);font-size:28px;font-weight:900;color:#fff;margin-bottom:28px;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .take-card{padding:20px 24px;border-left:3px solid var(--red);margin-bottom:16px;background:rgba(255,255,255,.02);border-radius:0 10px 10px 0}
+  .take-card:last-child{margin-bottom:0}
+  .take-card h4{font-family:var(--serif);font-size:18px;font-weight:800;color:#fff;margin-bottom:8px}
+  .take-card p{font-size:14.5px;color:var(--text);line-height:1.74;margin:0}
+  .lightbox{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:8px;object-fit:contain;box-shadow:0 8px 60px rgba(192,168,255,.2)}
+  .glow-sep{height:1px;margin:0 -32px 64px;background:linear-gradient(90deg,transparent,rgba(196,22,28,.25),rgba(123,92,255,.2),transparent)}
+  @media(max-width:768px){
+    .hero{min-height:76vh;padding:60px 20px 40px}
+    .hero h1{font-size:clamp(28px,7vw,42px)}
+    .hero-sub{font-size:15px}
+    .content{padding:0 20px 80px}
+    .bento{grid-template-columns:1fr 1fr;gap:10px}
+    .bt-price{grid-column:span 2;grid-row:auto}
+    .cols{grid-template-columns:1fr;gap:18px}
+    .chapter{margin-bottom:52px}
+    .ch-title{font-size:clamp(20px,5vw,28px)}
+    .feat h3{font-size:clamp(18px,4vw,22px)}
+    .takeaways{padding:28px 20px}
+    .take-card{padding:16px 18px}
+    .glow-sep{margin:0 -20px 48px}
+    .orbit{display:none}
+  }
+  @media(max-width:480px){
+    .bento{grid-template-columns:1fr}
+    .bt-price{grid-column:auto}
+    .hero-chips span{font-size:10px;padding:5px 10px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="orbit"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026.10.01 · 线上 · HUAWEI</div>
+    <h1>华为 Mate 90 系列<br><span class="g">首发韬定律 τ 芯片</span></h1>
+    <div class="hero-sub">国庆当天线上发布，全系搭载基于「韬定律」打造的逻辑折叠 τ 芯片，麒麟 9030 / 9035 / 9050 Pro 三档，配合 HarmonyOS 7 软硬芯云垂直整合——「踏光向前，终成璀璨」，华为用架构创新而非制程升级，重新定义旗舰性能。</div>
+    <div class="hero-chips">
+      <span>韬定律τ芯片</span><span>逻辑折叠</span><span>238 MTr/mm²</span><span>四卡三待</span><span>HarmonyOS 7</span><span>卫星通信</span>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="bento">
+    <div class="bt bt-price">
+      <div class="bt-label">Starting Price</div>
+      <div class="bt-num">5999<span>元起</span></div>
+      <div class="bt-desc">Mate 90 标准版起售 · RS 非凡大师更高</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Density</div>
+      <div class="bt-num">238<span>MTr/mm²</span></div>
+      <div class="bt-desc">逻辑折叠 τ 芯片 · 密度 +28%</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Perf</div>
+      <div class="bt-num">31<span>%</span></div>
+      <div class="bt-desc">Pro Max 整机性能提升</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Battery</div>
+      <div class="bt-num">7500<span>mAh</span></div>
+      <div class="bt-desc">硅碳负极 · Pro Max 全固态试水</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Comm</div>
+      <div class="bt-num">4<span>卡3待</span></div>
+      <div class="bt-desc">首发四卡三待</div>
+    </div>
+  </div>
+
+  <figure class="fig" style="margin:4px 0 18px">
+    <img src="../images/huaweimate90-hero.svg" alt="华为 Mate 90 系列主视觉" loading="lazy">
+    <figcaption>华为 Mate 90 系列 · 韬定律 τ 芯片 · 逻辑折叠架构</figcaption>
+  </figure>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">01</span>
+      <span class="ch-kick">Chip · Tao Law</span>
+    </div>
+    <h2 class="ch-title">逻辑折叠 τ 芯片：架构创新的集中释放</h2>
+    <div class="ch-intro">Mate 90 全系搭载基于「韬定律」开发的麒麟 τ 芯片，核心是「逻辑折叠」——不依赖更先进制程，而是通过三维重构内部布线，将逻辑单元层层折叠，以垂直互联替代平面走线，在制程不变前提下把晶体管密度提升至每平方毫米 2.38 亿个。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/huaweimate90-chip.svg" alt="华为逻辑折叠τ芯片" loading="lazy">
+        <figcaption>逻辑折叠 τ 芯片 · 238 MTr/mm² · 麒麟 9030/9035/9050 Pro</figcaption>
+        <span class="badge">韬定律</span>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">架构</span></div>
+          <h3>逻辑折叠：不靠制程，靠三维重构</h3>
+          <p>「逻辑折叠」是理解这代 Mate 的关键。通过把逻辑单元层层折叠、装上垂直互联的高速「电梯」，让信号跑得更快，在制程不变前提下<strong>晶体管密度提升 28%（238 MTr/mm²）</strong>。这是华为半导体体系六年积累的集中释放。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">芯片</span></div>
+      <h3>麒麟 9030 / 9035 / 9050 Pro 三档</h3>
+      <p>Mate 90 搭载麒麟 9030（对比 9020，CPU +13%、GPU +54%、NPU +13%），Mate 90 Pro 首发麒麟 9035（对比 9030，CPU +11%、GPU +10%、NPU +51%），Mate 90 Pro Max 搭载麒麟 9050 Pro（整机性能 +31%）。麒麟 9050 Pro 采用灵犀 CPU，<strong>9 核 16 线程，多核性能 +23%</strong>，并支持超线程技术。</p>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">安全</span></div>
+      <h3>移动安全处理器 MSP + 后量子密码</h3>
+      <p>麒麟 9030 配备移动安全处理器 MSP，支持后量子密码算法，可抗未来量子攻击。这是华为在安全维度的一次前瞻布局，把「抗量子」从概念推进到旗舰芯片的落地能力。</p>
+    </div>
+
+    <div class="note note-c"><span class="note-label">点评</span><div class="note-text">「逻辑折叠」是华为在先进制程受限背景下的架构突围，本质是<strong>用三维封装换性能、绕开制程瓶颈</strong>。对用户而言，实际可感知的是整机性能提升与流畅度，而非「逻辑折叠」这个名词本身。这套打法的长期天花板取决于三维互连的良率与散热，值得持续跟踪。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">02</span>
+      <span class="ch-kick">Camera & Comms</span>
+    </div>
+    <h2 class="ch-title">影像与通信：全维进阶</h2>
+    <div class="ch-intro">影像上，Mate 90 系列升级睿影红枫人像，全系搭载第三代红枫原色摄像头；通信上首发四卡三待。可靠性方面，Pro 及以上镜头盖板搭载业界首发光学昆仑玻璃，耐摔能力较上代提升 20 倍。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/huaweimate90-camera.svg" alt="华为Mate90 睿影影像" loading="lazy">
+        <figcaption>2 亿潜望长焦 · 第三代红枫原色 · 睿影 Z10 模块相机</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">影像</span></div>
+          <h3>2 亿潜望 + 睿影红枫人像</h3>
+          <p>Mate 90 Pro Max 配备 5000 万主摄 + 2 亿潜望长焦，全系搭载第三代红枫原色摄像头，采用红外光学镀膜，大幅提升夜景人像表现。顶配还支持华为睿影 Z10 模块相机——1 英寸独立传感器、10 倍光学变焦、等效 24-240mm 的完整成像模块（售价 5999 元，需单独购买）。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">通信</span></div>
+      <h3>首发四卡三待 + 卫星通信</h3>
+      <p>Mate 90 系列首发<strong>四卡三待</strong>，三卡均可通话、上网、收发短信，一部手机即可灵活应对不同通信场景，成为用户的「数字分身」。配合卫星通信能力，通信维度的领先进一步拉大。</p>
+    </div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">03</span>
+      <span class="ch-kick">Software · HarmonyOS 7</span>
+    </div>
+    <h2 class="ch-title">HarmonyOS 7：软硬芯云垂直整合</h2>
+    <div class="ch-intro">Mate 90 全系搭载 HarmonyOS 7，通过软硬芯云垂直整合释放 τ 芯片潜力。鸿蒙生态也在这一代走向成熟：可获取应用和服务超 45 万，鸿蒙游戏 3.5 万款。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/huaweimate90-os.svg" alt="HarmonyOS 7" loading="lazy">
+        <figcaption>HarmonyOS 7 · 45 万应用 · 3.5 万鸿蒙游戏 · 超线程</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">系统</span></div>
+          <h3>鸿蒙生态破 9000 万，走向成熟</h3>
+          <p>搭载 HarmonyOS 6 / 7 的终端设备数已突破 9000 万，可获取应用和服务超 45 万，鸿蒙游戏上线超 3.5 万款。麒麟 9050 Pro 的 CPU 支持超线程，配合 3DGS 渲染加速，大众点评 3D 实景探店等应用已能呈现更流畅的空间浏览体验。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text">Mate 90 的核心卖点是<strong>「逻辑折叠」架构创新 + 麒麟自研 + HarmonyOS 生态成熟</strong>三件套。如果你看重自研芯片与鸿蒙生态，这是目前华为体系的旗舰天花板；如果你更在意影像硬件堆料，Pro Max 的 2 亿潜望 + 睿影 Z10 才是满血组合。标准版 5999 元起，全系预计受内存成本压力涨价，早买更稳。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">04</span>
+      <span class="ch-kick">Pricing</span>
+    </div>
+    <h2 class="ch-title">价格与选购建议</h2>
+
+    <table class="spec-table">
+      <tr><th>机型</th><th>芯片</th><th>屏幕</th><th>影像</th><th>起售价</th></tr>
+      <tr><td>Mate 90</td><td>麒麟 9030</td><td>直屏</td><td>第三代红枫</td><td><strong>¥5999</strong></td></tr>
+      <tr><td>Mate 90 Pro</td><td>麒麟 9035</td><td>—</td><td>光学昆仑玻璃</td><td>高于标准版</td></tr>
+      <tr><td>Mate 90 Pro Max</td><td><strong>麒麟 9050 Pro</strong></td><td>双层 OLED</td><td>2 亿潜望</td><td>更高</td></tr>
+      <tr><td>Mate 90 RS 非凡大师</td><td>麒麟 9050 Pro</td><td>双层 OLED</td><td>+ 睿影 Z10</td><td>顶配</td></tr>
+    </table>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text"><strong>追求自研旗舰选 Mate 90 / Pro</strong>：麒麟 9030/9035 已足够日常，5999 元起是自研旗舰的理性之选；<strong>影像与极致选 Pro Max / RS</strong>：2 亿潜望 + 睿影 Z10（需另购 5999 元）才是满血影像。全系预计涨价，且睿影 Z10 与摄影手柄非标配，购机预算要留出外设空间。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="takeaways">
+    <h3>核心结论</h3>
+    <div class="take-card">
+      <h4>架构创新是最大看点</h4>
+      <p>「逻辑折叠」用三维重构换性能，绕开制程瓶颈，是华为半导体六年积累的集中释放。</p>
+    </div>
+    <div class="take-card">
+      <h4>三档芯片梯度分明</h4>
+      <p>9030 / 9035 / 9050 Pro 各配一档，标准版 5999 元起是自研旗舰的理性入口。</p>
+    </div>
+    <div class="take-card">
+      <h4>鸿蒙生态走向成熟</h4>
+      <p>45 万应用 + 3.5 万游戏 + 9000 万设备，是这代 Mate 的软件底气。</p>
+    </div>
+    <div class="take-card">
+      <h4>影像外设是隐藏成本</h4>
+      <p>睿影 Z10 模块相机需另购 5999 元，满血影像的预算要预留外设空间。</p>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+document.querySelectorAll('.fig img').forEach(function(img){
+  img.addEventListener('click',function(){
+    document.getElementById('lightboxImg').src=this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>

@@ -29,7 +29,11 @@ PHONES: [
   { id: 'vivox500',         name: 'vivo X500',        brand: 'vivo',    os: 'OriginOS 7' },
   { id: 'iqoo15t',          name: 'iQOO 15T',         brand: 'iqoo',    os: 'OriginOS 6' },
   { id: 'iqooneo11',        name: 'Neo11 至尊版',     brand: 'iqoo',    os: 'OriginOS 6' },
-  { id: 'googlepixel11',    name: 'Pixel 11',         brand: 'google',  os: 'Android 17' }
+  { id: 'googlepixel11',    name: 'Pixel 11',         brand: 'google',  os: 'Android 17' },
+  { id: 'oppofindx10',      name: 'Find X10',         brand: 'oppo',    os: 'ColorOS 17' },
+  { id: 'mi18pro',          name: '小米 18 Pro',      brand: 'xiaomi',  os: 'HyperOS 3/4' },
+  { id: 'honormagic9',      name: 'Magic9',           brand: 'honor',   os: 'MagicOS 11' },
+  { id: 'huaweimate90',     name: 'Mate 90',          brand: 'huawei',  os: 'HarmonyOS 7' }
 ],
 
 BRAND: {
@@ -80,7 +84,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: 'HyperOS 3 八月更新修复长时间录音偶发失败、重复记录；断点续录更可靠。会议场景能力要到 HyperOS 4 才完整。',
   note: '长录音失败是文管/录音机共同的口碑雷区。tOS 应把「连续录 2 小时不丢」当成基础质量门槛，再谈 AI 摘要。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html', url: 'https://zh-cn.xiaomi-miui.gr/hyperos-4-full-changelog-new-features/' }
 },
 {
   name: 'AI 录音：实时转写 + 说话人 + 摘要模板',
@@ -104,7 +108,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 端侧 AI：录音直接生成会议纪要，数据不上云。与 YOYO 长视频解析同一套「本地理解」叙事。',
   note: '端侧纪要是隐私卖点。tOS 海外机更该强调 on-device：转写/纪要默认不出网，云端当增强而不是前提。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.fonearena.com/blog/492627/honor-introduces-magicos-11-features.html' }
 },
 {
   name: '说话人区分强、转写质量差',
@@ -178,7 +182,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'HarmonyOS 7 强化超级终端与分布式文件：跨设备拖文件更稳。超空间存储给 256GB 机型多出约 22GB 可用空间，被报告称为变相延长换机周期。',
   note: '「同等容量更好用」是文管可量化的卖点。tOS 应对 128/256GB 机给出清理+压缩的可见收益，而不是只在旗舰上讲云盘。',
-  source: { kind: 'launch', label: '发布会 · Mate XT 2 / nova 16 SE', href: 'reports/huaweimatext2.html' }
+  source: { kind: 'launch', label: '发布会 · Mate XT 2 / nova 16 SE', href: 'reports/huaweimatext2.html', url: 'https://www.ithome.com/1/004/718.htm' }
 },
 {
   name: '原子工作台：文档与文件跨窗拖放',
@@ -221,7 +225,7 @@ FEATURES: [
   brands: ['vivo', 'iqoo'],
   desc: 'OriginOS 6.0 16.0.14.2 相机可录 4K Live 动态影像。播放/相册侧要能保留动态效果，否则只是相机卖点、播放器接不住。',
   note: 'Live 图是相机和播放器的交接件。tOS 播放器/相册必须声明：动态照片能原样播、能导出静帧，避免「拍得到、看丢失」。',
-  source: { kind: 'update', label: '系统更新 · OriginOS 6', href: 'updates/vivo-originos.html' }
+  source: { kind: 'update', label: '系统更新 · OriginOS 6', href: 'updates/vivo-originos.html', url: 'https://www.fonearena.com/blog/492411/vivo-originos-7-features-preview-program-registrations-india.html' }
 },
 
 /* ========== 记事本 ========== */
@@ -255,7 +259,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 10 八月版：笔记支持 AI 语义搜索；YOYO 记忆可对抖音/B 站/小红书/本地视频三指下滑出摘要，视频教程直接变笔记。',
   note: '语义搜比文件夹更重要。tOS 记事本优先「用一句话找到三个月前那条」，视频转笔记可复用录音纪要模型，不必单独堆产品。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 10/11', href: 'updates/honor-yoyo.html' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 10/11', href: 'updates/honor-yoyo.html', url: 'https://www.fonearena.com/blog/492627/honor-introduces-magicos-11-features.html' }
 },
 {
   name: 'HyperOS AI Note + 笔记应用改造',
@@ -357,7 +361,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'nova 16 SE 等机：NPU 算力提升后小艺支持深度解题、智能问答。解题入口在助手，不在计算器 App。',
   note: '拍题/解题不要只活在助手。tOS 计算器应能接收拍照算式，结果可回写笔记，避免用户找不到入口。',
-  source: { kind: 'launch', label: '发布会 · nova 16 SE', href: 'reports/huaweinova16se.html' }
+  source: { kind: 'launch', label: '发布会 · nova 16 SE', href: 'reports/huaweinova16se.html', url: 'http://enet.com.cn/article/2026/0907/A202609071277131.html' }
 },
 {
   name: '桌面汇率换算卡片',
@@ -384,7 +388,7 @@ FEATURES: [
   phones: ['huaweimatext2'],
   desc: 'Mate XT 2 外屏可在折叠态完成扫码、回消息，不必展开。被报告称为三折叠日常可用性的关键补强。',
   note: '折叠机扫一扫的第一场景是外屏支付/入场。tOS 外屏必须预置扫码，延迟和手电筒策略按单手设计。',
-  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html' }
+  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html', url: 'https://consumer.huawei.com/cn/phones/mate-xt-2-ultimate-design/' }
 },
 {
   name: '小折叠外屏快速扫码',
@@ -445,7 +449,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16 从双开升到 5 个分身，面向游戏/小微商户。用户反馈小红书分身账号会串号，「数据完全隔离」未达预期。',
   note: '分身是玩机高频，隔离失败就是事故。tOS 多开必须账号/存储/通知三隔离，并在设置里显示每个分身占用的空间。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/version/coloros16/' }
 },
 {
   name: '原子工作台下放直板机 + 五应用任务组',
@@ -496,7 +500,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'HarmonyOS 7 超空间让 256GB 大约多 22GB 可用。报告点评：这是用软件推迟换机，不是换机工具本身，但影响换机决策。',
   note: '换机产品还要回答「要不要换」。存储软件化能延缓换机。tOS 可在换机 App 里展示「清理后还能再用」对比，减少误导升级。',
-  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html' }
+  source: { kind: 'launch', label: '发布会 · Mate XT 2', href: 'reports/huaweimatext2.html', url: 'https://www.ithome.com/1/004/718.htm' }
 },
 {
   name: '跨品牌三系统互传文件',
@@ -572,7 +576,7 @@ FEATURES: [
   brands: ['oppo'],
   desc: 'ColorOS 16：Smart Cutout 抽主体做贴纸/拼贴/情绪板（Reno16 首发后下放）；笔记里可直接在图片上画。相册能力溢到笔记。',
   note: '抠图贴纸是年轻市场相册差异化。tOS 可做系统级抠图服务，相册和笔记共用，避免两个 App 两套抠图。',
-  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html' }
+  source: { kind: 'update', label: '系统更新 · ColorOS 16', href: 'updates/oppo-coloros16.html', url: 'https://www.coloros.com/version/coloros16/' }
 },
 {
   name: '相册语义检索（端侧）',
@@ -580,7 +584,7 @@ FEATURES: [
   brands: ['honor'],
   desc: 'MagicOS 11 端侧 AI 支持相册语义检索，数据不上云。和录音纪要、长文档摘要并列。',
   note: '「找穿红衣服的那张」是相册搜索的及格线。tOS 相册语义搜应默认端侧，语言覆盖英语/阿语/法语再谈 Generative。',
-  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html' }
+  source: { kind: 'update', label: '系统更新 · MagicOS 11', href: 'updates/honor-yoyo.html', url: 'https://www.fonearena.com/blog/492627/honor-introduces-magicos-11-features.html' }
 },
 {
   name: 'AI 图片消除 + 文档进相册办公',
@@ -647,7 +651,7 @@ FEATURES: [
   brands: ['huawei'],
   desc: 'HDC / HarmonyOS 7：小艺从语音助手变为智能体，官方称 2100+ 系统能力、500+ Skill、2000+ 鸿蒙智能体，可跨端传文件、行程规划。开发者 Beta 已开，公开落地仍需应用适配。',
   note: '能力数量不是产品。tOS 应挑 20 个可演示的跨应用任务做验收（订票、转文件、建日程），并标明哪些地区/语言不可用。',
-  source: { kind: 'launch', label: '发布会 · HDC 2026 / Mate XT 2', href: 'reports/hdc2026.html' }
+  source: { kind: 'launch', label: '发布会 · HDC 2026 / Mate XT 2', href: 'reports/hdc2026.html', url: 'https://www.ithome.com/0/999/277.htm' }
 },
 {
   name: '蓝心小 V / 小 V Pro 系统级 Agent',
@@ -714,7 +718,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: '9 月 16 日应用商店更新：Mi Mover 4.6.1.7（38.71MB）、家人守护 Family Guard 3.14.09.04.00、HyperOS 录屏 4.16.2.8.1、HyperOS 壁纸等一批系统应用同日刷新。',
   note: '换机是换机周期里唯一被高频使用的工具，版本迭代如此密集说明仍在补兼容性。tOS 换机该盯的不是传输速度（已有公开 benchmark 可对标），而是「旧机侧数据项覆盖率」——通讯录/微信记录/桌面布局/系统设置，哪项漏了用户立刻感知。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html', url: 'https://zh-cn.xiaomi-miui.gr/hyperos-4-full-changelog-new-features/' }
 },
 {
   name: '跨苹果互联：通知同步、微信镜像回复、云相册同步',
@@ -730,7 +734,7 @@ FEATURES: [
   brands: ['xiaomi', 'redmi'],
   desc: '澎湃 OS 3.0 版本更新中新增独立的密码管理工具，官方表述是「打通苹果设备，实现更便捷的密码管理体验」，与高级数据保护、双重认证登录同批上线。',
   note: '和苹果同期押注同一件事，说明密码管理正被重新定义为系统级 App 而非浏览器功能。要跟进的话，先解决跨端同步的加密与恢复，再谈填充体验；否则用户不敢把真密码放进来。',
-  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html' }
+  source: { kind: 'update', label: '系统更新 · HyperOS 3', href: 'updates/xiaomi-hyperos3.html', url: 'https://nokiamob.net/2025/09/24/hyperos-3-global-released-new-ui-ai-tools-and-cross-device-features/' }
 },
 {
   name: '锁屏直接扫码，无需先解锁',
@@ -806,7 +810,7 @@ FEATURES: [
   phones: ['vivox500'],
   desc: 'vivo X500 主摄蓝图光御900（1/1.28″）支持 17EV 高动态范围与蔡司自然色彩，相册可完整呈现高光到暗部细节，并保留蔡司风格影调。',
   note: '高动态范围 capture 只是第一步，相册能否“无损呈现 + 选择性压高光”才决定用户感知。建议相册对 HDR 照片默认开启动态范围预览，并提供“高光/阴影”一键微调，而不是只在相机端卷参数。',
-  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html' }
+  source: { kind: 'launch', label: '发布会 · vivo X500', href: 'reports/vivox500.html', url: 'https://www.ithome.com/1/003/305.htm' }
 },
 
 /* ========== One UI 9 稳定版（2026-09-16 S26 系列首发）新增 ========== */
@@ -817,7 +821,7 @@ FEATURES: [
   brands: ['samsung'],
   desc: 'One UI 9（9/16 起 S26 系列首发）把录音机摘要从“仅 3 条要点”升级为带标题和表格的结构化大纲，直接弥补此前摘要过简、漏关键信息的短板。',
   note: '这是把“摘要可用性”做对的最小一步——结构化输出比纯要点能读得多。但转录准确性（多口音失效、29% 崩溃）仍是根因，摘要再漂亮也救不了烂转录。tOS 若做会议录音摘要，应让“结构化大纲”成为默认格式，并开放要点级编辑。',
-  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-voice-recorder.html' }
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-voice-recorder.html', url: 'https://www.sammobile.com/news/galaxy-z-fold-6-flip-6-get-stable-one-ui-9-0-update/' }
 },
 
 {
@@ -826,7 +830,128 @@ FEATURES: [
   brands: ['samsung'],
   desc: 'One UI 9 的 My Files 文档扫描升级：自动校正弯曲书页/折角，并去除握纸手指，填补此前 S25 缺失的部分功能。',
   note: '扫描去手指/弯页是“拍文档”场景的真痛点，但这类能力更适合放在相机或专门的扫描 App，放在文件管理里入口偏深。若 tOS 做文档扫描，建议独立入口 + 自动检测文档边缘触发，而不是埋在文件管理器三级菜单。',
-  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-my-files.html' }
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-my-files.html', url: 'https://www.sammobile.com/news/galaxy-z-fold-6-flip-6-get-stable-one-ui-9-0-update/' }
+},
+
+/* ========== 2026-09/10 四大旗舰发布会（OPPO Find X10 / 小米18 Pro / 荣耀 Magic9 / 华为 Mate 90）新增 ========== */
+
+{
+  name: '哈苏全焦段 8K 电影机：双 2 亿像素主摄',
+  product: 'gallery',
+  phones: ['oppofindx10'],
+  desc: 'OPPO Find X10 标准版后置双 2 亿主摄 + 超广角，Pro Max 上探到三 2 亿传感器，联合哈苏做全焦段 8K 级解析，并配哈苏增距镜外设。',
+  note: '「双 2 亿 / 三 2 亿」是像素军备，真实价值在 8K 视频与高倍裁切，而非高分辨率照片本身。相册侧需声明能否无损呈现 8K/2 亿原片，避免「拍得到、存不下、看丢失」。',
+  source: { kind: 'launch', label: '发布会 · Find X10', href: 'reports/oppofindx10.html', url: 'https://www.oppo.com/cn/' }
+},
+
+{
+  name: '端侧 AndesGPT：Agent 化小布助手',
+  product: 'assistant',
+  phones: ['oppofindx10'],
+  desc: 'ColorOS 17 预装端侧 AndesGPT 大模型（已完成备案），小布助手升级为系统级 Agent，可拆解复杂任务并跨应用执行。',
+  note: '端侧大模型是隐私卖点，Agent 化是系统主战场。tOS 海外机更该强调 on-device：转写/纪要默认不出网，云端当增强而不是前提。别为演示视频里的「一句话订餐」买单，先看真实任务完成率。',
+  source: { kind: 'launch', label: '发布会 · Find X10', href: 'reports/oppofindx10.html', url: 'https://www.oppo.com/cn/' }
+},
+
+{
+  name: '双 2 亿徕卡三摄：全焦段高解析裁切',
+  product: 'gallery',
+  phones: ['mi18pro'],
+  desc: '小米 18 Pro / Pro Max 均搭载徕卡三摄，2 亿主摄（1/1.28″）+ 2 亿潜望长焦（1/1.56″，3.2 倍光学）+ 5000 万超广角，全焦段高解析裁切一致性。',
+  note: '双 2 亿的意义不在像素数，而在全焦段裁切一致性。相册应提供高倍裁切后仍清晰的无损导出，把 2 亿像素变成「后期自由」，否则只是相机参数。',
+  source: { kind: 'launch', label: '发布会 · 小米 18 Pro', href: 'reports/mi18pro.html', url: 'https://technewsreel.com/gadgets/xiaomi-18-pro-and-pro-max-debut-with-dual-200mp-cameras-and-2nm-chips' }
+},
+
+{
+  name: 'AI 智窗背屏 + 硬件级智能隐私显示',
+  product: 'labs',
+  phones: ['mi18pro'],
+  desc: '小米 18 Pro 系列配备功能型副屏（2.7″/2.9″）显示通知、时间与快捷操作，主屏则叠加硬件级「智能隐私显示」限制可视角度。',
+  note: '背屏是差异化，隐私屏是安全刚需。tOS 若做隐私显示，应让「防窥」成为可一键切换的硬件级开关，并明确背屏与主屏的权限隔离——背屏显示通知时不能泄露敏感内容。',
+  source: { kind: 'launch', label: '发布会 · 小米 18 Pro', href: 'reports/mi18pro.html', url: 'https://technewsreel.com/gadgets/xiaomi-18-pro-and-pro-max-debut-with-dual-200mp-cameras-and-2nm-chips' }
+},
+
+{
+  name: 'ARRI LogC3 电影曲线 + 87 款 Look 直出',
+  product: 'gallery',
+  phones: ['honormagic9'],
+  desc: '荣耀 Magic9 Pro Max 携手阿莱（ARRI），把 LogC3 曲线、AWG3 广色域、9 大主题 87 套 ARRI Look 原生植入影像管线，打通拍摄、监看、后期，普通用户免调色直出电影感。',
+  note: '这是「把专业后期工作流简化到移动端」的标杆。tOS 相册若能内置「电影风格滤镜 + Log 曲线一键切换」，比单纯堆像素更能打。但核心能力集中在 Pro Max，标准版只给同源双 2 亿、缺收音与增距镜生态。',
+  source: { kind: 'launch', label: '发布会 · Magic9', href: 'reports/honormagic9.html', url: 'https://www.163.com/dy/article/L8NDIUAE0511JHLI.html' }
+},
+
+{
+  name: '行业首发电影级枪麦：片场级收音',
+  product: 'recorder',
+  phones: ['honormagic9'],
+  desc: '荣耀 Magic9 Pro Max 行业首发电影级枪麦，搭配双 1216 扬声器，获 SGS 收音与外放双认证，让手机视频录制获得片场级收音效果。',
+  note: '收音是手机拍视频最被低估的一环。tOS 录音/录像应把「定向拾音 + 降噪」做成可感知的能力，而不是只在参数页堆「双扬声器」。枪麦外设是 Pro Max 独占，标准版用户需降低预期。',
+  source: { kind: 'launch', label: '发布会 · Magic9', href: 'reports/honormagic9.html', url: 'https://www.163.com/dy/article/L8NDIUAE0511JHLI.html' }
+},
+
+{
+  name: 'YOYO 智能体：一键妙记 + AI 通话助理',
+  product: 'assistant',
+  phones: ['honormagic9'],
+  desc: 'MagicOS 11 接入与阿里联合打造的 397B 智能体大模型，YOYO 助手新增一键妙记、AI 通话助理，并首发系统级 Agent Harness 商用，可辅助接听客服电话、碎片化信息分类整理。',
+  note: '「一键妙记」是碎片化信息整理的真需求。tOS 语音助手应把「通话/会议 → 妙记 → 可检索」做成默认闭环，而不是让用户手动导出。397B 参数是营销点，真实价值在端侧响应与隐私边界。',
+  source: { kind: 'launch', label: '发布会 · Magic9', href: 'reports/honormagic9.html', url: 'https://news.qq.com/rain/a/20261005A07D5X00' }
+},
+
+{
+  name: '逻辑折叠 τ 芯片：架构换性能',
+  product: 'labs',
+  phones: ['huaweimate90'],
+  desc: '华为 Mate 90 全系搭载基于「韬定律」的逻辑折叠 τ 芯片（麒麟 9030/9035/9050 Pro），通过三维重构布线把晶体管密度提升至 238 MTr/mm²（+28%），在制程不变前提下换性能。',
+  note: '架构创新绕开制程瓶颈，是自研体系的护城河。tOS 无需对标「逻辑折叠」名词，但要理解其内核：在受限条件下用架构/封装换体验。对用户可感知的是流畅度与整机性能，而非技术名词。',
+  source: { kind: 'launch', label: '发布会 · Mate 90', href: 'reports/huaweimate90.html', url: 'https://www.rmzxw.com.cn/c/2026-10-08/3985250.shtml' }
+},
+
+{
+  name: '首发四卡三待：一部手机应对多场景',
+  product: 'clone',
+  phones: ['huaweimate90'],
+  desc: '华为 Mate 90 系列首发四卡三待，三卡均可通话、上网、收发短信，成为用户的「数字分身」，配合卫星通信能力。',
+  note: '「四卡三待」是通信场景的差异化，对多卡商务用户是刚需。tOS 换机/双卡管理应把「多卡主从切换 + 各自独立的流量/通话策略」做成清晰的设置，而不是让用户翻三层菜单。',
+  source: { kind: 'launch', label: '发布会 · Mate 90', href: 'reports/huaweimate90.html', url: 'https://news.qq.com/rain/a/20261001A0AJIH00' }
+},
+
+{
+  name: 'HarmonyOS 7 软硬芯云垂直整合 + 超线程',
+  product: 'assistant',
+  phones: ['huaweimate90'],
+  desc: 'Mate 90 搭载 HarmonyOS 7，麒麟 9050 Pro 的 CPU 支持超线程，配合 3DGS 渲染加速，鸿蒙生态破 9000 万设备、45 万应用 + 3.5 万游戏。',
+  note: '软硬芯云垂直整合是鸿蒙的核心叙事，但「超线程 + 45 万应用」对海外用户仍是生态壁垒而非体验优势。tOS 若做助手生态，应先解决「能用、好用」的存量应用适配，而非堆生态数量。',
+  source: { kind: 'launch', label: '发布会 · Mate 90', href: 'reports/huaweimate90.html', url: 'https://www.rmzxw.com.cn/c/2026-10-08/3985250.shtml' }
+},
+
+/* ========== One UI 9 扩展推送 + iOS 27.0.1（2026-10）系统更新新增 ========== */
+
+{
+  name: 'My FanCam：视频 AI 追焦选定人物',
+  product: 'gallery',
+  brands: ['samsung'],
+  desc: 'One UI 9 稳定版（10/7 起扩展至 S24 / Z Fold6）新增 My FanCam，录制视频时自动跟随并居中选定人物，无需手动重新构图。',
+  note: 'AI 追焦是演出/运动/亲子场景的差异化，但「选定人物」的入口与准确性是关键。tOS 相册若做追焦，应让「锁定主体」操作简单到一次点选，而非进三层菜单调参。',
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-oneui9-beta.html', url: 'https://www.sammobile.com/news/galaxy-z-fold-6-flip-6-get-stable-one-ui-9-0-update/' }
+},
+
+{
+  name: 'Security Brief：Now Brief 内聚合安全告警',
+  product: 'labs',
+  brands: ['samsung'],
+  desc: 'One UI 9 的 Security Brief 把恶意软件、来源不明 App、权限滥用等风险信号聚合到 Now Brief 卡片，并新增 Privacy Alerts 用端侧 AI 标记后台可疑权限访问。',
+  note: '把安全从「埋进设置」拉到「前置卡片」，是产品思维的进步。tOS 若做安全提醒，应把「风险可视化 + 一键处置」做成默认，而非只弹一次性通知。端侧 AI 标记是可借鉴的隐私友好路径。',
+  source: { kind: 'update', label: '系统更新 · One UI 9', href: 'updates/samsung-oneui9-beta.html', url: 'https://myceliumsys.com/2026/10/07/one-ui-9-galaxy-s24-rollout' }
+},
+
+{
+  name: 'iOS 27.0.1：修复 Face ID 重启与相机伪影',
+  product: 'gallery',
+  brands: ['apple'],
+  desc: 'iOS 27.0.1（9/28）修复 Face ID 认证失败后意外重启、iPhone 18 Pro 2x 相机色彩伪影、通知中心+控制中心同时打开导致的触控冻结，并预防性处理 AT&T iPhone 18 Pro Max 蜂窝断连。',
+  note: '这是「发布后快速修 Bug」的标准动作，说明 iOS 27 首发仍有稳定性欠账。tOS 也应建立「发布后 2 周内高频修 Bug」的节奏，用点版本建立用户信任，而不是等大版本。',
+  source: { kind: 'update', label: '系统更新 · iOS 27.0.1', href: 'updates/apple-ios27.html', url: 'https://www.macworld.com/?post_type=post&p=2986799' }
 }
 
 ]

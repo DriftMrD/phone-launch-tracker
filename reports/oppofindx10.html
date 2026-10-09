@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPPO Find X10 系列 · 8K 全焦段电影机</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text","Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#0b1210;
+    color:#d8e6dc;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  :root{
+    --green:#1a9c2d;
+    --mint:#7fe0a0;
+    --gold:#c9a45c;
+    --grad:linear-gradient(135deg,#1a9c2d,#7fe0a0);
+    --grad-wide:linear-gradient(116deg,#1a9c2d,#7fe0a0 55%,#c9a45c 130%);
+    --dark:#0b1210;
+    --tile:rgba(255,255,255,.04);
+    --tile-border:rgba(127,224,160,.12);
+    --muted:#6f8a78;
+    --text:#c6d8ca;
+    --text-bright:#f0faf2;
+    --mono:'SF Mono',ui-monospace,Consolas,'Courier New',monospace;
+    --serif:'Source Han Serif SC','Noto Serif SC','Songti SC',Georgia,'PingFang SC',serif;
+  }
+  .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:80px 32px 60px;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse 900px 520px at 82% -8%,rgba(26,156,45,.30),transparent 60%),
+    radial-gradient(ellipse 700px 420px at 8% 18%,rgba(127,224,160,.16),transparent 55%),
+    radial-gradient(ellipse 520px 320px at 50% 115%,rgba(201,164,92,.07),transparent 50%)}
+  .hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 64px,rgba(26,156,45,.025) 64px,rgba(26,156,45,.025) 65px);pointer-events:none}
+  .hero-inner{position:relative;max-width:960px;margin:0 auto;width:100%;z-index:2}
+  .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:var(--mint);font-weight:700;text-transform:uppercase;margin-bottom:24px;text-shadow:0 0 20px rgba(127,224,160,.4)}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,6.4vw,72px);font-weight:900;line-height:1.06;letter-spacing:-.02em;color:#fff;margin-bottom:20px}
+  .hero h1 .g{background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:#a7c4ad;line-height:1.7;max-width:660px;margin-bottom:28px}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-chips span{font-family:var(--mono);font-size:11px;color:var(--mint);letter-spacing:.06em;background:rgba(127,224,160,.06);border:1px solid rgba(127,224,160,.2);padding:6px 14px;border-radius:4px;text-shadow:0 0 8px rgba(127,224,160,.25)}
+  .lens{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:360px;height:360px;pointer-events:none;opacity:.16;z-index:1;border-radius:50%;border:2px solid var(--mint);box-shadow:0 0 0 40px rgba(26,156,45,.05),0 0 0 90px rgba(127,224,160,.03)}
+  .content{max-width:960px;margin:0 auto;padding:0 32px 100px;position:relative;z-index:2}
+  .bento{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:12px;margin-bottom:64px}
+  .bt{background:var(--tile);backdrop-filter:blur(20px);border:1px solid var(--tile-border);border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .bt::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(26,156,45,.08),transparent 60%);pointer-events:none}
+  .bt-price{grid-row:span 2;background:radial-gradient(ellipse 400px 300px at 90% -20%,rgba(127,224,160,.3),transparent 65%),radial-gradient(ellipse 350px 250px at -10% 110%,rgba(26,156,45,.28),transparent 60%),rgba(255,255,255,.03);border-color:rgba(127,224,160,.2)}
+  .bt .bt-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+  .bt .bt-num{font-family:var(--serif);font-size:clamp(32px,5vw,48px);font-weight:900;line-height:1.05;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0}
+  .bt .bt-num span{font-size:.45em;opacity:.7}
+  .bt .bt-desc{font-size:13px;color:var(--muted);line-height:1.5}
+  .bt-price .bt-num{font-size:clamp(46px,7vw,70px)}
+  .bt-price .bt-desc{font-size:14px;color:#8aa68f}
+  .chapter{margin-bottom:72px;position:relative}
+  .chapter-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(127,224,160,.10)}
+  .ch-num{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--mint);border:1px solid rgba(127,224,160,.3);background:rgba(127,224,160,.06);padding:4px 12px;border-radius:4px;letter-spacing:.06em;text-shadow:0 0 12px rgba(127,224,160,.35);box-shadow:0 0 16px rgba(127,224,160,.08)}
+  .ch-kick{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--green);text-transform:uppercase}
+  .ch-title{font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:900;letter-spacing:-.01em;color:#fff;line-height:1.18}
+  .ch-intro{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:32px;max-width:700px}
+  .feat{margin-bottom:36px;padding-top:24px;border-top:1px solid rgba(127,224,160,.06)}
+  .feat:first-child{border-top:none;padding-top:0}
+  .f-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .f-idx{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);padding:3px 10px;border-radius:4px;letter-spacing:.04em}
+  .f-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--mint);background:rgba(127,224,160,.1);padding:3px 12px;border-radius:3px}
+  .feat h3{font-family:var(--serif);font-size:clamp(20px,3vw,26px);font-weight:900;line-height:1.25;letter-spacing:-.008em;color:#fff;margin-bottom:14px}
+  .feat p{font-size:15.5px;color:var(--text);line-height:1.85;margin-bottom:12px}
+  .feat ul{padding-left:22px;margin:10px 0 14px}
+  .feat li{font-size:15px;color:var(--text);line-height:1.78;margin-bottom:6px}
+  .feat strong{color:#fff;font-weight:700}
+  .feat code{font-family:var(--mono);font-size:13px;background:rgba(26,156,45,.12);padding:2px 7px;border-radius:4px;color:var(--mint)}
+  .cols{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:28px;align-items:start;margin:24px 0}
+  .fig{border:1px solid rgba(127,224,160,.12);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02);position:relative}
+  .fig img{width:100%;display:block;cursor:pointer;transition:transform .2s,filter .2s}
+  .fig img:hover{transform:scale(1.02);filter:brightness(1.08)}
+  .fig figcaption{font-size:12px;color:var(--muted);padding:10px 14px;border-top:1px solid rgba(127,224,160,.08);line-height:1.5;background:rgba(255,255,255,.02)}
+  .fig .badge{position:absolute;top:12px;left:12px;z-index:3;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--mint);background:rgba(11,18,16,.8);backdrop-filter:blur(8px);padding:4px 10px;border-radius:4px;border:1px solid rgba(127,224,160,.25);text-shadow:0 0 8px rgba(127,224,160,.3)}
+  .note{border-radius:10px;padding:16px 20px;margin:20px 0;position:relative}
+  .note-label{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .note-text{font-size:14.5px;line-height:1.75}
+  .note-c{background:rgba(26,156,45,.08);border:1px solid rgba(26,156,45,.15);border-left:3px solid var(--green)}
+  .note-c .note-label{color:var(--mint)}
+  .note-c .note-text{color:#a0c2a8}
+  .note-a{background:rgba(201,164,92,.07);border:1px solid rgba(201,164,92,.14);border-left:3px solid var(--gold)}
+  .note-a .note-label{color:var(--gold)}
+  .note-a .note-text{color:#c8b487}
+  .note strong{font-weight:800;color:#fff}
+  .spec-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px;border-radius:10px;overflow:hidden}
+  .spec-table th{background:rgba(26,156,45,.15);color:var(--mint);padding:12px 16px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-align:left;border-bottom:1px solid rgba(26,156,45,.2)}
+  .spec-table td{padding:12px 16px;border-bottom:1px solid rgba(127,224,160,.05);color:var(--text);font-size:14px}
+  .spec-table tr:hover td{background:rgba(255,255,255,.02)}
+  .spec-table strong{color:#fff}
+  .takeaways{background:radial-gradient(ellipse 500px 300px at 90% 10%,rgba(127,224,160,.14),transparent 60%),rgba(255,255,255,.02);border:1px solid rgba(127,224,160,.08);border-radius:20px;padding:40px 36px;margin-top:48px}
+  .takeaways h3{font-family:var(--serif);font-size:28px;font-weight:900;color:#fff;margin-bottom:28px;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .take-card{padding:20px 24px;border-left:3px solid var(--mint);margin-bottom:16px;background:rgba(255,255,255,.02);border-radius:0 10px 10px 0}
+  .take-card:last-child{margin-bottom:0}
+  .take-card h4{font-family:var(--serif);font-size:18px;font-weight:800;color:#fff;margin-bottom:8px}
+  .take-card p{font-size:14.5px;color:var(--text);line-height:1.74;margin:0}
+  .lightbox{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:8px;object-fit:contain;box-shadow:0 8px 60px rgba(127,224,160,.2)}
+  .glow-sep{height:1px;margin:0 -32px 64px;background:linear-gradient(90deg,transparent,rgba(26,156,45,.25),rgba(127,224,160,.2),transparent)}
+  @media(max-width:768px){
+    .hero{min-height:76vh;padding:60px 20px 40px}
+    .hero h1{font-size:clamp(28px,7vw,42px)}
+    .hero-sub{font-size:15px}
+    .content{padding:0 20px 80px}
+    .bento{grid-template-columns:1fr 1fr;gap:10px}
+    .bt-price{grid-column:span 2;grid-row:auto}
+    .cols{grid-template-columns:1fr;gap:18px}
+    .chapter{margin-bottom:52px}
+    .ch-title{font-size:clamp(20px,5vw,28px)}
+    .feat h3{font-size:clamp(18px,4vw,22px)}
+    .takeaways{padding:28px 20px}
+    .take-card{padding:16px 18px}
+    .glow-sep{margin:0 -20px 48px}
+    .lens{display:none}
+  }
+  @media(max-width:480px){
+    .bento{grid-template-columns:1fr}
+    .bt-price{grid-column:auto}
+    .hero-chips span{font-size:10px;padding:5px 10px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="lens"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026.09.22 · 线上 · OPPO</div>
+    <h1>OPPO Find X10 系列<br><span class="g">8K 全焦段电影机</span></h1>
+    <div class="hero-sub">标准版双 2 亿像素、Pro Max 三 2 亿传感器，联合哈苏打造全焦段电影影像，8000mAh 冰川电池 + ColorOS 17 端侧 AndesGPT——OPPO 把「电影机」与「AI 大模型」同时押注在这一代旗舰上。</div>
+    <div class="hero-chips">
+      <span>天玑9600 2nm</span><span>双2亿主摄</span><span>8000mAh</span><span>0.99mm四等边</span><span>ColorOS 17</span><span>端侧AndesGPT</span>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="bento">
+    <div class="bt bt-price">
+      <div class="bt-label">Starting Price</div>
+      <div class="bt-num">4674<span>元起</span></div>
+      <div class="bt-desc">Find X10 标准版 12+256GB · Pro Max 6499 元起</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Battery</div>
+      <div class="bt-num">8000<span>mAh</span></div>
+      <div class="bt-desc">冰川电池 · 80W有线+50W无线</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Camera</div>
+      <div class="bt-num">2<span>亿×2</span></div>
+      <div class="bt-desc">双 2 亿主摄 · 哈苏联名</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Process</div>
+      <div class="bt-num">2<span>nm</span></div>
+      <div class="bt-desc">天玑 9600</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Display</div>
+      <div class="bt-num">0.99<span>mm</span></div>
+      <div class="bt-desc">极窄四等边直屏</div>
+    </div>
+  </div>
+
+  <figure class="fig" style="margin:4px 0 18px">
+    <img src="../images/oppofindx10-hero.svg" alt="OPPO Find X10 系列主视觉" loading="lazy">
+    <figcaption>OPPO Find X10 系列 · 8K 全焦段电影机 · 双 2 亿像素哈苏影像</figcaption>
+  </figure>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">01</span>
+      <span class="ch-kick">Camera · Hasselblad</span>
+    </div>
+    <h2 class="ch-title">双 2 亿像素 + 哈苏：把电影机规格下放</h2>
+    <div class="ch-intro">Find X10 的影像打法很直给：标准版双 2 亿像素主摄 + 超广角，Pro Max 直接堆到三 2 亿传感器，再叠加哈苏色彩与增距镜。核心叙事是「8K 全焦段电影机」——从广角到长焦全程覆盖 8K 级解析。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/oppofindx10-camera.svg" alt="OPPO Find X10 双2亿影像" loading="lazy">
+        <figcaption>双 2 亿像素主摄 + 2 亿长焦 · 哈苏色彩调校</figcaption>
+        <span class="badge">哈苏联名</span>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">主摄</span></div>
+          <h3>标准版双 2 亿，Pro Max 三 2 亿</h3>
+          <p>Find X10 标准版后置 2 亿主摄 + 2 亿超广角，Pro Max 进一步上探到 <strong>三颗 2 亿传感器</strong>（主摄 / 超广角 / 潜望长焦），配合 5000 万像素前摄。这个配置在同价位属于「像素军备竞赛」式的堆料，实际价值在于<strong>高解析裁切空间与全焦段一致性</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">长焦</span></div>
+      <h3>哈苏增距镜：全焦段电影机的外延</h3>
+      <p>与哈苏联名之外，OPPO 还推出了<strong>哈苏增距镜</strong>配件，让长焦在光学上进一步外延。加上杜比视界、光学防抖、潜望式长焦，Find X10 试图把「电影机」三个字从营销话术落到可用的创作工具上——不过增距镜作为外设，实际普及度存疑。</p>
+    </div>
+
+    <div class="note note-c"><span class="note-label">点评</span><div class="note-text">OPPO 的影像策略是「参数先卷赢，再讲调校」。双 2 亿、三 2 亿的像素规模在营销上很有冲击力，但对真实用户，<strong>2 亿像素的日常意义更在于 8K 视频与高倍裁切</strong>，而非盲目追求高分辨率照片。哈苏增距镜是加分项，却不应成为购机决策的主因。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">02</span>
+      <span class="ch-kick">Battery & Display</span>
+    </div>
+    <h2 class="ch-title">8000mAh 冰川电池 + 0.99mm 四等边</h2>
+    <div class="ch-intro">续航与屏幕是 Find X10 的第二条主线。全系 8000mAh（typ）冰川电池，80W 有线 + 50W 无线快充；屏幕则主打 6.59″ 极窄四等边直屏与原色光谱发光材料。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/oppofindx10-battery.svg" alt="OPPO Find X10 冰川电池" loading="lazy">
+        <figcaption>8000mAh 冰川电池 · 80W 有线 + 50W 无线</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">续航</span></div>
+          <h3>8000mAh 是这一代旗舰的续航基准线</h3>
+          <p>8000mAh 的典型值容量，让 Find X10 在「2nm 芯片 + 大屏 + 高刷」的功耗结构下依然能扛住一整天的重度使用。<strong>80W 有线 + 50W 无线</strong>的组合也补齐了补能速度，属于「容量够大、补能不慢」的均衡方案。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/oppofindx10-screen.svg" alt="OPPO Find X10 极窄四等边直屏" loading="lazy">
+        <figcaption>6.59″ 直屏 · 0.99mm 极窄四等边 · 3840Hz PWM</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">屏幕</span></div>
+          <h3>0.99mm 四等边 + 3840Hz 高频 PWM</h3>
+          <p>6.59″ 直屏主打<strong>0.99mm 极窄四等边</strong>的视觉沉浸感，配合原色光谱发光材料与 3840Hz 高频 PWM 调光，兼顾护眼与色彩还原。对喜欢直屏手感、又在意黑边控制的用户，这是一个明确的卖点。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">03</span>
+      <span class="ch-kick">Software · ColorOS 17 AI</span>
+    </div>
+    <h2 class="ch-title">ColorOS 17 AI：端侧 AndesGPT 落地</h2>
+    <div class="ch-intro">Find X10 预装 ColorOS 17，核心升级是端侧 AndesGPT 大模型（已完成备案）与 Agent 化小布助手。这是 OPPO 从「功能机系统」向「AI 系统」转型的关键一步。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/oppofindx10-ai.svg" alt="ColorOS 17 AI AndesGPT" loading="lazy">
+        <figcaption>端侧 AndesGPT · Agent 化小布助手</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">AI</span></div>
+          <h3>端侧 AndesGPT + Agent 化小布</h3>
+          <p>ColorOS 17 的 AndesGPT 已完成大模型备案，主打<strong>端侧运行</strong>（数据不出机）与<strong>Agent 化</strong>（小布助手可拆解任务、跨应用执行）。这与三星 One UI 9、荣耀 MagicOS 11 的「系统级 Agent」叙事同频，是 2026 旗舰的系统主战场。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text">ColorOS 17 AI 的端侧大模型是 Find X10 的重要差异化，但<strong>「Agent 化」的实际成功率与第三方应用适配</strong>仍需观望。别为演示视频里的「一句话订餐」买单，先看真实任务完成率。影像党选 Pro Max（三 2 亿 + 增距镜），续航党标准版 8000mAh 已足够。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">04</span>
+      <span class="ch-kick">Pricing</span>
+    </div>
+    <h2 class="ch-title">价格与选购建议</h2>
+
+    <table class="spec-table">
+      <tr><th>机型</th><th>屏幕</th><th>电池</th><th>影像</th><th>起售价</th></tr>
+      <tr><td>Find X10</td><td>6.59″ 直屏</td><td><strong>8000mAh</strong></td><td>双 2 亿</td><td><strong>¥4674</strong></td></tr>
+      <tr><td>Find X10 Pro Max</td><td>6.59″ 直屏</td><td><strong>8000mAh</strong></td><td>三 2 亿 + 增距镜</td><td><strong>¥6499</strong></td></tr>
+    </table>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text"><strong>影像与创作优先选 Pro Max</strong>：三 2 亿 + 哈苏增距镜是唯一满血组合；<strong>性价比优先选标准版</strong>：4674 元起拿到双 2 亿 + 8000mAh，是这代旗舰里少见的「甜品」定价。两者屏幕、电池一致，核心差异只在影像堆料。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="takeaways">
+    <h3>核心结论</h3>
+    <div class="take-card">
+      <h4>影像走「像素军备」路线</h4>
+      <p>双 2 亿 / 三 2 亿像素 + 哈苏，规格拉满，但真实价值在于 8K 视频与高倍裁切，而非高分辨率照片本身。</p>
+    </div>
+    <div class="take-card">
+      <h4>续航是真香点</h4>
+      <p>8000mAh 冰川电池 + 80W/50W 快充，是这一代旗舰的续航基准线，比像素更值得作为购机理由。</p>
+    </div>
+    <div class="take-card">
+      <h4>AI 是长期叙事</h4>
+      <p>端侧 AndesGPT + Agent 化小布是方向，但落地体验仍需观察，别为演示视频买单。</p>
+    </div>
+    <div class="take-card">
+      <h4>定价有诚意</h4>
+      <p>4674 元起的标准版在同规格旗舰里性价比突出，拉低了「电影机」的入手门槛。</p>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+document.querySelectorAll('.fig img').forEach(function(img){
+  img.addEventListener('click',function(){
+    document.getElementById('lightboxImg').src=this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>

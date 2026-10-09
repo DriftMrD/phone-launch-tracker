@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小米 18 Pro 系列 · 全球首发骁龙 8 Elite Gen6</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text","Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#1a1614;
+    color:#e8e0da;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  :root{
+    --orange:#ff6900;
+    --leica:#ff2d2d;
+    --warm:#ffb27a;
+    --grad:linear-gradient(135deg,#ff6900,#ffb27a);
+    --grad-wide:linear-gradient(116deg,#ff6900,#ffb27a 55%,#ff2d2d 130%);
+    --dark:#1a1614;
+    --tile:rgba(255,255,255,.04);
+    --tile-border:rgba(255,178,122,.12);
+    --muted:#8a7466;
+    --text:#d8ccc2;
+    --text-bright:#fff8f2;
+    --mono:'SF Mono',ui-monospace,Consolas,'Courier New',monospace;
+    --serif:'Source Han Serif SC','Noto Serif SC','Songti SC',Georgia,'PingFang SC',serif;
+  }
+  .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:80px 32px 60px;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse 900px 520px at 82% -8%,rgba(255,105,0,.28),transparent 60%),
+    radial-gradient(ellipse 700px 420px at 8% 18%,rgba(255,45,45,.14),transparent 55%),
+    radial-gradient(ellipse 520px 320px at 50% 115%,rgba(255,178,122,.06),transparent 50%)}
+  .hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 64px,rgba(255,105,0,.022) 64px,rgba(255,105,0,.022) 65px);pointer-events:none}
+  .hero-inner{position:relative;max-width:960px;margin:0 auto;width:100%;z-index:2}
+  .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:var(--warm);font-weight:700;text-transform:uppercase;margin-bottom:24px;text-shadow:0 0 20px rgba(255,178,122,.4)}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,6.4vw,72px);font-weight:900;line-height:1.06;letter-spacing:-.02em;color:#fff;margin-bottom:20px}
+  .hero h1 .g{background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:#c2a794;line-height:1.7;max-width:660px;margin-bottom:28px}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-chips span{font-family:var(--mono);font-size:11px;color:var(--warm);letter-spacing:.06em;background:rgba(255,178,122,.06);border:1px solid rgba(255,178,122,.2);padding:6px 14px;border-radius:4px;text-shadow:0 0 8px rgba(255,178,122,.25)}
+  .chip-deco{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:360px;height:360px;pointer-events:none;opacity:.16;z-index:1;border-radius:50%;border:2px solid var(--orange);box-shadow:0 0 0 40px rgba(255,105,0,.05),0 0 0 90px rgba(255,45,45,.03)}
+  .content{max-width:960px;margin:0 auto;padding:0 32px 100px;position:relative;z-index:2}
+  .bento{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:12px;margin-bottom:64px}
+  .bt{background:var(--tile);backdrop-filter:blur(20px);border:1px solid var(--tile-border);border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .bt::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(255,105,0,.08),transparent 60%);pointer-events:none}
+  .bt-price{grid-row:span 2;background:radial-gradient(ellipse 400px 300px at 90% -20%,rgba(255,178,122,.3),transparent 65%),radial-gradient(ellipse 350px 250px at -10% 110%,rgba(255,105,0,.28),transparent 60%),rgba(255,255,255,.03);border-color:rgba(255,178,122,.2)}
+  .bt .bt-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+  .bt .bt-num{font-family:var(--serif);font-size:clamp(32px,5vw,48px);font-weight:900;line-height:1.05;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0}
+  .bt .bt-num span{font-size:.45em;opacity:.7}
+  .bt .bt-desc{font-size:13px;color:var(--muted);line-height:1.5}
+  .bt-price .bt-num{font-size:clamp(46px,7vw,70px)}
+  .bt-price .bt-desc{font-size:14px;color:#a88f7d}
+  .chapter{margin-bottom:72px;position:relative}
+  .chapter-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(255,178,122,.10)}
+  .ch-num{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--warm);border:1px solid rgba(255,178,122,.3);background:rgba(255,178,122,.06);padding:4px 12px;border-radius:4px;letter-spacing:.06em;text-shadow:0 0 12px rgba(255,178,122,.35);box-shadow:0 0 16px rgba(255,178,122,.08)}
+  .ch-kick{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--orange);text-transform:uppercase}
+  .ch-title{font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:900;letter-spacing:-.01em;color:#fff;line-height:1.18}
+  .ch-intro{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:32px;max-width:700px}
+  .feat{margin-bottom:36px;padding-top:24px;border-top:1px solid rgba(255,178,122,.06)}
+  .feat:first-child{border-top:none;padding-top:0}
+  .f-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .f-idx{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);padding:3px 10px;border-radius:4px;letter-spacing:.04em}
+  .f-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--warm);background:rgba(255,178,122,.1);padding:3px 12px;border-radius:3px}
+  .feat h3{font-family:var(--serif);font-size:clamp(20px,3vw,26px);font-weight:900;line-height:1.25;letter-spacing:-.008em;color:#fff;margin-bottom:14px}
+  .feat p{font-size:15.5px;color:var(--text);line-height:1.85;margin-bottom:12px}
+  .feat ul{padding-left:22px;margin:10px 0 14px}
+  .feat li{font-size:15px;color:var(--text);line-height:1.78;margin-bottom:6px}
+  .feat strong{color:#fff;font-weight:700}
+  .feat code{font-family:var(--mono);font-size:13px;background:rgba(255,105,0,.12);padding:2px 7px;border-radius:4px;color:var(--warm)}
+  .cols{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:28px;align-items:start;margin:24px 0}
+  .fig{border:1px solid rgba(255,178,122,.12);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02);position:relative}
+  .fig img{width:100%;display:block;cursor:pointer;transition:transform .2s,filter .2s}
+  .fig img:hover{transform:scale(1.02);filter:brightness(1.08)}
+  .fig figcaption{font-size:12px;color:var(--muted);padding:10px 14px;border-top:1px solid rgba(255,178,122,.08);line-height:1.5;background:rgba(255,255,255,.02)}
+  .fig .badge{position:absolute;top:12px;left:12px;z-index:3;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--warm);background:rgba(26,22,20,.8);backdrop-filter:blur(8px);padding:4px 10px;border-radius:4px;border:1px solid rgba(255,178,122,.25);text-shadow:0 0 8px rgba(255,178,122,.3)}
+  .note{border-radius:10px;padding:16px 20px;margin:20px 0;position:relative}
+  .note-label{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .note-text{font-size:14.5px;line-height:1.75}
+  .note-c{background:rgba(255,105,0,.08);border:1px solid rgba(255,105,0,.15);border-left:3px solid var(--orange)}
+  .note-c .note-label{color:var(--warm)}
+  .note-c .note-text{color:#c2a794}
+  .note-a{background:rgba(255,45,45,.07);border:1px solid rgba(255,45,45,.14);border-left:3px solid var(--leica)}
+  .note-a .note-label{color:var(--leica)}
+  .note-a .note-text{color:#c89b94}
+  .note strong{font-weight:800;color:#fff}
+  .spec-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px;border-radius:10px;overflow:hidden}
+  .spec-table th{background:rgba(255,105,0,.15);color:var(--warm);padding:12px 16px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-align:left;border-bottom:1px solid rgba(255,105,0,.2)}
+  .spec-table td{padding:12px 16px;border-bottom:1px solid rgba(255,178,122,.05);color:var(--text);font-size:14px}
+  .spec-table tr:hover td{background:rgba(255,255,255,.02)}
+  .spec-table strong{color:#fff}
+  .takeaways{background:radial-gradient(ellipse 500px 300px at 90% 10%,rgba(255,178,122,.14),transparent 60%),rgba(255,255,255,.02);border:1px solid rgba(255,178,122,.08);border-radius:20px;padding:40px 36px;margin-top:48px}
+  .takeaways h3{font-family:var(--serif);font-size:28px;font-weight:900;color:#fff;margin-bottom:28px;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .take-card{padding:20px 24px;border-left:3px solid var(--warm);margin-bottom:16px;background:rgba(255,255,255,.02);border-radius:0 10px 10px 0}
+  .take-card:last-child{margin-bottom:0}
+  .take-card h4{font-family:var(--serif);font-size:18px;font-weight:800;color:#fff;margin-bottom:8px}
+  .take-card p{font-size:14.5px;color:var(--text);line-height:1.74;margin:0}
+  .lightbox{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:8px;object-fit:contain;box-shadow:0 8px 60px rgba(255,178,122,.2)}
+  .glow-sep{height:1px;margin:0 -32px 64px;background:linear-gradient(90deg,transparent,rgba(255,105,0,.25),rgba(255,178,122,.2),transparent)}
+  @media(max-width:768px){
+    .hero{min-height:76vh;padding:60px 20px 40px}
+    .hero h1{font-size:clamp(28px,7vw,42px)}
+    .hero-sub{font-size:15px}
+    .content{padding:0 20px 80px}
+    .bento{grid-template-columns:1fr 1fr;gap:10px}
+    .bt-price{grid-column:span 2;grid-row:auto}
+    .cols{grid-template-columns:1fr;gap:18px}
+    .chapter{margin-bottom:52px}
+    .ch-title{font-size:clamp(20px,5vw,28px)}
+    .feat h3{font-size:clamp(18px,4vw,22px)}
+    .takeaways{padding:28px 20px}
+    .take-card{padding:16px 18px}
+    .glow-sep{margin:0 -20px 48px}
+    .chip-deco{display:none}
+  }
+  @media(max-width:480px){
+    .bento{grid-template-columns:1fr}
+    .bt-price{grid-column:auto}
+    .hero-chips span{font-size:10px;padding:5px 10px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="chip-deco"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026.09.23 · 线上 · Xiaomi</div>
+    <h1>小米 18 Pro 系列<br><span class="g">全球首发骁龙 8 Elite Gen6</span></h1>
+    <div class="hero-sub">首次将 Pro 系列推向全球市场，18 Pro 首发骁龙 8 Elite Gen6、18 Pro Max 首发超级至尊版，双 2 亿徕卡三摄 + 金沙江超大电池——小米用「全球首发 2nm」的旗帜，向三星与苹果的高端腹地发起正面挑战。</div>
+    <div class="hero-chips">
+      <span>骁龙8E6 2nm</span><span>双2亿徕卡</span><span>7000/8500mAh</span><span>AI智窗背屏</span><span>全球首发</span><span>LPDDR6</span>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="bento">
+    <div class="bt bt-price">
+      <div class="bt-label">Starting Price</div>
+      <div class="bt-num">5999<span>元起</span></div>
+      <div class="bt-desc">18 Pro 起售 · 18 Pro Max 6999 元起</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Process</div>
+      <div class="bt-num">2<span>nm</span></div>
+      <div class="bt-desc">台积电 N2P GAA</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Camera</div>
+      <div class="bt-num">2<span>亿×2</span></div>
+      <div class="bt-desc">双 2 亿徕卡三摄</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Battery</div>
+      <div class="bt-num">8500<span>mAh</span></div>
+      <div class="bt-desc">Pro Max 金沙江电池</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Memory</div>
+      <div class="bt-num">LPDDR6</div>
+      <div class="bt-desc">16GB · 114GB/s 带宽</div>
+    </div>
+  </div>
+
+  <figure class="fig" style="margin:4px 0 18px">
+    <img src="../images/mi18pro-hero.svg" alt="小米 18 Pro 系列主视觉" loading="lazy">
+    <figcaption>小米 18 Pro 系列 · 全球首发骁龙 8 Elite Gen6 · 双 2 亿徕卡影像</figcaption>
+  </figure>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">01</span>
+      <span class="ch-kick">Chip · Snapdragon</span>
+    </div>
+    <h2 class="ch-title">全球首发骁龙 8 Elite Gen6：2nm 的旗帜</h2>
+    <div class="ch-intro">小米 18 Pro 系列是高通第六代骁龙 8 双旗舰平台的全球首发载体：18 Pro 搭载骁龙 8 Elite Gen6（8E6），18 Pro Max 搭载超级至尊版（8EE6）。这是小米数字系列首次把 Pro 推向全球，也是 2nm 制程普及元年的标志性事件。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/mi18pro-chip.svg" alt="骁龙8 Elite Gen6 2nm芯片" loading="lazy">
+        <figcaption>骁龙 8 Elite Gen6 · 台积电 N2P 2nm GAA · 端侧 300 亿参数 MoE</figcaption>
+        <span class="badge">全球首发</span>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">芯片</span></div>
+          <h3>8E6 与 8EE6 双旗舰平台</h3>
+          <p>骁龙 8 Elite Gen6 采用台积电 N2P 2nm 制程，自研 Oryon CPU 最高主频 5.01GHz，GPU 为 Adreno 850 + 18MB 独立显存，支持端侧运行<strong>300 亿参数混合专家模型（MoE）</strong>。超级至尊版额外采用 Offset PoP 封装优化散热，GPU 性能较上代提升 44%。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">内存</span></div>
+      <h3>LPDDR6 + UFS 4.1：16GB 高频内存</h3>
+      <p>全系标配 LPDDR6 内存，三星已完成 16GB LPDDR6 验证，I/O 速率最高 10.7Gbps，带宽最高 114GB/s，能效较 LPDDR5X 提升 21%。这套内存组合为 2nm 芯片的高负载 AI 与游戏场景提供了带宽支撑。</p>
+    </div>
+
+    <div class="note note-c"><span class="note-label">点评</span><div class="note-text">「全球首发 2nm」是小米 18 Pro 的营销旗帜，但它的实际意义分两层：<strong>对发烧友是独占期红利</strong>（8E6 约一个月独占期），<strong>对普通用户是端侧 AI 与能效</strong>。别被「首发」光环绑架，标准版（12 月）用不上这颗芯片，Pro 才是本代性能主力。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">02</span>
+      <span class="ch-kick">Camera · Leica</span>
+    </div>
+    <h2 class="ch-title">双 2 亿徕卡：小米的高端影像宣言</h2>
+    <div class="ch-intro">18 Pro 与 Pro Max 均搭载徕卡三摄系统，由 2 亿主摄（1/1.28″）+ 2 亿潜望长焦（1/1.56″，3.2 倍光学）+ 5000 万超广角组成。双 2 亿 + 徕卡，是小米对标 iPhone 18 Pro Max 与 vivo X500 Pro Max 的影像军备。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/mi18pro-camera.svg" alt="小米18 Pro 双2亿徕卡" loading="lazy">
+        <figcaption>200MP 主摄 + 200MP 潜望长焦 + 50MP 超广角</figcaption>
+        <span class="badge">徕卡</span>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">主摄</span></div>
+          <h3>2 亿像素 1/1.28″ 主摄 + 2 亿潜望</h3>
+          <p>主摄采用 2 亿像素、1/1.28″ 大底，潜望长焦同样是 2 亿像素、1/1.56″，支持 3.2 倍光学变焦。<strong>双 2 亿的意义在于全焦段高解析裁切</strong>，配合徕卡色彩调校，让长焦与主摄在解析力上保持一致，而非单纯堆像素。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text">双 2 亿徕卡是小米 18 Pro 的核心影像卖点，但需注意：<strong>像素高不等于画质好</strong>，2 亿像素的像素合并（pixel binning）策略才是画质关键。如果你追求的是「随手拍好」，徕卡色彩与调校比 2 亿像素更重要；如果你是裁切党，双 2 亿是实打实的优势。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">03</span>
+      <span class="ch-kick">Battery & Display</span>
+    </div>
+    <h2 class="ch-title">金沙江超大电池 + AI 智窗背屏</h2>
+    <div class="ch-intro">18 Pro 配备 7000mAh 金沙江电池，Pro Max 更达到 8500mAh，双双接近「两天一充」。屏幕侧则延续小米「智窗」系列，加入 AI 智窗背屏与硬件级智能隐私显示。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/mi18pro-battery.svg" alt="小米18 Pro 金沙江电池" loading="lazy">
+        <figcaption>金沙江电池 · 18 Pro 7000mAh / Pro Max 8500mAh</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
+          <h3>8500mAh 是 Pro Max 的续航底气</h3>
+          <p>Pro Max 的 8500mAh 金沙江电池接近主流旗舰两倍，18 Pro 的 7000mAh 也不落下风。<strong>「接近两天一充」</strong>是这代小米旗舰对高端用户最实在的承诺，尤其对重度游戏与影像用户。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/mi18pro-screen.svg" alt="小米18 Pro AI智窗背屏" loading="lazy">
+        <figcaption>6.4″/6.9″ OLED · AI 智窗背屏 · 智能隐私显示</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">屏幕</span></div>
+          <h3>AI 智窗背屏 + 硬件级智能隐私显示</h3>
+          <p>18 Pro 采用 6.4″ OLED，Pro Max 6.9″ OLED，均配备功能型副屏（2.7″ / 2.9″）与<strong>硬件级「智能隐私显示」</strong>。背屏可显示通知、时间、快捷操作，隐私屏则通过硬件限制可视角度，兼顾便利与安全。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">04</span>
+      <span class="ch-kick">Strategy · Global</span>
+    </div>
+    <h2 class="ch-title">首次全球铺货：Pro 系列的战略转身</h2>
+    <div class="ch-intro">小米 18 Pro 系列是小米数字 Pro 系列首次在中国以外市场发布，标志着小米从「国内高端」向「全球高端」的战略转向，直接对标三星 Galaxy S26 与苹果 iPhone 18。</div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">战略</span></div>
+      <h3>用「双 2 亿 + 超大电池」挑战全球高端</h3>
+      <p>过去小米的超高规格机型仅限中国市场，全球消费者只能买到「缩水版」。这次 18 Pro 系列直接全球铺货，用<strong>接近主流旗舰两倍的电池 + 双 2 亿徕卡 + 2nm 芯片</strong>的组合，向三星苹果的高端定价权发起冲击。国际版的最终定价与「超级至尊版」在部分市场的可获性，仍是待确认的关键变量。</p>
+    </div>
+
+    <div class="note note-c"><span class="note-label">点评</span><div class="note-text">小米把 Pro 推向全球是战略级转身，但<strong>国际版规格是否会与国行一致、超级至尊版在海外是否可获</strong>，官方尚未完全明确。国内用户可放心，海外用户建议等最终国际版配置与定价落地后再决策。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">05</span>
+      <span class="ch-kick">Pricing</span>
+    </div>
+    <h2 class="ch-title">价格与选购建议</h2>
+
+    <table class="spec-table">
+      <tr><th>机型</th><th>屏幕</th><th>芯片</th><th>电池</th><th>起售价</th></tr>
+      <tr><td>18 Pro</td><td>6.4″ OLED</td><td>骁龙 8E6</td><td><strong>7000mAh</strong></td><td><strong>¥5999</strong></td></tr>
+      <tr><td>18 Pro Max</td><td><strong>6.9″ OLED</strong></td><td><strong>骁龙 8EE6</strong></td><td><strong>8500mAh</strong></td><td><strong>¥6999</strong></td></tr>
+      <tr><td>18 标准版</td><td>—</td><td>—</td><td>—</td><td>12 月发布</td></tr>
+    </table>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text"><strong>追求极致性能 + 大屏选 Pro Max</strong>：8EE6 超级至尊版 + 8500mAh + 6.9″ 是满血组合；<strong>均衡旗舰选 18 Pro</strong>：5999 元起拿 2nm + 双 2 亿徕卡 + 7000mAh，性价比突出。标准版要等到 12 月，若你只是想要「小米 18」而非 Pro，建议再等等。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="takeaways">
+    <h3>核心结论</h3>
+    <div class="take-card">
+      <h4>「全球首发 2nm」是旗帜</h4>
+      <p>8E6/8EE6 双平台 + 端侧 300 亿 MoE，是这代小米的性能底气，也是对标三星苹果的硬资本。</p>
+    </div>
+    <div class="take-card">
+      <h4>双 2 亿徕卡是影像宣言</h4>
+      <p>像素军备 + 徕卡调校，对裁切党是实打实优势，但画质核心仍在像素合并与色彩。</p>
+    </div>
+    <div class="take-card">
+      <h4>续航是真杀手锏</h4>
+      <p>8500mAh / 7000mAh 接近主流旗舰两倍，「两天一充」是高端市场最实在的差异化。</p>
+    </div>
+    <div class="take-card">
+      <h4>全球战略是变量</h4>
+      <p>Pro 系列首次出海意义重大，但国际版规格与定价待确认，海外用户宜观望。</p>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+document.querySelectorAll('.fig img').forEach(function(img){
+  img.addEventListener('click',function(){
+    document.getElementById('lightboxImg').src=this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>

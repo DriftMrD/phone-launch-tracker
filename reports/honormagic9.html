@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>荣耀 Magic9 系列 · ARRI 电影影像 · 万级电池</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text","Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#0d1117;
+    color:#d5e0f0;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  :root{
+    --blue:#1a6fe8;
+    --gold:#d4a853;
+    --sky:#7aa8ff;
+    --grad:linear-gradient(135deg,#1a6fe8,#7aa8ff);
+    --grad-wide:linear-gradient(116deg,#1a6fe8,#7aa8ff 55%,#d4a853 130%);
+    --dark:#0d1117;
+    --tile:rgba(255,255,255,.04);
+    --tile-border:rgba(122,168,255,.12);
+    --muted:#6e82a0;
+    --text:#c3d0e6;
+    --text-bright:#f0f6ff;
+    --mono:'SF Mono',ui-monospace,Consolas,'Courier New',monospace;
+    --serif:'Source Han Serif SC','Noto Serif SC','Songti SC',Georgia,'PingFang SC',serif;
+  }
+  .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:80px 32px 60px;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse 900px 520px at 82% -8%,rgba(26,111,232,.30),transparent 60%),
+    radial-gradient(ellipse 700px 420px at 8% 18%,rgba(122,168,255,.16),transparent 55%),
+    radial-gradient(ellipse 520px 320px at 50% 115%,rgba(212,168,83,.08),transparent 50%)}
+  .hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 64px,rgba(26,111,232,.025) 64px,rgba(26,111,232,.025) 65px);pointer-events:none}
+  .hero-inner{position:relative;max-width:960px;margin:0 auto;width:100%;z-index:2}
+  .hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:var(--sky);font-weight:700;text-transform:uppercase;margin-bottom:24px;text-shadow:0 0 20px rgba(122,168,255,.4)}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,6.4vw,72px);font-weight:900;line-height:1.06;letter-spacing:-.02em;color:#fff;margin-bottom:20px}
+  .hero h1 .g{background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:#a4b8d8;line-height:1.7;max-width:660px;margin-bottom:28px}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-chips span{font-family:var(--mono);font-size:11px;color:var(--sky);letter-spacing:.06em;background:rgba(122,168,255,.06);border:1px solid rgba(122,168,255,.2);padding:6px 14px;border-radius:4px;text-shadow:0 0 8px rgba(122,168,255,.25)}
+  .tower{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:360px;height:360px;pointer-events:none;opacity:.16;z-index:1;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 0 40px rgba(26,111,232,.05),0 0 0 90px rgba(212,168,83,.03)}
+  .content{max-width:960px;margin:0 auto;padding:0 32px 100px;position:relative;z-index:2}
+  .bento{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:12px;margin-bottom:64px}
+  .bt{background:var(--tile);backdrop-filter:blur(20px);border:1px solid var(--tile-border);border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .bt::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(26,111,232,.08),transparent 60%);pointer-events:none}
+  .bt-price{grid-row:span 2;background:radial-gradient(ellipse 400px 300px at 90% -20%,rgba(122,168,255,.3),transparent 65%),radial-gradient(ellipse 350px 250px at -10% 110%,rgba(26,111,232,.28),transparent 60%),rgba(255,255,255,.03);border-color:rgba(122,168,255,.2)}
+  .bt .bt-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+  .bt .bt-num{font-family:var(--serif);font-size:clamp(32px,5vw,48px);font-weight:900;line-height:1.05;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0}
+  .bt .bt-num span{font-size:.45em;opacity:.7}
+  .bt .bt-desc{font-size:13px;color:var(--muted);line-height:1.5}
+  .bt-price .bt-num{font-size:clamp(46px,7vw,70px)}
+  .bt-price .bt-desc{font-size:14px;color:#8aa0c0}
+  .chapter{margin-bottom:72px;position:relative}
+  .chapter-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(122,168,255,.10)}
+  .ch-num{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--sky);border:1px solid rgba(122,168,255,.3);background:rgba(122,168,255,.06);padding:4px 12px;border-radius:4px;letter-spacing:.06em;text-shadow:0 0 12px rgba(122,168,255,.35);box-shadow:0 0 16px rgba(122,168,255,.08)}
+  .ch-kick{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+  .ch-title{font-family:var(--serif);font-size:clamp(24px,4vw,36px);font-weight:900;letter-spacing:-.01em;color:#fff;line-height:1.18}
+  .ch-intro{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:32px;max-width:700px}
+  .feat{margin-bottom:36px;padding-top:24px;border-top:1px solid rgba(122,168,255,.06)}
+  .feat:first-child{border-top:none;padding-top:0}
+  .f-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .f-idx{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);padding:3px 10px;border-radius:4px;letter-spacing:.04em}
+  .f-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--gold);background:rgba(212,168,83,.1);padding:3px 12px;border-radius:3px}
+  .feat h3{font-family:var(--serif);font-size:clamp(20px,3vw,26px);font-weight:900;line-height:1.25;letter-spacing:-.008em;color:#fff;margin-bottom:14px}
+  .feat p{font-size:15.5px;color:var(--text);line-height:1.85;margin-bottom:12px}
+  .feat ul{padding-left:22px;margin:10px 0 14px}
+  .feat li{font-size:15px;color:var(--text);line-height:1.78;margin-bottom:6px}
+  .feat strong{color:#fff;font-weight:700}
+  .feat code{font-family:var(--mono);font-size:13px;background:rgba(26,111,232,.12);padding:2px 7px;border-radius:4px;color:var(--sky)}
+  .cols{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:28px;align-items:start;margin:24px 0}
+  .fig{border:1px solid rgba(122,168,255,.12);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02);position:relative}
+  .fig img{width:100%;display:block;cursor:pointer;transition:transform .2s,filter .2s}
+  .fig img:hover{transform:scale(1.02);filter:brightness(1.08)}
+  .fig figcaption{font-size:12px;color:var(--muted);padding:10px 14px;border-top:1px solid rgba(122,168,255,.08);line-height:1.5;background:rgba(255,255,255,.02)}
+  .fig .badge{position:absolute;top:12px;left:12px;z-index:3;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--gold);background:rgba(13,17,23,.8);backdrop-filter:blur(8px);padding:4px 10px;border-radius:4px;border:1px solid rgba(212,168,83,.25);text-shadow:0 0 8px rgba(212,168,83,.3)}
+  .note{border-radius:10px;padding:16px 20px;margin:20px 0;position:relative}
+  .note-label{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .note-text{font-size:14.5px;line-height:1.75}
+  .note-c{background:rgba(26,111,232,.08);border:1px solid rgba(26,111,232,.15);border-left:3px solid var(--blue)}
+  .note-c .note-label{color:var(--sky)}
+  .note-c .note-text{color:#a0b4d4}
+  .note-a{background:rgba(212,168,83,.07);border:1px solid rgba(212,168,83,.14);border-left:3px solid var(--gold)}
+  .note-a .note-label{color:var(--gold)}
+  .note-a .note-text{color:#c8b487}
+  .note strong{font-weight:800;color:#fff}
+  .spec-table{width:100%;border-collapse:collapse;margin:20px 0 24px;font-size:14px;border-radius:10px;overflow:hidden}
+  .spec-table th{background:rgba(26,111,232,.15);color:var(--sky);padding:12px 16px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-align:left;border-bottom:1px solid rgba(26,111,232,.2)}
+  .spec-table td{padding:12px 16px;border-bottom:1px solid rgba(122,168,255,.05);color:var(--text);font-size:14px}
+  .spec-table tr:hover td{background:rgba(255,255,255,.02)}
+  .spec-table strong{color:#fff}
+  .takeaways{background:radial-gradient(ellipse 500px 300px at 90% 10%,rgba(122,168,255,.14),transparent 60%),rgba(255,255,255,.02);border:1px solid rgba(122,168,255,.08);border-radius:20px;padding:40px 36px;margin-top:48px}
+  .takeaways h3{font-family:var(--serif);font-size:28px;font-weight:900;color:#fff;margin-bottom:28px;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .take-card{padding:20px 24px;border-left:3px solid var(--gold);margin-bottom:16px;background:rgba(255,255,255,.02);border-radius:0 10px 10px 0}
+  .take-card:last-child{margin-bottom:0}
+  .take-card h4{font-family:var(--serif);font-size:18px;font-weight:800;color:#fff;margin-bottom:8px}
+  .take-card p{font-size:14.5px;color:var(--text);line-height:1.74;margin:0}
+  .lightbox{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:8px;object-fit:contain;box-shadow:0 8px 60px rgba(122,168,255,.2)}
+  .glow-sep{height:1px;margin:0 -32px 64px;background:linear-gradient(90deg,transparent,rgba(26,111,232,.25),rgba(212,168,83,.2),transparent)}
+  @media(max-width:768px){
+    .hero{min-height:76vh;padding:60px 20px 40px}
+    .hero h1{font-size:clamp(28px,7vw,42px)}
+    .hero-sub{font-size:15px}
+    .content{padding:0 20px 80px}
+    .bento{grid-template-columns:1fr 1fr;gap:10px}
+    .bt-price{grid-column:span 2;grid-row:auto}
+    .cols{grid-template-columns:1fr;gap:18px}
+    .chapter{margin-bottom:52px}
+    .ch-title{font-size:clamp(20px,5vw,28px)}
+    .feat h3{font-size:clamp(18px,4vw,22px)}
+    .takeaways{padding:28px 20px}
+    .take-card{padding:16px 18px}
+    .glow-sep{margin:0 -20px 48px}
+    .tower{display:none}
+  }
+  @media(max-width:480px){
+    .bento{grid-template-columns:1fr}
+    .bt-price{grid-column:auto}
+    .hero-chips span{font-size:10px;padding:5px 10px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="tower"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026.09.28 · 北京 · HONOR</div>
+    <h1>荣耀 Magic9 系列<br><span class="g">ARRI 电影影像 · 万级电池</span></h1>
+    <div class="hero-sub">荣耀 Magic 系列十周年集大成之作，携手百年影像品牌阿莱（ARRI）打造「掌中电影机」，双 2 亿影像 + 11000mAh 青海湖电池 + 397B 智能体大模型，用差异化分层重构旗舰产品矩阵。</div>
+    <div class="hero-chips">
+      <span>ARRI联名</span><span>双2亿影像</span><span>CIPA 8.0防抖</span><span>11000mAh</span><span>骁龙8EE6</span><span>MagicOS 11</span>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="bento">
+    <div class="bt bt-price">
+      <div class="bt-label">Starting Price</div>
+      <div class="bt-num">4499<span>元起</span></div>
+      <div class="bt-desc">Magic9 起售 · Pro Max 6499 元起</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Battery</div>
+      <div class="bt-num">11000<span>mAh</span></div>
+      <div class="bt-desc">超能版 · 行业量产纪录</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Camera</div>
+      <div class="bt-num">2<span>亿×2</span></div>
+      <div class="bt-desc">阿莱双 2 亿影像</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">Chip</div>
+      <div class="bt-num">8EE6</div>
+      <div class="bt-desc">第六代骁龙 8 超级至尊版</div>
+    </div>
+    <div class="bt">
+      <div class="bt-label">AI</div>
+      <div class="bt-num">397<span>B</span></div>
+      <div class="bt-desc">智能体大模型</div>
+    </div>
+  </div>
+
+  <figure class="fig" style="margin:4px 0 18px">
+    <img src="../images/honormagic9-hero.svg" alt="荣耀 Magic9 系列主视觉" loading="lazy">
+    <figcaption>荣耀 Magic9 系列 · 掌中电影机 · 阿莱双 2 亿影像</figcaption>
+  </figure>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">01</span>
+      <span class="ch-kick">Camera · ARRI</span>
+    </div>
+    <h2 class="ch-title">阿莱联名：把电影级影像装进口袋</h2>
+    <div class="ch-intro">荣耀 Magic9 系列的核心是影像。携手百年电影机品牌阿莱（ARRI），从「三镜头转塔」汲取设计灵感，采用三角阵列镜头排布，把 ARRI LogC3 曲线、AWG3 广色域、87 款 ARRI Look 原生植入影像管线。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/honormagic9-camera.svg" alt="荣耀 Magic9 阿莱双2亿影像" loading="lazy">
+        <figcaption>阿莱双 2 亿影像系统 · CIPA 8.0 防抖</figcaption>
+        <span class="badge">ARRI 联名</span>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">01</span><span class="f-tag">主摄</span></div>
+          <h3>阿莱双 2 亿 + CIPA 8.0 防抖</h3>
+          <p>Magic9 Pro Max 搭载阿莱双 2 亿影像系统，2 亿主摄 + 2 亿长焦均支持<strong>CIPA 8.0 级防抖</strong>（行业最高），配备自研驭光 H1 影像芯片。主摄 1/1.28″、长焦 3.7 倍潜望，配合阵列变焦闪光灯，把电影级影像的硬件门槛拉满。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">02</span><span class="f-tag">色彩</span></div>
+      <h3>ARRI LogC3 曲线 + 87 款 Look</h3>
+      <p>荣耀把 ARRI LogC3 曲线、AWG3 广色域、9 大主题 87 套 ARRI Look 原生植入影像管线，支持<strong>ARRI 电影模式与 ARRI 电影实况</strong>，打通拍摄、监看、后期完整工作流。普通用户无需专业调色即可直出电影感画面。</p>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">03</span><span class="f-tag">收音</span></div>
+      <h3>行业首发电影级枪麦</h3>
+      <p>Magic9 Pro Max 行业首发<strong>电影级枪麦</strong>，搭配双 1216 扬声器，获得 SGS 收音与外放双认证，让手机获得片场级收音效果。加上 500mm 长焦增距镜与 SmallRig 摄影套件，荣耀把「掌中电影机」从口号落到了完整的创作生态。</p>
+    </div>
+
+    <div class="note note-c"><span class="note-label">点评</span><div class="note-text">荣耀与阿莱的合作不是简单的品牌贴牌，而是把<strong>电影级色彩科学 + 收音 + 防抖</strong>打包成完整工作流。这是安卓阵营第一次把「手机拍电影」从营销概念推进到可用工具。但注意：LogC3、电影枪麦等核心能力集中在 Pro Max，标准版 Magic9 虽有同源双 2 亿，却少了顶配的收音与增距镜生态。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">02</span>
+      <span class="ch-kick">Battery & Display</span>
+    </div>
+    <h2 class="ch-title">万级电池 + 至臻黑钻屏</h2>
+    <div class="ch-intro">荣耀 Magic9 系列的续航是另一张王牌。青海湖刀片电池把能量密度推到 1000Wh/L，超能版更以 11000mAh 创下行业量产纪录；屏幕则是 10000nits 峰值的绿洲护眼屏。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/honormagic9-battery.svg" alt="荣耀 Magic9 青海湖电池" loading="lazy">
+        <figcaption>青海湖刀片电池 · 超能版 11000mAh · 1000Wh/L</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">04</span><span class="f-tag">续航</span></div>
+          <h3>11000mAh 行业量产纪录</h3>
+          <p>Magic9 超能版配备 <strong>11000mAh 青海湖刀片电池</strong>（能量密度 1000Wh/L），是安卓旗舰中少见的「万级电池」，并首次加入主动风冷风扇（东风涡轮散热）。标准版 8000mAh、Pro Max 8800mAh，全系续航都远超主流旗舰。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="f-meta"><span class="f-idx">05</span><span class="f-tag">屏幕</span></div>
+      <h3>10000nits 峰值绿洲护眼屏</h3>
+      <p>全系搭载峰值亮度高达 10000nits 的绿洲护眼屏，Pro Max 为 6.8″ LTPO OLED，支持 4K 120fps 与 1080p 240fps 视频拍摄，并具备 IP68/IP69K 双重防水防尘。标准版 6.37″ 小屏，主打「小屏旗舰 + 专业影像」的差异化。</p>
+    </div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">03</span>
+      <span class="ch-kick">Software · MagicOS 11</span>
+    </div>
+    <h2 class="ch-title">MagicOS 11 + 397B 智能体大模型</h2>
+    <div class="ch-intro">Magic9 全系搭载 MagicOS 11，接入与阿里联合打造的 397B 智能体大模型。核心是「Agent（智能体）」逻辑，YOYO 助手新增一键妙记、AI 通话助理等功能。</div>
+
+    <div class="cols">
+      <figure class="fig">
+        <img src="../images/honormagic9-ai.svg" alt="MagicOS 11 智能体大模型" loading="lazy">
+        <figcaption>MagicOS 11 · 397B 智能体大模型 · YOYO 一键妙记</figcaption>
+      </figure>
+      <div>
+        <div class="feat">
+          <div class="f-meta"><span class="f-idx">06</span><span class="f-tag">AI</span></div>
+          <h3>系统级 Agent Harness 商用</h3>
+          <p>MagicOS 11 的 397B 智能体大模型主打<strong>系统级 Agent</strong>，可辅助接听客服电话、碎片化信息分类整理、专属 AI 物理按键。荣耀与中国移动在六大城市试点「MobileAI 达人计划」，通过话费套餐打包 AI Token 服务，是端侧 AI 商业化的新探索。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text">荣耀 Magic9 系列的差异化分层很清晰：<strong>专业创作者选 Pro Max</strong>（满配影像 + 电影枪麦 + 增距镜生态），<strong>小屏党选标准版</strong>（6.37″ + 8000mAh + 同源双 2 亿），<strong>重度用户选超能版</strong>（11000mAh + 主动散热）。「AI Token 套餐」是创新，但第三方适配与真实完成率仍需观察。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="chapter">
+    <div class="chapter-head">
+      <span class="ch-num">04</span>
+      <span class="ch-kick">Pricing</span>
+    </div>
+    <h2 class="ch-title">价格与选购建议</h2>
+
+    <table class="spec-table">
+      <tr><th>机型</th><th>屏幕</th><th>电池</th><th>芯片</th><th>起售价</th></tr>
+      <tr><td>Magic9</td><td>6.37″</td><td>8000mAh</td><td>骁龙 8 至尊版</td><td><strong>¥4499</strong></td></tr>
+      <tr><td>Magic9 Pro Max</td><td>6.8″ LTPO</td><td>8800mAh</td><td><strong>骁龙 8EE6</strong></td><td><strong>¥6499</strong></td></tr>
+      <tr><td>Magic9 超能版</td><td><strong>6.81″</strong></td><td><strong>11000mAh</strong></td><td>骁龙 8EE6</td><td><strong>¥4499</strong></td></tr>
+    </table>
+
+    <div class="note note-a"><span class="note-label">购买启示</span><div class="note-text">荣耀 Magic9 系列用「差异化分层」打破了单款旗舰覆盖全人群的思路，是 2026 旗舰里定位最清晰的一代。<strong>影像创作 → Pro Max，小屏便携 → 标准版，长续航重载 → 超能版</strong>。三杯各司其职，按需求选而非按价格选。</div></div>
+  </div>
+
+  <div class="glow-sep"></div>
+
+  <div class="takeaways">
+    <h3>核心结论</h3>
+    <div class="take-card">
+      <h4>阿莱联名是硬核差异化</h4>
+      <p>电影级色彩科学 + 收音 + 防抖打包成完整工作流，把「手机拍电影」从概念落到可用工具。</p>
+    </div>
+    <div class="take-card">
+      <h4>万级电池是续航标杆</h4>
+      <p>11000mAh 行业量产纪录 + 1000Wh/L 能量密度，让「两天一充」不再是营销话术。</p>
+    </div>
+    <div class="take-card">
+      <h4>分层定位最清晰</h4>
+      <p>影像/小屏/重载三杯各司其职，是这一代旗舰里定位最聪明的产品矩阵。</p>
+    </div>
+    <div class="take-card">
+      <h4>AI 商业化是新变量</h4>
+      <p>MobileAI 达人计划把 AI Token 打包进话费套餐，是端侧 AI 落地的新路径，值得持续观察。</p>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightboxImg" src="" alt="查看大图">
+</div>
+<script>
+document.querySelectorAll('.fig img').forEach(function(img){
+  img.addEventListener('click',function(){
+    document.getElementById('lightboxImg').src=this.src;
+    document.getElementById('lightbox').classList.add('show');
+  });
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+</body>
+</html>
