@@ -13,7 +13,7 @@ CREAM = (0xF6, 0xF3, 0xEE)
 DUMP = r"""
 const {FEATURES}=require('./app-features-data');
 const calBrands=new Set(['xiaomi','huawei','apple','vivo','oppo','honor']);
-const calIds=new Set(['xiaomi18fold','huaweimatext2','iphone18','vivox500']);
+const calIds=new Set(['xiaomi18fold','huaweimatext2','iphone18','vivox500','oppofindx10','mi18pro','honormagic9','huaweimate90']);
 const rows=FEATURES.filter(f => f.phones ? f.phones.some(id=>calIds.has(id)) : (f.brands||[]).some(b=>calBrands.has(b)))
   .map(f => ({name:f.name, url:(f.source&&f.source.url)||''}));
 console.log(JSON.stringify(rows));
@@ -77,6 +77,12 @@ UI = {
     "超空间存储延长换机周期": "extra-huawei-space-1.jpg",
     "三折叠外屏直接扫码": "extra-shot-matext2-off.jpg",
     "锁屏岛全屏歌词（含酷狗概念版）": "extra-coloros-lyric-1.jpg",
+    "哈苏全焦段 8K 电影机：双 2 亿像素主摄": "extra-shot-findx10.jpg",
+    "端侧 AndesGPT：Agent 化小布助手": "extra-shot-findx10.jpg",
+    "ARRI LogC3 电影曲线 + 87 款 Look 直出": ("extra-shot-magic9.jpg", (0.12, 0.40, 0.88, 0.78), "cover"),
+    "行业首发电影级枪麦：片场级收音": ("extra-shot-magic9.jpg", (0.12, 0.40, 0.88, 0.78), "cover"),
+    "逻辑折叠 τ 芯片：架构换性能": ("shot-b366dd7001.jpg", (0.08, 0.28, 0.72, 0.58), "cover"),
+    "HarmonyOS 7 软硬芯云垂直整合 + 超线程": "shot-045e24183c.jpg",
 }
 
 # 无独立配图时，用来源页（或同系统报道页）截图
@@ -102,6 +108,11 @@ SHOT_OVERRIDE = {
     "AI 文件管家：按主题归类 + 输入法找文件": "shot-5b8bf126dc.jpg",
     "原子笔记可授权给第三方 AI": "shot-5b8bf126dc.jpg",
     "YOYO GUI Agent：看懂屏幕自己点": "shot-5d4b96f023.jpg",
+    "iOS 27.0.1：修复 Face ID 重启与相机伪影": "shot-fdac7d1f38.jpg",
+    "双 2 亿徕卡三摄：全焦段高解析裁切": "shot-0dcf1eb108.jpg",
+    "AI 智窗背屏 + 硬件级智能隐私显示": "shot-0dcf1eb108.jpg",
+    "YOYO 智能体：一键妙记 + AI 通话助理": "shot-cc2686424b.jpg",
+    "首发四卡三待：一部手机应对多场景": "shot-b366dd7001.jpg",
 }
 
 # 没有 url 的条目，挂到同系统已截过的出处页

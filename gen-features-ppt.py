@@ -42,10 +42,10 @@ const CAL = [
   { id:'puraxview', name:'Pura X View', brand:'huawei', os:'HarmonyOS 7', date:'9月7日', status:'已发布', note:'阔直板' },
   { id:'iphone18', name:'iPhone 18 系列', brand:'apple', os:'iOS 27', date:'9月9日', status:'已发布', note:'Siri AI' },
   { id:'vivox500', name:'vivo X500 系列', brand:'vivo', os:'OriginOS 7', date:'9月16日', status:'已发布', note:'蓝心 4.0' },
-  { id:'mate90', name:'Mate 90 系列', brand:'huawei', os:'HarmonyOS 7', date:'9月23日', status:'即将发布', note:'麒麟 9030/9050' },
-  { id:'findx10', name:'Find X10 系列', brand:'oppo', os:'ColorOS', date:'9月23日', status:'即将发布', note:'哈苏电影机' },
-  { id:'xiaomi18', name:'小米 18 系列', brand:'xiaomi', os:'HyperOS 4', date:'9月24日', status:'即将发布', note:'骁龙 8 Elite Gen6' },
-  { id:'magic9', name:'Magic9 系列', brand:'honor', os:'MagicOS 11', date:'9月28日', status:'即将发布', note:'YOYO Agent' }
+  { id:'oppofindx10', name:'Find X10 系列', brand:'oppo', os:'ColorOS 17', date:'9月22日', status:'已发布', note:'哈苏 8K 电影机' },
+  { id:'mi18pro', name:'小米 18 系列', brand:'xiaomi', os:'HyperOS 4', date:'9月23日', status:'已发布', note:'骁龙 8 Elite Gen6' },
+  { id:'honormagic9', name:'Magic9 系列', brand:'honor', os:'MagicOS 11', date:'9月28日', status:'已发布', note:'ARRI · YOYO' },
+  { id:'huaweimate90', name:'Mate 90 系列', brand:'huawei', os:'HarmonyOS 7', date:'10月1日', status:'已发布', note:'逻辑折叠 τ 芯片' }
 ];
 const calIds = new Set(CAL.map(c => c.id));
 const calBrands = new Set(CAL.map(c => c.brand));
@@ -70,7 +70,8 @@ const rows = FEATURES.filter(f => {
     desc: f.desc, note: f.note,
     kind: src.kind || 'update',
     srcLabel: src.label || '',
-    url: src.url || ''
+    url: src.url || '',
+    href: src.href || ''
   };
 });
 console.log(JSON.stringify({ CAL, PRODUCTS, BRAND, rows }));
@@ -225,6 +226,24 @@ def pic(slide, path, l, t, w, h):
         slide.shapes.add_picture(path, l, t, w, h)
 
 
+# 功能介绍优先用官网；没有官网介绍再用已核对的原文。
+OFFICIAL_TOKEN = {
+    "Mate XT 2": "https://consumer.huawei.com/cn/phones/mate-xt-2-ultimate-design/",
+    "nova 16 SE": "https://consumer.huawei.com/cn/phones/nova16-se/",
+    "iPhone 18": "https://www.apple.com/os/ios/",
+    "iOS 27": "https://www.apple.com/os/ios/",
+    "WWDC": "https://developer.apple.com/wwdc26/",
+    "WWDC 2026": "https://developer.apple.com/wwdc26/",
+    "HDC 2026": "https://www.ithome.com/0/999/277.htm",
+    "HyperOS": "https://hyperos.mi.com/",
+    "HyperOS 4": "https://hyperos.mi.com/",
+    "ColorOS": "https://www.coloros.com/version/coloros16/",
+    "Find X10": "https://www.oppo.com/cn/",
+    "MagicOS": "https://www.fonearena.com/blog/492627/honor-introduces-magicos-11-features.html",
+    "MagicOS 11": "https://www.fonearena.com/blog/492627/honor-introduces-magicos-11-features.html",
+}
+
+
 def domain_of(url):
     try:
         host = urlparse(url).hostname or url
@@ -233,9 +252,40 @@ def domain_of(url):
         return url
 
 
-def link_shape(shape, url):
+def kind_prefix_and_tokens(label):
+    label = label or ""
+    m = re.match(r"^(发布会|系统更新|媒体转述)\s*·\s*(.*)$", label)
+    if m:
+        rest = (m.group(2) or "").strip()
+        return m.group(1), [t.strip() for t in rest.split(" / ") if t.strip()]
+    return "", [label] if label else []
+
+
+def build_token_urls(rows):
+    tok = dict(OFFICIAL_TOKEN)
+    for r in rows:
+        _, tokens = kind_prefix_and_tokens(r.get("srcLabel") or "")
+        u = r.get("url") or ""
+        if len(tokens) == 1 and u:
+            tok.setdefault(tokens[0], u)
+    return tok
+
+
+TOKEN_URLS = {}
+
+
+def url_for_token(token, fallback=""):
+    return TOKEN_URLS.get(token) or fallback
+
+
+def add_run(p, text, color, url=None):
+    run = p.add_run()
+    run.text = text
+    font(run, "PingFang SC", 13, True, color)
     if url:
-        shape.click_action.hyperlink.address = url
+        run.font.underline = True
+        run.hyperlink.address = url
+    return run
 
 
 def new(prs):
@@ -253,7 +303,7 @@ def cover(prs, data, total):
     box(s, 0, 0, W, H, RGBColor(0x16, 0x14, 0x12))
     box(s, 0, 0, Inches(0.16), H, ACCENT)
     tx(s, Inches(0.7), Inches(1.45), Inches(12), Inches(0.32),
-       "2026 年 9 月国内新机发布季", size=13, bold=True, color=RGBColor(0xE8, 0xB4, 0x3A))
+       "2026 年 9–10 月国内新机发布季", size=13, bold=True, color=RGBColor(0xE8, 0xB4, 0x3A))
     tx(s, Inches(0.65), Inches(1.9), Inches(12), Inches(1.4),
        "竞品系统应用新功能\n简报", name="Songti SC", size=44, bold=True, color=WHITE, spc=1.02)
     tx(s, Inches(0.7), Inches(3.7), Inches(11), Inches(0.7),
@@ -281,7 +331,7 @@ def agenda(prs, data, total):
     tx(s, Inches(0.5), Inches(0.55), Inches(12), Inches(0.5),
        "三件事", name="Songti SC", size=28, bold=True)
     cards = [
-        ("01", "发了什么", "9 月国内旗舰各自带上哪套系统，系统应用上新增了哪些可感知的能力。"),
+        ("01", "发了什么", "9–10 月国内旗舰各自带上哪套系统，系统应用上新增了哪些可感知的能力。"),
         ("02", "和我们哪条产品有关", "按录音机、文件管理、记事本、日历、相册、语音助手等我们自己的产品线对齐，不讲芯片和影像硬件。"),
         ("03", "是不是真的", "每条功能写明出现在哪台机、哪套系统，并附上官方或媒体原文链接，点开可核。"),
     ]
@@ -300,7 +350,7 @@ def phones(prs, data, total):
     bg(s)
     tx(s, Inches(0.55), Inches(0.28), Inches(8), Inches(0.24), "本月新机", size=11, bold=True, color=ACCENT)
     tx(s, Inches(0.5), Inches(0.5), Inches(8.5), Inches(0.48),
-       "9 月国内发布会机型", name="Songti SC", size=26, bold=True)
+       "9–10 月国内发布会机型", name="Songti SC", size=26, bold=True)
     if os.path.exists(POSTER):
         pic(s, POSTER, Inches(9.55), Inches(1.35), Inches(3.3), Inches(5.4))
     cols = [("日期", 1.2), ("品牌", 0.95), ("机型", 2.2), ("系统", 1.7), ("状态", 1.15)]
@@ -413,32 +463,31 @@ def feature_slide(prs, data, feat, idx, n, page, total):
     tx(s, rx, y + Inches(0.28), rw, Inches(1.55), note, size=14, color=INK, spc=1.25)
 
     y = Inches(6.05)
-    card = roundbox(s, rx, y, rw, Inches(0.85), PAPER, LINE)
+    roundbox(s, rx, y, rw, Inches(0.85), PAPER, LINE)
     tx(s, rx + Inches(0.18), y + Inches(0.08), Inches(1.1), Inches(0.28), "来源", size=11, bold=True, color=pc)
     src_title = feat["srcLabel"] or "发布会 / 系统更新"
     url = feat.get("url") or ""
-    line = (domain_of(url) + "  ·  " + src_title) if url else src_title
-    sh = s.shapes.add_textbox(rx + Inches(0.18), y + Inches(0.34), Inches(5.6), Inches(0.42))
+    kind, tokens = kind_prefix_and_tokens(src_title)
+    sh = s.shapes.add_textbox(rx + Inches(0.18), y + Inches(0.34), rw - Inches(0.36), Inches(0.42))
     tf = sh.text_frame
     tf.word_wrap = True
     p = tf.paragraphs[0]
     p.space_before = Pt(0)
     p.space_after = Pt(0)
-    run = p.add_run()
-    run.text = line
-    font(run, "PingFang SC", 13, True, LINK if url else INK)
     if url:
-        run.font.underline = True
-        run.hyperlink.address = url
-        btn = roundbox(s, rx + Inches(5.85), y + Inches(0.22), Inches(1.5), Inches(0.42),
-                       fill=RGBColor(0x1A, 0x5F, 0xC2), line=RGBColor(0x1A, 0x5F, 0xC2))
-        tx(s, rx + Inches(5.85), y + Inches(0.26), Inches(1.5), Inches(0.36),
-           "打开原文", size=12, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
-        link_shape(card, url)
-        link_shape(btn, url)
-        hit = box(s, rx, y, rw, Inches(0.85), fill=None, line=None)
-        hit.fill.background()
-        link_shape(hit, url)
+        add_run(p, domain_of(url), LINK, url)
+        add_run(p, "  ·  ", MUTED)
+    if kind:
+        add_run(p, kind, LINK if url else INK, url or None)
+        add_run(p, " · ", MUTED)
+    if not tokens:
+        add_run(p, src_title, LINK if url else INK, url or None)
+    else:
+        for i, tok in enumerate(tokens):
+            if i:
+                add_run(p, " / ", MUTED)
+            tok_url = url_for_token(tok, url)
+            add_run(p, tok, LINK if tok_url else INK, tok_url or None)
 
     footer(s, page, total)
 
@@ -466,12 +515,13 @@ def close_slide(prs, data, page, total):
 
 
 def main():
-    global REAL_MAP
+    global REAL_MAP, TOKEN_URLS
     rasterize()
     mp = "/tmp/ppt-real/final/map.json"
     if os.path.exists(mp):
         REAL_MAP = json.load(open(mp, encoding="utf-8"))
     data = dump()
+    TOKEN_URLS = build_token_urls(data["rows"])
     by = {p["id"]: [] for p in data["PRODUCTS"]}
     for r in data["rows"]:
         by[r["product"]].append(r)

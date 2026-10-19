@@ -952,6 +952,24 @@ FEATURES: [
   desc: 'iOS 27.0.1（9/28）修复 Face ID 认证失败后意外重启、iPhone 18 Pro 2x 相机色彩伪影、通知中心+控制中心同时打开导致的触控冻结，并预防性处理 AT&T iPhone 18 Pro Max 蜂窝断连。',
   note: '这是「发布后快速修 Bug」的标准动作，说明 iOS 27 首发仍有稳定性欠账。tOS 也应建立「发布后 2 周内高频修 Bug」的节奏，用点版本建立用户信任，而不是等大版本。',
   source: { kind: 'update', label: '系统更新 · iOS 27.0.1', href: 'updates/apple-ios27.html', url: 'https://www.macworld.com/?post_type=post&p=2986799' }
+},
+
+{
+  name: 'One UI 9 落地 S24 系列：老旗舰终于吃上',
+  product: 'labs',
+  brands: ['samsung'],
+  desc: 'One UI 9 稳定版 10/12 登陆美国(T-Mobile/AT&T 的 S24 系列 + 解锁版 Z Fold6/Flip6，约 3.9GB，构建 S928USQU6EZIF，九月安全补丁) 与欧洲/印度同日，韩国 10/6 先行。S24 用户补齐 My FanCam、Now Brief 生成式卡片、Call Brief 通话屏幕信息、Security Brief 与 Privacy Alerts。',
+  note: '旗舰系统更新「分批到老机型」是行业常态，但跨代旗舰拖 1 个月才吃上稳定版，体验落差明显。tOS 应给「老机型更新日历」透明可视，避免用户靠论坛拼时间线。',
+  source: { kind: 'update', label: '系统更新 · One UI 9 稳定版', href: 'updates/samsung-oneui9-beta.html', url: 'https://www.androidhire.com/one-ui-9-galaxy-s24-us-update' }
+},
+
+{
+  name: 'iOS 27.1：折叠专属软件（仅 iPhone Duo）',
+  product: 'labs',
+  brands: ['apple'],
+  desc: 'iOS 27.1 于 10/12 抢先向 iPhone Duo 推送（构建 24A94425，替换预装 24A94232），为 10/23 开售做准备：内屏 7.6″ Split View 双开并排 App、开合/姿态自适应布局、重设计 Dynamic Island、Call Context 来电信息组件、StandBy 适配折叠姿态。其他 iPhone 走 iOS 27.2 节奏。',
+  note: 'iOS 把折叠形态当成「一次大版本专属适配」而非通用能力，说明折叠 UI 的工程量级。tOS 若规划折叠/双屏，应把「分屏/姿态自适应/外屏预览」作为独立产品模块立项，而非挂在通用主题里。',
+  source: { kind: 'update', label: '系统更新 · iOS 27.1', href: 'updates/apple-ios27.html', url: 'https://www.macobserver.com/news/apple-releases-ios-27-1-update-for-iphone-duo-ahead-of-launch/' }
 }
 
 ]
